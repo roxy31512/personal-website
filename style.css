@@ -336,5 +336,5 @@ body.bg-dark .container { --card-bg: #0f0f10; }
   height: 3rem;
   border-radius: 50%;
   object-fit: cover;
-  object-position: 20% center; /* shift focus left to center your face */
+  object-position: 40% center; /* shift focus left to center your face */
 }
