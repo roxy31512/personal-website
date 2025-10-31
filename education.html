@@ -1,33 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Education — Roxana Akhmetova</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education | Roxana Akhmetova</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #333;
+      display: inline-block;
+    }
+    .education-entry {
+      margin-bottom: 25px;
+    }
+    .university {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    .degree {
+      color: #555;
+    }
+    .dissertation {
+      font-style: italic;
+      margin-top: 5px;
+    }
+  </style>
 </head>
-<body class="bg-light text-dark">
-  <custom-navbar></custom-navbar>
+<body>
 
-  <main class="container mx-auto px-6 py-12 max-w-4xl">
-    <h1 class="text-3xl font-semibold mb-4">Education</h1>
-    <ul class="space-y-4 text-gray-700">
-      <li>
-        <strong>PhD, Science & Technology Studies</strong> — University X (Year)
-        <div class="text-sm">Dissertation: Title — brief line.</div>
-      </li>
-      <li>
-        <strong>MSc, Public Policy</strong> — University Y (Year)
-      </li>
-      <li>
-        <strong>BA, Social Sciences</strong> — University Z (Year)
-      </li>
-    </ul>
-  </main>
+  <h1>Education</h1>
 
-  <custom-footer></custom-footer>
-  <script src="components/navbar.js"></script>
-  <script src="components/footer.js"></script>
+  <div class="education-entry">
+    <p class="university">University of Oxford</p>
+    <p class="degree">DPhil | 2020 – 2025</p>
+    <p class="dissertation">Dissertation: How institutional failures undermine aligned AI systems in government deployments.</p>
+  </div>
+
+  <div class="education-entry">
+    <p class="university">University of Oxford</p>
+    <p class="degree">MSc | 2019 – 2020</p>
+  </div>
+
+  <div class="education-entry">
+    <p class="university">University of Manitoba</p>
+    <p class="degree">MA | 2017 – 2019</p>
+  </div>
+
+  <div class="education-entry">
+    <p class="university">University of Winnipeg</p>
+    <p class="degree">BA | 2013 – 2017</p>
+  </div>
+
 </body>
 </html>
