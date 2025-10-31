@@ -338,3 +338,7 @@ body.bg-dark .container { --card-bg: #0f0f10; }
   object-fit: cover;
   object-position: 40% center; /* shift focus left to center your face */
 }
+/* Force navbar avatar positioning */
+.brand img {
+  object-position: 30% center !important;
+}
