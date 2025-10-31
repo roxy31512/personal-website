@@ -14,7 +14,7 @@ class CustomNavbar extends HTMLElement {
         <div class="nav-inner container mx-auto px-6 flex items-center justify-between">
           <a class="brand" href="/index.html" aria-label="Home">
             <!-- small circular avatar on left -->
-            <img src="https://raw.githubusercontent.com/roxy31512/personal-website/main/images/Profile%20Image.jpg" alt="Roxana Akhmetova" class="w-12 h-12 rounded-full object-cover" style="object-position: 30% center;">
+            <img src="https://raw.githubusercontent.com/roxy31512/personal-website/main/images/Profile%20Image.jpg" alt="Roxana Akhmetova" class="w-12 h-12 rounded-full object-cover" style="object-position: 20% center;">
           </a>
 
           <nav class="nav-links" aria-label="Primary">
