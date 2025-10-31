@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Past Projects — Roxana Akhmetova</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script> tailwind.config = { theme: { extend: { colors: { oxford:'#002147' } } } } </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light text-dark">
+  <custom-navbar></custom-navbar>
+
+  <main class="container mx-auto px-6 py-12 max-w-6xl">
+    <h1 class="text-3xl font-semibold mb-6">Past Projects</h1>
+    <div class="grid md:grid-cols-2 gap-6">
+      <article class="bg-white p-6 rounded shadow-sm border">
+        <h3 class="font-semibold">Comparative Governance Review — 2021</h3>
+        <p class="text-sm text-gray-700 mt-2">Comparative analysis of regulatory approaches across 12 countries.</p>
+      </article>
+
+      <article class="bg-white p-6 rounded shadow-sm border">
+        <h3 class="font-semibold">AI Ethics Framework — 2020</h3>
+        <p class="text-sm text-gray-700 mt-2">Framework combining social science methods and technical evaluation.</p>
+      </article>
+
+      <!-- add more -->
+    </div>
+  </main>
+
+  <custom-footer></custom-footer>
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+/* style.css */
+:root{
+  --bg: #000000;
+  --panel: #0b0b0b;
+  --muted: #9aa4ad;
+  --accent: #234e85; /* oxford */
+  --text: #e6eefb;
+}
+
+html,body {
+  height:100%;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  margin:0;
+}
+
+.container { max-width:1100px; }
+
+/* panels used across pages */
+.bg-white { background: var(--panel) !important; }
+.text-dark { color: var(--text) !important; }
+.text-mid { color: var(--muted) !important; }
+
+/* links */
+a { text-decoration: none; color: var(--text); }
+a:hover { color: var(--accent); }
+
+/* navbar adjustments */
+nav { background: transparent !important; border-color: rgba(255,255,255,0.06) !important; }
+.nav-link { color: var(--text) !important; }
+
+/* card borders and subtle shadows */
+.border { border-color: rgba(255,255,255,0.04) !important; }
+.shadow-sm { box-shadow: 0 1px 4px rgba(0,0,0,0.6); }
+
+/* buttons */
+.btn-primary { background: var(--accent); color: white; padding: .6rem 1rem; border-radius: .375rem; }
+.btn-outline { border: 1px solid rgba(255,255,255,0.06); padding: .6rem 1rem; border-radius: .375rem; color: var(--text); }
+
+/* small helpers */
+.rounded-md { border-radius:.375rem; }
+/* -------------------------
+   Site banner (top hero band)
+   ------------------------- */
+.site-banner {
+  background: linear-gradient(90deg, #001f3f 0%, #002b5c 100%);
+  color: #ffffff;
+  padding: 3rem 0;
+}
+.site-banner .banner-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.site-banner h2 {
+  margin: 0;
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.site-banner p {
+  margin: 0.5rem 0 0;
+  color: rgba(255,255,255,0.85);
+}
+
+/* -------------------------
+   Footer / footnote
+   ------------------------- */
+.site-footer {
+  background: #071025;
+  color: #cfd8e3;
+  padding: 2.25rem 0;
+  font-size: 0.95rem;
+}
+.site-footer .footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+.site-footer .social {
+  display: inline-flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+.site-footer a {
+  color: #9fc0ff;
+  text-decoration: none;
+}
+.site-footer a:hover { text-decoration: underline; }
+
+/* small print / footnote row */
+.site-footer .footnote {
+  color: #98a7bd;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+/* small responsive tweaks */
+@media (max-width: 640px) {
+  .site-banner h2 { font-size: 1.6rem; }
+  .site-banner p  { font-size: 0.95rem; }
+}
+/* Hero readability fixes (exclude .hero-name so custom style can show) */
+main .hero-title,
+main h1:not(.hero-name) {
+  color: #0f1724 !important;    /* strong dark title */
+  opacity: 1 !important;
+  font-weight: 600;
+  text-shadow: none;
+}
+/* Brighter subtitle for dark background */
+main p.lead,
+main .hero-sub {
+  color: #b7c6e0 !important; /* elegant, soft light blue-gray tone */
+  opacity: 1 !important;
+  text-shadow: 0 1px 8px rgba(60, 120, 200, 0.25); /* subtle glow for depth */
+  font-weight: 400;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
+
+/* Add spacing below subtitle */
+.hero-sub {
+  margin-bottom: 2rem; /* adds space before buttons */
+}
+
+/* DARK MODE (toggle by setting body class to bg-dark) */
+body.bg-dark {
+  background: #0a0a0a;
+  color: #e6eef6;
+}
+
+body.bg-dark a { color: #9fc0ff; }
+body.bg-dark .container { --card-bg: #0f0f10; }
+
+/* cards (the three boxes) */
+.card, .feature-card, .bg-white {
+  background: var(--card-bg, #111);
+  color: #dee8f5;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+/* links inside cards */
+.card a, .feature-card a {
+  color: #9bbcff;
+}
+/* ---------- Header / Navbar (final polished layout) ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(10,10,10,0.7);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* brand left, links right */
+  padding: 0.8rem 1rem;
+}
+
+/* --- Brand (left) --- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: #f0f4ff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.brand .nav-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.1);
+}
+.brand:hover { opacity: 0.85; }
+
+/* --- Nav links (right) --- */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: #d8e1eb;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.nav-links a:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+/* --- Special contact button --- */
+.nav-links .cta-link {
+  background: #234e85;
+  color: #fff;
+  padding: 7px 12px;
+}
+.nav-links .cta-link:hover {
+  background: #1c3f6c;
+}
+
+/* --- LinkedIn icon --- */
+.linkedin-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9fc0ff;
+  padding: 4px;
+  border-radius: 6px;
+}
+.linkedin-link:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+/* --- Mobile --- */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  width: 22px;
+  height: 2px;
+  background: #d8e1eb;
+  display: block;
+  border-radius: 2px;
+  position: relative;
+}
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+.hamburger::before { top: -6px; }
+.hamburger::after { top: 6px; }
+
+@media (max-width: 900px) {
+  .nav-inner {
+    padding: 0.8rem 1rem;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 64px;
+    right: 10px;
+    background: rgba(10,10,12,0.95);
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 14px;
+    gap: 0.5rem;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+/* --- Hero name emphasis --- */
+.hero-name {
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  color: #ffffff; /* solid white */
+  text-shadow:
+    0 0 18px rgba(160, 190, 255, 0.30),
+    0 2px 18px rgba(0, 0, 0, 0.85);
+  margin-bottom: 0.8rem; /* adds slight space below */
+}
+
+/* disable hover color change */
+.hero-name:hover {
+  color: #ffffff;
+  text-shadow:
+    0 0 18px rgba(160, 190, 255, 0.30),
+    0 2px 18px rgba(0, 0, 0, 0.85);
+}
+
+/* --- Center and refine the hero profile image --- */
+.hero-image {
+  object-fit: cover;
+  object-position: center 25%; /* adjust up/down if needed: 20–35% */
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.55);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+}
+
+/* --- Center profile image perfectly --- */
+.hero-image {
+  object-fit: cover;
+  object-position: center 25%; /* adjust this % until you’re visually centered */
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+/* === hero image force-centering (quick patch) === */
+img.hero-image {
+  object-fit: cover !important;
+  object-position: center 30% !important; /* tune 20%..35% to move up/down */
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.55) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+img.hero-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+}
+
+/* --- Hero photo as background for perfect centering --- */
+.hero-photo {
+  width: 14rem;           /* roughly Tailwind's w-56 */
+  height: 14rem;          /* same for height */
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 50%; /* tweak this to move image up/down (try 25-40%) */
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.55);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+}
+/* --- Hero photo as background for perfect centering --- */
+.hero-photo {
+  width: 14rem;           /* roughly Tailwind's w-56 */
+  height: 14rem;          /* same for height */
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  /* ⬇ THIS LINE CONTROLS VERTICAL POSITION ⬇ */
+  background-position: center 35%; /* move 0% = top, 100% = bottom */
+
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.55);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+}
+/* --- Hero photo as background for perfect centering --- */
+.hero-photo {
+  width: 14rem;              /* roughly Tailwind's w-56 */
+  height: 14rem;             /* same for height */
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 40%;  /* ⬅ adjust 0% = top, 100% = bottom */
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.55);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+}

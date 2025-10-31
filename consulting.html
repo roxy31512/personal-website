@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Consulting — Roxana Akhmetova</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { dark:'#1a1a1a', mid:'#4d4d4d', light:'#f7f7f8', oxford:'#002147', 'oxford-100':'#e6eefb', 'oxford-600':'#234e85' } } } }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light text-dark">
+  <custom-navbar></custom-navbar>
+
+  <main class="container mx-auto px-6 py-12 max-w-5xl">
+    <h1 class="text-3xl font-semibold mb-4">Consulting</h1>
+    <p class="text-mid mb-6">Strategic governance reviews, policy design, and stakeholder workshops for governments and organisations.</p>
+
+    <section class="mb-8">
+      <h2 class="text-xl font-medium mb-3">Services</h2>
+      <ul class="list-disc ml-6 space-y-2 text-gray-700">
+        <li>Governance & regulatory strategy</li>
+        <li>Risk assessment & compliance frameworks</li>
+        <li>Stakeholder convening & workshop design</li>
+        <li>Procurement guidance for public-sector AI deployment</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-medium mb-3">Representative engagements</h2>
+      <div class="space-y-4">
+        <article class="p-4 border rounded">
+          <h3 class="font-semibold">National AI strategy</h3>
+          <p class="text-sm text-gray-700">Advised ministry in drafting national guidelines for public-sector AI procurement.</p>
+        </article>
+
+        <article class="p-4 border rounded">
+          <h3 class="font-semibold">Healthcare policy pilot</h3>
+          <p class="text-sm text-gray-700">Evaluated governance mechanisms for an AI-assisted triage pilot.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <custom-footer></custom-footer>
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+</body>
+</html>
