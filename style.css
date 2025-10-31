@@ -113,11 +113,16 @@ main h1:not(.hero-name) {
   font-weight: 600;
   text-shadow: none;
 }
-
-main p.lead, main .hero-sub {
-  color: #415161 !important;    /* readable mid-gray for subtitle */
+/* Brighter subtitle for dark background */
+main p.lead,
+main .hero-sub {
+  color: #b7c6e0 !important; /* elegant, soft light blue-gray tone */
   opacity: 1 !important;
+  text-shadow: 0 1px 8px rgba(60, 120, 200, 0.25); /* subtle glow for depth */
+  font-weight: 400;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
 }
+
 /* Add spacing below subtitle */
 .hero-sub {
   margin-bottom: 2rem; /* adds space before buttons */
