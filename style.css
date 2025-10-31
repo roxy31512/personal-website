@@ -138,59 +138,141 @@ body.bg-dark .container { --card-bg: #0f0f10; }
 .card a, .feature-card a {
   color: #9bbcff;
 }
-/* ---------- Header / Navbar ---------- */
+/* ---------- Header / Navbar (final polished layout) ---------- */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(10,10,10,0.55);
+  background: rgba(10,10,10,0.7);
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
-.nav-inner { display:flex; align-items:center; gap:1rem; padding: 0.6rem 0; }
-.nav-avatar { width:48px; height:48px; border-radius:50%; object-fit:cover; border:2px solid rgba(255,255,255,0.06); }
 
-/* desktop nav links */
-.nav-links { display:flex; gap:1rem; align-items:center; }
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* brand left, links right */
+  padding: 0.8rem 1rem;
+}
+
+/* --- Brand (left) --- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: #f0f4ff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.brand .nav-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.1);
+}
+.brand:hover { opacity: 0.85; }
+
+/* --- Nav links (right) --- */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .nav-links a {
-  color: #cfd8e3;
-  text-decoration:none;
-  padding: 8px 12px;
-  border-radius:8px;
-  font-weight:500;
+  color: #d8e1eb;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
 }
-.nav-links a:hover { background: rgba(255,255,255,0.02); color: #fff; }
 
-/* special CTA contact button */
-.nav-links .cta-link {
-  background: #1f4f86;
+.nav-links a:hover {
+  background: rgba(255,255,255,0.08);
   color: #fff;
-  padding: 8px 12px;
 }
-.nav-links .cta-link:hover { filter:brightness(1.06); }
 
-/* linkedin icon */
-.linkedin-link svg { stroke: #9fc0ff; vertical-align:middle; }
-
-/* mobile toggle (hidden on desktop) */
-.nav-toggle { display:none; background:none; border:0; padding:8px; cursor:pointer; }
-.hamburger, .hamburger::before, .hamburger::after {
-  width:20px; height:2px; background:#cfd8e3; display:block; border-radius:2px; position:relative;
+/* --- Special contact button --- */
+.nav-links .cta-link {
+  background: #234e85;
+  color: #fff;
+  padding: 7px 12px;
 }
-.hamburger::before, .hamburger::after {
-  content:''; position:absolute; left:0;
+.nav-links .cta-link:hover {
+  background: #1c3f6c;
 }
-.hamburger::before { top:-6px; }
-.hamburger::after  { top:6px; }
 
-/* responsive: collapse to mobile menu */
+/* --- LinkedIn icon --- */
+.linkedin-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9fc0ff;
+  padding: 4px;
+  border-radius: 6px;
+}
+.linkedin-link:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+/* --- Mobile --- */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  width: 22px;
+  height: 2px;
+  background: #d8e1eb;
+  display: block;
+  border-radius: 2px;
+  position: relative;
+}
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+.hamburger::before { top: -6px; }
+.hamburger::after { top: 6px; }
+
 @media (max-width: 900px) {
-  .nav-links { 
-    position: absolute; right: 12px; top:64px; 
-    background: rgba(8,8,10,0.95); flex-direction: column; padding: 12px; gap:8px;
-    border-radius:10px; width:220px; display:none;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  .nav-inner {
+    padding: 0.8rem 1rem;
   }
-  .nav-links.open { display:flex; }
-  .nav-toggle { display:block; }
+
+  .nav-links {
+    position: absolute;
+    top: 64px;
+    right: 10px;
+    background: rgba(10,10,12,0.95);
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 14px;
+    gap: 0.5rem;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
 }
