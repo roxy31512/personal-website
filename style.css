@@ -369,3 +369,40 @@ img.hero-image:hover {
   transform: scale(1.03);
   box-shadow: 0 10px 40px rgba(0,0,0,0.7);
 }
+/* --- Hero photo as background for perfect centering --- */
+.hero-photo {
+  width: 14rem;           /* roughly Tailwind's w-56 */
+  height: 14rem;          /* same for height */
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  /* ⬇ THIS LINE CONTROLS VERTICAL POSITION ⬇ */
+  background-position: center 35%; /* move 0% = top, 100% = bottom */
+
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.55);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+}
+/* --- Hero photo as background for perfect centering --- */
+.hero-photo {
+  width: 14rem;              /* roughly Tailwind's w-56 */
+  height: 14rem;             /* same for height */
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 40%;  /* ⬅ adjust 0% = top, 100% = bottom */
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.55);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+}
