@@ -17,14 +17,6 @@ class ParticleBackground extends HTMLElement {
     canvas.style.pointerEvents = 'none';
     canvas.style.zIndex = '1';
     
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      init();
-    };
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    
     const mouse = { x: null, y: null, radius: 150 };
     
     window.addEventListener('mousemove', (e) => {
@@ -103,7 +95,7 @@ class ParticleBackground extends HTMLElement {
             ctx.strokeStyle = `rgba(192, 192, 192, ${opacity * 0.15})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
-            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.moveTo(particles[a].x, particles[b].y);
             ctx.lineTo(particles[b].x, particles[b].y);
             ctx.stroke();
           }
@@ -118,7 +110,15 @@ class ParticleBackground extends HTMLElement {
       requestAnimationFrame(animate);
     };
     
-    init();
+    // Set canvas size and init - MOVED AFTER function definitions
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      init();
+    };
+    
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
     animate();
   }
 }
