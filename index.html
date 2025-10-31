@@ -30,9 +30,10 @@
   <main class="container mx-auto px-6 py-16 max-w-6xl">
     <!-- Hero -->
     <section class="flex flex-col items-center text-center mb-16">
-      <div class="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden mb-6 border border-mid">
-        <img src="https://huggingface.co/spaces/roxy31512/oxford-ai-policy-luminary/resolve/main/images/Profile%20Image.jpg" alt="Roxana Akhmetova" class="w-full h-full object-cover">
-      </div>
+      <section class="flex flex-col items-center text-center mb-16">
+  <div class="hero-photo rounded-full overflow-hidden mb-6 border border-mid"
+       style="background-image: url('https://huggingface.co/spaces/roxy31512/oxford-ai-policy-luminary/resolve/main/images/Profile%20Image.jpg');">
+  </div>
 
       <h1 class="hero-name">Roxana Akhmetova</h1>
  
@@ -101,3 +102,20 @@
 
 </body>
 </html>
+/* --- Hero photo as background for perfect centering --- */
+.hero-photo {
+  width: 14rem;           /* roughly Tailwind's w-56 */
+  height: 14rem;          /* same for height */
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 32%; /* tweak this to move image up/down */
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.55);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+}
