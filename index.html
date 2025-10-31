@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Roxana Akhmetova | AI Policy & Governance</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind extension (colors used across pages)
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#1a1a1a',
+            mid: '#4d4d4d',
+            light: '#f7f7f8',
+            oxford: '#002147',
+            'oxford-100': '#e6eefb',
+            'oxford-600': '#234e85'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light text-dark font-sans">
+  <custom-navbar></custom-navbar>
+
+  <main class="container mx-auto px-6 py-16 max-w-6xl">
+    <!-- Hero -->
+    <section class="flex flex-col items-center text-center mb-16">
+      <div class="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden mb-6 border border-mid">
+        <img src="https://huggingface.co/spaces/roxy31512/oxford-ai-policy-luminary/resolve/main/images/Profile%20Image.jpg" alt="Roxana Akhmetova" class="w-full h-full object-cover">
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-dark mb-2">Roxana Akhmetova</h1>
+      <p class="text-xl md:text-2xl text-mid mb-6">AI Policy & Governance — bridging social science and technology.</p>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="consulting.html" class="btn-primary rounded-md">Consulting</a>
+        <a href="current-projects.html" class="btn-primary rounded-md">Current Projects</a>
+        <a href="contact.html" class="btn-primary rounded-md">Contact</a>
+      </div>
+    </section>
+    
+    <!-- Summary / Quick links -->
+    <section class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-lg shadow-sm border">
+        <h3 class="text-lg font-semibold mb-2">Research & Publications</h3>
+        <p class="text-sm text-mid mb-3">Selected papers on governance frameworks, evaluation, and policy impact.</p>
+        <a href="past-projects.html" class="text-oxford-600 hover:underline text-sm">View past projects →</a>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow-sm border">
+        <h3 class="text-lg font-semibold mb-2">Consulting</h3>
+        <p class="text-sm text-mid mb-3">Strategic advice for governments, institutions, and industry on responsible AI deployment.</p>
+        <a href="consulting.html" class="text-oxford-600 hover:underline text-sm">Engagements & examples →</a>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow-sm border">
+        <h3 class="text-lg font-semibold mb-2">Teaching & Talks</h3>
+        <p class="text-sm text-mid mb-3">Executive education, workshops, and public lectures on AI governance.</p>
+        <a href="education.html" class="text-oxford-600 hover:underline text-sm">Teaching →</a>
+      </div>
+    </section>
+  </main>
+
+  <custom-footer></custom-footer>
+
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+  <script>
+    // feather icons optional replacement (keeps code compatible if you add icons)
+    if (window.feather) { try { feather.replace(); } catch(e) {} }
+  </script>
+</body>
+</html>
