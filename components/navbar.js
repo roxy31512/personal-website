@@ -1,5 +1,6 @@
 class CustomNavbar extends HTMLElement {
   connectedCallback() {
+    this.render();  // Add this line
     this.attachEventListeners();
   }
 
