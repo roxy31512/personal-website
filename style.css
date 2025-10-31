@@ -335,4 +335,20 @@ body.bg-dark .container { --card-bg: #0f0f10; }
   border: 1px solid rgba(255,255,255,0.15);
   box-shadow: 0 4px 20px rgba(0,0,0,0.6);
 }
+/* === hero image force-centering (quick patch) === */
+img.hero-image {
+  object-fit: cover !important;
+  object-position: center 30% !important; /* tune 20%..35% to move up/down */
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.55) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+img.hero-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+}
 
