@@ -41,6 +41,7 @@ nav { background: transparent !important; border-color: rgba(255,255,255,0.06) !
 
 /* small helpers */
 .rounded-md { border-radius:.375rem; }
+
 /* -------------------------
    Site banner (top hero band)
    ------------------------- */
@@ -105,6 +106,7 @@ nav { background: transparent !important; border-color: rgba(255,255,255,0.06) !
   .site-banner h2 { font-size: 1.6rem; }
   .site-banner p  { font-size: 0.95rem; }
 }
+
 /* Hero readability fixes (exclude .hero-name so custom style can show) */
 main .hero-title,
 main h1:not(.hero-name) {
@@ -113,6 +115,7 @@ main h1:not(.hero-name) {
   font-weight: 600;
   text-shadow: none;
 }
+
 /* Brighter subtitle for dark background */
 main p.lead,
 main .hero-sub {
@@ -120,7 +123,7 @@ main .hero-sub {
   opacity: 1 !important;
   text-shadow: 0 1px 8px rgba(60, 120, 200, 0.25); /* subtle glow for depth */
   font-weight: 400;
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
 }
 
 /* Add spacing below subtitle */
@@ -149,6 +152,7 @@ body.bg-dark .container { --card-bg: #0f0f10; }
 .card a, .feature-card a {
   color: #9bbcff;
 }
+
 /* ---------- Header / Navbar (final polished layout) ---------- */
 .site-header {
   position: sticky;
@@ -287,6 +291,7 @@ body.bg-dark .container { --card-bg: #0f0f10; }
     display: block;
   }
 }
+
 /* --- Hero name emphasis --- */
 .hero-name {
   font-family: 'Playfair Display', 'Times New Roman', serif;
@@ -308,70 +313,19 @@ body.bg-dark .container { --card-bg: #0f0f10; }
     0 2px 18px rgba(0, 0, 0, 0.85);
 }
 
-/* --- Center and refine the hero profile image --- */
-
-.hero-image:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
-}
-
-/* --- Center profile image perfectly --- */
-/* === hero image force-centering (quick patch) === */
-img.hero-image:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
-}
-
-/* --- Hero photo as background for perfect centering --- */
-
-.hero-photo:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
-}
-/* --- Hero photo as background for perfect centering --- */
-
-.hero-photo:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
-}
-/* --- Hero photo as background for perfect centering --- */
-
-.hero-photo:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
-}
-# 1) Backup the CSS (safe)
-cp style.css style.css.bak
-
-# 2) Remove any .hero-image { ... } blocks
-sed -i '/\.hero-image\s*{/,/}/d' style.css
-
-# 3) Remove any img.hero-image { ... } blocks
-sed -i '/img\.hero-image\s*{/,/}/d' style.css
-
-# 4) Remove any .hero-photo { ... } blocks (all duplicates)
-sed -i '/\.hero-photo\s*{/,/}/d' style.css
-
-# 5) Append one clean hero-photo block at the end
-cat >> style.css <<'CSS'
-
 /* --- Hero photo as background for perfect centering (single canonical rule) --- */
 .hero-photo {
-  width: 14rem;                /* approx Tailwind w-56; change to w-48/w-72 if you want smaller/larger */
+  width: 14rem;
   height: 14rem;
   border-radius: 50%;
   background-size: cover;
   background-repeat: no-repeat;
-
-  /* First number = horizontal (0% left → 50% center → 100% right)
-     Second number = vertical   (0% top → 50% center → 100% bottom)
-     Tweak these values to frame your face: e.g. 45% 40% moves slightly left & down. */
   background-position: 45% 40%;
-
   border: 1px solid rgba(255,255,255,0.12);
   box-shadow: 0 6px 30px rgba(0,0,0,0.55);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .hero-photo:hover {
   transform: scale(1.03);
   box-shadow: 0 10px 40px rgba(0,0,0,0.7);
