@@ -118,6 +118,11 @@ main p.lead, main .hero-sub {
   color: #415161 !important;    /* readable mid-gray for subtitle */
   opacity: 1 !important;
 }
+/* Add spacing below subtitle */
+.hero-sub {
+  margin-bottom: 2rem; /* adds space before buttons */
+}
+
 /* DARK MODE (toggle by setting body class to bg-dark) */
 body.bg-dark {
   background: #0a0a0a;
@@ -279,18 +284,21 @@ body.bg-dark .container { --card-bg: #0f0f10; }
 }
 /* --- Hero name emphasis --- */
 .hero-name {
-  font-family: 'Playfair Display', 'Times New Roman', serif; /* refined serif type */
-  font-size: clamp(2.8rem, 6vw, 4rem);
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
   font-weight: 700;
-  letter-spacing: 0.03em;
-  color: #eaf1ff;               /* soft light tone */
+  letter-spacing: 0.015em;
+  color: #ffffff; /* solid white */
   text-shadow:
-    0 0 10px rgba(30, 70, 140, 0.25),
-    0 2px 14px rgba(0, 0, 0, 0.7);  /* subtle glow and depth */
-  margin-bottom: 0.5rem;
-  transition: color 0.3s ease;
+    0 0 18px rgba(160, 190, 255, 0.30),
+    0 2px 18px rgba(0, 0, 0, 0.85);
+  margin-bottom: 0.8rem; /* adds slight space below */
 }
 
+/* disable hover color change */
 .hero-name:hover {
-  color: #9fc0ff;               /* gentle blue accent on hover */
+  color: #ffffff;
+  text-shadow:
+    0 0 18px rgba(160, 190, 255, 0.30),
+    0 2px 18px rgba(0, 0, 0, 0.85);
 }
