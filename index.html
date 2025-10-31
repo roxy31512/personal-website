@@ -35,9 +35,7 @@
       </div>
 
       <h1 class="hero-name">Roxana Akhmetova</h1>
-  color: #b6c1d4;
-  letter-spacing: 0.02em;
-}
+ 
       <p class="hero-sub">AI Policy & Governance — bridging social science and technology.</p>
 
       <div class="flex flex-wrap justify-center gap-4">
@@ -77,5 +75,29 @@
     // feather icons optional replacement (keeps code compatible if you add icons)
     if (window.feather) { try { feather.replace(); } catch(e) {} }
   </script>
+  <script>
+  // Disable text selection
+  document.addEventListener('selectstart', e => e.preventDefault());
+
+  // Disable right-click context menu
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  // Disable common keyboard shortcuts for copying
+  document.addEventListener('keydown', e => {
+    if (
+      (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+      (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+      (e.ctrlKey && e.shiftKey && e.key === 'I') || // Ctrl+Shift+I
+      (e.ctrlKey && e.shiftKey && e.key === 'J') || // Ctrl+Shift+J
+      (e.ctrlKey && e.key === 'p') // Print
+    ) {
+      e.preventDefault();
+    }
+  });
+
+  // Optional: hide selection highlight visually (CSS fallback)
+  document.body.style.userSelect = 'none';
+</script>
+
 </body>
 </html>
