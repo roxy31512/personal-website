@@ -21,6 +21,7 @@ class CustomNavbar extends HTMLElement {
             <a href="/consulting.html">Consulting</a>
             <a href="/current-projects.html">Current Projects</a>
             <a href="/past-projects.html">Past Projects</a>
+            <a href="/publications.html">Publications</a>
             <a href="/bio.html">Bio</a>
             <a href="/education.html">Education</a>
             <a href="/awards.html">Awards</a>
