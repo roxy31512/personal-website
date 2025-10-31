@@ -105,8 +105,9 @@ nav { background: transparent !important; border-color: rgba(255,255,255,0.06) !
   .site-banner h2 { font-size: 1.6rem; }
   .site-banner p  { font-size: 0.95rem; }
 }
-/* Hero readability fixes */
-main .hero-title, main h1 {
+/* Hero readability fixes (exclude .hero-name so custom style can show) */
+main .hero-title,
+main h1:not(.hero-name) {
   color: #0f1724 !important;    /* strong dark title */
   opacity: 1 !important;
   font-weight: 600;
