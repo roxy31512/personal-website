@@ -309,16 +309,6 @@ body.bg-dark .container { --card-bg: #0f0f10; }
 }
 
 /* --- Center and refine the hero profile image --- */
-.hero-image {
-  object-fit: cover;
-  object-position: center 25%; /* adjust up/down if needed: 20–35% */
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.15);
-  box-shadow: 0 6px 30px rgba(0,0,0,0.55);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
 .hero-image:hover {
   transform: scale(1.03);
@@ -326,82 +316,62 @@ body.bg-dark .container { --card-bg: #0f0f10; }
 }
 
 /* --- Center profile image perfectly --- */
-.hero-image {
-  object-fit: cover;
-  object-position: center 25%; /* adjust this % until you’re visually centered */
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.15);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
-}
 /* === hero image force-centering (quick patch) === */
-img.hero-image {
-  object-fit: cover !important;
-  object-position: center 30% !important; /* tune 20%..35% to move up/down */
-  width: 100% !important;
-  height: 100% !important;
-  display: block;
-  border-radius: 50% !important;
-  border: 1px solid rgba(255,255,255,0.15) !important;
-  box-shadow: 0 6px 30px rgba(0,0,0,0.55) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 img.hero-image:hover {
   transform: scale(1.03);
   box-shadow: 0 10px 40px rgba(0,0,0,0.7);
 }
 
 /* --- Hero photo as background for perfect centering --- */
-.hero-photo {
-  width: 14rem;           /* roughly Tailwind's w-56 */
-  height: 14rem;          /* same for height */
-  border-radius: 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center 50%; /* tweak this to move image up/down (try 25-40%) */
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 6px 30px rgba(0,0,0,0.55);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
 .hero-photo:hover {
   transform: scale(1.03);
   box-shadow: 0 10px 40px rgba(0,0,0,0.7);
 }
 /* --- Hero photo as background for perfect centering --- */
-.hero-photo {
-  width: 14rem;           /* roughly Tailwind's w-56 */
-  height: 14rem;          /* same for height */
-  border-radius: 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  /* ⬇ THIS LINE CONTROLS VERTICAL POSITION ⬇ */
-  background-position: center 35%; /* move 0% = top, 100% = bottom */
-
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 6px 30px rgba(0,0,0,0.55);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
 .hero-photo:hover {
   transform: scale(1.03);
   box-shadow: 0 10px 40px rgba(0,0,0,0.7);
 }
 /* --- Hero photo as background for perfect centering --- */
+
+.hero-photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+}
+# 1) Backup the CSS (safe)
+cp style.css style.css.bak
+
+# 2) Remove any .hero-image { ... } blocks
+sed -i '/\.hero-image\s*{/,/}/d' style.css
+
+# 3) Remove any img.hero-image { ... } blocks
+sed -i '/img\.hero-image\s*{/,/}/d' style.css
+
+# 4) Remove any .hero-photo { ... } blocks (all duplicates)
+sed -i '/\.hero-photo\s*{/,/}/d' style.css
+
+# 5) Append one clean hero-photo block at the end
+cat >> style.css <<'CSS'
+
+/* --- Hero photo as background for perfect centering (single canonical rule) --- */
 .hero-photo {
-  width: 14rem;              /* roughly Tailwind's w-56 */
-  height: 14rem;             /* same for height */
+  width: 14rem;                /* approx Tailwind w-56; change to w-48/w-72 if you want smaller/larger */
+  height: 14rem;
   border-radius: 50%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center 40%;  /* ⬅ adjust 0% = top, 100% = bottom */
+
+  /* First number = horizontal (0% left → 50% center → 100% right)
+     Second number = vertical   (0% top → 50% center → 100% bottom)
+     Tweak these values to frame your face: e.g. 45% 40% moves slightly left & down. */
+  background-position: 45% 40%;
+
   border: 1px solid rgba(255,255,255,0.12);
   box-shadow: 0 6px 30px rgba(0,0,0,0.55);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .hero-photo:hover {
   transform: scale(1.03);
   box-shadow: 0 10px 40px rgba(0,0,0,0.7);
