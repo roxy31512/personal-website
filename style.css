@@ -330,3 +330,11 @@ body.bg-dark .container { --card-bg: #0f0f10; }
   transform: scale(1.03);
   box-shadow: 0 10px 40px rgba(0,0,0,0.7);
 }
+/* Adjust navbar avatar positioning */
+.brand img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 20% center; /* shift focus left to center your face */
+}
