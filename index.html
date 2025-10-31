@@ -25,9 +25,12 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-dark text-light font-sans">
+  <!-- Particle Background -->
+  <particle-background></particle-background>
+  
   <custom-navbar></custom-navbar>
 
-  <main class="container mx-auto px-6 py-16 max-w-6xl">
+  <main class="container mx-auto px-6 py-16 max-w-6xl" style="position: relative; z-index: 10;">
     <!-- Hero -->
 <section class="flex flex-col items-center text-center mb-16">
   <div class="hero-photo rounded-full overflow-hidden mb-6 border border-mid"
@@ -71,6 +74,7 @@
 
   <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
   <script src="https://roxanaakhmetova.com/components/footer.js"></script>
+  <script src="https://roxanaakhmetova.com/components/particle-background.js"></script>
   <script>
     // feather icons optional replacement (keeps code compatible if you add icons)
     if (window.feather) { try { feather.replace(); } catch(e) {} }
