@@ -18,14 +18,19 @@
       max-width: 800px;
       padding: 20px;
     }
-    main h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      border-bottom: 3px solid #fff;
-      display: inline-block;
-      color: #ffffff !important;
+    /* Multiple selectors to override any CSS rule */
+    main h1,
+    h1,
+    main > h1 {
+      font-size: 2.5em !important;
+      margin-bottom: 20px !important;
+      border-bottom: 3px solid #fff !important;
+      display: inline-block !important;
+      color: #fff !important;
+      background: none !important;
       text-shadow: none !important;
       opacity: 1 !important;
+      font-weight: 600 !important;
     }
     .education-entry { margin-bottom: 25px; }
     .university { font-weight: bold; font-size: 1.2em; color: #fff; }
@@ -39,7 +44,7 @@
   <custom-navbar></custom-navbar>
 
   <main>
-    <h1>Education</h1>
+    <h1 style="color: #fff !important; text-shadow: none !important;">Education</h1>
 
     <div class="education-entry">
       <p class="university">University of Oxford</p>
