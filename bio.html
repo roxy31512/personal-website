@@ -2,32 +2,128 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Bio — Roxana Akhmetova</title>
+  <title>Bio | Roxana Akhmetova</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Biography of Roxana Akhmetova - AI policy strategist specializing in AI governance, tech diplomacy, and automated decision-making systems. Oxford DPhil researcher and policy advisor.">
+  <meta name="keywords" content="Roxana Akhmetova bio, AI policy researcher, Oxford AI, AI governance expert, tech diplomacy, policy strategist">
+  <meta name="author" content="Roxana Akhmetova">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#1a1a1a',
+            mid: '#4d4d4d',
+            light: '#f7f7f8',
+            oxford: '#002147',
+            'oxford-100': '#e6eefb',
+            'oxford-600': '#234e85'
+          }
+        }
+      }
+    }
+  </script>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+    main {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 20px;
+      line-height: 1.8;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #fff;
+      display: inline-block;
+      color: #fff;
+      font-weight: 600;
+    }
+    h2 {
+      font-size: 1.8em;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: #fff;
+      font-weight: 600;
+    }
+    p {
+      margin-bottom: 20px;
+      color: #ddd;
+      font-size: 1.1em;
+    }
+    a {
+      color: #9fc0ff;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    a:hover {
+      border-bottom-color: #9fc0ff;
+    }
+  </style>
 </head>
-<body class="bg-light text-dark">
+<body>
   <custom-navbar></custom-navbar>
 
-  <main class="container mx-auto px-6 py-12 max-w-3xl">
-    <h1 class="text-3xl font-semibold mb-4">Bio</h1>
-    <p class="text-mid mb-4">
-      Roxana Akhmetova is a scholar and practitioner in AI policy and governance working at the intersection of social science and technology...
+  <main>
+    <h1>About Roxana Akhmetova</h1>
+    
+    <p>
+      Roxana Akhmetova is a policy strategist and researcher specializing in AI governance, tech diplomacy, and automated decision-making systems in the public sector. She translates complex technology policy into actionable frameworks for governments, industry leaders, and civil society organizations.
     </p>
 
-    <h2 class="text-xl font-medium mt-6 mb-3">Selected roles</h2>
-    <ul class="list-disc ml-6 text-gray-400">
-      <li>Position / Institution — dates</li>
-      <li>Position / Institution — dates</li>
-    </ul>
+    <p>
+      Currently, Roxana tracks U.S. congressional legislation and regulatory proceedings on semiconductor export controls, CHIPS Act implementation, and compute security as an AI Safety Policy Fellow at Georgia Tech's AI Safety Initiative.
+    </p>
 
-    <h2 class="text-xl font-medium mt-6 mb-3">Selected publications</h2>
-    <p class="text-mid">Add your top 3–5 publications here with links or PDFs.</p>
+    <p>
+      Her doctoral research at the University of Oxford examines AI governance and regulatory oversight of automated systems in government deployments. Her work has directly informed policy: she was cited in the U.K. Government's 2024 Ethics Framework for Automated Decision-Making and has briefed seven U.S. Congressional offices on AI policy implications for immigration and border security systems.
+    </p>
+
+    <p>
+      Roxana founded the <a href="/current-projects.html">Oxford AI Gala</a> and served as President of the Oxford Artificial Intelligence Society, Europe's largest AI student society. She holds a DPhil from Oxford, supported by the Pierre Elliott Trudeau Foundation Scholarship (top 2.5% of Canadian social sciences doctoral candidates).
+    </p>
+
+    <p>
+      She is relocating to Washington, D.C., where she seeks mission-driven roles at the intersection of responsible AI innovation and policy implementation.
+    </p>
+
+    <h2>Connect</h2>
+    <p>
+      For consulting inquiries, speaking engagements, or collaboration opportunities, please visit the <a href="/contact.html">contact page</a>.
+    </p>
   </main>
 
   <custom-footer></custom-footer>
-  <script src="components/navbar.js"></script>
-  <script src="components/footer.js"></script>
+  
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
+  <script>
+  // Disable text selection
+  document.addEventListener('selectstart', e => e.preventDefault());
+
+  // Disable right-click context menu
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  // Disable common keyboard shortcuts for copying
+  document.addEventListener('keydown', e => {
+    if (
+      (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+      (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+      (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+      (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+      (e.ctrlKey && e.key === 'p')
+    ) {
+      e.preventDefault();
+    }
+  });
+
+  document.body.style.userSelect = 'none';
+  </script>
 </body>
 </html>
