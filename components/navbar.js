@@ -14,7 +14,18 @@ class CustomNavbar extends HTMLElement {
         <div class="nav-inner container mx-auto px-6 flex items-center justify-between">
           <div style="display: flex; align-items: center; gap: 1rem;">
             <a class="brand" href="/index.html" aria-label="Home" style="display: flex; align-items: center; gap: 0.6rem;">
-              <img src="https://raw.githubusercontent.com/roxy31512/personal-website/main/images/Profile%20Image.jpg" alt="Roxana Akhmetova" class="w-12 h-12 rounded-full object-cover" style="object-position: 10% center;">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: #f0f4ff;">
+                <!-- R -->
+                <path d="M10 10 L10 30 M10 10 L18 10 Q20 10 20 14 Q20 18 18 18 L10 18 M18 18 L20 30" 
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                
+                <!-- A -->
+                <path d="M24 30 L28 10 L32 30 M25.5 20 L30.5 20" 
+                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                
+                <!-- Connection line (bridge) -->
+                <line x1="20" y1="20" x2="24" y2="20" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              </svg>
             </a>
             <a href="https://www.linkedin.com/in/akhmetovaroxana/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; padding: 4px; border-radius: 6px; transition: all 0.15s ease; opacity: 0.9;" aria-label="LinkedIn" onmouseover="this.style.opacity='1';" onmouseout="this.style.opacity='0.9';">
               <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" style="width: 24px; height: 24px;">
