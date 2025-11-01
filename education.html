@@ -47,10 +47,17 @@
       margin-bottom: 50px !important;
       padding-bottom: 15px !important;
       border-bottom: 3px solid #fff !important;
-      color: #ffffff !important; /* ✅ forced pure white */
       font-weight: 600 !important;
       display: inline-block !important;
       text-shadow: none !important;
+      opacity: 1 !important;
+    }
+
+    /* ✅ force Education heading to stay pure white */
+    h1.education-title {
+      color: #ffffff !important;
+      text-shadow: none !important;
+      filter: none !important;
       opacity: 1 !important;
     }
     
@@ -65,70 +72,4 @@
       color: #f7f7f8;
     }
     
-    .degree { 
-      color: #ccc;
-      font-size: 1rem;
-    }
-    
-    .dissertation { 
-      font-style: italic;
-      color: #bbb;
-      margin-top: 0.25rem;
-      font-size: 0.95rem;
-    }
-  </style>
-</head>
-<body class="bg-dark text-light font-sans">
-  <custom-navbar></custom-navbar>
-
-  <main>
-    <h1>Education</h1>
-
-    <div class="education-entry">
-      <p class="university">University of Oxford</p>
-      <p class="degree">DPhil&nbsp;|&nbsp;2025</p>
-      <p class="dissertation">
-        Dissertation: How institutional failures undermine aligned AI systems in government deployments.
-      </p>
-    </div>
-
-    <div class="education-entry">
-      <p class="university">University of Oxford</p>
-      <p class="degree">MSc&nbsp;|&nbsp;2020</p>
-    </div>
-
-    <div class="education-entry">
-      <p class="university">University of Manitoba</p>
-      <p class="degree">MA&nbsp;|&nbsp;2019</p>
-    </div>
-
-    <div class="education-entry">
-      <p class="university">University of Winnipeg</p>
-      <p class="degree">BA&nbsp;|&nbsp;2017</p>
-    </div>
-  </main>
-
-  <custom-footer></custom-footer>
-
-  <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
-  <script src="https://roxanaakhmetova.com/components/footer.js"></script>
-  
-  <script>
-    // Copy protection
-    document.addEventListener('selectstart', e => e.preventDefault());
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-      if (
-        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
-        (e.ctrlKey && e.key === 'p')
-      ) {
-        e.preventDefault();
-      }
-    });
-    document.body.style.userSelect = 'none';
-  </script>
-</body>
-</html>
+    .degree
