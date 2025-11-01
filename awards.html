@@ -29,19 +29,15 @@
   <link rel="stylesheet" href="/style.css">
 
   <style>
+    /* Override style.css background */
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      background-color: #1a1a1a;
-      color: #fff;
-      line-height: 1.6;
+      background-color: #1a1a1a !important;
     }
     
     main {
       margin: 100px auto 60px;
       max-width: 900px;
       padding: 0 40px;
-      background-color: transparent;
     }
     
     h1 {
@@ -61,7 +57,6 @@
     
     .award-entry {
       margin-bottom: 20px;
-      padding-left: 0;
     }
     
     .award-header {
@@ -100,7 +95,6 @@
       color: #bbb;
       font-style: italic;
       margin-top: 5px;
-      padding-left: 0;
       font-size: 0.95rem;
     }
   </style>
@@ -290,7 +284,6 @@
   <script src="/components/footer.js"></script>
   
   <script>
-    // Copy protection
     document.addEventListener('selectstart', e => e.preventDefault());
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
