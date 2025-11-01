@@ -16,12 +16,8 @@ class CustomNavbar extends HTMLElement {
             <a class="brand" href="/index.html" aria-label="Home" style="display: flex; align-items: center; gap: 0.6rem;">
               <img src="https://raw.githubusercontent.com/roxy31512/personal-website/main/images/Profile%20Image.jpg" alt="Roxana Akhmetova" class="w-12 h-12 rounded-full object-cover" style="object-position: 10% center;">
             </a>
-            <a href="https://www.linkedin.com/in/akhmetovaroxana/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; color: #9fc0ff; padding: 6px; border-radius: 6px; transition: all 0.15s ease;" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-14h4v2a4 4 0 0 1 4-2z"></path>
-                <rect x="2" y="9" width="4" height="11"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
+            <a href="https://www.linkedin.com/in/akhmetovaroxana/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; padding: 4px; border-radius: 6px; transition: all 0.15s ease; opacity: 0.9;" aria-label="LinkedIn" onmouseover="this.style.opacity='1';" onmouseout="this.style.opacity='0.9';">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" style="width: 24px; height: 24px;">
             </a>
           </div>
 
