@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Education — Roxana Akhmetova</title>
+  <title>Education | Roxana Akhmetova</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Roxana Akhmetova's academic background: DPhil from Oxford, Pierre Elliott Trudeau Foundation Scholar, and graduate degrees in migration and political studies.">
+  <meta name="keywords" content="Roxana Akhmetova education, Oxford DPhil, Trudeau Scholar, AI governance research">
+  <meta name="author" content="Roxana Akhmetova">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -29,6 +32,155 @@
     .university { font-weight: 700; font-size: 1.125rem; color: #f7f7f8; }
     .degree { color: #ccc; }
     .dissertation { font-style: italic; color: #bbb; margin-top: 0.25rem; }
+    
+    /* Research Carousel Styles */
+    .research-carousel {
+      max-width: 1000px;
+      margin: 60px auto 40px;
+      padding: 20px;
+    }
+    
+    .carousel-title {
+      font-size: 1.8em;
+      color: #fff;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .carousel-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.5s ease;
+    }
+    
+    .research-card {
+      min-width: 100%;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      border-radius: 12px;
+      padding: 30px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .research-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(159, 192, 255, 0.3);
+    }
+    
+    .card-badge {
+      display: inline-block;
+      background: rgba(159, 192, 255, 0.2);
+      color: #9fc0ff;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.85em;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+    
+    .card-title {
+      font-size: 1.5em;
+      color: #fff;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    
+    .card-description {
+      color: #bbb;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #888;
+      font-size: 0.9em;
+    }
+    
+    .card-link {
+      color: #9fc0ff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.2s;
+    }
+    
+    .card-link:hover {
+      color: #fff;
+    }
+    
+    .carousel-nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .nav-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-dot.active {
+      background: #9fc0ff;
+      width: 30px;
+      border-radius: 6px;
+    }
+    
+    .carousel-arrows {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+    
+    .arrow {
+      background: rgba(159, 192, 255, 0.2);
+      border: none;
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2em;
+      transition: all 0.3s ease;
+      pointer-events: all;
+    }
+    
+    .arrow:hover {
+      background: rgba(159, 192, 255, 0.4);
+      transform: scale(1.1);
+    }
+    
+    @media (max-width: 768px) {
+      .research-card {
+        padding: 20px;
+      }
+      .card-title {
+        font-size: 1.2em;
+      }
+      .carousel-arrows {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body class="bg-dark text-light font-sans">
@@ -59,11 +211,116 @@
       <p class="university">University of Winnipeg</p>
       <p class="degree">BA&nbsp;|&nbsp;2017</p>
     </div>
+
+    <!-- Research Carousel -->
+    <div class="research-carousel">
+      <h2 class="carousel-title">Featured Research</h2>
+      
+      <div class="carousel-container">
+        <div class="carousel-arrows">
+          <button class="arrow" onclick="previousSlide()">‹</button>
+          <button class="arrow" onclick="nextSlide()">›</button>
+        </div>
+        
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Card 1: Keble Showcase -->
+          <div class="research-card" onclick="window.location.href='/research/keble-showcase.html'">
+            <span class="card-badge">Featured in Keble College</span>
+            <h3 class="card-title">AI Governance and Border Surveillance</h3>
+            <p class="card-description">
+              Presented at Keble College's Graduate Research Showcase on the prominence, promise, and pitfalls of algorithms in border surveillance and immigration decisions. Research examines how AI systems precede or bypass human input in asylum and immigrant status evaluations.
+            </p>
+            <div class="card-meta">
+              <span>November 2023 • The Brick</span>
+              <a href="/research/keble-showcase.html" class="card-link" onclick="event.stopPropagation();">
+                Read More →
+              </a>
+            </div>
+          </div>
+          
+          <!-- Card 2: Placeholder for future research -->
+          <div class="research-card" style="opacity: 0.7; cursor: default;">
+            <span class="card-badge">Coming Soon</span>
+            <h3 class="card-title">Additional Research Highlights</h3>
+            <p class="card-description">
+              More research features and publications will appear here. This carousel showcases key academic contributions, media features, and policy impact.
+            </p>
+            <div class="card-meta">
+              <span>Upcoming</span>
+              <span class="card-link" style="opacity: 0.5;">Stay Tuned →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="carousel-nav" id="carouselNav"></div>
+    </div>
   </main>
 
   <custom-footer></custom-footer>
 
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
+  
+  <script>
+    // Research Carousel JavaScript
+    let currentSlide = 0;
+    const track = document.getElementById('carouselTrack');
+    const cards = track.children;
+    const totalSlides = cards.length;
+    
+    // Create navigation dots
+    const nav = document.getElementById('carouselNav');
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'nav-dot';
+      if (i === 0) dot.classList.add('active');
+      dot.onclick = () => goToSlide(i);
+      nav.appendChild(dot);
+    }
+    
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+      // Update dots
+      const dots = nav.children;
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.toggle('active', i === currentSlide);
+      }
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+    
+    function previousSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+    
+    function goToSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+    }
+  </script>
+  
+  <script>
+    // Copy protection
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (
+        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+        (e.ctrlKey && e.key === 'p')
+      ) {
+        e.preventDefault();
+      }
+    });
+    document.body.style.userSelect = 'none';
+  </script>
 </body>
 </html>
