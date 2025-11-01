@@ -8,7 +8,6 @@
   <meta name="keywords" content="Roxana Akhmetova awards, Trudeau Scholar, SSHRC fellowship, Oxford scholarships, academic achievements">
   <meta name="author" content="Roxana Akhmetova">
 
-  <!-- Tailwind + color palette (keeps navbar consistent across pages) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -30,56 +29,41 @@
   <link rel="stylesheet" href="/style.css">
 
   <style>
-    /* Disable text selection */
     body {
       font-family: Arial, Helvetica, sans-serif;
       margin: 0;
-      background-color: #000 !important;
+      background-color: #000;
       color: #fff;
       line-height: 1.6;
-      user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
     }
     
     main {
       margin: 100px auto 60px;
       max-width: 900px;
       padding: 0 40px;
-      background-color: #000 !important;
     }
     
-    /* Page title - FORCE white color */
     h1 {
       font-size: 2.5em !important;
       margin-bottom: 50px !important;
       padding-bottom: 15px !important;
       border-bottom: 3px solid #fff !important;
       color: #ffffff !important;
-      background-color: #000000 !important;
       font-weight: 600 !important;
-      text-align: left !important;
-      opacity: 1 !important;
-      text-shadow: none !important;
-      visibility: visible !important;
-      display: block !important;
-      -webkit-text-fill-color: #ffffff !important;
+      display: inline-block !important;
     }
     
-    /* University/Institution headers - larger and bolder */
     .institution {
       font-weight: 700;
-      font-size: 1.6em;
-      margin-top: 50px;
-      margin-bottom: 25px;
+      font-size: 1.125rem;
+      margin-top: 40px;
+      margin-bottom: 20px;
       color: #fff;
     }
     
     .award-entry {
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       padding-left: 0;
-      background-color: #000;
     }
     
     .award-header {
@@ -87,14 +71,14 @@
       justify-content: space-between;
       align-items: baseline;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 10px;
     }
     
     .award-title {
       font-weight: 500;
       color: #fff;
       flex: 1;
-      font-size: 1.05em;
+      font-size: 1rem;
     }
     
     .award-title a {
@@ -111,21 +95,20 @@
     .award-date {
       color: #ccc;
       white-space: nowrap;
-      font-size: 1em;
+      font-size: 1rem;
     }
     
     .award-description {
       color: #bbb;
       font-style: italic;
-      margin-top: 8px;
+      margin-top: 5px;
       padding-left: 0;
-      font-size: 0.95em;
+      font-size: 0.95rem;
     }
   </style>
 </head>
 
 <body class="bg-dark text-light">
-  <!-- blue navbar (same source used on working pages) -->
   <custom-navbar></custom-navbar>
 
   <main>
@@ -304,9 +287,26 @@
 
   </main>
 
-  <!-- Footer and blue navbar scripts (absolute URLs + defer) -->
   <custom-footer></custom-footer>
-  <script src="https://roxanaakhmetova.com/components/navbar.js" defer></script>
-  <script src="https://roxanaakhmetova.com/components/footer.js" defer></script>
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
+  
+  <script>
+    // Copy protection
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (
+        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+        (e.ctrlKey && e.key === 'p')
+      ) {
+        e.preventDefault();
+      }
+    });
+    document.body.style.userSelect = 'none';
+  </script>
 </body>
 </html>
