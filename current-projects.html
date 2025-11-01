@@ -5,23 +5,38 @@
   <title>Current Projects — Roxana Akhmetova</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script> tailwind.config = { theme: { extend: { colors: { oxford:'#002147' } } } } </script>
+  <script>
+    tailwind.config = { 
+      theme: { 
+        extend: { 
+          colors: { 
+            dark:'#1a1a1a', 
+            mid:'#4d4d4d', 
+            light:'#f7f7f8', 
+            oxford:'#002147', 
+            'oxford-100':'#e6eefb', 
+            'oxford-600':'#234e85' 
+          } 
+        } 
+      } 
+    }
+  </script>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-light text-dark">
+<body class="bg-dark text-light font-sans">
   <custom-navbar></custom-navbar>
 
   <main class="container mx-auto px-6 py-12 max-w-5xl">
     <h1 class="text-3xl font-semibold mb-4">Current Projects</h1>
 
-    <section class="bg-oxford text-white p-6 rounded-lg mb-6">
+    <section class="bg-oxford text-white p-6 rounded-lg mb-6 shadow-sm">
       <h2 class="text-2xl font-bold">Global AI Governance Index</h2>
       <p class="mt-2 text-sm opacity-90">Developing an index to compare legal, ethical, and technical governance across 50+ countries (2022–2025).</p>
     </section>
 
     <section>
       <h2 class="text-xl font-medium mb-3">Other work</h2>
-      <ul class="list-disc ml-6 text-gray-700">
+      <ul class="list-disc ml-6 text-gray-300 space-y-2">
         <li>Multi-stakeholder consultations on model transparency</li>
         <li>Policy pilots for public-sector procurement</li>
       </ul>
@@ -29,7 +44,7 @@
   </main>
 
   <custom-footer></custom-footer>
-  <script src="components/navbar.js"></script>
-  <script src="components/footer.js"></script>
+  <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
+  <script src="https://roxanaakhmetova.com/components/footer.js"></script>
 </body>
 </html>
