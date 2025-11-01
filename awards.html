@@ -4,6 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Awards | Roxana Akhmetova</title>
+  <meta name="description" content="Awards and scholarships received by Roxana Akhmetova including Pierre Elliott Trudeau Foundation Scholarship, SSHRC Doctoral Fellowship, and Oxford academic awards.">
+  <meta name="keywords" content="Roxana Akhmetova awards, Trudeau Scholar, SSHRC fellowship, Oxford scholarships, academic achievements">
+  <meta name="author" content="Roxana Akhmetova">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#1a1a1a',
+            mid: '#4d4d4d',
+            light: '#f7f7f8',
+            oxford: '#002147',
+            'oxford-100': '#e6eefb',
+            'oxford-600': '#234e85'
+          }
+        }
+      }
+    }
+  </script>
   <link rel="stylesheet" href="/style.css">
   <style>
     body {
@@ -52,6 +72,15 @@
       color: #fff;
       flex: 1;
     }
+    .award-title a {
+      color: #9fc0ff;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .award-title a:hover {
+      border-bottom-color: #9fc0ff;
+    }
     .award-date {
       color: #ccc;
       white-space: nowrap;
@@ -88,14 +117,14 @@
 
     <div class="award-entry">
       <div class="award-header">
-        <span class="award-title">Pierre Elliott Trudeau Foundation Scholarship (top 2.5%)</span>
+        <span class="award-title"><a href="https://www.trudeaufoundation.ca/member/roxana-akhmetova" target="_blank" rel="noopener noreferrer">Pierre Elliott Trudeau Foundation Scholarship</a> (top 2.5%)</span>
         <span class="award-date">May 2021</span>
       </div>
     </div>
 
     <div class="award-entry">
       <div class="award-header">
-        <span class="award-title">Canadian Social Sciences and Humanities Research Council Doctoral Fellowship (top 30%)</span>
+        <span class="award-title"><a href="https://search.open.canada.ca/grants/record/sshrc-crsh%2C207-2021-2022-Q1-01468%2Ccurrent" target="_blank" rel="noopener noreferrer">Canadian Social Sciences and Humanities Research Council Doctoral Fellowship</a> (top 30%)</span>
         <span class="award-date">May 2021</span>
       </div>
     </div>
@@ -111,14 +140,14 @@
 
     <div class="award-entry">
       <div class="award-header">
-        <span class="award-title">CAD UN Intensive Summer School Program, Centre for Defence and Security Studies</span>
+        <span class="award-title"><a href="https://www.umanitoba.ca/explore/programs-of-study/un-intensive-summer-school" target="_blank" rel="noopener noreferrer">UN Intensive Summer School Program</a>, Centre for Defence and Security Studies</span>
         <span class="award-date">May 2019</span>
       </div>
     </div>
 
     <div class="award-entry">
       <div class="award-header">
-        <span class="award-title">Joseph Armand Bombardier Canada Graduate Scholarship, SSHRC</span>
+        <span class="award-title"><a href="https://search.open.canada.ca/grants/record/sshrc-crsh%2C207-2018-2019-Q2-00869%2Ccurrent" target="_blank" rel="noopener noreferrer">Joseph Armand Bombardier Canada Graduate Scholarship</a>, SSHRC</span>
         <span class="award-date">April 2018</span>
       </div>
     </div>
@@ -134,7 +163,7 @@
 
     <div class="award-entry">
       <div class="award-header">
-        <span class="award-title">The W. J. Condo Essay Award, Institute of Public Administration of Canada</span>
+        <span class="award-title"><a href="https://ipac.ca/iPAC_EN/Awards/IPAC_EN/Awards.aspx" target="_blank" rel="noopener noreferrer">The W. J. Condo Essay Award</a>, Institute of Public Administration of Canada</span>
         <span class="award-date">July 2017</span>
       </div>
       <div class="award-description">Paper "That Wasn't Uber Nice: The Uberisation of Local and Global Political Economy"</div>
@@ -178,7 +207,7 @@
 
     <div class="award-entry">
       <div class="award-header">
-        <span class="award-title">CAD Explore Program Bursary to study French for 5 weeks at University of Laval</span>
+        <span class="award-title">Explore Program Bursary to study French for 5 weeks at University of Laval</span>
         <span class="award-date">2014</span>
       </div>
     </div>
@@ -192,7 +221,7 @@
 
     <div class="award-entry">
       <div class="award-header">
-        <span class="award-title">Golden Key International Honour Society Membership</span>
+        <span class="award-title"><a href="https://www.goldenkey.org/2020/02/19/golden-key-spotlight-breanne-cadham-odion-kalaci-and-roxana-akhmetova/" target="_blank" rel="noopener noreferrer">Golden Key International Honour Society Membership</a></span>
         <span class="award-date">2014</span>
       </div>
       <div class="award-description">offered to top 15%</div>
@@ -243,7 +272,28 @@
 
   </main>
 
-  <!-- Navbar script -->
   <script src="/components/navbar.js"></script>
+  <script>
+  // Disable text selection
+  document.addEventListener('selectstart', e => e.preventDefault());
+
+  // Disable right-click context menu
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  // Disable common keyboard shortcuts for copying
+  document.addEventListener('keydown', e => {
+    if (
+      (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+      (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+      (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+      (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+      (e.ctrlKey && e.key === 'p')
+    ) {
+      e.preventDefault();
+    }
+  });
+
+  document.body.style.userSelect = 'none';
+  </script>
 </body>
 </html>
