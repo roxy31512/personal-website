@@ -7,6 +7,7 @@
   <meta name="description" content="Biography of Roxana Akhmetova - AI policy strategist specializing in AI governance, tech diplomacy, and automated decision-making systems. Oxford DPhil researcher and policy advisor.">
   <meta name="keywords" content="Roxana Akhmetova bio, AI policy researcher, Oxford AI, AI governance expert, tech diplomacy, policy strategist">
   <meta name="author" content="Roxana Akhmetova">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -24,55 +25,24 @@
       }
     }
   </script>
+
   <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      background-color: #000;
-      color: #fff;
-    }
-    main {
-      max-width: 800px;
-      margin: 80px auto;
-      padding: 20px;
-      line-height: 1.8;
-    }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 30px;
-      border-bottom: 3px solid #fff;
-      display: inline-block;
-      color: #fff;
-      font-weight: 600;
-    }
-    h2 {
-      font-size: 1.8em;
-      margin-top: 40px;
-      margin-bottom: 20px;
-      color: #fff;
-      font-weight: 600;
-    }
-    p {
-      margin-bottom: 20px;
-      color: #ddd;
-      font-size: 1.1em;
-    }
-    a {
-      color: #9fc0ff;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
-    a:hover {
-      border-bottom-color: #9fc0ff;
-    }
+    /* Minor page-specific overrides that keep the dark theme but respect global navbar styling */
+    main { max-width: 800px; margin: 4.5rem auto; padding: 1.25rem; line-height: 1.8; }
+    h1 { font-size: 2.5rem; margin-bottom: 1.25rem; border-bottom: 3px solid #e6eefb; display: inline-block; color: #f7f7f8; font-weight: 600; }
+    h2 { font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; color: #f7f7f8; font-weight: 600; }
+    p { margin-bottom: 1.25rem; color: #e6e6e6; font-size: 1.05rem; }
+    a { color: #9fc0ff; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s; }
+    a:hover { border-bottom-color: #9fc0ff; }
   </style>
 </head>
-<body>
+<body class="bg-dark text-light font-sans">
   <custom-navbar></custom-navbar>
 
-  <main>
+  <main class="container mx-auto px-6 py-12 max-w-6xl">
     <h1>About Roxana Akhmetova</h1>
-    
+
     <p>
       Roxana Akhmetova is a policy strategist and researcher specializing in AI governance, tech diplomacy, and automated decision-making systems in the public sector. She translates complex technology policy into actionable frameworks for governments, industry leaders, and civil society organizations.
     </p>
@@ -92,30 +62,17 @@
   </main>
 
   <custom-footer></custom-footer>
-  
-  <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
-  <script src="https://roxanaakhmetova.com/components/footer.js"></script>
+
+  <!-- load your components from the same path as the working page -->
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
+
   <script>
-  // Disable text selection
-  document.addEventListener('selectstart', e => e.preventDefault());
-
-  // Disable right-click context menu
-  document.addEventListener('contextmenu', e => e.preventDefault());
-
-  // Disable common keyboard shortcuts for copying
-  document.addEventListener('keydown', e => {
-    if (
-      (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-      (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-      (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-      (e.ctrlKey && e.shiftKey && e.key === 'J') ||
-      (e.ctrlKey && e.key === 'p')
-    ) {
-      e.preventDefault();
-    }
-  });
-
-  document.body.style.userSelect = 'none';
+    // Optional: keep light protections but avoid blocking dev tools / copy during development:
+    // document.addEventListener('selectstart', e => e.preventDefault());
+    // document.addEventListener('contextmenu', e => e.preventDefault());
+    // remove the aggressive keyboard blocks while debugging
+    document.body.style.userSelect = '';
   </script>
 </body>
 </html>
