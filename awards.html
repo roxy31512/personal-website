@@ -30,19 +30,27 @@
   <link rel="stylesheet" href="/style.css">
 
   <style>
+    /* Disable text selection */
     body {
       font-family: Arial, Helvetica, sans-serif;
       margin: 0;
-      background-color: #000;
+      background-color: #000 !important;
       color: #fff;
       line-height: 1.6;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
     }
+    
     main {
       margin: 100px auto 60px;
       max-width: 900px;
       padding: 0 40px;
+      background-color: #000 !important;
     }
-    /* Override the style.css dark color with white */
+    
+    /* Page title - white and underlined */
     main h1 {
       font-size: 2.5em !important;
       margin-bottom: 50px !important;
@@ -54,17 +62,22 @@
       opacity: 1 !important;
       text-shadow: none !important;
     }
+    
+    /* University/Institution headers - larger and bolder */
     .institution {
-      font-weight: bold;
-      font-size: 1.3em;
-      margin-top: 40px;
-      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 1.6em;
+      margin-top: 50px;
+      margin-bottom: 25px;
       color: #fff;
     }
+    
     .award-entry {
       margin-bottom: 25px;
       padding-left: 0;
+      background-color: #000;
     }
+    
     .award-header {
       display: flex;
       justify-content: space-between;
@@ -72,26 +85,31 @@
       flex-wrap: wrap;
       gap: 15px;
     }
+    
     .award-title {
       font-weight: 500;
       color: #fff;
       flex: 1;
       font-size: 1.05em;
     }
+    
     .award-title a {
       color: #9fc0ff;
       text-decoration: none;
       border-bottom: 1px solid transparent;
       transition: border-color 0.2s;
     }
+    
     .award-title a:hover {
       border-bottom-color: #9fc0ff;
     }
+    
     .award-date {
       color: #ccc;
       white-space: nowrap;
       font-size: 1em;
     }
+    
     .award-description {
       color: #bbb;
       font-style: italic;
