@@ -15,16 +15,17 @@ class CustomNavbar extends HTMLElement {
           <div style="display: flex; align-items: center; gap: 1rem;">
             <a class="brand" href="/index.html" aria-label="Home" style="display: flex; align-items: center; gap: 0.6rem;">
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: #f0f4ff;">
-                <!-- R -->
-                <path d="M10 10 L10 30 M10 10 L18 10 Q20 10 20 14 Q20 18 18 18 L10 18 M18 18 L20 30" 
-                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- R shape with geometric style -->
+                <path d="M8 8 L8 32 M8 8 L18 8 L22 12 L22 16 L18 20 L8 20 M18 20 L22 32" 
+                      stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
                 
-                <!-- A -->
-                <path d="M24 30 L28 10 L32 30 M25.5 20 L30.5 20" 
-                      stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <!-- A shape -->
+                <path d="M26 32 L30 8 L34 32 M27.5 22 L32.5 22" 
+                      stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
                 
-                <!-- Connection line (bridge) -->
-                <line x1="20" y1="20" x2="24" y2="20" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                <!-- Tech accent - small circuit nodes -->
+                <circle cx="22" cy="12" r="1.5" fill="currentColor"/>
+                <circle cx="22" cy="16" r="1.5" fill="currentColor"/>
               </svg>
             </a>
             <a href="https://www.linkedin.com/in/akhmetovaroxana/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; padding: 4px; border-radius: 6px; transition: all 0.15s ease; opacity: 0.9;" aria-label="LinkedIn" onmouseover="this.style.opacity='1';" onmouseout="this.style.opacity='0.9';">
