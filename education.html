@@ -1,92 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Education | Roxana Akhmetova</title>
+  <meta charset="utf-8" />
+  <title>Education — Roxana Akhmetova</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Tailwind extension (colors used across pages)
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            dark: '#1a1a1a',
-            mid: '#4d4d4d',
-            light: '#f7f7f8',
-            oxford: '#002147',
-            'oxford-100': '#e6eefb',
-            'oxford-600': '#234e85'
-          }
-        }
-      }
+    tailwind.config = { 
+      theme: { 
+        extend: { 
+          colors: { 
+            dark:'#1a1a1a', 
+            mid:'#4d4d4d', 
+            light:'#f7f7f8', 
+            oxford:'#002147', 
+            'oxford-100':'#e6eefb', 
+            'oxford-600':'#234e85' 
+          } 
+        } 
+      } 
     }
   </script>
-  <link rel="stylesheet" href="/style.css">
+
+  <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      background-color: #000;
-      color: #fff;
-      line-height: 1.6;
-    }
-    main {
-      margin: 80px auto;
-      max-width: 800px;
-      padding: 20px;
-    }
-    /* Multiple selectors to override any CSS rule */
-    main h1,
-    h1,
-    main > h1 {
-      font-size: 2.5em !important;
-      margin-bottom: 20px !important;
-      border-bottom: 3px solid #fff !important;
-      display: inline-block !important;
-      color: #fff !important;
-      background: none !important;
-      text-shadow: none !important;
-      opacity: 1 !important;
-      font-weight: 600 !important;
-    }
-    .education-entry { margin-bottom: 25px; }
-    .university { font-weight: bold; font-size: 1.2em; color: #fff; }
+    .education-entry { margin-bottom: 1.25rem; color: #f7f7f8; }
+    .university { font-weight: 700; font-size: 1.125rem; color: #f7f7f8; }
     .degree { color: #ccc; }
-    .dissertation { font-style: italic; color: #bbb; margin-top: 5px; }
-    header a, header nav a { color: #fff; text-decoration: none; margin: 0 10px; }
-    header nav a:hover { text-decoration: underline; }
+    .dissertation { font-style: italic; color: #bbb; margin-top: 0.25rem; }
   </style>
 </head>
-<body>
+<body class="bg-dark text-light font-sans">
   <custom-navbar></custom-navbar>
 
-  <main>
-    <h1 style="color: #fff !important; text-shadow: none !important;">Education</h1>
+  <main class="container mx-auto px-6 py-12 max-w-6xl">
+    <h1 class="text-3xl font-semibold mb-6">Education</h1>
 
     <div class="education-entry">
       <p class="university">University of Oxford</p>
-      <p class="degree">DPhil | 2025</p>
-      <p class="dissertation">Dissertation: How institutional failures undermine aligned AI systems in government deployments.</p>
+      <p class="degree">DPhil&nbsp;|&nbsp;2025</p>
+      <p class="dissertation">
+        Dissertation: How institutional failures undermine aligned AI systems in government deployments.
+      </p>
     </div>
 
     <div class="education-entry">
       <p class="university">University of Oxford</p>
-      <p class="degree">MSc | 2020</p>
+      <p class="degree">MSc&nbsp;|&nbsp;2020</p>
     </div>
 
     <div class="education-entry">
       <p class="university">University of Manitoba</p>
-      <p class="degree">MA | 2019</p>
+      <p class="degree">MA&nbsp;|&nbsp;2019</p>
     </div>
 
     <div class="education-entry">
       <p class="university">University of Winnipeg</p>
-      <p class="degree">BA | 2017</p>
+      <p class="degree">BA&nbsp;|&nbsp;2017</p>
     </div>
   </main>
 
-  <!-- Navbar script -->
+  <custom-footer></custom-footer>
+
   <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
 </body>
 </html>
