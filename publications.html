@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Publications | Roxana Akhmetova</title>
+  <meta charset="utf-8" />
+  <title>Publications — Roxana Akhmetova</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { 
@@ -23,54 +23,16 @@
   </script>
   <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      background-color: #000;
-      color: #fff;
-      line-height: 1.6;
-    }
-    main {
-      margin: 80px auto;
-      max-width: 800px;
-      padding: 20px;
-    }
-    main h1,
-    h1 {
-      font-size: 2.5em !important;
-      margin-bottom: 30px !important;
-      border-bottom: 3px solid #fff !important;
-      display: inline-block !important;
-      color: #fff !important;
-      text-shadow: none !important;
-      opacity: 1 !important;
-      font-weight: 600 !important;
-    }
-    .section-title {
-      font-weight: bold;
-      font-size: 1.3em;
-      margin-top: 30px;
-      margin-bottom: 20px;
-      color: #fff;
-    }
-    .publication-entry {
-      margin-bottom: 25px;
-      padding-left: 20px;
-      color: #fff;
-    }
-    .publication-entry::before {
-      content: "•";
-      position: absolute;
-      margin-left: -20px;
-      color: #ccc;
-    }
+    /* page-specific tweaks but keep global navbar styling intact */
+    .publication-entry { margin-bottom: 1.25rem; color: #f7f7f8; }
+    .section-title { font-weight: 700; font-size: 1.125rem; margin-top: 1.5rem; margin-bottom: 1rem; color: #f7f7f8; }
   </style>
 </head>
-<body>
+<body class="bg-dark text-light font-sans">
   <custom-navbar></custom-navbar>
 
-  <main>
-    <h1 style="color: #fff !important; text-shadow: none !important;">Publications</h1>
+  <main class="container mx-auto px-6 py-12 max-w-6xl">
+    <h1 class="text-3xl font-semibold mb-6">Publications</h1>
 
     <div class="section-title">Key Publications</div>
 
@@ -93,12 +55,11 @@
     <div class="publication-entry">
       Akhmetova, R. (2020), "How AI Is Being Used in Canada's Immigration Decision-Making". Blog. University of Oxford's Centre on Migration, Policy, and Society.
     </div>
-
   </main>
 
   <custom-footer></custom-footer>
 
-  <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
-  <script src="https://roxanaakhmetova.com/components/footer.js"></script>
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
 </body>
 </html>
