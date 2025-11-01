@@ -29,7 +29,6 @@ class CustomNavbar extends HTMLElement {
             <a href="/bio.html">Bio</a>
             <a href="/education.html">Education</a>
             <a href="/awards.html">Awards</a>
-            <a href="/skills.html">Skills</a>
             <a href="/contact.html" class="cta-link">Contact</a>
           </nav>
         </div>
