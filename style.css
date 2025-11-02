@@ -107,15 +107,6 @@ nav { background: transparent !important; border-color: rgba(255,255,255,0.06) !
   .site-banner p  { font-size: 0.95rem; }
 }
 
-/* Hero readability fixes (exclude .hero-name so custom style can show) */
-main .hero-title,
-main h1:not(.hero-name) {
-  color: #0f1724 !important;    /* strong dark title */
-  opacity: 1 !important;
-  font-weight: 600;
-  text-shadow: none;
-}
-
 /* Brighter subtitle for dark background */
 main p.lead,
 main .hero-sub {
@@ -330,15 +321,22 @@ body.bg-dark .container { --card-bg: #0f0f10; }
   transform: scale(1.03);
   box-shadow: 0 10px 40px rgba(0,0,0,0.7);
 }
+
 /* Adjust navbar avatar positioning */
 .brand img {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
   object-fit: cover;
-  object-position: 40% center; /* shift focus left to center your face */
-}
-/* Force navbar avatar positioning */
-.brand img {
   object-position: 30% center !important;
+}
+/* Contact page h1 styling */
+main h1 {
+  font-size: 2.5em;
+  margin-bottom: 50px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #fff;
+  color: #ffffff !important;
+  font-weight: 600;
+  display: inline-block;
 }
