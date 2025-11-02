@@ -9,13 +9,23 @@ class CustomNavbar extends HTMLElement {
     const dropdownMenu = this.querySelector('.dropdown-menu');
     
     if (dropdown && dropdownMenu) {
-      dropdown.addEventListener('mouseenter', () => {
-        dropdownMenu.style.display = 'block';
-      });
+      let timeout;
       
-      dropdown.addEventListener('mouseleave', () => {
-        dropdownMenu.style.display = 'none';
-      });
+      const showMenu = () => {
+        clearTimeout(timeout);
+        dropdownMenu.style.display = 'block';
+      };
+      
+      const hideMenu = () => {
+        timeout = setTimeout(() => {
+          dropdownMenu.style.display = 'none';
+        }, 200);
+      };
+      
+      dropdown.addEventListener('mouseenter', showMenu);
+      dropdown.addEventListener('mouseleave', hideMenu);
+      dropdownMenu.addEventListener('mouseenter', showMenu);
+      dropdownMenu.addEventListener('mouseleave', hideMenu);
     }
   }
 
