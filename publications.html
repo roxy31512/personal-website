@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Publications — Roxana Akhmetova</title>
+  <title>Publications & Press — Roxana Akhmetova</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Publications and press coverage of Roxana Akhmetova's work on AI governance, immigration policy, and automated decision-making systems.">
+  <meta name="keywords" content="Roxana Akhmetova publications, AI policy research, immigration AI, academic papers">
+  <meta name="author" content="Roxana Akhmetova">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { 
@@ -21,18 +25,65 @@
       } 
     }
   </script>
+
   <link rel="stylesheet" href="style.css">
+
   <style>
-    /* page-specific tweaks but keep global navbar styling intact */
-    .publication-entry { margin-bottom: 1.25rem; color: #f7f7f8; }
-    .section-title { font-weight: 700; font-size: 1.125rem; margin-top: 1.5rem; margin-bottom: 1rem; color: #f7f7f8; }
+    html {
+      background-color: #000 !important;
+    }
+    
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background-color: #000 !important;
+      color: #fff;
+      line-height: 1.6;
+      min-height: 100%;
+    }
+    
+    main {
+      margin: 100px auto 60px;
+      max-width: 900px;
+      padding: 0 40px;
+    }
+    
+    h1 {
+      font-size: 2.5em !important;
+      margin-bottom: 50px !important;
+      color: #ffffff !important;
+      font-weight: 600 !important;
+      -webkit-text-fill-color: #ffffff !important;
+      padding-bottom: 15px !important;
+      border-bottom: 3px solid #ffffff !important;
+      display: inline-block !important;
+      width: auto !important;
+    }
+    
+    .section-title {
+      font-weight: 700;
+      font-size: 1.125rem;
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    
+    .section-title:not(:first-of-type) {
+      margin-top: 40px;
+    }
+    
+    .publication-entry {
+      margin-bottom: 20px;
+      color: #f7f7f8;
+    }
   </style>
 </head>
+
 <body class="bg-dark text-light font-sans">
   <custom-navbar></custom-navbar>
 
-  <main class="container mx-auto px-6 py-12 max-w-6xl">
-    <h1 class="text-3xl font-semibold mb-6">Publications</h1>
+  <main>
+    <h1>Publications & Press</h1>
 
     <div class="section-title">Key Publications</div>
 
@@ -61,5 +112,22 @@
 
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
+
+  <script>
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (
+        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+        (e.ctrlKey && e.key === 'p')
+      ) {
+        e.preventDefault();
+      }
+    });
+    document.body.style.userSelect = 'none';
+  </script>
 </body>
 </html>
