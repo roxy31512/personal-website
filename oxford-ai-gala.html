@@ -46,7 +46,6 @@
       color: #ffffff !important;
       font-weight: 600 !important;
       -webkit-text-fill-color: #ffffff !important;
-      text-fill-color: #ffffff !important;
     }
 
     .project-year {
@@ -73,6 +72,65 @@
       font-weight: 600;
       margin-bottom: 20px;
     }
+
+    /* Carousel Styles */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      height: 500px;
+      position: relative;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+      padding: 20px;
+      font-size: 0.95rem;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .carousel-dot.active {
+      background: #9fc0ff;
+    }
   </style>
 </head>
 
@@ -88,12 +146,78 @@
       Founded and chaired flagship AI governance conference, securing partnerships with Anthropic, Sony AI, RAND Europe, and Tony Blair Institute to convene 250+ senior stakeholders including C-suite executives, government officials, and academic leaders. Managed budget planning, sponsorship development, vendor coordination, and financial delivery, generating £50K revenue with £10K profit in inaugural year.
     </div>
 
-    <!-- Sections for photos, quotes, and additional content will go here -->
+    <!-- Photo Carousel -->
+    <div class="content-section">
+      <div class="section-title">Event Gallery</div>
+      
+      <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Add your photos here - replace with actual image URLs -->
+          <div class="carousel-slide">
+            <img src="/images/gala-1.jpg" alt="Oxford AI Gala 2025 - Photo 1">
+            <div class="carousel-caption">Opening ceremony with keynote speakers</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="/images/gala-2.jpg" alt="Oxford AI Gala 2025 - Photo 2">
+            <div class="carousel-caption">Panel discussion with industry leaders</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="/images/gala-3.jpg" alt="Oxford AI Gala 2025 - Photo 3">
+            <div class="carousel-caption">Networking reception</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+
+    <!-- Quotes section (placeholder for later) -->
+    <div class="content-section">
+      <div class="section-title">What Participants Said</div>
+      <!-- Quotes will go here -->
+    </div>
     
   </main>
 
   <custom-footer></custom-footer>
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
+
+  <script>
+    // Auto-scrolling carousel
+    const track = document.getElementById('carouselTrack');
+    const dotsContainer = document.getElementById('carouselDots');
+    const slides = document.querySelectorAll('.carousel-slide');
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    // Create dots
+    slides.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.classList.add('carousel-dot');
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(index));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    function goToSlide(index) {
+      currentSlide = index;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      goToSlide(currentSlide);
+    }
+
+    // Auto-advance every 4 seconds
+    setInterval(nextSlide, 6000);
+  </script>
 </body>
 </html>
