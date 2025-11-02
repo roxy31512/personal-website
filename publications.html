@@ -77,6 +77,28 @@
       color: #f7f7f8;
     }
 
+    .conference-entry {
+      margin-bottom: 20px;
+      color: #ddd;
+      line-height: 1.8;
+    }
+
+    .conference-entry strong {
+      color: #9fc0ff;
+      font-weight: 600;
+    }
+
+    .conference-link {
+      color: #9fc0ff;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .conference-link:hover {
+      border-bottom-color: #9fc0ff;
+    }
+
     .carousel-container {
       position: relative;
       margin: 40px 0;
@@ -94,7 +116,22 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
       overflow: hidden;
-      padding: 30px;
+    }
+
+    .slide-image {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      background: rgba(255, 255, 255, 0.03);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .slide-content {
+      padding: 25px;
     }
 
     .slide-title {
@@ -175,6 +212,16 @@
     .dot.active {
       background: #9fc0ff;
     }
+
+    .archive-note {
+      background: rgba(159, 192, 255, 0.1);
+      border-left: 4px solid #9fc0ff;
+      padding: 15px 20px;
+      margin-top: 30px;
+      border-radius: 4px;
+      color: #ddd;
+      font-size: 0.95rem;
+    }
   </style>
 </head>
 
@@ -208,35 +255,36 @@
 
     <div class="section-title">Conference Presentations</div>
 
+    <div class="conference-entry">
+      <strong>Institute for Ethics in Technology Workshop</strong> (virtual, 2024): Developed "Inclusive AI" workshop for 50+ AI professionals.
+    </div>
+
+    <div class="conference-entry">
+      <strong>International Family Law Conference</strong> (Cape Town, 2023): "Use of Artificial Intelligence in legal practice: Benefits and Drawbacks".
+    </div>
+
+    <div class="conference-entry">
+      <strong>International Bar Association Annual Conference</strong> (Miami, 2022): "Artificial Intelligence as the decision maker in immigration proceedings". <a href="https://www.ibanet.org/conference/CONF2137/speaker-details/CONF2137_64440" target="_blank" rel="noopener noreferrer" class="conference-link">View details →</a>
+    </div>
+
+    <div class="section-title">Press & Media</div>
+
     <div class="carousel-container">
       <div class="carousel-wrapper" id="carouselWrapper">
         
-        <!-- Slide 1: Institute for Ethics in Technology Workshop -->
+        <!-- Slide 1: Keble Showcase -->
         <div class="carousel-slide">
-          <div class="slide-title">Institute for Ethics in Technology Workshop</div>
-          <div class="slide-meta">Virtual • 2024</div>
-          <div class="slide-description">
-            Developed "Inclusive AI" workshop for 50+ AI professionals.
+          <div class="slide-image">
+            <img src="/images/keble-showcase.jpg" alt="Keble Graduate Research Showcase" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.parentElement.innerHTML='Screenshot: Add keble-showcase.jpg to /images/'">
           </div>
-        </div>
-
-        <!-- Slide 2: International Family Law Conference -->
-        <div class="carousel-slide">
-          <div class="slide-title">Use of Artificial Intelligence in Legal Practice: Benefits and Drawbacks</div>
-          <div class="slide-meta">International Family Law Conference • Cape Town • 2023</div>
-          <div class="slide-description">
-            Presented on the benefits and drawbacks of artificial intelligence applications in legal practice at the International Family Law Conference.
+          <div class="slide-content">
+            <div class="slide-title">Showcasing Graduate Research</div>
+            <div class="slide-meta">The Brick, Keble College • November 23, 2023</div>
+            <div class="slide-description">
+              Featured presentation on AI and algorithms in border surveillance and immigration decisions at Keble College's Graduate Research Showcase, alongside research on the English prison system.
+            </div>
+            <a href="https://thebrick.keble.net/issue-77/content/showcasing-graduate-research" target="_blank" rel="noopener noreferrer" class="slide-link">Read full article →</a>
           </div>
-        </div>
-
-        <!-- Slide 3: International Bar Association Annual Conference -->
-        <div class="carousel-slide">
-          <div class="slide-title">Artificial Intelligence as the Decision Maker in Immigration Proceedings</div>
-          <div class="slide-meta">International Bar Association Annual Conference • Miami • 2022</div>
-          <div class="slide-description">
-            Examined the role of artificial intelligence as a decision-making tool in immigration proceedings, exploring implications for due process and fairness.
-          </div>
-          <a href="https://www.ibanet.org/conference/CONF2137/speaker-details/CONF2137_64440" target="_blank" rel="noopener noreferrer" class="slide-link">View conference details →</a>
         </div>
 
       </div>
@@ -248,6 +296,10 @@
     </div>
 
     <div class="carousel-dots" id="dotsContainer"></div>
+
+    <div class="archive-note">
+      📰 <strong>Archival Note:</strong> These articles are archived here to preserve media coverage of work and initiatives. Original links are provided where available.
+    </div>
 
   </main>
 
