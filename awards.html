@@ -29,16 +29,16 @@
   <link rel="stylesheet" href="/style.css">
 
   <style>
+    html {
+      background-color: #000 !important;
+    }
+    
     body {
       font-family: Arial, Helvetica, sans-serif;
       margin: 0;
-      background-color: #000;
+      background-color: #000 !important;
       color: #fff;
       line-height: 1.6;
-    }
-    
-    html, body {
-      background-color: #000 !important;
       min-height: 100%;
     }
     
@@ -64,9 +64,17 @@
     .institution {
       font-weight: 700;
       font-size: 1.125rem;
-      margin-top: 40px;
+      margin-top: 0;
       margin-bottom: 20px;
       color: #fff;
+    }
+    
+    .institution:first-of-type {
+      margin-top: 0;
+    }
+    
+    .institution:not(:first-of-type) {
+      margin-top: 40px;
     }
     
     .award-entry {
@@ -318,4 +326,4 @@
     document.body.style.userSelect = 'none';
   </script>
 </body>
-</html>
+</html>git add awards.html
