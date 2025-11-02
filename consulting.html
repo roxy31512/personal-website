@@ -22,24 +22,85 @@
     }
   </script>
   <link rel="stylesheet" href="style.css">
+  <style>
+    h1 {
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .service-card h3 {
+      color: #9fc0ff;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .service-card p {
+      color: #d8e1eb;
+      line-height: 1.7;
+    }
+  </style>
 </head>
 <body class="bg-dark text-light font-sans">
   <custom-navbar></custom-navbar>
-  <main class="container mx-auto px-6 py-12 max-w-5xl">
-    <h1 class="text-3xl font-semibold mb-4">Consulting</h1>
-    <p class="text-mid mb-6">Strategic governance reviews, policy design, and stakeholder workshops for governments and organisations.</p>
-    <section class="mb-8">
-      <h2 class="text-xl font-medium mb-3">Services</h2>
-      <ul class="list-disc ml-6 space-y-2 text-gray-300">
-        <li>Governance & regulatory strategy</li>
-        <li>Risk assessment & compliance frameworks</li>
-        <li>Stakeholder convening & workshop design</li>
-        <li>Procurement guidance for public-sector AI deployment</li>
+  <main class="container mx-auto px-6 py-12 max-w-4xl" style="margin-top: 100px;">
+    <h1 class="text-4xl font-semibold mb-6">Consulting</h1>
+    <p class="text-xl text-gray-300 mb-12" style="color: #d8e1eb; line-height: 1.8;">
+      I help governments and organizations navigate AI policy, governance frameworks, and stakeholder engagement. My work translates complex technology policy into actionable strategies for decision-makers.
+    </p>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-6" style="color: #ffffff;">What I Offer</h2>
+      
+      <div class="service-card">
+        <h3>AI Governance & Policy Development</h3>
+        <p>Design and implementation of AI governance frameworks, regulatory strategy, and policy analysis for public sector agencies. I've advised U.S. Congressional offices, U.K. government agencies, and Canadian immigration officials on AI deployment and oversight.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Legislative Analysis & Advocacy Materials</h3>
+        <p>Policy briefings, legislative tracking, and advocacy materials for government stakeholders. Experience translating technical AI research into policy-relevant recommendations for bipartisan audiences.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Stakeholder Convening & Workshop Facilitation</h3>
+        <p>Design and facilitation of multi-stakeholder workshops bringing together government, industry, and civil society. Track record convening 250+ senior stakeholders including C-suite executives, government officials, and academic leaders.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Risk Assessment & Compliance Frameworks</h3>
+        <p>Development of AI risk assessment frameworks and compliance protocols for automated decision-making systems in government. My research informed the U.K. Government's 2024 Ethics Framework for Automated Decision-Making.</p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-6" style="color: #ffffff;">Experience Includes</h2>
+      <ul class="space-y-3 text-gray-300" style="color: #d8e1eb; line-height: 1.8;">
+        <li>• Policy consultations with U.S. Congressional offices, U.K. government agencies, and Canadian federal departments</li>
+        <li>• Research cited in U.K. Government's Ethics, Transparency, and Accountability Framework (2024)</li>
+        <li>• Multi-stakeholder workshop facilitation with 40+ participants from government, tech companies, and civil society</li>
+        <li>• Securing partnerships with Anthropic, RAND Europe, Sony AI, and Tony Blair Institute</li>
+        <li>• Policy briefings for legislative staff on AI implications for immigration, border security, and public sector deployment</li>
       </ul>
+    </section>
+
+    <section class="mb-12" style="background: rgba(159,192,255,0.05); padding: 32px; border-radius: 12px; border: 1px solid rgba(159,192,255,0.2);">
+      <h2 class="text-2xl font-semibold mb-4" style="color: #ffffff;">Get in Touch</h2>
+      <p class="text-lg mb-6" style="color: #d8e1eb; line-height: 1.7;">
+        Available for consulting engagements, advisory roles, and speaking opportunities. Currently relocating to Washington, D.C.
+      </p>
+      <a href="/contact.html" style="display: inline-block; background: #234e85; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 500; transition: background 0.2s;" onmouseover="this.style.background='#1c3f6c'" onmouseout="this.style.background='#234e85'">
+        Contact Me
+      </a>
     </section>
   </main>
   <custom-footer></custom-footer>
-  <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
-  <script src="https://roxanaakhmetova.com/components/footer.js"></script>
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
 </body>
 </html>
