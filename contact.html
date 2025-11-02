@@ -2,56 +2,331 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Contact — Roxana Akhmetova</title>
+  <title>Contact | Roxana Akhmetova</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Contact Roxana Akhmetova for consulting inquiries, speaking engagements, or collaboration opportunities in AI policy and governance.">
+  <meta name="keywords" content="contact Roxana Akhmetova, AI policy consulting, speaking engagements">
+  <meta name="author" content="Roxana Akhmetova">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#1a1a1a',
+            mid: '#4d4d4d',
+            light: '#f7f7f8',
+            oxford: '#002147',
+            'oxford-100': '#e6eefb',
+            'oxford-600': '#234e85'
+          }
+        }
+      }
+    }
+  </script>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    main {
+      margin: 100px auto 60px;
+      max-width: 700px;
+      padding: 0 40px;
+    }
+    
+    h1 {
+      font-size: 2.5em !important;
+      margin-bottom: 50px !important;
+      padding-bottom: 15px !important;
+      border-bottom: 3px solid #fff !important;
+      color: #fff !important;
+      font-weight: 600 !important;
+      display: inline-block !important;
+    }
+    
+    .contact-intro {
+      font-size: 1.1em;
+      line-height: 1.8;
+      color: #ddd;
+      margin-bottom: 40px;
+    }
+    
+    .form-card {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 40px;
+    }
+    
+    label {
+      display: block;
+      color: #9fc0ff;
+      font-size: 0.95em;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    input, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 1rem;
+      font-family: Arial, Helvetica, sans-serif;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+    }
+    
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #9fc0ff;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    
+    input::placeholder, textarea::placeholder {
+      color: #666;
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+    
+    button[type="submit"] {
+      background: #234e85;
+      color: #fff;
+      padding: 14px 40px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    button[type="submit"]:hover {
+      background: #1c3f6c;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(159, 192, 255, 0.3);
+    }
+    
+    button[type="submit"]:disabled {
+      background: #555;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .status-message {
+      margin-top: 20px;
+      padding: 12px 20px;
+      border-radius: 6px;
+      display: none;
+    }
+    
+    .status-message.success {
+      display: block;
+      background: rgba(74, 222, 128, 0.1);
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      color: #4ade80;
+    }
+    
+    .status-message.error {
+      display: block;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #ef4444;
+    }
+  </style>
 </head>
-<body class="bg-light text-dark">
+<body>
   <custom-navbar></custom-navbar>
 
-  <main class="container mx-auto px-6 py-12 max-w-3xl">
-    <h1 class="text-3xl font-semibold mb-4">Contact</h1>
+  <main>
+    <h1>Contact</h1>
 
-    <!-- Example progressive-enhanced form (replace action with your real endpoint) -->
-    <div class="bg-white p-6 rounded shadow-sm border">
-      <form id="contactForm" action="#" method="POST" class="space-y-4">
+    <p class="contact-intro">
+      For consulting inquiries, speaking engagements, collaboration opportunities, or general questions about AI policy and governance, please use the form below.
+    </p>
+
+    <div class="form-card">
+      <form id="contactForm" action="https://formspree.io/f/xovpyqww" method="POST">
         <div>
-          <label class="block text-sm text-gray-700 mb-1" for="name">Name</label>
-          <input id="name" name="name" type="text" required class="w-full px-3 py-2 border rounded">
+          <label for="name">Name *</label>
+          <input 
+            id="name" 
+            name="name" 
+            type="text" 
+            required 
+            placeholder="Your name"
+          >
         </div>
 
         <div>
-          <label class="block text-sm text-gray-700 mb-1" for="email">Email</label>
-          <input id="email" name="email" type="email" required class="w-full px-3 py-2 border rounded">
+          <label for="email">Email *</label>
+          <input 
+            id="email" 
+            name="email" 
+            type="email" 
+            required 
+            placeholder="your.email@example.com"
+          >
         </div>
 
         <div>
-          <label class="block text-sm text-gray-700 mb-1" for="message">Message</label>
-          <textarea id="message" name="message" rows="6" required class="w-full px-3 py-2 border rounded"></textarea>
+          <label for="subject">Subject *</label>
+          <input 
+            id="subject" 
+            name="subject" 
+            type="text" 
+            required 
+            placeholder="What is this regarding?"
+          >
         </div>
 
         <div>
-          <button type="submit" class="px-4 py-2 bg-oxford text-white rounded">Send message</button>
+          <label for="message">Message *</label>
+          <textarea 
+            id="message" 
+            name="message" 
+            required 
+            placeholder="Your message..."
+          ></textarea>
         </div>
+
+        <button type="submit" id="submitBtn">Send Message</button>
+
+        <div id="statusMessage" class="status-message"></div>
       </form>
-
-      <div id="contactStatus" class="mt-4 text-sm text-green-600 hidden">Message sent (demo). Replace form action with a real endpoint to make it live.</div>
     </div>
   </main>
 
   <custom-footer></custom-footer>
-  <script src="components/navbar.js"></script>
-  <script src="components/footer.js"></script>
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
 
   <script>
-    // Simple demo progressive enhancement: intercept form and show status
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
+    // Spam filter - add words/phrases you want to block (case-insensitive)
+    const blockedWords = [
+      'viagra',
+      'cialis',
+      'casino',
+      'lottery',
+      'crypto',
+      'bitcoin',
+      'investment opportunity',
+      'click here',
+      'buy now',
+      'limited time',
+      'act now',
+      'congratulations',
+      'you have won',
+      'prize',
+      'free money',
+      'nigerian prince',
+      'urgent',
+      'bank account',
+      'western union',
+      'ivan vasenov',
+      'puyu wang',
+      'ivan',
+      'vasenov',
+      'udai dhamija',
+      'udai',
+      'fuck',
+      'bitch',
+      'f u',
+      'faggot',
+      'wire transfer'
+    ];
+
+    function containsBlockedWords(text) {
+      const lowerText = text.toLowerCase();
+      return blockedWords.some(word => lowerText.includes(word.toLowerCase()));
+    }
+
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const statusMessage = document.getElementById('statusMessage');
+
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
-      // demo: show success - replace with real fetch POST to your email/form provider
-      document.getElementById('contactStatus').classList.remove('hidden');
-      this.reset();
+      
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      // Check for blocked words in all fields
+      const allText = `${name} ${email} ${subject} ${message}`;
+      if (containsBlockedWords(allText)) {
+        statusMessage.className = 'status-message error';
+        statusMessage.textContent = 'Your message contains inappropriate content and cannot be sent. Please revise your message.';
+        return;
+      }
+      
+      // Disable button and show loading state
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      statusMessage.className = 'status-message';
+      statusMessage.style.display = 'none';
+
+      // Get form data
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          // Success
+          statusMessage.className = 'status-message success';
+          statusMessage.textContent = 'Thank you! Your message has been sent successfully. I\'ll get back to you soon.';
+          form.reset();
+        } else {
+          // Error
+          statusMessage.className = 'status-message error';
+          statusMessage.textContent = 'Oops! There was a problem sending your message. Please try again.';
+        }
+      } catch (error) {
+        // Network error
+        statusMessage.className = 'status-message error';
+        statusMessage.textContent = 'Network error. Please check your connection and try again.';
+      }
+
+      // Re-enable button
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
     });
+  </script>
+  
+  <script>
+    // Copy protection
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (
+        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+        (e.ctrlKey && e.key === 'p')
+      ) {
+        e.preventDefault();
+      }
+    });
+    document.body.style.userSelect = 'none';
   </script>
 </body>
 </html>
