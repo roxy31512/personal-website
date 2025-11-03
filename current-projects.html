@@ -22,29 +22,64 @@
     }
   </script>
   <link rel="stylesheet" href="style.css">
+  <style>
+    html, body {
+      background-color: #1a1a1a !important;
+      min-height: 100%;
+    }
+    
+    main {
+      margin: 100px auto 60px;
+      max-width: 900px;
+      padding: 0 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+    }
+    
+    h1 {
+      font-size: 2.5em !important;
+      margin-bottom: 25px !important;
+      color: #ffffff !important;
+      font-weight: 600 !important;
+      -webkit-text-fill-color: #ffffff !important;
+      text-align: center;
+    }
+
+    .coming-soon {
+      color: #9fc0ff;
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .placeholder-text {
+      color: #d8e1eb;
+      font-size: 1.1rem;
+      text-align: center;
+      margin-top: 15px;
+      opacity: 0.7;
+    }
+  </style>
 </head>
 <body class="bg-dark text-light font-sans">
   <custom-navbar></custom-navbar>
 
-  <main class="container mx-auto px-6 py-12 max-w-5xl">
-    <h1 class="text-3xl font-semibold mb-4">Current Projects</h1>
-
-    <section class="bg-oxford text-white p-6 rounded-lg mb-6 shadow-sm">
-      <h2 class="text-2xl font-bold">Global AI Governance Index</h2>
-      <p class="mt-2 text-sm opacity-90">Developing an index to compare legal, ethical, and technical governance across 50+ countries (2022–2025).</p>
-    </section>
-
-    <section>
-      <h2 class="text-xl font-medium mb-3">Other work</h2>
-      <ul class="list-disc ml-6 text-gray-300 space-y-2">
-        <li>Multi-stakeholder consultations on model transparency</li>
-        <li>Policy pilots for public-sector procurement</li>
-      </ul>
-    </section>
+  <main>
+    <h1>Current Projects</h1>
+    
+    <div class="coming-soon">Coming Soon</div>
+    
+    <div class="placeholder-text">
+      Content being prepared
+    </div>
   </main>
 
   <custom-footer></custom-footer>
-  <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
-  <script src="https://roxanaakhmetova.com/components/footer.js"></script>
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
 </body>
 </html>
