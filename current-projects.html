@@ -8,7 +8,7 @@
   <meta name="keywords" content="AI crisis simulation, AI governance, healthcare AI, policy simulation">
   <meta name="author" content="Roxana Akhmetova">
 
-  <!-- Tailwind config before CDN -->
+  <!-- Tailwind config -->
   <script>
     window.tailwind = {
       config: {
@@ -16,7 +16,7 @@
           extend: {
             colors: {
               dark: '#0d0d0f',
-              mid: '#1f2428',  /* a bit darker for cards */
+              mid: '#1f2428',
               light: '#f7f7f8',
               oxford: '#002147',
               'oxford-100': '#e6eefb',
@@ -29,12 +29,13 @@
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- React UMD + Babel (for quick prototyping) -->
+  <!-- React UMD + Babel for in-page JSX (prototyping) -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <link rel="stylesheet" href="style.css">
+
   <style>
     html, body {
       background-color: #0d0d0f;
@@ -100,10 +101,24 @@
       overflow-y: auto;
       display: none;
       padding: 40px;
+      box-sizing: border-box;
     }
 
     #simulator-container.active {
       display: block;
+    }
+
+    /* Hide the custom footer when simulator is open by toggling a class on body */
+    body.simulator-open custom-footer {
+      display: none !important;
+    }
+
+    /* Ensure the "Ready to go deeper" block and similar callouts are readable on dark background */
+    .ready-section {
+      color: #f8fafc; /* light */
+    }
+    .ready-section .lead {
+      color: #e6eefb;
     }
 
     @keyframes fadeIn {
@@ -122,7 +137,9 @@
     }
   </style>
 </head>
+
 <body class="bg-dark text-light font-sans">
+  <!-- Site navbar (your component) -->
   <custom-navbar></custom-navbar>
 
   <main id="main-content" class="text-center">
@@ -140,19 +157,39 @@
       </svg>
       Launch Crisis Simulator
     </button>
+
+    <!-- "Ready to go deeper?" block — ensure readable colors on dark -->
+    <section class="ready-section mt-12 w-full max-w-4xl mx-auto">
+      <div class="bg-mid p-8 rounded-2xl shadow-xl">
+        <h3 class="text-3xl font-bold mb-4 text-white">Ready to go deeper?</h3>
+        <p class="lead text-lg text-gray-300 mb-6">
+          Real AI crises involve dozens of stakeholders, complex trade-offs, and decisions with life-or-death consequences.
+          Our full simulations prepare your organization to handle these challenges before they become headlines.
+        </p>
+        <a class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300 mb-4" href="mailto:your-email@roxanaakhmetova.com">
+          Experience the Full Simulation
+        </a>
+        <p class="text-gray-300 mt-4">
+          Custom crisis simulations for hospitals, healthtech startups, and policy organizations. We bring the chaos so you don't have to learn on the job.
+        </p>
+      </div>
+    </section>
   </main>
 
-  <!-- Simulator modal container -->
+  <!-- Simulator container; React mounts into #simulator-root -->
   <div id="simulator-container" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="simulator-viewport" id="simulator-root"></div>
   </div>
 
+  <!-- Site footer (your component) -->
   <custom-footer></custom-footer>
+
+  <!-- your existing component scripts -->
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
 
   <script>
-    // Modal open/close: hide main content using Tailwind 'hidden' class (Tailwind loaded)
+    // open/close simulator: hide main content and add body class to hide footer
     function launchSimulator() {
       const main = document.getElementById('main-content');
       if (main) main.classList.add('hidden');
@@ -162,6 +199,7 @@
         container.setAttribute('aria-hidden', 'false');
       }
       document.body.style.overflow = 'hidden';
+      document.body.classList.add('simulator-open'); // hides custom-footer via CSS
     }
 
     function closeSimulator() {
@@ -173,6 +211,7 @@
         container.setAttribute('aria-hidden', 'true');
       }
       document.body.style.overflow = '';
+      document.body.classList.remove('simulator-open');
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -181,11 +220,11 @@
     });
   </script>
 
-  <!-- Full, non-AI React simulator -->
+  <!-- Full non-AI React simulator implementation -->
   <script type="text/babel">
     const { useState, useEffect, useRef } = React;
 
-    /* Simple inline SVG icon components */
+    /* icons */
     const AlertTriangle = (props) => (
       <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
@@ -217,14 +256,14 @@
       </svg>
     );
 
-    /* Scenario header + incident text (used in the initial 'The Scenario' card) */
+    /* scenario header and incident */
     const scenario = {
       title: "AI Sepsis Alert System Crisis",
       context: "Your organization deployed an AI-powered sepsis prediction algorithm 6 months ago. The vendor promised 85% accuracy in identifying high-risk patients 12 hours before sepsis onset.",
       incident: "Monday 6:47 AM - You receive an urgent call. Over the weekend, three sepsis cases were missed by the AI system. One patient died. Meanwhile, the system has been generating dozens of false alerts daily, causing severe alert fatigue among nursing staff. Local media has been tipped off."
     };
 
-    /* Full scenes (the same branches you provided) */
+    /* full scenes data (hospital, startup, policy) */
     const scenes = {
       hospital: [
         {
@@ -414,8 +453,8 @@
       ]
     };
 
-    /* Main simulator component - non-AI, all prewritten */
-    const AICrisisSimulator = () => {
+    /* Simulator component (non-AI) */
+    function AICrisisSimulator() {
       const [role, setRole] = useState(null);
       const [currentScene, setCurrentScene] = useState(0);
       const [decisions, setDecisions] = useState([]);
@@ -424,12 +463,8 @@
       const timeoutRef = useRef(null);
 
       useEffect(() => {
-        // cleanup timeouts on unmount
         return () => {
-          if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
-            timeoutRef.current = null;
-          }
+          if (timeoutRef.current) clearTimeout(timeoutRef.current);
         };
       }, []);
 
@@ -487,7 +522,6 @@
       };
 
       if (!role) {
-        // Initial role selection / scenario summary view
         return (
           <div className="min-h-screen bg-dark text-light p-6">
             <div className="max-w-6xl mx-auto">
@@ -537,7 +571,6 @@
         );
       }
 
-      // Main role-play view
       const currentSceneData = scenes[role][currentScene];
       const lastDecision = decisions[decisions.length - 1];
 
@@ -642,12 +675,13 @@
                 )}
               </div>
             </div>
+
           </div>
         </div>
       );
-    };
+    }
 
-    // Mount into simulator-root (React 18)
+    // mount app
     const rootEl = document.getElementById('simulator-root');
     if (rootEl) {
       ReactDOM.createRoot(rootEl).render(<AICrisisSimulator />);
