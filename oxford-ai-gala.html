@@ -115,6 +115,38 @@
       font-size: 0.95rem;
     }
 
+    /* Navigation Arrows */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .carousel-arrow:hover {
+      background: rgba(0,0,0,0.8);
+    }
+
+    .carousel-arrow.prev {
+      left: 20px;
+    }
+
+    .carousel-arrow.next {
+      right: 20px;
+    }
+
     .carousel-dots {
       display: flex;
       justify-content: center;
@@ -139,6 +171,11 @@
       .carousel-slide {
         height: 400px;
       }
+      .carousel-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -160,54 +197,60 @@
       <div class="section-title">Event Gallery</div>
       
       <div class="carousel-container">
+        <!-- Previous Arrow -->
+        <button class="carousel-arrow prev" onclick="prevSlide()">‹</button>
+        
         <div class="carousel-track" id="carouselTrack">
           
           <div class="carousel-slide">
-            <img src="images/At the door.jpg" alt="Oxford AI Gala 2025 - Entrance">
+            <img src="/images/At the door.jpg" alt="Oxford AI Gala 2025 - Entrance">
             <div class="carousel-caption">Welcome to Oxford AI Gala 2025</div>
           </div>
           
           <div class="carousel-slide">
-            <img src="images/museum.jpg" alt="Oxford AI Gala 2025 - Museum venue">
+            <img src="/images/museum.jpg" alt="Oxford AI Gala 2025 - Museum venue">
             <div class="carousel-caption">Historic museum venue</div>
           </div>
           
           <div class="carousel-slide">
-            <img src="images/musicians.jpg" alt="Oxford AI Gala 2025 - Musicians">
+            <img src="/images/musicians.jpg" alt="Oxford AI Gala 2025 - Musicians">
             <div class="carousel-caption">Live music entertainment</div>
           </div>
           
           <div class="carousel-slide">
-            <img src="images/rec carpet 2.jpg" alt="Oxford AI Gala 2025 - Red carpet">
+            <img src="/images/rec carpet 2.jpg" alt="Oxford AI Gala 2025 - Red carpet">
             <div class="carousel-caption">Red carpet arrivals</div>
           </div>
           
           <div class="carousel-slide">
-            <img src="images/room.jpg" alt="Oxford AI Gala 2025 - Main hall">
+            <img src="/images/room.jpg" alt="Oxford AI Gala 2025 - Main hall">
             <div class="carousel-caption">Main conference hall</div>
           </div>
           
           <div class="carousel-slide">
-            <img src="images/Roxana panel.jpg" alt="Oxford AI Gala 2025 - Panel discussion">
+            <img src="/images/Roxana panel.jpg" alt="Oxford AI Gala 2025 - Panel discussion">
             <div class="carousel-caption">Panel discussion with industry leaders</div>
           </div>
           
           <div class="carousel-slide">
-            <img src="images/VIP2.jpg" alt="Oxford AI Gala 2025 - VIP reception">
+            <img src="/images/VIP2.jpg" alt="Oxford AI Gala 2025 - VIP reception">
             <div class="carousel-caption">VIP networking reception</div>
           </div>
           
           <div class="carousel-slide">
-            <img src="images/volunteers.jpg" alt="Oxford AI Gala 2025 - Volunteer team">
+            <img src="/images/volunteers.jpg" alt="Oxford AI Gala 2025 - Volunteer team">
             <div class="carousel-caption">Our dedicated volunteer team</div>
           </div>
           
           <div class="carousel-slide">
-            <img src="images/with a volunteer.jpg" alt="Oxford AI Gala 2025 - With volunteer">
+            <img src="/images/with a volunteer.jpg" alt="Oxford AI Gala 2025 - With volunteer">
             <div class="carousel-caption">Celebrating with our amazing volunteers</div>
           </div>
           
         </div>
+
+        <!-- Next Arrow -->
+        <button class="carousel-arrow next" onclick="nextSlide()">›</button>
       </div>
 
       <div class="carousel-dots" id="carouselDots"></div>
@@ -226,7 +269,7 @@
   <script src="https://roxanaakhmetova.com/components/footer.js"></script>
 
   <script>
-    // Auto-scrolling carousel
+    // Carousel functionality
     const track = document.getElementById('carouselTrack');
     const dotsContainer = document.getElementById('carouselDots');
     const slides = document.querySelectorAll('.carousel-slide');
@@ -255,6 +298,11 @@
 
     function nextSlide() {
       currentSlide = (currentSlide + 1) % totalSlides;
+      goToSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
       goToSlide(currentSlide);
     }
 
