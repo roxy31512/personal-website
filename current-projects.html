@@ -8,7 +8,7 @@
   <meta name="keywords" content="AI crisis simulation, AI governance, healthcare AI, policy simulation">
   <meta name="author" content="Roxana Akhmetova">
 
-  <!-- Tailwind config (extended colors) -->
+  <!-- Tailwind config -->
   <script>
     window.tailwind = {
       config: {
@@ -16,7 +16,7 @@
           extend: {
             colors: {
               dark: '#0d0d0f',
-              mid: '#141617',      /* slightly lighter than dark for card surfaces */
+              mid: '#141617',
               light: '#f7f7f8',
               oxford: '#002147',
               'oxford-100': '#e6eefb',
@@ -29,7 +29,7 @@
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- React & Babel for inline JSX prototyping -->
+  <!-- React UMD + Babel for in-page JSX (prototyping) -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -40,6 +40,14 @@
     html, body {
       background-color: #0d0d0f;
       min-height: 100%;
+    }
+
+    /* NO TEXT SELECTION SITE-WIDE (prevents highlight/copy). If you want to allow selection for accessibility, remove/adjust this. */
+    body {
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE10+ */
+      user-select: none; /* Standard */
     }
 
     main {
@@ -91,6 +99,20 @@
       box-shadow: 0 15px 35px rgba(220, 38, 38, 0.4);
     }
 
+    /* Blue CTA button style (match contact) */
+    .btn-blue {
+      display: inline-block;
+      background: #314e86; /* blue similar to screenshot */
+      color: #ffffff;
+      font-weight: 700;
+      padding: 14px 36px;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(49,78,134,0.18);
+      transition: background .15s ease, transform .08s ease;
+    }
+    .btn-blue:hover { background: #253d6a; transform: translateY(-2px); }
+
     #simulator-container {
       position: fixed;
       top: 0;
@@ -113,12 +135,9 @@
       display: none !important;
     }
 
-    /* Ensure the "Ready to go deeper" site CTA (outside simulator) is readable */
-    .ready-section {
-      color: #f8fafc; /* light */
-    }
+    /* Make the "Ready to go deeper?" lead text white per request */
     .ready-section .lead {
-      color: #e6eefb;
+      color: #ffffff !important;
     }
 
     @keyframes fadeIn {
@@ -129,7 +148,6 @@
       animation: fadeIn 0.5s ease-in;
     }
 
-    /* small helper to visually center the modal content container */
     .simulator-viewport {
       max-width: 1200px;
       margin: 0 auto;
@@ -138,10 +156,9 @@
 </head>
 
 <body class="bg-dark text-light font-sans">
-  <!-- Navbar component -->
+  <!-- Navbar -->
   <custom-navbar></custom-navbar>
 
-  <!-- Main content -->
   <main id="main-content" class="text-center">
     <h1>Current Projects</h1>
 
@@ -158,17 +175,17 @@
       Launch Crisis Simulator
     </button>
 
-    <!-- Site CTA: Ready to go deeper? (visible outside simulator) -->
+    <!-- Site CTA: Ready to go deeper? -->
     <section class="ready-section mt-12 w-full max-w-4xl mx-auto">
       <div class="bg-mid p-8 rounded-2xl shadow-xl">
         <h3 class="text-3xl font-bold mb-4 text-white">Ready to go deeper?</h3>
-        <p class="lead text-lg text-gray-300 mb-6">
+        <p class="lead text-lg mb-6">
           Real AI crises involve dozens of stakeholders, complex trade-offs, and decisions with life-or-death consequences.
           Our full simulations prepare your organization to handle these challenges before they become headlines.
         </p>
-        <a class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300 mb-4" href="mailto:your-email@roxanaakhmetova.com">
-          Experience the Full Simulation
-        </a>
+        <!-- Blue button linking to the contact page -->
+        <a class="btn-blue" href="https://roxanaakhmetova.com/contact.html" id="full-sim-cta">Experience the Full Simulation</a>
+
         <p class="text-gray-300 mt-4">
           Custom crisis simulations for hospitals, healthtech startups, and policy organizations. We bring the chaos so you don't have to learn on the job.
         </p>
@@ -176,20 +193,18 @@
     </section>
   </main>
 
-  <!-- Simulator container and mount point -->
+  <!-- Simulator mount point -->
   <div id="simulator-container" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="simulator-viewport" id="simulator-root"></div>
   </div>
 
-  <!-- Footer component -->
   <custom-footer></custom-footer>
 
-  <!-- Optional component scripts -->
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
 
-  <!-- Modal open/close behavior (adds class to body to hide footer element) -->
   <script>
+    // open/close simulator + hide footer
     function launchSimulator() {
       const main = document.getElementById('main-content');
       if (main) main.classList.add('hidden');
@@ -199,7 +214,7 @@
         container.setAttribute('aria-hidden', 'false');
       }
       document.body.style.overflow = 'hidden';
-      document.body.classList.add('simulator-open'); // hides custom-footer via CSS rule above
+      document.body.classList.add('simulator-open');
     }
 
     function closeSimulator() {
@@ -217,14 +232,81 @@
     document.addEventListener('DOMContentLoaded', () => {
       const btn = document.getElementById('launch-sim-btn');
       if (btn) btn.addEventListener('click', launchSimulator);
+
+      // Also make CTA in-page go to contact page (already href but ensure target)
+      const cta = document.getElementById('full-sim-cta');
+      if (cta) cta.setAttribute('target', '_self');
     });
+
+    /* -------------------------
+       No-copy / no-right-click
+       -------------------------
+       - blocks right click
+       - blocks copy/cut/paste
+       - blocks common dev / view-source keys (F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S, Ctrl+C, Ctrl+X)
+       - shows a brief alert for user feedback (optional)
+       Note: This is a deterrent only. Determined users can still bypass.
+    */
+    (function preventCopying() {
+      // right-click
+      document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+      }, false);
+
+      // copy / cut / paste
+      document.addEventListener('copy', function (e) {
+        e.preventDefault();
+        // optional gentle message:
+        // alert('Copying content from this site is disabled.');
+      }, false);
+
+      document.addEventListener('cut', function (e) {
+        e.preventDefault();
+      }, false);
+
+      document.addEventListener('paste', function (e) {
+        e.preventDefault();
+      }, false);
+
+      // keyboard shortcuts
+      document.addEventListener('keydown', function (e) {
+        // F12
+        if (e.key === 'F12') {
+          e.preventDefault();
+          return false;
+        }
+
+        // Ctrl+Shift+I  (open devtools)
+        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+          e.preventDefault();
+          return false;
+        }
+
+        // Ctrl+U  (view-source)
+        if (e.ctrlKey && (e.key === 'U' || e.key === 'u')) {
+          e.preventDefault();
+          return false;
+        }
+
+        // Ctrl+S  (save)
+        if (e.ctrlKey && (e.key === 'S' || e.key === 's')) {
+          e.preventDefault();
+          return false;
+        }
+
+        // Ctrl+C / Ctrl+X / Ctrl+A (copy, cut, select all)
+        if (e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.key === 'x' || e.key === 'X' || e.key === 'a' || e.key === 'A')) {
+          e.preventDefault();
+          return false;
+        }
+      }, false);
+    })();
   </script>
 
-  <!-- Full non-AI React simulator implementation -->
+  <!-- Full non-AI simulator React code (manual Continue, full scenes content included) -->
   <script type="text/babel">
     const { useState, useEffect, useRef } = React;
 
-    /* Simple SVG icons used in the UI */
     const AlertTriangle = (props) => (
       <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
@@ -256,14 +338,13 @@
       </svg>
     );
 
-    /* Scenario header + incident text */
     const scenario = {
       title: "AI Sepsis Alert System Crisis",
       context: "Your organization deployed an AI-powered sepsis prediction algorithm 6 months ago. The vendor promised 85% accuracy in identifying high-risk patients 12 hours before sepsis onset.",
       incident: "Monday 6:47 AM - You receive an urgent call. Over the weekend, three sepsis cases were missed by the AI system. One patient died. Meanwhile, the system has been generating dozens of false alerts daily, causing severe alert fatigue among nursing staff. Local media has been tipped off."
     };
 
-    /* Full scenes data (hospital, startup, policy).  All pre-written; no API calls. */
+    /* Full scenes data (hospital, startup, policy) - complete content included */
     const scenes = {
       hospital: [
         {
@@ -329,22 +410,22 @@
       ],
       startup: [
         {
-          situation: "Your largest hospital client reports a patient death possibly linked to your AI diagnostic tool. Your board, investors, and other clients are all waiting for answers. What's your first move?",
+          situation: "Your largest hospital client reports a patient death possibly linked to your AI diagnostic tool. Your board, investors, and 15 other hospital clients are all waiting for answers. What's your first move?",
           options: [
             {
               text: "Issue immediate recall of the algorithm while you investigate",
-              consequence: "You recall the algorithm; clients worry and revenue drops.",
-              nextSituation: "Within 24 hours, 8 of your 15 clients suspend use. Revenue drops 40% overnight. Your board demands answers; investors call an emergency meeting."
+              consequence: "The recall begins. Your other clients start questioning their contracts...",
+              nextSituation: "Within 24 hours, 8 of your 15 clients suspend use of your platform. Your revenue drops 40% overnight. Your Series B investors call an emergency meeting. The lead investor asks: 'Do you even understand what went wrong?'"
             },
             {
               text: "Request access to the hospital's data to audit what happened",
-              consequence: "You ask for full data to replicate the failure, but legal barriers emerge.",
-              nextSituation: "The hospital's legal team refuses data access citing privacy and pending litigation. Your engineering team can't replicate the failure; other clients demand answers you can't provide."
+              consequence: "Legal raises concerns about liability and data access rights...",
+              nextSituation: "The hospital's legal team refuses data access citing patient privacy and potential litigation. You're blind. Your engineering team can't replicate the failure without real data. Meanwhile, your other clients are demanding answers you can't provide."
             },
             {
               text: "Engage external AI ethics consultants to investigate independently",
-              consequence: "You hire independent investigators; the media cycle moves faster than the audit.",
-              nextSituation: "By day 3, blogs are speculating about algorithmic flaws. A competitor touts its safety protocols. Your sales pipeline freezes; prospects postpone pilots."
+              consequence: "The consultants need 2-3 weeks. The media cycle is 24 hours...",
+              nextSituation: "By day 3, healthcare tech blogs are speculating wildly about your algorithm's flaws. A competitor issues a statement about their 'rigorous safety protocols.' Your sales pipeline freezes. Three major prospects postpone pilot programs indefinitely."
             }
           ]
         },
@@ -353,18 +434,18 @@
           options: [
             {
               text: "Proactively notify all clients and offer to pause deployments for safety review",
-              consequence: "Transparency helps some clients but triggers contract terminations for others.",
-              nextSituation: "Some clients praise your transparency; five immediately terminate contracts. Your burn rate spikes and runway falls; investors talk about 'strategic alternatives.'"
+              consequence: "You send a company-wide safety notification...",
+              nextSituation: "Your transparency is praised by some clients but 5 immediately terminate contracts. Your burn rate spikes as revenue drops. Your CFO warns you have 8 months of runway. Your biggest investor suggests 'strategic alternatives' - code for selling the company at a loss."
             },
             {
               text: "Focus on the one incident and reassure other clients their deployments are safe",
-              consequence: "You frame the event as an isolated configuration issue; later reports undermine that narrative.",
-              nextSituation: "Two days later another hospital reports similar missed cases. Clients feel misled; your NPS plummets and key staff resign over ethics concerns."
+              consequence: "You frame this as an isolated configuration issue...",
+              nextSituation: "Two days later, a different hospital reports similar missed cases. Your 'isolated incident' narrative collapses. Clients feel misled. Your NPS score drops 40 points. Your Head of Customer Success submits resignation, citing ethical concerns."
             },
             {
               text: "Launch a bug bounty program and invite external researchers to stress-test your system",
-              consequence: "External researchers surface multiple edge cases; findings are public.",
-              nextSituation: "Researchers publish a preprint on failure modes. Reputation takes a hit, but you now have a roadmap to fix issues—if you can survive long enough to implement them."
+              consequence: "The bounty program attracts dozens of AI safety researchers...",
+              nextSituation: "Researchers discover 3 additional edge cases where your algorithm fails dangerously. The findings are published in a preprint. Your platform's reputation is in tatters, but you now have a roadmap to fix the issues. Can you survive long enough to implement the fixes?"
             }
           ]
         },
@@ -372,19 +453,19 @@
           situation: "Day 5: Your company's future is in question. The board meets tomorrow. You need a path forward.",
           options: [
             {
-              text: "Pivot to a 'decision support only' model requiring physician override",
-              consequence: "You shift to assistive mode and retrain sales and customers.",
-              nextSituation: "Pivot delays product roadmap by months; valuation drops; investors are split on whether to double down or cut losses."
+              text: "Pivot to a 'decision support only' model that requires physician override",
+              consequence: "You redesign the product as assistive rather than autonomous...",
+              nextSituation: "The pivot extends your development timeline by 6 months and requires re-training your sales team. Your board is split: half want to cut losses, half want to push forward. You need to raise capital, but VCs are suddenly cold on healthcare AI. One VC tells you off the record: 'Your company is uninvestable until this blows over.'"
             },
             {
-              text: "Double down on the technology and prove it works with clinical trials",
-              consequence: "You commit to rigorous validation but need substantial time and money.",
-              nextSituation: "Trials take 18 months and $3M. You lack both. Talent leaves and investors get cold; the company risks closure."
+              text: "Double down on the technology and prove it works through rigorous clinical trials",
+              consequence: "You commit to gold-standard validation...",
+              nextSituation: "The clinical trial design will take 18 months and cost $3M. You don't have either. Your co-founder argues for shutting down and returning remaining capital to investors. Your team is hemorrhaging talent. Your top ML engineer just accepted an offer from a competitor."
             },
             {
-              text: "Seek acquisition by a larger company with deeper resources",
-              consequence: "You shop the company quietly for survival at low valuations.",
-              nextSituation: "Acquirers offer steeply discounted valuations with escrow tied to risk; investors take losses but the company may survive under new ownership."
+              text: "Seek acquisition by a larger health tech company with deeper resources",
+              consequence: "You quietly shop the company...",
+              nextSituation: "Two potential acquirers express interest, but at valuations 70% below your last funding round. The terms include significant escrow tied to no further incidents. Your investors would take massive losses. Your employees would see their equity evaporate. But the company might survive."
             }
           ]
         }
@@ -395,38 +476,38 @@
           options: [
             {
               text: "Recommend immediate suspension at all sites until full investigation",
-              consequence: "Hospitals push back citing disruption; politics heat up.",
-              nextSituation: "Five hospitals comply; seven push back. Hospital association threatens to sue the state. You're stuck between safety and legal risk."
+              consequence: "You advise suspension. Hospitals push back citing disruption to care...",
+              nextSituation: "Five hospitals comply immediately. Seven push back, arguing suspension would harm patient care and expose them to liability for reverting to less effective protocols. The hospital association threatens to sue the state for overreach. You're caught in the middle."
             },
             {
               text: "Suggest enhanced monitoring protocols while allowing continued use",
-              consequence: "A compromise reduces disruption but raises ethical questions about patient risk.",
-              nextSituation: "Enhanced monitoring catches near-misses; critics argue patients are being used as live testers. Advocacy groups file complaints."
+              consequence: "The compromise is accepted. But what if another incident occurs?...",
+              nextSituation: "Your enhanced monitoring catches two near-misses in the first week. No harm done, but critics argue you're using patients as beta testers. A patient advocacy group files a complaint with the state medical board, naming you personally for 'reckless endangerment.'"
             },
             {
-              text: "Propose an emergency framework for AI medical device incident response",
-              consequence: "A framework will help long-term but takes time to draft and implement.",
-              nextSituation: "While drafting, another patient dies. Political pressure spikes and the governor demands immediate action. Every word of your framework is scrutinized."
+              text: "Propose emergency framework for AI medical device incident response",
+              consequence: "Creating the framework will take weeks. They need answers today...",
+              nextSituation: "While you draft the framework, another patient dies at a different hospital using the same AI. The governor holds a press conference demanding immediate action. Your framework is now being drafted under intense political pressure and media scrutiny. Every word will be analyzed."
             }
           ]
         },
         {
-          situation: "Day 3: Political pressure is mounting. You need to provide concrete recommendations that balance safety and innovation.",
+          situation: "Day 3: Political pressure is mounting. You need to provide concrete recommendations that balance safety, innovation, and practicality.",
           options: [
             {
               text: "Recommend creating a state-level AI safety review board with emergency powers",
-              consequence: "The idea gains attention but faces fierce opposition.",
-              nextSituation: "Lobbying groups oppose it; legal questions about scope arise. The governor asks whether it's legally feasible."
+              consequence: "The proposal gains traction but faces opposition...",
+              nextSituation: "Hospital lobbying groups call it government overreach. Tech industry groups warn it will kill innovation. Patient advocacy groups demand even stronger oversight. Your inbox fills with threats and praise in equal measure. The governor asks: 'Can this even be done legally?'"
             },
             {
               text: "Advise implementing mandatory incident reporting for all healthcare AI systems",
-              consequence: "A reporting mandate finds many incidents but overwhelms the system.",
-              nextSituation: "200 incident reports arrive in week one. Hospitals say they lack staff to manage the burden."
+              consequence: "The reporting mandate is drafted...",
+              nextSituation: "The first week produces 200 incident reports across the state. Ninety percent are minor, but you've uncovered systemic issues with multiple AI systems. The healthcare community is overwhelmed. Hospital CIOs are calling you directly: 'We don't have staff to manage this reporting burden.'"
             },
             {
-              text: "Propose human oversight for all high-stakes AI medical decisions",
-              consequence: "Human-in-the-loop improves safety but increases clinician workload.",
-              nextSituation: "Hospitals report significant extra clinician hours; some threaten to stop using AI tools instead."
+              text: "Propose requiring human oversight for all high-stakes AI medical decisions",
+              consequence: "The human-in-the-loop mandate is implemented...",
+              nextSituation: "Hospitals report the mandate is adding 20-30 hours per week to clinician workloads during a nursing shortage crisis. The state's largest health system threatens to discontinue all AI tools rather than comply. Your well-intentioned policy is creating unintended consequences at scale."
             }
           ]
         },
@@ -435,38 +516,30 @@
           options: [
             {
               text: "Call for federal harmonization of healthcare AI regulations",
-              consequence: "You push for national coordination; agencies push back.",
-              nextSituation: "Regulatory agencies disagree on jurisdiction; coordination proves challenging and slow."
+              consequence: "You draft a letter to federal regulators...",
+              nextSituation: "The FDA responds that medical AI falls into a regulatory gap between devices and software. CMS says it's outside their purview. The FTC says it's a healthcare issue. ONC says it's a safety issue. You realize you've uncovered a massive coordination failure. The crisis is actually a symptom of a much bigger systemic problem."
             },
             {
-              text: "Recommend a state AI testing and certification program",
-              consequence: "A certification program could improve safety but costs millions.",
-              nextSituation: "The legislature hesitates to fund it; vendors threaten to pull out of the state market."
+              text: "Recommend establishing a state AI testing and certification program",
+              consequence: "The certification program proposal is published...",
+              nextSituation: "The program would cost $15M annually. The legislature hasn't funded it. AI vendors threaten to pull out of your state entirely. Meanwhile, neighboring states are watching to see if your approach works or fails. You're essentially running a live policy experiment with real stakes."
             },
             {
               text: "Advise focusing on vendor liability and insurance requirements",
-              consequence: "New liability rules shift risk to vendors but may dry up market offerings.",
-              nextSituation: "Insurers balk at underwriting new liability; two vendors exit the market, leaving hospitals with unsupported systems."
+              consequence: "New liability standards are proposed for AI vendors...",
+              nextSituation: "Insurance companies refuse to underwrite the new requirements, calling healthcare AI 'uninsurable risk.' Two major AI vendors immediately exit your state market. Hospitals are stuck with unsupported systems. Your solution has created a different crisis. Patients are now worse off."
             }
           ]
         }
       ]
     };
 
-    /* Simulator component (non-AI) */
     function AICrisisSimulator() {
       const [role, setRole] = useState(null);
       const [currentScene, setCurrentScene] = useState(0);
       const [decisions, setDecisions] = useState([]);
       const [showingConsequence, setShowingConsequence] = useState(false);
       const [showContact, setShowContact] = useState(false);
-      const timeoutRef = useRef(null);
-
-      useEffect(() => {
-        return () => {
-          if (timeoutRef.current) clearTimeout(timeoutRef.current);
-        };
-      }, []);
 
       const handleRoleSelect = (roleId) => {
         setRole(roleId);
@@ -491,21 +564,18 @@
         }];
         setDecisions(newDecisions);
         setShowingConsequence(true);
+        // manual Continue required (no auto-advance)
+      };
 
-        if (timeoutRef.current) {
-          clearTimeout(timeoutRef.current);
-          timeoutRef.current = null;
+      const handleContinue = () => {
+        const roleScenes = scenes[role] || [];
+        if (currentScene < roleScenes.length - 1) {
+          setCurrentScene((s) => s + 1);
+          setShowingConsequence(false);
+        } else {
+          setShowContact(true);
+          setShowingConsequence(false);
         }
-
-        timeoutRef.current = setTimeout(() => {
-          if (currentScene < roleScenes.length - 1) {
-            setCurrentScene((s) => s + 1);
-            setShowingConsequence(false);
-          } else {
-            setShowContact(true);
-          }
-          timeoutRef.current = null;
-        }, 3000);
       };
 
       const reset = () => {
@@ -615,6 +685,12 @@
                       <p className="text-white font-semibold mb-2">Crisis Escalates:</p>
                       <p className="text-gray-200">{lastDecision.nextSituation}</p>
                     </div>
+
+                    <div className="mt-6 text-right">
+                      <button onClick={handleContinue} className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-200">
+                        Continue
+                      </button>
+                    </div>
                   </div>
                 )}
 
@@ -639,9 +715,7 @@
                   </>
                 )}
 
-                {/* FINAL: showContact (user reached the end of the mini simulation) */}
                 {showContact && (
-                  /* IMPORTANT: THIS BLOCK IS DARK BACKGROUND + LIGHT TEXT (was previously light, causing black-on-black) */
                   <div className="bg-mid rounded-xl shadow-xl p-8 text-white animate-fade-in">
                     <h3 className="text-2xl font-bold mb-4">The crisis continues to spiral...</h3>
                     <p className="text-gray-300 mb-4 text-lg">
@@ -668,9 +742,8 @@
                         Our full simulations prepare your organization to handle these challenges before they become headlines.
                       </p>
 
-                      <a href="mailto:your-email@roxanaakhmetova.com" className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300">
-                        Experience the Full Simulation
-                      </a>
+                      <!-- Blue button (links to contact page) -->
+                      <a href="https://roxanaakhmetova.com/contact.html" className="btn-blue">Experience the Full Simulation</a>
 
                       <p className="text-sm text-gray-300 mt-4">
                         Custom crisis simulations for hospitals, healthtech startups, and policy organizations. We bring the chaos so you don't have to learn on the job.
@@ -686,7 +759,7 @@
       );
     }
 
-    // mount the sim
+    // mount the simulator
     const rootEl = document.getElementById('simulator-root');
     if (rootEl) {
       ReactDOM.createRoot(rootEl).render(<AICrisisSimulator />);
