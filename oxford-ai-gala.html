@@ -26,7 +26,7 @@
     }
   </script>
 
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="style.css">
 
   <style>
     html, body {
@@ -46,6 +46,8 @@
       color: #ffffff !important;
       font-weight: 600 !important;
       -webkit-text-fill-color: #ffffff !important;
+      text-shadow: none !important;
+      opacity: 1 !important;
     }
 
     .project-year {
@@ -166,6 +168,35 @@
       background: #9fc0ff;
     }
 
+    /* Testimonial Styles */
+    .testimonial {
+      background: rgba(255,255,255,0.03);
+      border-left: 3px solid #9fc0ff;
+      padding: 24px;
+      margin-bottom: 24px;
+      border-radius: 8px;
+    }
+
+    .testimonial-quote {
+      color: #d8e1eb;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .testimonial-author {
+      color: #9fc0ff;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .testimonial-title {
+      color: #b8c5d6;
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
     @media (max-width: 768px) {
       .carousel-slide {
         height: 400px;
@@ -267,13 +298,53 @@
     <!-- Quotes section -->
     <div class="content-section">
       <div class="section-title">What Participants Said</div>
+      
+      <div class="testimonial">
+        <div class="testimonial-quote">
+          "An incredible evening of ideas, conversations, and diverse minds at the Oxford Museum of Natural History."
+        </div>
+        <div class="testimonial-author">Jessica Pino</div>
+        <div class="testimonial-title">AI Policy Specialist</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-quote">
+          "These weren't just networking conversations; they were deep dives that genuinely shift how you think."
+        </div>
+        <div class="testimonial-author">Nikita Kozlov</div>
+        <div class="testimonial-title">Staff Engineer</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-quote">
+          "An unforgettable evening... The OxAI Gala was a reminder that while AI is advancing rapidly, it's human collaboration and leadership that will shape its future."
+        </div>
+        <div class="testimonial-author">Aurora Kapo</div>
+        <div class="testimonial-title">AI Strategy Manager and Senior AI Ambassador at HSBC UK</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-quote">
+          "Loved the Oxford AI Gala 2025 last night."
+        </div>
+        <div class="testimonial-author">Jannes Klaas</div>
+        <div class="testimonial-title">Principal @ McKinsey QuantumBlack</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-quote">
+          "AI doesn't need more hype, it needs governance that works."
+        </div>
+        <div class="testimonial-author">Adamantia Velonis</div>
+        <div class="testimonial-title">Global Director IT Strategy | Innovation</div>
+      </div>
     </div>
     
   </main>
 
   <custom-footer></custom-footer>
-  <script src="/components/navbar.js"></script>
-  <script src="/components/footer.js"></script>
+  <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
+  <script src="https://roxanaakhmetova.com/components/footer.js"></script>
 
   <script>
     const track = document.getElementById('carouselTrack');
