@@ -8,15 +8,15 @@
   <meta name="keywords" content="AI crisis simulation, AI governance, healthcare AI, policy simulation">
   <meta name="author" content="Roxana Akhmetova">
 
-  <!-- Tailwind config must be set before the CDN loads so the CDN picks it up -->
+  <!-- Tailwind config before loading CDN -->
   <script>
     window.tailwind = {
       config: {
         theme: {
           extend: {
             colors: {
-              dark: '#1a1a1a',
-              mid: '#4d4d4d',
+              dark: '#0d0d0f',
+              mid: '#2a2a2d',
               light: '#f7f7f8',
               oxford: '#002147',
               'oxford-100': '#e6eefb',
@@ -29,16 +29,15 @@
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- React + ReactDOM (UMD builds) -->
+  <!-- React UMD + Babel (for quick prototyping) -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <!-- Babel standalone for running JSX in the browser (ok for prototype) -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <link rel="stylesheet" href="style.css">
   <style>
     html, body {
-      background-color: #1a1a1a !important;
+      background-color: #0d0d0f;
       min-height: 100%;
     }
 
@@ -58,7 +57,6 @@
       margin-bottom: 25px !important;
       color: #ffffff !important;
       font-weight: 600 !important;
-      -webkit-text-fill-color: #ffffff !important;
       text-align: center;
     }
 
@@ -105,6 +103,7 @@
       z-index: 9999;
       overflow-y: auto;
       display: none;
+      padding: 40px;
     }
 
     #simulator-container.active {
@@ -124,7 +123,7 @@
 <body class="bg-dark text-light font-sans">
   <custom-navbar></custom-navbar>
 
-  <main id="main-content">
+  <main id="main-content" class="text-center">
     <h1>Current Projects</h1>
 
     <div class="project-description">
@@ -141,7 +140,7 @@
     </button>
   </main>
 
-  <!-- Simulator Container (hidden by default) -->
+  <!-- Simulator modal -->
   <div id="simulator-container" aria-hidden="true" role="dialog" aria-modal="true">
     <div id="simulator-root"></div>
   </div>
@@ -151,17 +150,13 @@
   <script src="/components/footer.js"></script>
 
   <script>
-    // Use class toggles and body overflow lock for modal behavior
+    // Modal open/close
     function launchSimulator() {
       document.getElementById('main-content').classList.add('hidden');
       const container = document.getElementById('simulator-container');
       container.classList.add('active');
       container.setAttribute('aria-hidden', 'false');
-      // prevent background scrolling while modal open
       document.body.style.overflow = 'hidden';
-      // move focus into the simulator root for accessibility (if mounted)
-      const root = document.getElementById('simulator-root');
-      if (root) root.focus?.();
     }
 
     function closeSimulator() {
@@ -169,15 +164,10 @@
       const container = document.getElementById('simulator-container');
       container.classList.remove('active');
       container.setAttribute('aria-hidden', 'true');
-      // restore scrolling
       document.body.style.overflow = '';
-      // return focus to launch button
-      const btn = document.getElementById('launch-sim-btn');
-      if (btn) btn.focus?.();
     }
 
-    // Attach a click listener to the launch button to avoid inline onclick
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', () => {
       const btn = document.getElementById('launch-sim-btn');
       if (btn) btn.addEventListener('click', launchSimulator);
     });
@@ -186,7 +176,7 @@
   <script type="text/babel">
     const { useState, useEffect, useRef } = React;
 
-    // Inline SVG icon components
+    // Simple SVG icon components
     const AlertTriangle = (props) => (
       <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
@@ -227,6 +217,196 @@
       </svg>
     );
 
+    // Full scenes (copied in full from your earlier content)
+    const scenes = {
+      hospital: [
+        {
+          situation: "Your Chief Medical Officer calls: 'We have a dead patient, exhausted nurses ignoring alerts, and reporters in the parking lot. What's our immediate response?'",
+          options: [
+            {
+              text: "Immediately shut down the AI system and revert to manual protocols",
+              consequence: "Decision made. Clinical teams scramble to adjust workflows...",
+              nextSituation: "Within 2 hours, your ED is overwhelmed. Nurses are manually reviewing charts for sepsis indicators, adding 15 minutes per patient. Wait times are spiking. Your COO texts: 'We can't sustain this. ED is backing up.'"
+            },
+            {
+              text: "Keep the system running but increase the alert threshold to reduce false positives",
+              consequence: "You adjust the settings. But what about the missed cases?...",
+              nextSituation: "The threshold change reduces alerts by 60%. Your nursing staff breathes easier. Then at 2 PM, another missed case. The patient survives, but the family is calling lawyers. Your risk management team is now involved."
+            },
+            {
+              text: "Call an emergency meeting with the vendor to understand what went wrong",
+              consequence: "The vendor's technical team can meet Thursday. It's Monday...",
+              nextSituation: "By Tuesday morning, two more missed cases occur. The medical staff demands action NOW. Your Chief of Staff confronts you: 'We can't wait for the vendor. People are dying. Make a decision.'"
+            }
+          ]
+        },
+        {
+          situation: "The immediate crisis intensifies. You need a strategy to manage both patient safety and operational chaos.",
+          options: [
+            {
+              text: "Form an urgent task force to manually audit all high-risk patients twice daily",
+              consequence: "The task force launches. You're pulling clinicians from other duties...",
+              nextSituation: "The manual audits catch two sepsis cases the AI missed. Success! But your staff is working 12-hour shifts. Union reps are filing grievances. Burnout complaints are flooding HR. Meanwhile, the media story goes regional."
+            },
+            {
+              text: "Bring in an independent AI auditor to review the system immediately",
+              consequence: "The auditor arrives and requests full data access...",
+              nextSituation: "The auditor discovers the AI was trained on data from academic medical centers, but your community hospital has different patient demographics. The model has been failing on your population for weeks. Your quality committee is furious: 'Why didn't we catch this during implementation?'"
+            },
+            {
+              text: "Implement a 'human-in-the-loop' protocol where every AI alert requires nurse verification",
+              consequence: "New protocol activated. Every alert now needs manual review...",
+              nextSituation: "The protocol works for 24 hours. Then the night shift reports they're spending 40% of their time reviewing alerts. A nurse misses a real case because she's fatigued from reviewing 50 false positives. The system is creating the exact problem it was supposed to solve."
+            }
+          ]
+        },
+        {
+          situation: "Day 3: The crisis is now public. You must manage reputation, legal exposure, and regulatory scrutiny while ensuring patient safety.",
+          options: [
+            {
+              text: "Publicly acknowledge the AI failure and commit to transparency",
+              consequence: "You draft a statement admitting the system's limitations...",
+              nextSituation: "Your statement goes viral. Patient advocacy groups applaud your transparency. But three other hospitals using the same system immediately terminate their contracts, citing reputational risk. Your board receives a letter from your malpractice insurer raising rates 40%."
+            },
+            {
+              text: "Keep this internal while you work on fixing it",
+              consequence: "You decide discretion is the best approach for now...",
+              nextSituation: "An ICU nurse leaks internal emails to the press showing you knew about alert fatigue for weeks. The headline: 'Hospital Ignored AI Warning Signs Before Patient Death.' Your credibility is shattered. The state health department opens a formal investigation."
+            },
+            {
+              text: "Commission a full independent review before making any public statements",
+              consequence: "You engage external experts for a comprehensive assessment...",
+              nextSituation: "The 6-week review timeline is leaked. Families of affected patients interpret this as a cover-up. A class action lawsuit is filed. Your legal team advises the review may now be subject to discovery. The crisis has become a legal minefield."
+            }
+          ]
+        }
+      ],
+      startup: [
+        {
+          situation: "Your largest hospital client reports a patient death possibly linked to your AI diagnostic tool. Your board, investors, and 15 other hospital clients are all waiting for answers. What's your first move?",
+          options: [
+            {
+              text: "Issue immediate recall of the algorithm while you investigate",
+              consequence: "The recall begins. Your other clients start questioning their contracts...",
+              nextSituation: "Within 24 hours, 8 of your 15 clients suspend use of your platform. Your revenue drops 40% overnight. Your Series B investors call an emergency meeting. The lead investor asks: 'Do you even understand what went wrong?'"
+            },
+            {
+              text: "Request access to the hospital's data to audit what happened",
+              consequence: "Legal raises concerns about liability and data access rights...",
+              nextSituation: "The hospital's legal team refuses data access citing patient privacy and potential litigation. You're blind. Your engineering team can't replicate the failure without real data. Meanwhile, your other clients are demanding answers you can't provide."
+            },
+            {
+              text: "Engage external AI ethics consultants to investigate independently",
+              consequence: "The consultants need 2-3 weeks. The media cycle is 24 hours...",
+              nextSituation: "By day 3, healthcare tech blogs are speculating wildly about your algorithm's flaws. A competitor issues a statement about their 'rigorous safety protocols.' Your sales pipeline freezes. Three major prospects postpone pilot programs indefinitely."
+            }
+          ]
+        },
+        {
+          situation: "Day 2: The incident is escalating. You need to balance product safety, customer retention, and investor confidence.",
+          options: [
+            {
+              text: "Proactively notify all clients and offer to pause deployments for safety review",
+              consequence: "You send a company-wide safety notification...",
+              nextSituation: "Your transparency is praised by some clients but 5 immediately terminate contracts. Your burn rate spikes as revenue drops. Your CFO warns you have 8 months of runway. Your biggest investor suggests 'strategic alternatives' - code for selling the company at a loss."
+            },
+            {
+              text: "Focus on the one incident and reassure other clients their deployments are safe",
+              consequence: "You frame this as an isolated configuration issue...",
+              nextSituation: "Two days later, a different hospital reports similar missed cases. Your 'isolated incident' narrative collapses. Clients feel misled. Your NPS score drops 40 points. Your Head of Customer Success submits resignation, citing ethical concerns."
+            },
+            {
+              text: "Launch a bug bounty program and invite external researchers to stress-test your system",
+              consequence: "The bounty program attracts dozens of AI safety researchers...",
+              nextSituation: "Researchers discover 3 additional edge cases where your algorithm fails dangerously. The findings are published in a preprint. Your platform's reputation is in tatters, but you now have a roadmap to fix the issues. Can you survive long enough to implement the fixes?"
+            }
+          ]
+        },
+        {
+          situation: "Day 5: Your company's future is in question. The board meets tomorrow. You need a path forward.",
+          options: [
+            {
+              text: "Pivot to a 'decision support only' model that requires physician override",
+              consequence: "You redesign the product as assistive rather than autonomous...",
+              nextSituation: "The pivot extends your development timeline by 6 months and requires re-training your sales team. Your board is split: half want to cut losses, half want to push forward. You need to raise capital, but VCs are suddenly cold on healthcare AI. One VC tells you off the record: 'Your company is uninvestable until this blows over.'"
+            },
+            {
+              text: "Double down on the technology and prove it works through rigorous clinical trials",
+              consequence: "You commit to gold-standard validation...",
+              nextSituation: "The clinical trial design will take 18 months and cost $3M. You don't have either. Your co-founder argues for shutting down and returning remaining capital to investors. Your team is hemorrhaging talent. Your top ML engineer just accepted an offer from a competitor."
+            },
+            {
+              text: "Seek acquisition by a larger health tech company with deeper resources",
+              consequence: "You quietly shop the company...",
+              nextSituation: "Two potential acquirers express interest, but at valuations 70% below your last funding round. The terms include significant escrow tied to no further incidents. Your investors would take massive losses. Your employees would see their equity evaporate. But the company might survive."
+            }
+          ]
+        }
+      ],
+      policy: [
+        {
+          situation: "A state health agency calls: 'This AI system is deployed in 12 hospitals in our state. We need guidance on whether to mandate suspension pending investigation. What do you recommend?'",
+          options: [
+            {
+              text: "Recommend immediate suspension at all sites until full investigation",
+              consequence: "You advise suspension. Hospitals push back citing disruption to care...",
+              nextSituation: "Five hospitals comply immediately. Seven push back, arguing suspension would harm patient care and expose them to liability for reverting to less effective protocols. The hospital association threatens to sue the state for overreach. You're caught in the middle."
+            },
+            {
+              text: "Suggest enhanced monitoring protocols while allowing continued use",
+              consequence: "The compromise is accepted. But what if another incident occurs?...",
+              nextSituation: "Your enhanced monitoring catches two near-misses in the first week. No harm done, but critics argue you're using patients as beta testers. A patient advocacy group files a complaint with the state medical board, naming you personally for 'reckless endangerment.'"
+            },
+            {
+              text: "Propose emergency framework for AI medical device incident response",
+              consequence: "Creating the framework will take weeks. They need answers today...",
+              nextSituation: "While you draft the framework, another patient dies at a different hospital using the same AI. The governor holds a press conference demanding immediate action. Your framework is now being drafted under intense political pressure and media scrutiny. Every word will be analyzed."
+            }
+          ]
+        },
+        {
+          situation: "Day 3: Political pressure is mounting. You need to provide concrete recommendations that balance safety, innovation, and practicality.",
+          options: [
+            {
+              text: "Recommend creating a state-level AI safety review board with emergency powers",
+              consequence: "The proposal gains traction but faces opposition...",
+              nextSituation: "Hospital lobbying groups call it government overreach. Tech industry groups warn it will kill innovation. Patient advocacy groups demand even stronger oversight. Your inbox fills with threats and praise in equal measure. The governor asks: 'Can this even be done legally?'"
+            },
+            {
+              text: "Advise implementing mandatory incident reporting for all healthcare AI systems",
+              consequence: "The reporting mandate is drafted...",
+              nextSituation: "The first week produces 200 incident reports across the state. Ninety percent are minor, but you've uncovered systemic issues with multiple AI systems. The healthcare community is overwhelmed. Hospital CIOs are calling you directly: 'We don't have staff to manage this reporting burden.'"
+            },
+            {
+              text: "Propose requiring human oversight for all high-stakes AI medical decisions",
+              consequence: "The human-in-the-loop mandate is implemented...",
+              nextSituation: "Hospitals report the mandate is adding 20-30 hours per week to clinician workloads during a nursing shortage crisis. The state's largest health system threatens to discontinue all AI tools rather than comply. Your well-intentioned policy is creating unintended consequences at scale."
+            }
+          ]
+        },
+        {
+          situation: "Week 2: Your recommendations have created ripple effects. National attention is on your state. What's your next move?",
+          options: [
+            {
+              text: "Call for federal harmonization of healthcare AI regulations",
+              consequence: "You draft a letter to federal regulators...",
+              nextSituation: "The FDA responds that medical AI falls into a regulatory gap between devices and software. CMS says it's outside their purview. The FTC says it's a healthcare issue. ONC says it's a safety issue. You realize you've uncovered a massive coordination failure. The crisis is actually a symptom of a much bigger systemic problem."
+            },
+            {
+              text: "Recommend establishing a state AI testing and certification program",
+              consequence: "The certification program proposal is published...",
+              nextSituation: "The program would cost $15M annually. The legislature hasn't funded it. AI vendors threaten to pull out of your state entirely. Meanwhile, neighboring states are watching to see if your approach works or fails. You're essentially running a live policy experiment with real stakes."
+            },
+            {
+              text: "Advise focusing on vendor liability and insurance requirements",
+              consequence: "New liability standards are proposed for AI vendors...",
+              nextSituation: "Insurance companies refuse to underwrite the new requirements, calling healthcare AI 'uninsurable risk.' Two major AI vendors immediately exit your state market. Hospitals are stuck with unsupported systems. Your solution has created a different crisis. Patients are now worse off."
+            }
+          ]
+        }
+      ]
+    };
+
     const AICrisisSimulator = () => {
       const [role, setRole] = useState(null);
       const [currentScene, setCurrentScene] = useState(0);
@@ -235,206 +415,14 @@
       const [showContact, setShowContact] = useState(false);
       const timeoutRef = useRef(null);
 
-      const roles = [
-        { id: 'hospital', title: 'Hospital CIO', icon: Building2, description: 'Managing AI deployment across clinical operations' },
-        { id: 'startup', title: 'HealthTech CEO', icon: Briefcase, description: 'Developing AI diagnostic tools for hospitals' },
-        { id: 'policy', title: 'Policy Advisor', icon: Users, description: 'Advising on healthcare AI governance frameworks' }
-      ];
-
-      const scenario = {
-        title: "AI Sepsis Alert System Crisis",
-        context: "Your organization deployed an AI-powered sepsis prediction algorithm 6 months ago. The vendor promised 85% accuracy in identifying high-risk patients 12 hours before sepsis onset.",
-        incident: "Monday 6:47 AM - You receive an urgent call. Over the weekend, three sepsis cases were missed by the AI system. One patient died. Meanwhile, the system has been generating dozens of false alerts daily, causing severe alert fatigue among nursing staff. Local media has been tipped off."
-      };
-
-      const scenes = {
-        hospital: [
-          {
-            situation: "Your Chief Medical Officer calls: 'We have a dead patient, exhausted nurses ignoring alerts, and reporters in the parking lot. What's our immediate response?'",
-            options: [
-              {
-                text: "Immediately shut down the AI system and revert to manual protocols",
-                consequence: "Decision made. Clinical teams scramble to adjust workflows...",
-                nextSituation: "Within 2 hours, your ED is overwhelmed. Nurses are manually reviewing charts for sepsis indicators, adding 15 minutes per patient. Wait times are spiking. Your COO texts: 'We can't sustain this. ED is backing up.'"
-              },
-              {
-                text: "Keep the system running but increase the alert threshold to reduce false positives",
-                consequence: "You adjust the settings. But what about the missed cases?...",
-                nextSituation: "The threshold change reduces alerts by 60%. Your nursing staff breathes easier. Then at 2 PM, another missed case. The patient survives, but the family is calling lawyers. Your risk management team is now involved."
-              },
-              {
-                text: "Call an emergency meeting with the vendor to understand what went wrong",
-                consequence: "The vendor's technical team can meet Thursday. It's Monday...",
-                nextSituation: "By Tuesday morning, two more missed cases occur. The medical staff demands action NOW. Your Chief of Staff confronts you: 'We can't wait for the vendor. People are dying. Make a decision.'"
-              }
-            ]
-          },
-          {
-            situation: "The immediate crisis intensifies. You need a strategy to manage both patient safety and operational chaos.",
-            options: [
-              {
-                text: "Form an urgent task force to manually audit all high-risk patients twice daily",
-                consequence: "The task force launches. You're pulling clinicians from other duties...",
-                nextSituation: "The manual audits catch two sepsis cases the AI missed. Success! But your staff is working 12-hour shifts. Union reps are filing grievances. Burnout complaints are flooding HR. Meanwhile, the media story goes regional."
-              },
-              {
-                text: "Bring in an independent AI auditor to review the system immediately",
-                consequence: "The auditor arrives and requests full data access...",
-                nextSituation: "The auditor discovers the AI was trained on data from academic medical centers, but your community hospital has different patient demographics. The model has been failing on your population for weeks. Your quality committee is furious: 'Why didn't we catch this during implementation?'"
-              },
-              {
-                text: "Implement a 'human-in-the-loop' protocol where every AI alert requires nurse verification",
-                consequence: "New protocol activated. Every alert now needs manual review...",
-                nextSituation: "The protocol works for 24 hours. Then the night shift reports they're spending 40% of their time reviewing alerts. A nurse misses a real case because she's fatigued from reviewing 50 false positives. The system is creating the exact problem it was supposed to solve."
-              }
-            ]
-          },
-          {
-            situation: "Day 3: The crisis is now public. You must manage reputation, legal exposure, and regulatory scrutiny while ensuring patient safety.",
-            options: [
-              {
-                text: "Publicly acknowledge the AI failure and commit to transparency",
-                consequence: "You draft a statement admitting the system's limitations...",
-                nextSituation: "Your statement goes viral. Patient advocacy groups applaud your transparency. But three other hospitals using the same system immediately terminate their contracts, citing reputational risk. Your board receives a letter from your malpractice insurer raising rates 40%."
-              },
-              {
-                text: "Keep this internal while you work on fixing it",
-                consequence: "You decide discretion is the best approach for now...",
-                nextSituation: "An ICU nurse leaks internal emails to the press showing you knew about alert fatigue for weeks. The headline: 'Hospital Ignored AI Warning Signs Before Patient Death.' Your credibility is shattered. The state health department opens a formal investigation."
-              },
-              {
-                text: "Commission a full independent review before making any public statements",
-                consequence: "You engage external experts for a comprehensive assessment...",
-                nextSituation: "The 6-week review timeline is leaked. Families of affected patients interpret this as a cover-up. A class action lawsuit is filed. Your legal team advises the review may now be subject to discovery. The crisis has become a legal minefield."
-              }
-            ]
+      useEffect(() => {
+        return () => {
+          if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+            timeoutRef.current = null;
           }
-        ],
-        startup: [
-          {
-            situation: "Your largest hospital client reports a patient death possibly linked to your AI diagnostic tool. Your board, investors, and 15 other hospital clients are all waiting for answers. What's your first move?",
-            options: [
-              {
-                text: "Issue immediate recall of the algorithm while you investigate",
-                consequence: "The recall begins. Your other clients start questioning their contracts...",
-                nextSituation: "Within 24 hours, 8 of your 15 clients suspend use of your platform. Your revenue drops 40% overnight. Your Series B investors call an emergency meeting. The lead investor asks: 'Do you even understand what went wrong?'"
-              },
-              {
-                text: "Request access to the hospital's data to audit what happened",
-                consequence: "Legal raises concerns about liability and data access rights...",
-                nextSituation: "The hospital's legal team refuses data access citing patient privacy and potential litigation. You're blind. Your engineering team can't replicate the failure without real data. Meanwhile, your other clients are demanding answers you can't provide."
-              },
-              {
-                text: "Engage external AI ethics consultants to investigate independently",
-                consequence: "The consultants need 2-3 weeks. The media cycle is 24 hours...",
-                nextSituation: "By day 3, healthcare tech blogs are speculating wildly about your algorithm's flaws. A competitor issues a statement about their 'rigorous safety protocols.' Your sales pipeline freezes. Three major prospects postpone pilot programs indefinitely."
-              }
-            ]
-          },
-          {
-            situation: "Day 2: The incident is escalating. You need to balance product safety, customer retention, and investor confidence.",
-            options: [
-              {
-                text: "Proactively notify all clients and offer to pause deployments for safety review",
-                consequence: "You send a company-wide safety notification...",
-                nextSituation: "Your transparency is praised by some clients but 5 immediately terminate contracts. Your burn rate spikes as revenue drops. Your CFO warns you have 8 months of runway. Your biggest investor suggests 'strategic alternatives' - code for selling the company at a loss."
-              },
-              {
-                text: "Focus on the one incident and reassure other clients their deployments are safe",
-                consequence: "You frame this as an isolated configuration issue...",
-                nextSituation: "Two days later, a different hospital reports similar missed cases. Your 'isolated incident' narrative collapses. Clients feel misled. Your NPS score drops 40 points. Your Head of Customer Success submits resignation, citing ethical concerns."
-              },
-              {
-                text: "Launch a bug bounty program and invite external researchers to stress-test your system",
-                consequence: "The bounty program attracts dozens of AI safety researchers...",
-                nextSituation: "Researchers discover 3 additional edge cases where your algorithm fails dangerously. The findings are published in a preprint. Your platform's reputation is in tatters, but you now have a roadmap to fix the issues. Can you survive long enough to implement the fixes?"
-              }
-            ]
-          },
-          {
-            situation: "Day 5: Your company's future is in question. The board meets tomorrow. You need a path forward.",
-            options: [
-              {
-                text: "Pivot to a 'decision support only' model that requires physician override",
-                consequence: "You redesign the product as assistive rather than autonomous...",
-                nextSituation: "The pivot extends your development timeline by 6 months and requires re-training your sales team. Your board is split: half want to cut losses, half want to push forward. You need to raise capital, but VCs are suddenly cold on healthcare AI. One VC tells you off the record: 'Your company is uninvestable until this blows over.'"
-              },
-              {
-                text: "Double down on the technology and prove it works through rigorous clinical trials",
-                consequence: "You commit to gold-standard validation...",
-                nextSituation: "The clinical trial design will take 18 months and cost $3M. You don't have either. Your co-founder argues for shutting down and returning remaining capital to investors. Your team is hemorrhaging talent. Your top ML engineer just accepted an offer from a competitor."
-              },
-              {
-                text: "Seek acquisition by a larger health tech company with deeper resources",
-                consequence: "You quietly shop the company...",
-                nextSituation: "Two potential acquirers express interest, but at valuations 70% below your last funding round. The terms include significant escrow tied to no further incidents. Your investors would take massive losses. Your employees would see their equity evaporate. But the company might survive."
-              }
-            ]
-          }
-        ],
-        policy: [
-          {
-            situation: "A state health agency calls: 'This AI system is deployed in 12 hospitals in our state. We need guidance on whether to mandate suspension pending investigation. What do you recommend?'",
-            options: [
-              {
-                text: "Recommend immediate suspension at all sites until full investigation",
-                consequence: "You advise suspension. Hospitals push back citing disruption to care...",
-                nextSituation: "Five hospitals comply immediately. Seven push back, arguing suspension would harm patient care and expose them to liability for reverting to less effective protocols. The hospital association threatens to sue the state for overreach. You're caught in the middle."
-              },
-              {
-                text: "Suggest enhanced monitoring protocols while allowing continued use",
-                consequence: "The compromise is accepted. But what if another incident occurs?...",
-                nextSituation: "Your enhanced monitoring catches two near-misses in the first week. No harm done, but critics argue you're using patients as beta testers. A patient advocacy group files a complaint with the state medical board, naming you personally for 'reckless endangerment.'"
-              },
-              {
-                text: "Propose emergency framework for AI medical device incident response",
-                consequence: "Creating the framework will take weeks. They need answers today...",
-                nextSituation: "While you draft the framework, another patient dies at a different hospital using the same AI. The governor holds a press conference demanding immediate action. Your framework is now being drafted under intense political pressure and media scrutiny. Every word will be analyzed."
-              }
-            ]
-          },
-          {
-            situation: "Day 3: Political pressure is mounting. You need to provide concrete recommendations that balance safety, innovation, and practicality.",
-            options: [
-              {
-                text: "Recommend creating a state-level AI safety review board with emergency powers",
-                consequence: "The proposal gains traction but faces opposition...",
-                nextSituation: "Hospital lobbying groups call it government overreach. Tech industry groups warn it will kill innovation. Patient advocacy groups demand even stronger oversight. Your inbox fills with threats and praise in equal measure. The governor asks: 'Can this even be done legally?'"
-              },
-              {
-                text: "Advise implementing mandatory incident reporting for all healthcare AI systems",
-                consequence: "The reporting mandate is drafted...",
-                nextSituation: "The first week produces 200 incident reports across the state. Ninety percent are minor, but you've uncovered systemic issues with multiple AI systems. The healthcare community is overwhelmed. Hospital CIOs are calling you directly: 'We don't have staff to manage this reporting burden.'"
-              },
-              {
-                text: "Propose requiring human oversight for all high-stakes AI medical decisions",
-                consequence: "The human-in-the-loop mandate is implemented...",
-                nextSituation: "Hospitals report the mandate is adding 20-30 hours per week to clinician workloads during a nursing shortage crisis. The state's largest health system threatens to discontinue all AI tools rather than comply. Your well-intentioned policy is creating unintended consequences at scale."
-              }
-            ]
-          },
-          {
-            situation: "Week 2: Your recommendations have created ripple effects. National attention is on your state. What's your next move?",
-            options: [
-              {
-                text: "Call for federal harmonization of healthcare AI regulations",
-                consequence: "You draft a letter to federal regulators...",
-                nextSituation: "The FDA responds that medical AI falls into a regulatory gap between devices and software. CMS says it's outside their purview. The FTC says it's a healthcare issue. ONC says it's a safety issue. You realize you've uncovered a massive coordination failure. The crisis is actually a symptom of a much bigger systemic problem."
-              },
-              {
-                text: "Recommend establishing a state AI testing and certification program",
-                consequence: "The certification program proposal is published...",
-                nextSituation: "The program would cost $15M annually. The legislature hasn't funded it. AI vendors threaten to pull out of your state entirely. Meanwhile, neighboring states are watching to see if your approach works or fails. You're essentially running a live policy experiment with real stakes."
-              },
-              {
-                text: "Advise focusing on vendor liability and insurance requirements",
-                consequence: "New liability standards are proposed for AI vendors...",
-                nextSituation: "Insurance companies refuse to underwrite the new requirements, calling healthcare AI 'uninsurable risk.' Two major AI vendors immediately exit your state market. Hospitals are stuck with unsupported systems. Your solution has created a different crisis. Patients are now worse off."
-              }
-            ]
-          }
-        ]
-      };
+        };
+      }, []);
 
       const handleRoleSelect = (roleId) => {
         setRole(roleId);
@@ -465,28 +453,16 @@
           timeoutRef.current = null;
         }
 
-        if (currentScene < 2) {
-          timeoutRef.current = setTimeout(() => {
+        timeoutRef.current = setTimeout(() => {
+          if (currentScene < (roleScenes.length - 1)) {
             setCurrentScene((s) => s + 1);
             setShowingConsequence(false);
-            timeoutRef.current = null;
-          }, 3000);
-        } else {
-          timeoutRef.current = setTimeout(() => {
+          } else {
             setShowContact(true);
-            timeoutRef.current = null;
-          }, 3000);
-        }
-      };
-
-      useEffect(() => {
-        return () => {
-          if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
-            timeoutRef.current = null;
           }
-        };
-      }, []);
+          timeoutRef.current = null;
+        }, 3000);
+      };
 
       const reset = () => {
         setRole(null);
@@ -503,38 +479,40 @@
 
       if (!role) {
         return (
-          <div className="min-h-screen bg-gradient-to-br from-red-50 via-orange-50 to-amber-50 p-6">
+          <div className="min-h-screen bg-dark text-light p-6">
             <div className="max-w-6xl mx-auto">
-              <button onClick={exitSimulator} className="mb-6 text-gray-600 hover:text-gray-900 flex items-center gap-2">
-                ← Exit Simulator
-              </button>
+              <button onClick={exitSimulator} className="mb-6 text-gray-400 hover:text-white flex items-center gap-2">← Exit Simulator</button>
 
               <div className="text-center mb-12 pt-8">
                 <div className="flex items-center justify-center mb-4">
-                  <AlertTriangle className="w-16 h-16 text-red-600" />
+                  <AlertTriangle className="w-16 h-16 text-red-500" />
                 </div>
-                <h1 className="text-5xl font-bold text-gray-900 mb-4">AI Healthcare Crisis Simulation</h1>
-                <p className="text-xl text-gray-600 max-w-2xl mx-auto">Experience a real-world AI governance crisis. See how prepared you are to handle the unexpected.</p>
+                <h1 className="text-5xl font-bold text-white mb-4">AI Healthcare Crisis Simulation</h1>
+                <p className="text-xl text-gray-300 max-w-2xl mx-auto">Experience a real-world AI governance crisis. See how prepared you are to handle the unexpected.</p>
               </div>
 
-              <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">The Scenario</h2>
-                <p className="text-gray-700 mb-4">{scenario.context}</p>
-                <div className="bg-red-50 border-l-4 border-red-600 p-4 rounded">
-                  <p className="text-red-900 font-semibold">{scenario.incident}</p>
+              <div className="bg-mid rounded-2xl shadow-xl p-8 mb-8 text-light">
+                <h2 className="text-2xl font-bold text-white mb-4">The Scenario</h2>
+                <p className="text-gray-300 mb-4">{scenes.hospital[0].situation /* contextual summary used earlier */}</p>
+                <div className="bg-dark border-l-4 border-red-500 p-4 rounded">
+                  <p className="text-red-200 font-semibold">{scenes.hospital[0].nextSituation || 'Important incident overview available in the simulator.'}</p>
                 </div>
               </div>
 
               <div className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 text-center mb-6">Choose Your Role</h2>
+                <h2 className="text-2xl font-bold text-white text-center mb-6">Choose Your Role</h2>
                 <div className="grid md:grid-cols-3 gap-6">
-                  {roles.map((r) => {
+                  {[
+                    { id: 'hospital', title: 'Hospital CIO', icon: Building2, description: 'Managing AI deployment across clinical operations' },
+                    { id: 'startup', title: 'HealthTech CEO', icon: Briefcase, description: 'Developing AI diagnostic tools for hospitals' },
+                    { id: 'policy', title: 'Policy Advisor', icon: Users, description: 'Advising on healthcare AI governance frameworks' }
+                  ].map((r) => {
                     const Icon = r.icon;
                     return (
-                      <button key={r.id} onClick={() => handleRoleSelect(r.id)} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border-2 border-transparent hover:border-red-500">
-                        <Icon className="w-12 h-12 text-red-600 mx-auto mb-4" />
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">{r.title}</h3>
-                        <p className="text-gray-600 text-sm">{r.description}</p>
+                      <button key={r.id} onClick={() => handleRoleSelect(r.id)} className="bg-mid p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border-2 border-transparent hover:border-red-500">
+                        <Icon className="w-12 h-12 text-red-500 mx-auto mb-4" />
+                        <h3 className="text-xl font-bold text-white mb-2">{r.title}</h3>
+                        <p className="text-gray-300 text-sm">{r.description}</p>
                       </button>
                     );
                   })}
@@ -543,28 +521,29 @@
 
               <div className="bg-gradient-to-r from-red-600 to-orange-600 rounded-2xl shadow-xl p-8 text-white text-center">
                 <h3 className="text-2xl font-bold mb-3">Ready to Test Your Crisis Response?</h3>
-                <p className="text-red-50 text-lg">This simulation is based on real AI deployment failures in healthcare settings.</p>
+                <p className="text-red-50 text-lg">
+                  This simulation is based on real AI deployment failures in healthcare settings.
+                </p>
               </div>
             </div>
           </div>
         );
       }
 
-      const roleScenes = scenes[role] || [];
-      const currentSceneData = roleScenes[currentScene] || null;
+      const currentSceneData = scenes[role][currentScene];
       const lastDecision = decisions[decisions.length - 1];
 
       return (
-        <div className="min-h-screen bg-gradient-to-br from-red-50 via-orange-50 to-amber-50 p-6" tabIndex={-1}>
+        <div className="min-h-screen bg-dark text-light p-6">
           <div className="max-w-4xl mx-auto">
-            <button onClick={exitSimulator} className="mb-6 text-gray-600 hover:text-gray-900 flex items-center gap-2">← Exit Simulator</button>
+            <button onClick={exitSimulator} className="mb-6 text-gray-400 hover:text-white flex items-center gap-2">← Exit Simulator</button>
 
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div className="bg-mid rounded-2xl shadow-2xl overflow-hidden">
               <div className="bg-gradient-to-r from-red-600 to-orange-600 p-8 text-white">
-                <h1 className="text-3xl font-bold mb-2">{scenario.title}</h1>
-                <p className="text-red-50 mb-3">Playing as: {roles.find(r => r.id === role)?.title}</p>
+                <h1 className="text-3xl font-bold mb-2">AI Sepsis Alert System Crisis</h1>
+                <p className="text-red-50 mb-3">Playing as: {role === 'hospital' ? 'Hospital CIO' : role === 'startup' ? 'HealthTech CEO' : 'Policy Advisor'}</p>
                 <div className="flex gap-2">
-                  {[0,1,2].map((i) => (
+                  {[0, 1, 2].map((i) => (
                     <div key={i} className={`h-2 flex-1 rounded ${i <= currentScene ? 'bg-white' : 'bg-white/30'}`} />
                   ))}
                 </div>
@@ -574,41 +553,45 @@
                 {decisions.length > 0 && !showingConsequence && (
                   <div className="mb-8 space-y-4">
                     {decisions.map((decision, idx) => (
-                      <div key={idx} className="bg-gray-50 rounded-lg p-4 border-l-4 border-gray-400">
-                        <p className="text-sm text-gray-600 mb-1">Decision {idx + 1}:</p>
-                        <p className="text-gray-800 font-medium">{decision.text}</p>
+                      <div key={idx} className="bg-mid rounded-lg p-4 border-l-4 border-gray-600">
+                        <p className="text-sm text-gray-300 mb-1">Decision {idx + 1}:</p>
+                        <p className="text-white font-medium">{decision.text}</p>
                       </div>
                     ))}
                   </div>
                 )}
 
                 {showingConsequence && lastDecision && (
-                  <div className="space-y-6 mb-8">
-                    <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded animate-fade-in">
-                      <p className="text-gray-900 font-semibold mb-2">Your Decision:</p>
-                      <p className="text-gray-700 mb-4">{lastDecision.text}</p>
-                      <p className="text-gray-900 font-semibold mb-2">Immediate Consequence:</p>
-                      <p className="text-gray-700">{lastDecision.consequence}</p>
+                  <div className="space-y-6 mb-8 animate-fade-in">
+                    <div className="bg-mid border-l-4 border-orange-500 p-6 rounded">
+                      <p className="text-white font-semibold mb-2">Your Decision:</p>
+                      <p className="text-gray-300 mb-4">{lastDecision.text}</p>
+                      <p className="text-orange-300 font-semibold mb-2">Immediate Consequence:</p>
+                      <p className="text-gray-200">{lastDecision.consequence}</p>
                     </div>
 
-                    <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded animate-fade-in">
-                      <p className="text-gray-900 font-semibold mb-2">Crisis Escalates:</p>
-                      <p className="text-gray-700">{lastDecision.nextSituation}</p>
+                    <div className="bg-mid border-l-4 border-yellow-500 p-6 rounded">
+                      <p className="text-white font-semibold mb-2">Crisis Escalates:</p>
+                      <p className="text-gray-200">{lastDecision.nextSituation}</p>
                     </div>
                   </div>
                 )}
 
                 {!showContact && !showingConsequence && currentSceneData && (
                   <>
-                    <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded mb-8">
-                      <p className="text-gray-900 text-lg font-semibold">{currentSceneData.situation}</p>
+                    <div className="bg-dark border-l-4 border-red-600 p-6 rounded mb-8">
+                      <p className="text-gray-200 text-lg font-semibold">{currentSceneData.situation}</p>
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">What do you do?</h3>
+                      <h3 className="text-xl font-bold text-white mb-4">What do you do?</h3>
                       {currentSceneData.options.map((option, index) => (
-                        <button key={index} onClick={() => handleChoice(index)} className="w-full text-left p-6 bg-white border-2 border-gray-200 rounded-xl hover:border-red-500 hover:shadow-lg transition-all duration-300">
-                          <p className="text-gray-900 font-medium">{option.text}</p>
+                        <button
+                          key={index}
+                          onClick={() => handleChoice(index)}
+                          className="w-full text-left p-6 bg-mid border-2 border-gray-600 rounded-xl hover:border-red-500 hover:shadow-lg transition-all duration-300"
+                        >
+                          <p className="text-gray-100 font-medium">{option.text}</p>
                         </button>
                       ))}
                     </div>
@@ -618,7 +601,9 @@
                 {showContact && (
                   <div className="bg-gradient-to-r from-red-600 to-orange-600 rounded-xl shadow-xl p-8 text-white animate-fade-in">
                     <h3 className="text-2xl font-bold mb-4">The crisis continues to spiral...</h3>
-                    <p className="text-red-50 mb-4 text-lg">You've made three critical decisions. Each has created new challenges, stakeholder conflicts, and unintended consequences.</p>
+                    <p className="text-red-50 mb-4 text-lg">
+                      You've made three critical decisions. Each has created new challenges, stakeholder conflicts, and unintended consequences.
+                    </p>
                     <div className="bg-white/10 rounded-lg p-6 mb-6">
                       <p className="font-semibold mb-3">And this is still just Week 1. What comes next?</p>
                       <ul className="space-y-2 text-red-50 list-disc pl-5">
@@ -633,13 +618,17 @@
                     </div>
                     <div className="bg-white rounded-lg p-6 text-gray-900">
                       <h4 className="text-xl font-bold mb-3">Ready to go deeper?</h4>
-                      <p className="mb-4">Real AI crises involve dozens of stakeholders, complex trade-offs, and decisions with life-or-death consequences. Our full simulations prepare your organization to handle these challenges before they become headlines.</p>
+                      <p className="mb-4">
+                        Real AI crises involve dozens of stakeholders, complex trade-offs, and decisions with life-or-death consequences. Our full simulations prepare your organization to handle these challenges before they become headlines.
+                      </p>
 
                       <a href="mailto:your-email@roxanaakhmetova.com" className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300">
                         Experience the Full Simulation
                       </a>
 
-                      <p className="text-sm text-gray-600 mt-4">Custom crisis simulations for hospitals, healthtech startups, and policy organizations. We bring the chaos so you don't have to learn on the job.</p>
+                      <p className="text-sm text-gray-600 mt-4">
+                        Custom crisis simulations for hospitals, healthtech startups, and policy organizations. We bring the chaos so you don't have to learn on the job.
+                      </p>
                     </div>
                   </div>
                 )}
@@ -650,7 +639,7 @@
       );
     };
 
-    // Mount React 18 app into simulator-root using createRoot
+    // Mount React 18 app into simulator-root
     const rootEl = document.getElementById('simulator-root');
     if (rootEl) {
       ReactDOM.createRoot(rootEl).render(<AICrisisSimulator />);
