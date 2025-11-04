@@ -111,6 +111,7 @@
       color: white;
       padding: 20px;
       font-size: 0.95rem;
+      text-align: left;
     }
 
     /* Navigation Arrows */
@@ -200,18 +201,30 @@
         
         <div class="carousel-track" id="carouselTrack">
           
-          <!-- 1. At the door.jpg -->
+          <!-- 7. Roxana panel.jpg -->
           <div class="carousel-slide">
-            <img src="/images/At the door.jpg" alt="Oxford AI Gala 2025 - Entrance">
-            <div class="carousel-caption">Welcome to Oxford AI Gala 2025</div>
+            <img src="/images/Roxana panel.jpg" alt="Oxford AI Gala 2025 - Panel discussion">
+            <div class="carousel-caption">Panel discussion with industry leaders</div>
           </div>
-          
+
           <!-- 2. Volunteers.jpg - positioned to show top half (faces) -->
           <div class="carousel-slide">
             <img src="/images/Volunteers.jpg" alt="Oxford AI Gala 2025 - Volunteers" style="object-position: center top;">
             <div class="carousel-caption">Our amazing volunteer team</div>
           </div>
-          
+
+          <!-- 1. At the door.jpg -->
+          <div class="carousel-slide">
+            <img src="/images/At the door.jpg" alt="Oxford AI Gala 2025 - Entrance">
+            <div class="carousel-caption">Welcome to Oxford AI Gala 2025</div>
+          </div>
+
+          <!-- 9. with a volunteer.jpg -->
+          <div class="carousel-slide">
+            <img src="/images/with a volunteer.jpg" alt="Oxford AI Gala 2025 - With volunteer" style="object-position: top;">
+            <div class="carousel-caption">Celebrating our success</div>
+          </div>
+
           <!-- 3. musicians.jpg -->
           <div class="carousel-slide">
             <img src="/images/musicians.jpg" alt="Oxford AI Gala 2025 - Musicians">
@@ -236,24 +249,12 @@
             <div class="carousel-caption">Opening remarks</div>
           </div>
           
-          <!-- 7. Roxana panel.jpg -->
-          <div class="carousel-slide">
-            <img src="/images/Roxana panel.jpg" alt="Oxford AI Gala 2025 - Panel discussion">
-            <div class="carousel-caption">Panel discussion with industry leaders</div>
-          </div>
-          
           <!-- 8. VIP2.jpg -->
           <div class="carousel-slide">
             <img src="/images/VIP2.jpg" alt="Oxford AI Gala 2025 - VIP reception">
             <div class="carousel-caption">VIP networking reception</div>
           </div>
-          
-          <!-- 9. with a volunteer.jpg -->
-          <div class="carousel-slide">
-            <img src="/images/with a volunteer.jpg" alt="Oxford AI Gala 2025 - With volunteer">
-            <div class="carousel-caption">Celebrating our success</div>
-          </div>
-          
+
         </div>
 
         <!-- Next Arrow -->
@@ -263,10 +264,9 @@
       <div class="carousel-dots" id="carouselDots"></div>
     </div>
 
-    <!-- Quotes section (placeholder for later) -->
+    <!-- Quotes section -->
     <div class="content-section">
       <div class="section-title">What Participants Said</div>
-      <!-- Quotes will go here -->
     </div>
     
   </main>
@@ -276,14 +276,12 @@
   <script src="/components/footer.js"></script>
 
   <script>
-    // Carousel functionality
     const track = document.getElementById('carouselTrack');
     const dotsContainer = document.getElementById('carouselDots');
     const slides = document.querySelectorAll('.carousel-slide');
     let currentSlide = 0;
     const totalSlides = slides.length;
 
-    // Create dots
     slides.forEach((_, index) => {
       const dot = document.createElement('div');
       dot.classList.add('carousel-dot');
@@ -297,10 +295,7 @@
     function goToSlide(index) {
       currentSlide = index;
       track.style.transform = `translateX(-${currentSlide * 100}%)`;
-      
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
-      });
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
     }
 
     function nextSlide() {
@@ -313,12 +308,10 @@
       goToSlide(currentSlide);
     }
 
-    // Auto-advance every 6 seconds
     setInterval(nextSlide, 6000);
   </script>
   
   <script>
-    // Copy protection
     document.addEventListener('selectstart', e => e.preventDefault());
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
