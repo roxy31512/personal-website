@@ -206,7 +206,7 @@
           </div>
           
           <div class="carousel-slide">
-            <img src="/images/volunteers.jpg" alt="Oxford AI Gala 2025 - Volunteer team">
+            <img src="/images/Volunteers.jpg" alt="Oxford AI Gala 2025 - Volunteer team">
             <div class="carousel-caption">Our dedicated volunteer team</div>
           </div>
           
@@ -221,11 +221,6 @@
           </div>
           
           <div class="carousel-slide">
-            <img src="/images/Gala.jpg" alt="Oxford AI Gala 2025 - Main event">
-            <div class="carousel-caption">Main gala event</div>
-          </div>
-          
-          <div class="carousel-slide">
             <img src="/images/musicians.jpg" alt="Oxford AI Gala 2025 - Musicians">
             <div class="carousel-caption">Live music entertainment</div>
           </div>
@@ -233,11 +228,6 @@
           <div class="carousel-slide">
             <img src="/images/rec carpet 2.jpg" alt="Oxford AI Gala 2025 - Red carpet">
             <div class="carousel-caption">Red carpet arrivals</div>
-          </div>
-          
-          <div class="carousel-slide">
-            <img src="/images/red carpet.jpg" alt="Oxford AI Gala 2025 - Red carpet entrance">
-            <div class="carousel-caption">Red carpet entrance</div>
           </div>
           
           <div class="carousel-slide">
@@ -251,7 +241,7 @@
           </div>
           
           <div class="carousel-slide">
-            <img src="/images/with a volunteer.jpg" alt="Oxford AI Gala 2025 - With volunteer">
+            <img src="/images/with a volunteer.jpg" alt="Oxford AI Gala 2025 - With volunteer" style="object-position: center 30%;">
             <div class="carousel-caption">Celebrating with our amazing volunteers</div>
           </div>
           
@@ -316,6 +306,24 @@
 
     // Auto-advance every 6 seconds
     setInterval(nextSlide, 6000);
+  </script>
+  
+  <script>
+    // Copy protection
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (
+        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+        (e.ctrlKey && e.key === 'p')
+      ) {
+        e.preventDefault();
+      }
+    });
+    document.body.style.userSelect = 'none';
   </script>
 </body>
 </html>
