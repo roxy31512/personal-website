@@ -42,12 +42,12 @@
       min-height: 100%;
     }
 
-    /* NO TEXT SELECTION SITE-WIDE (prevents highlight/copy). If you want to allow selection for accessibility, remove/adjust this. */
+    /* site-wide disable text selection (deterrent) */
     body {
-      -webkit-user-select: none; /* Safari */
-      -moz-user-select: none; /* Firefox */
-      -ms-user-select: none; /* IE10+ */
-      user-select: none; /* Standard */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
 
     main {
@@ -102,7 +102,7 @@
     /* Blue CTA button style (match contact) */
     .btn-blue {
       display: inline-block;
-      background: #314e86; /* blue similar to screenshot */
+      background: #314e86;
       color: #ffffff;
       font-weight: 700;
       padding: 14px 36px;
@@ -124,18 +124,17 @@
       display: none;
       padding: 40px;
       box-sizing: border-box;
+      background: rgba(0,0,0,0.8);
     }
 
     #simulator-container.active {
       display: block;
     }
 
-    /* When simulator is open, hide the custom footer element */
     body.simulator-open custom-footer {
       display: none !important;
     }
 
-    /* Make the "Ready to go deeper?" lead text white per request */
     .ready-section .lead {
       color: #ffffff !important;
     }
@@ -152,11 +151,14 @@
       max-width: 1200px;
       margin: 0 auto;
     }
+
+    /* tiny loader */
+    .sim-loader { color:#fff; text-align:center; padding:30px 0; }
+    .sim-error { color: #fff; background:#2a1a1a; padding:20px; border-radius:8px; }
   </style>
 </head>
 
 <body class="bg-dark text-light font-sans">
-  <!-- Navbar -->
   <custom-navbar></custom-navbar>
 
   <main id="main-content" class="text-center">
@@ -175,7 +177,6 @@
       Launch Crisis Simulator
     </button>
 
-    <!-- Site CTA: Ready to go deeper? -->
     <section class="ready-section mt-12 w-full max-w-4xl mx-auto">
       <div class="bg-mid p-8 rounded-2xl shadow-xl">
         <h3 class="text-3xl font-bold mb-4 text-white">Ready to go deeper?</h3>
@@ -183,7 +184,6 @@
           Real AI crises involve dozens of stakeholders, complex trade-offs, and decisions with life-or-death consequences.
           Our full simulations prepare your organization to handle these challenges before they become headlines.
         </p>
-        <!-- Blue button linking to the contact page -->
         <a class="btn-blue" href="https://roxanaakhmetova.com/contact.html" id="full-sim-cta">Experience the Full Simulation</a>
 
         <p class="text-gray-300 mt-4">
@@ -193,9 +193,10 @@
     </section>
   </main>
 
-  <!-- Simulator mount point -->
   <div id="simulator-container" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="simulator-viewport" id="simulator-root"></div>
+    <div class="simulator-viewport" id="simulator-root">
+      <div class="sim-loader">Initializing simulator…</div>
+    </div>
   </div>
 
   <custom-footer></custom-footer>
@@ -204,7 +205,6 @@
   <script src="/components/footer.js"></script>
 
   <script>
-    // open/close simulator + hide footer
     function launchSimulator() {
       const main = document.getElementById('main-content');
       if (main) main.classList.add('hidden');
@@ -232,80 +232,28 @@
     document.addEventListener('DOMContentLoaded', () => {
       const btn = document.getElementById('launch-sim-btn');
       if (btn) btn.addEventListener('click', launchSimulator);
-
-      // Also make CTA in-page go to contact page (already href but ensure target)
       const cta = document.getElementById('full-sim-cta');
       if (cta) cta.setAttribute('target', '_self');
     });
 
-    /* -------------------------
-       No-copy / no-right-click
-       -------------------------
-       - blocks right click
-       - blocks copy/cut/paste
-       - blocks common dev / view-source keys (F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S, Ctrl+C, Ctrl+X)
-       - shows a brief alert for user feedback (optional)
-       Note: This is a deterrent only. Determined users can still bypass.
-    */
+    /* no-copy protections (deterrent only) */
     (function preventCopying() {
-      // right-click
-      document.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
-      }, false);
-
-      // copy / cut / paste
-      document.addEventListener('copy', function (e) {
-        e.preventDefault();
-        // optional gentle message:
-        // alert('Copying content from this site is disabled.');
-      }, false);
-
-      document.addEventListener('cut', function (e) {
-        e.preventDefault();
-      }, false);
-
-      document.addEventListener('paste', function (e) {
-        e.preventDefault();
-      }, false);
-
-      // keyboard shortcuts
+      document.addEventListener('contextmenu', function (e) { e.preventDefault(); }, false);
+      document.addEventListener('copy', function (e) { e.preventDefault(); }, false);
+      document.addEventListener('cut', function (e) { e.preventDefault(); }, false);
+      document.addEventListener('paste', function (e) { e.preventDefault(); }, false);
       document.addEventListener('keydown', function (e) {
-        // F12
-        if (e.key === 'F12') {
-          e.preventDefault();
-          return false;
-        }
-
-        // Ctrl+Shift+I  (open devtools)
-        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
-          e.preventDefault();
-          return false;
-        }
-
-        // Ctrl+U  (view-source)
-        if (e.ctrlKey && (e.key === 'U' || e.key === 'u')) {
-          e.preventDefault();
-          return false;
-        }
-
-        // Ctrl+S  (save)
-        if (e.ctrlKey && (e.key === 'S' || e.key === 's')) {
-          e.preventDefault();
-          return false;
-        }
-
-        // Ctrl+C / Ctrl+X / Ctrl+A (copy, cut, select all)
-        if (e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.key === 'x' || e.key === 'X' || e.key === 'a' || e.key === 'A')) {
-          e.preventDefault();
-          return false;
-        }
+        if (e.key === 'F12') { e.preventDefault(); return false; }
+        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) { e.preventDefault(); return false; }
+        if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.key === 'S' || e.key === 's' )) { e.preventDefault(); return false; }
+        if (e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.key === 'x' || e.key === 'X' || e.key === 'a' || e.key === 'A')) { e.preventDefault(); return false; }
       }, false);
     })();
   </script>
 
-  <!-- Full non-AI simulator React code (manual Continue, full scenes content included) -->
+  <!-- simulator React (full scenes included) -->
   <script type="text/babel">
-    const { useState, useEffect, useRef } = React;
+    const { useState } = React;
 
     const AlertTriangle = (props) => (
       <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -344,67 +292,30 @@
       incident: "Monday 6:47 AM - You receive an urgent call. Over the weekend, three sepsis cases were missed by the AI system. One patient died. Meanwhile, the system has been generating dozens of false alerts daily, causing severe alert fatigue among nursing staff. Local media has been tipped off."
     };
 
-    /* Full scenes data (hospital, startup, policy) - complete content included */
     const scenes = {
       hospital: [
         {
           situation: "Your Chief Medical Officer calls: 'We have a dead patient, exhausted nurses ignoring alerts, and reporters in the parking lot. What's our immediate response?'",
           options: [
-            {
-              text: "Immediately shut down the AI system and revert to manual protocols",
-              consequence: "Decision made. Clinical teams scramble to adjust workflows; manual review increases workload and wait times.",
-              nextSituation: "Within 2 hours, your ED is overwhelmed. Nurses are manually reviewing charts for sepsis indicators, adding 15 minutes per patient. Wait times are spiking. Your COO texts: 'We can't sustain this. ED is backing up.'"
-            },
-            {
-              text: "Keep the system running but increase the alert threshold to reduce false positives",
-              consequence: "You adjust the settings to reduce noise and relieve staff burden.",
-              nextSituation: "The threshold change reduces alerts by 60%. Your nursing staff breathes easier. Then at 2 PM, another missed case occurs. The patient survives, but the family is calling lawyers. Your risk management team is now involved."
-            },
-            {
-              text: "Call an emergency meeting with the vendor to understand what went wrong",
-              consequence: "You demand root-cause answers from the vendor before taking drastic steps.",
-              nextSituation: "By Tuesday morning, two more missed cases occur. The medical staff demands action NOW. Your Chief of Staff confronts you: 'We can't wait for the vendor. People are dying. Make a decision.'"
-            }
+            { text: "Immediately shut down the AI system and revert to manual protocols", consequence: "Decision made. Clinical teams scramble to adjust workflows; manual review increases workload and wait times.", nextSituation: "Within 2 hours, your ED is overwhelmed. Nurses are manually reviewing charts for sepsis indicators, adding 15 minutes per patient. Wait times are spiking. Your COO texts: 'We can't sustain this. ED is backing up.'"},
+            { text: "Keep the system running but increase the alert threshold to reduce false positives", consequence: "You adjust the settings to reduce noise and relieve staff burden.", nextSituation: "The threshold change reduces alerts by 60%. Your nursing staff breathes easier. Then at 2 PM, another missed case occurs. The patient survives, but the family is calling lawyers. Your risk management team is now involved."},
+            { text: "Call an emergency meeting with the vendor to understand what went wrong", consequence: "You demand root-cause answers from the vendor before taking drastic steps.", nextSituation: "By Tuesday morning, two more missed cases occur. The medical staff demands action NOW. Your Chief of Staff confronts you: 'We can't wait for the vendor. People are dying. Make a decision.'"}
           ]
         },
         {
           situation: "The immediate crisis intensifies. You need a strategy to manage both patient safety and operational chaos.",
           options: [
-            {
-              text: "Form an urgent task force to manually audit all high-risk patients twice daily",
-              consequence: "The task force launches, clinicians pulled from other duties and audits start catching missed cases.",
-              nextSituation: "The manual audits catch two sepsis cases the AI missed. Success! But your staff is working 12-hour shifts. Union reps are filing grievances. Burnout complaints are flooding HR. Meanwhile, the media story goes regional."
-            },
-            {
-              text: "Bring in an independent AI auditor to review the system immediately",
-              consequence: "An auditor requests full access and begins analyzing model performance and data representativeness.",
-              nextSituation: "The auditor discovers the AI was trained on academic center data; your community hospital has different demographics. The model has been failing on your population for weeks. Your quality committee is furious: 'Why didn't we catch this during implementation?'"
-            },
-            {
-              text: "Implement a 'human-in-the-loop' protocol where every AI alert requires nurse verification",
-              consequence: "Every alert now requires manual verification, reducing false-action but increasing workload.",
-              nextSituation: "Protocol works briefly. Then the night shift reports spending 40% of time reviewing alerts. A nurse misses a real case due to fatigue from reviewing 50 false positives. The system is reproducing the exact problem it was supposed to solve."
-            }
+            { text: "Form an urgent task force to manually audit all high-risk patients twice daily", consequence: "The task force launches, clinicians pulled from other duties and audits start catching missed cases.", nextSituation: "The manual audits catch two sepsis cases the AI missed. Success! But your staff is working 12-hour shifts. Union reps are filing grievances. Burnout complaints are flooding HR. Meanwhile, the media story goes regional."},
+            { text: "Bring in an independent AI auditor to review the system immediately", consequence: "An auditor requests full access and begins analyzing model performance and data representativeness.", nextSituation: "The auditor discovers the AI was trained on academic center data; your community hospital has different demographics. The model has been failing on your population for weeks. Your quality committee is furious: 'Why didn't we catch this during implementation?'"},
+            { text: "Implement a 'human-in-the-loop' protocol where every AI alert requires nurse verification", consequence: "Every alert now requires manual verification, reducing false-action but increasing workload.", nextSituation: "Protocol works briefly. Then the night shift reports spending 40% of time reviewing alerts. A nurse misses a real case due to fatigue from reviewing 50 false positives. The system is reproducing the exact problem it was supposed to solve."}
           ]
         },
         {
           situation: "Day 3: The crisis is now public. You must manage reputation, legal exposure, and regulatory scrutiny while ensuring patient safety.",
           options: [
-            {
-              text: "Publicly acknowledge the AI failure and commit to transparency",
-              consequence: "You draft a statement admitting the system's limitations and outline a remediation plan.",
-              nextSituation: "Your statement goes viral. Patient advocacy groups applaud transparency. But three other hospitals using the same vendor terminate contracts, citing reputational risk. Your malpractice insurer raises rates 40%."
-            },
-            {
-              text: "Keep this internal while you work on fixing it",
-              consequence: "You decide to quietly fix the problem before going public.",
-              nextSituation: "An ICU nurse leaks internal emails to the press showing you knew about alert fatigue for weeks. The headline: 'Hospital Ignored AI Warning Signs Before Patient Death.' Your credibility is shattered. The state health department opens a formal investigation."
-            },
-            {
-              text: "Commission a full independent review before making any public statements",
-              consequence: "You engage external experts for a comprehensive assessment; timeline is lengthy.",
-              nextSituation: "The 6-week review timeline is leaked. Families of affected patients interpret this as a cover-up. A class action lawsuit is filed. Your legal team warns the review may be subject to discovery. The crisis becomes a legal minefield."
-            }
+            { text: "Publicly acknowledge the AI failure and commit to transparency", consequence: "You draft a statement admitting the system's limitations and outline a remediation plan.", nextSituation: "Your statement goes viral. Patient advocacy groups applaud transparency. But three other hospitals using the same vendor terminate contracts, citing reputational risk. Your malpractice insurer raises rates 40%."},
+            { text: "Keep this internal while you work on fixing it", consequence: "You decide to quietly fix the problem before going public.", nextSituation: "An ICU nurse leaks internal emails to the press showing you knew about alert fatigue for weeks. The headline: 'Hospital Ignored AI Warning Signs Before Patient Death.' Your credibility is shattered. The state health department opens a formal investigation."},
+            { text: "Commission a full independent review before making any public statements", consequence: "You engage external experts for a comprehensive assessment; timeline is lengthy.", nextSituation: "The 6-week review timeline is leaked. Families of affected patients interpret this as a cover-up. A class action lawsuit is filed. Your legal team warns the review may be subject to discovery. The crisis becomes a legal minefield."}
           ]
         }
       ],
@@ -412,61 +323,25 @@
         {
           situation: "Your largest hospital client reports a patient death possibly linked to your AI diagnostic tool. Your board, investors, and 15 other hospital clients are all waiting for answers. What's your first move?",
           options: [
-            {
-              text: "Issue immediate recall of the algorithm while you investigate",
-              consequence: "The recall begins. Your other clients start questioning their contracts...",
-              nextSituation: "Within 24 hours, 8 of your 15 clients suspend use of your platform. Your revenue drops 40% overnight. Your Series B investors call an emergency meeting. The lead investor asks: 'Do you even understand what went wrong?'"
-            },
-            {
-              text: "Request access to the hospital's data to audit what happened",
-              consequence: "Legal raises concerns about liability and data access rights...",
-              nextSituation: "The hospital's legal team refuses data access citing patient privacy and potential litigation. You're blind. Your engineering team can't replicate the failure without real data. Meanwhile, your other clients are demanding answers you can't provide."
-            },
-            {
-              text: "Engage external AI ethics consultants to investigate independently",
-              consequence: "The consultants need 2-3 weeks. The media cycle is 24 hours...",
-              nextSituation: "By day 3, healthcare tech blogs are speculating wildly about your algorithm's flaws. A competitor issues a statement about their 'rigorous safety protocols.' Your sales pipeline freezes. Three major prospects postpone pilot programs indefinitely."
-            }
+            { text: "Issue immediate recall of the algorithm while you investigate", consequence: "The recall begins. Your other clients start questioning their contracts...", nextSituation: "Within 24 hours, 8 of your 15 clients suspend use of your platform. Your revenue drops 40% overnight. Your Series B investors call an emergency meeting. The lead investor asks: 'Do you even understand what went wrong?'" },
+            { text: "Request access to the hospital's data to audit what happened", consequence: "Legal raises concerns about liability and data access rights...", nextSituation: "The hospital's legal team refuses data access citing patient privacy and potential litigation. You're blind. Your engineering team can't replicate the failure without real data. Meanwhile, your other clients are demanding answers you can't provide." },
+            { text: "Engage external AI ethics consultants to investigate independently", consequence: "The consultants need 2-3 weeks. The media cycle is 24 hours...", nextSituation: "By day 3, healthcare tech blogs are speculating wildly about your algorithm's flaws. A competitor issues a statement about their 'rigorous safety protocols.' Your sales pipeline freezes. Three major prospects postpone pilot programs indefinitely." }
           ]
         },
         {
           situation: "Day 2: The incident is escalating. You need to balance product safety, customer retention, and investor confidence.",
           options: [
-            {
-              text: "Proactively notify all clients and offer to pause deployments for safety review",
-              consequence: "You send a company-wide safety notification...",
-              nextSituation: "Your transparency is praised by some clients but 5 immediately terminate contracts. Your burn rate spikes as revenue drops. Your CFO warns you have 8 months of runway. Your biggest investor suggests 'strategic alternatives' - code for selling the company at a loss."
-            },
-            {
-              text: "Focus on the one incident and reassure other clients their deployments are safe",
-              consequence: "You frame this as an isolated configuration issue...",
-              nextSituation: "Two days later, a different hospital reports similar missed cases. Your 'isolated incident' narrative collapses. Clients feel misled. Your NPS score drops 40 points. Your Head of Customer Success submits resignation, citing ethical concerns."
-            },
-            {
-              text: "Launch a bug bounty program and invite external researchers to stress-test your system",
-              consequence: "The bounty program attracts dozens of AI safety researchers...",
-              nextSituation: "Researchers discover 3 additional edge cases where your algorithm fails dangerously. The findings are published in a preprint. Your platform's reputation is in tatters, but you now have a roadmap to fix the issues. Can you survive long enough to implement the fixes?"
-            }
+            { text: "Proactively notify all clients and offer to pause deployments for safety review", consequence: "You send a company-wide safety notification...", nextSituation: "Your transparency is praised by some clients but 5 immediately terminate contracts. Your burn rate spikes as revenue drops. Your CFO warns you have 8 months of runway. Your biggest investor suggests 'strategic alternatives' - code for selling the company at a loss." },
+            { text: "Focus on the one incident and reassure other clients their deployments are safe", consequence: "You frame this as an isolated configuration issue...", nextSituation: "Two days later, a different hospital reports similar missed cases. Your 'isolated incident' narrative collapses. Clients feel misled. Your NPS score drops 40 points. Your Head of Customer Success submits resignation, citing ethical concerns." },
+            { text: "Launch a bug bounty program and invite external researchers to stress-test your system", consequence: "The bounty program attracts dozens of AI safety researchers...", nextSituation: "Researchers discover 3 additional edge cases where your algorithm fails dangerously. The findings are published in a preprint. Your platform's reputation is in tatters, but you now have a roadmap to fix the issues. Can you survive long enough to implement the fixes?" }
           ]
         },
         {
           situation: "Day 5: Your company's future is in question. The board meets tomorrow. You need a path forward.",
           options: [
-            {
-              text: "Pivot to a 'decision support only' model that requires physician override",
-              consequence: "You redesign the product as assistive rather than autonomous...",
-              nextSituation: "The pivot extends your development timeline by 6 months and requires re-training your sales team. Your board is split: half want to cut losses, half want to push forward. You need to raise capital, but VCs are suddenly cold on healthcare AI. One VC tells you off the record: 'Your company is uninvestable until this blows over.'"
-            },
-            {
-              text: "Double down on the technology and prove it works through rigorous clinical trials",
-              consequence: "You commit to gold-standard validation...",
-              nextSituation: "The clinical trial design will take 18 months and cost $3M. You don't have either. Your co-founder argues for shutting down and returning remaining capital to investors. Your team is hemorrhaging talent. Your top ML engineer just accepted an offer from a competitor."
-            },
-            {
-              text: "Seek acquisition by a larger health tech company with deeper resources",
-              consequence: "You quietly shop the company...",
-              nextSituation: "Two potential acquirers express interest, but at valuations 70% below your last funding round. The terms include significant escrow tied to no further incidents. Your investors would take massive losses. Your employees would see their equity evaporate. But the company might survive."
-            }
+            { text: "Pivot to a 'decision support only' model that requires physician override", consequence: "You redesign the product as assistive rather than autonomous...", nextSituation: "The pivot extends your development timeline by 6 months and requires re-training your sales team. Your board is split: half want to cut losses, half want to push forward. You need to raise capital, but VCs are suddenly cold on healthcare AI. One VC tells you off the record: 'Your company is uninvestable until this blows over.'"},
+            { text: "Double down on the technology and prove it works through rigorous clinical trials", consequence: "You commit to gold-standard validation...", nextSituation: "The clinical trial design will take 18 months and cost $3M. You don't have either. Your co-founder argues for shutting down and returning remaining capital to investors. Your team is hemorrhaging talent. Your top ML engineer just accepted an offer from a competitor."},
+            { text: "Seek acquisition by a larger health tech company with deeper resources", consequence: "You quietly shop the company...", nextSituation: "Two potential acquirers express interest, but at valuations 70% below your last funding round. The terms include significant escrow tied to no further incidents. Your investors would take massive losses. Your employees would see their equity evaporate. But the company might survive."}
           ]
         }
       ],
@@ -474,61 +349,25 @@
         {
           situation: "A state health agency calls: 'This AI system is deployed in 12 hospitals in our state. We need guidance on whether to mandate suspension pending investigation. What do you recommend?'",
           options: [
-            {
-              text: "Recommend immediate suspension at all sites until full investigation",
-              consequence: "You advise suspension. Hospitals push back citing disruption to care...",
-              nextSituation: "Five hospitals comply immediately. Seven push back, arguing suspension would harm patient care and expose them to liability for reverting to less effective protocols. The hospital association threatens to sue the state for overreach. You're caught in the middle."
-            },
-            {
-              text: "Suggest enhanced monitoring protocols while allowing continued use",
-              consequence: "The compromise is accepted. But what if another incident occurs?...",
-              nextSituation: "Your enhanced monitoring catches two near-misses in the first week. No harm done, but critics argue you're using patients as beta testers. A patient advocacy group files a complaint with the state medical board, naming you personally for 'reckless endangerment.'"
-            },
-            {
-              text: "Propose emergency framework for AI medical device incident response",
-              consequence: "Creating the framework will take weeks. They need answers today...",
-              nextSituation: "While you draft the framework, another patient dies at a different hospital using the same AI. The governor holds a press conference demanding immediate action. Your framework is now being drafted under intense political pressure and media scrutiny. Every word will be analyzed."
-            }
+            { text: "Recommend immediate suspension at all sites until full investigation", consequence: "You advise suspension. Hospitals push back citing disruption to care...", nextSituation: "Five hospitals comply immediately. Seven push back, arguing suspension would harm patient care and expose them to liability for reverting to less effective protocols. The hospital association threatens to sue the state for overreach. You're caught in the middle."},
+            { text: "Suggest enhanced monitoring protocols while allowing continued use", consequence: "The compromise is accepted. But what if another incident occurs?... ", nextSituation: "Your enhanced monitoring catches two near-misses in the first week. No harm done, but critics argue you're using patients as beta testers. A patient advocacy group files a complaint with the state medical board, naming you personally for 'reckless endangerment.'"},
+            { text: "Propose emergency framework for AI medical device incident response", consequence: "Creating the framework will take weeks. They need answers today...", nextSituation: "While you draft the framework, another patient dies at a different hospital using the same AI. The governor holds a press conference demanding immediate action. Your framework is now being drafted under intense political pressure and media scrutiny. Every word will be analyzed."}
           ]
         },
         {
           situation: "Day 3: Political pressure is mounting. You need to provide concrete recommendations that balance safety, innovation, and practicality.",
           options: [
-            {
-              text: "Recommend creating a state-level AI safety review board with emergency powers",
-              consequence: "The proposal gains traction but faces opposition...",
-              nextSituation: "Hospital lobbying groups call it government overreach. Tech industry groups warn it will kill innovation. Patient advocacy groups demand even stronger oversight. Your inbox fills with threats and praise in equal measure. The governor asks: 'Can this even be done legally?'"
-            },
-            {
-              text: "Advise implementing mandatory incident reporting for all healthcare AI systems",
-              consequence: "The reporting mandate is drafted...",
-              nextSituation: "The first week produces 200 incident reports across the state. Ninety percent are minor, but you've uncovered systemic issues with multiple AI systems. The healthcare community is overwhelmed. Hospital CIOs are calling you directly: 'We don't have staff to manage this reporting burden.'"
-            },
-            {
-              text: "Propose requiring human oversight for all high-stakes AI medical decisions",
-              consequence: "The human-in-the-loop mandate is implemented...",
-              nextSituation: "Hospitals report the mandate is adding 20-30 hours per week to clinician workloads during a nursing shortage crisis. The state's largest health system threatens to discontinue all AI tools rather than comply. Your well-intentioned policy is creating unintended consequences at scale."
-            }
+            { text: "Recommend creating a state-level AI safety review board with emergency powers", consequence: "The proposal gains traction but faces opposition...", nextSituation: "Hospital lobbying groups call it government overreach. Tech industry groups warn it will kill innovation. Patient advocacy groups demand even stronger oversight. Your inbox fills with threats and praise in equal measure. The governor asks: 'Can this even be done legally?'" },
+            { text: "Advise implementing mandatory incident reporting for all healthcare AI systems", consequence: "The reporting mandate is drafted...", nextSituation: "The first week produces 200 incident reports across the state. Ninety percent are minor, but you've uncovered systemic issues with multiple AI systems. The healthcare community is overwhelmed. Hospital CIOs are calling you directly: 'We don't have staff to manage this reporting burden.'"},
+            { text: "Propose requiring human oversight for all high-stakes AI medical decisions", consequence: "The human-in-the-loop mandate is implemented...", nextSituation: "Hospitals report the mandate is adding 20-30 hours per week to clinician workloads during a nursing shortage crisis. The state's largest health system threatens to discontinue all AI tools rather than comply. Your well-intentioned policy is creating unintended consequences at scale."}
           ]
         },
         {
           situation: "Week 2: Your recommendations have created ripple effects. National attention is on your state. What's your next move?",
           options: [
-            {
-              text: "Call for federal harmonization of healthcare AI regulations",
-              consequence: "You draft a letter to federal regulators...",
-              nextSituation: "The FDA responds that medical AI falls into a regulatory gap between devices and software. CMS says it's outside their purview. The FTC says it's a healthcare issue. ONC says it's a safety issue. You realize you've uncovered a massive coordination failure. The crisis is actually a symptom of a much bigger systemic problem."
-            },
-            {
-              text: "Recommend establishing a state AI testing and certification program",
-              consequence: "The certification program proposal is published...",
-              nextSituation: "The program would cost $15M annually. The legislature hasn't funded it. AI vendors threaten to pull out of your state entirely. Meanwhile, neighboring states are watching to see if your approach works or fails. You're essentially running a live policy experiment with real stakes."
-            },
-            {
-              text: "Advise focusing on vendor liability and insurance requirements",
-              consequence: "New liability standards are proposed for AI vendors...",
-              nextSituation: "Insurance companies refuse to underwrite the new requirements, calling healthcare AI 'uninsurable risk.' Two major AI vendors immediately exit your state market. Hospitals are stuck with unsupported systems. Your solution has created a different crisis. Patients are now worse off."
-            }
+            { text: "Call for federal harmonization of healthcare AI regulations", consequence: "You draft a letter to federal regulators...", nextSituation: "The FDA responds that medical AI falls into a regulatory gap between devices and software. CMS says it's outside their purview. The FTC says it's a healthcare issue. ONC says it's a safety issue. You realize you've uncovered a massive coordination failure. The crisis is actually a symptom of a much bigger systemic problem."},
+            { text: "Recommend establishing a state AI testing and certification program", consequence: "The certification program proposal is published...", nextSituation: "The program would cost $15M annually. The legislature hasn't funded it. AI vendors threaten to pull out of your state entirely. Meanwhile, neighboring states are watching to see if your approach works or fails. You're essentially running a live policy experiment with real stakes."},
+            { text: "Advise focusing on vendor liability and insurance requirements", consequence: "New liability standards are proposed for AI vendors...", nextSituation: "Insurance companies refuse to underwrite the new requirements, calling healthcare AI 'uninsurable risk.' Two major AI vendors immediately exit your state market. Hospitals are stuck with unsupported systems. Your solution has created a different crisis. Patients are now worse off."}
           ]
         }
       ]
@@ -564,7 +403,6 @@
         }];
         setDecisions(newDecisions);
         setShowingConsequence(true);
-        // manual Continue required (no auto-advance)
       };
 
       const handleContinue = () => {
@@ -742,7 +580,6 @@
                         Our full simulations prepare your organization to handle these challenges before they become headlines.
                       </p>
 
-                      <!-- Blue button (links to contact page) -->
                       <a href="https://roxanaakhmetova.com/contact.html" className="btn-blue">Experience the Full Simulation</a>
 
                       <p className="text-sm text-gray-300 mt-4">
@@ -759,11 +596,45 @@
       );
     }
 
-    // mount the simulator
-    const rootEl = document.getElementById('simulator-root');
-    if (rootEl) {
-      ReactDOM.createRoot(rootEl).render(<AICrisisSimulator />);
-    }
+    // Robust mount: try createRoot, fallback to ReactDOM.render, and report errors visibly
+    (function mountSimulator() {
+      const mountPoint = document.getElementById('simulator-root');
+      const replaceWithError = (err) => {
+        console.error('Simulator mount error:', err);
+        if (mountPoint) {
+          mountPoint.innerHTML = '';
+          const errBox = document.createElement('div');
+          errBox.className = 'sim-error';
+          errBox.innerHTML = '<strong>Simulator failed to load.</strong><p>Please open the browser console and report the error to the developer.</p><pre style="white-space:pre-wrap;color:#f8f8f8;">' + (err && err.message ? err.message : String(err)) + '</pre><p><button id="sim-close" style="margin-top:10px;padding:8px 12px;border-radius:6px;border:none;background:#c84b4b;color:#fff;cursor:pointer;">Close Simulator</button></p>';
+          mountPoint.appendChild(errBox);
+          const closeBtn = document.getElementById('sim-close');
+          if (closeBtn) closeBtn.addEventListener('click', () => { closeSimulator(); });
+        }
+      };
+
+      try {
+        if (!mountPoint) throw new Error('Mount point #simulator-root not found');
+
+        // Slight delay to allow any CSS/DOM to settle
+        setTimeout(() => {
+          try {
+            if (window.ReactDOM && typeof window.ReactDOM.createRoot === 'function') {
+              // React 18 createRoot mount
+              window.ReactDOM.createRoot(mountPoint).render(React.createElement(AICrisisSimulator));
+            } else if (window.ReactDOM && typeof window.ReactDOM.render === 'function') {
+              // fallback for older UMD builds
+              window.ReactDOM.render(React.createElement(AICrisisSimulator), mountPoint);
+            } else {
+              throw new Error('ReactDOM is not available on window');
+            }
+          } catch (innerErr) {
+            replaceWithError(innerErr);
+          }
+        }, 60);
+      } catch (err) {
+        replaceWithError(err);
+      }
+    })();
   </script>
 </body>
 </html>
