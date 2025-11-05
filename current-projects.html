@@ -6,26 +6,32 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Stay tuned for upcoming projects by Roxana Akhmetova.">
   <meta name="author" content="Roxana Akhmetova">
+
+  <!-- Tailwind (keeps same theme as your consulting page) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            dark: '#0d0d0f',
-            light: '#f7f7f8',
-            accent: '#314e86'
+            dark:'#1a1a1a',
+            mid:'#4d4d4d',
+            light:'#f7f7f8',
+            oxford:'#002147',
+            'oxford-100':'#e6eefb',
+            'oxford-600':'#234e85'
           }
         }
       }
-    };
+    }
   </script>
+
+  <link rel="stylesheet" href="style.css">
   <style>
     html, body {
       background-color: #0d0d0f;
       color: #fff;
       font-family: Inter, Arial, sans-serif;
-      text-align: center;
       height: 100%;
       margin: 0;
     }
@@ -34,29 +40,38 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      height: 80vh;
+      height: calc(100vh - 120px); /* leave room for navbar/footer */
       padding: 0 1.5rem;
+      text-align: center;
     }
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
       font-weight: 700;
       color: #ffffff;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
     p {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: #cbd5e1;
+      margin: 0;
     }
+    /* ensure navbar area doesn't overlap content on small viewports */
+    .page-content { padding-top: 90px; }
   </style>
 </head>
 <body class="bg-dark text-light font-sans">
+  <!-- use the same custom navbar include your consulting page uses -->
   <custom-navbar></custom-navbar>
-  <main>
+
+  <main id="main-content" class="page-content">
     <h1>Stay Tuned</h1>
     <p>New projects and updates are coming soon.</p>
   </main>
+
   <custom-footer></custom-footer>
-  <script src="/components/navbar.js"></script>
-  <script src="/components/footer.js"></script>
+
+  <!-- Use the exact absolute references (same as consulting page) so the same navbar/footer code is loaded -->
+  <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
+  <script src="https://roxanaakhmetova.com/components/footer.js"></script>
 </body>
 </html>
