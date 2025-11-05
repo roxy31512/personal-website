@@ -4,95 +4,57 @@
   <meta charset="utf-8" />
   <title>Current Projects | Roxana Akhmetova</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Test your organization's readiness for AI governance crises with our interactive simulation based on real healthcare incidents.">
-  <meta name="keywords" content="AI crisis simulation, AI governance, healthcare AI, policy simulation">
+  <meta name="description" content="Stay tuned for upcoming projects by Roxana Akhmetova.">
   <meta name="author" content="Roxana Akhmetova">
-
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            dark:'#0d0d0f',
-            mid:'#141617',
-            light:'#f7f7f8',
-            oxford:'#002147',
-            'oxford-100':'#e6eefb',
-            'oxford-600':'#234e85'
+            dark: '#0d0d0f',
+            light: '#f7f7f8',
+            accent: '#314e86'
           }
         }
       }
     };
   </script>
-
-  <link rel="stylesheet" href="style.css">
-
   <style>
     html, body {
       background-color: #0d0d0f;
-      min-height: 100%;
+      color: #fff;
+      font-family: Inter, Arial, sans-serif;
+      text-align: center;
+      height: 100%;
+      margin: 0;
     }
-    body { color:#fff; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
-
     main {
-      margin: 100px auto 60px;
-      max-width: 900px;
-      padding: 0 24px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      min-height:60vh;
-      text-align:center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 80vh;
+      padding: 0 1.5rem;
     }
-
-    h1 { font-size:2.25rem; margin-bottom:14px; color:#fff; font-weight:700; }
-    p.lead { color:#d8e1eb; font-size:1.05rem; max-width:760px; line-height:1.6; margin-bottom:24px; }
-
-    .ctas { display:flex; gap:12px; align-items:center; justify-content:center; margin-top:18px; flex-wrap:wrap; }
-    .btn-blue {
-      background:#314e86; color:#fff; font-weight:700; padding:12px 28px; border-radius:10px; text-decoration:none;
-      box-shadow:0 6px 18px rgba(49,78,134,0.18);
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1rem;
     }
-    .btn-blue:hover { background:#253d6a; transform: translateY(-2px); transition:all .12s ease; }
-
-    .secondary {
-      background:transparent; color:#cbd5e1; border:1px solid rgba(255,255,255,0.06); padding:10px 20px; border-radius:8px; text-decoration:none;
+    p {
+      font-size: 1.1rem;
+      color: #cbd5e1;
     }
-
-    .note { color:#9aa6b2; margin-top:20px; max-width:720px; font-size:0.95rem; }
-
-    /* small utility */
-    .badge { display:inline-block; padding:6px 10px; background:#111216; color:#f8fafc; border-radius:999px; font-weight:600; font-size:0.85rem; margin-bottom:12px; }
   </style>
 </head>
-
-<body>
+<body class="bg-dark text-light font-sans">
   <custom-navbar></custom-navbar>
-
   <main>
-    <span class="badge">Project — Paused / Preview</span>
-    <h1>AI Crisis Simulation — Preview Paused</h1>
-
-    <p class="lead">
-      Thanks for your interest. The interactive simulator preview is currently paused while we prepare a secure, invite-only demo and partner rollout.
-      If you'd like early access, a private demo, or to be notified when the public preview returns, please request access below.
-    </p>
-
-    <div class="ctas">
-      <!-- Primary CTA leads to contact page -->
-      <a class="btn-blue" href="https://roxanaakhmetova.com/contact.html" id="request-demo">Request a Private Demo</a>
-
-      <!-- Secondary CTA is a mailto fallback (people who want to RSVP) -->
-      <a class="secondary" href="mailto:hello@roxanaakhmetova.com?subject=Simulator%20Preview%20Request">Email to Request Access</a>
-    </div>
-
-    <p class="note">
-      The full simulator will remain in the repository (archived) but will not be available publicly at this URL. If you're a trusted partner (investor, regulator, or invited org) reply with your details and we will share a secure preview link.
-    </p>
+    <h1>Stay Tuned</h1>
+    <p>New projects and updates are coming soon.</p>
   </main>
-
   <custom-footer></custom-footer>
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
