@@ -32,8 +32,14 @@
     html {
       background-color: #000 !important;
     }
-    
+
+    /* Disable text selection */
     body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
       font-family: Arial, Helvetica, sans-serif;
       margin: 0;
       background-color: #000 !important;
@@ -41,13 +47,13 @@
       line-height: 1.6;
       min-height: 100%;
     }
-    
+
     main {
       margin: 100px auto 60px;
       max-width: 900px;
       padding: 0 40px;
     }
-    
+
     h1 {
       font-size: 2.5em !important;
       margin-bottom: 50px !important;
@@ -59,7 +65,7 @@
       display: inline-block !important;
       width: auto !important;
     }
-    
+
     .institution {
       font-weight: 700;
       font-size: 1.125rem;
@@ -67,15 +73,15 @@
       margin-bottom: 20px;
       color: #fff;
     }
-    
+
     .institution:not(:first-of-type) {
       margin-top: 40px;
     }
-    
+
     .award-entry {
       margin-bottom: 20px;
     }
-    
+
     .award-header {
       display: flex;
       justify-content: space-between;
@@ -83,31 +89,31 @@
       flex-wrap: wrap;
       gap: 10px;
     }
-    
+
     .award-title {
       font-weight: 500;
       color: #fff;
       flex: 1;
       font-size: 1rem;
     }
-    
+
     .award-title a {
       color: #9fc0ff;
       text-decoration: none;
       border-bottom: 1px solid transparent;
       transition: border-color 0.2s;
     }
-    
+
     .award-title a:hover {
       border-bottom-color: #9fc0ff;
     }
-    
+
     .award-date {
       color: #ccc;
       white-space: nowrap;
       font-size: 1rem;
     }
-    
+
     .award-description {
       color: #bbb;
       font-style: italic;
@@ -115,6 +121,18 @@
       font-size: 0.95rem;
     }
   </style>
+
+  <script>
+    // Disable right-click and copy shortcuts
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('copy', e => e.preventDefault());
+    document.addEventListener('cut', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.key === 'x' || e.key === 'X' || e.key === 'a' || e.key === 'A')) {
+        e.preventDefault();
+      }
+    });
+  </script>
 </head>
 
 <body class="bg-dark text-light font-sans">
@@ -124,7 +142,7 @@
     <h1>Awards</h1>
 
     <div class="institution">The University of Oxford</div>
-    
+
     <div class="award-entry">
       <div class="award-header">
         <span class="award-title">Oxford School of Anthropology & Museum Ethnography Travel Award</span>
@@ -293,7 +311,6 @@
         <span class="award-date">June 2013</span>
       </div>
     </div>
-
   </main>
 
   <custom-footer></custom-footer>
@@ -301,3 +318,4 @@
   <script src="/components/footer.js"></script>
 </body>
 </html>
+
