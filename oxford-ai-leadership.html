@@ -156,15 +156,6 @@
     .dot { width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.18); cursor:pointer; }
     .dot.active { background:#9fc0ff; }
 
-    .archive-note {
-      margin-top:18px;
-      padding:14px 16px;
-      background: rgba(159,192,255,0.03);
-      border-left: 4px solid #9fc0ff;
-      color:#dfe9ff;
-      border-radius:6px;
-    }
-
     /* small screens */
     @media (max-width:900px) {
       .slide-media { width:100%; min-height:220px; }
@@ -274,11 +265,8 @@
         <button class="carousel-btn" id="nextBtn" aria-label="Next slide">Next →</button>
       </div>
 
-      <div class="carousel-dots" id="dots"></div>
+      <div class="carousel-dots" id="dots" aria-hidden="false"></div>
 
-      <div class="archive-note">
-        📰 <strong>Note:</strong> Event images are placeholders — replace each slide's media with actual image files in <code>/images/</code> or swap the <code>div.slide-media</code> for an <code>&lt;img src="..."&gt;</code> element.
-      </div>
     </section>
 
   </main>
