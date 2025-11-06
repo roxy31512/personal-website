@@ -1,21 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
   <title>Oxford AI Leadership | Roxana Akhmetova</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Leadership roles at Oxford AI Society including President, AI Mentorship Scheme founder, and Board Member.">
   <meta name="keywords" content="Oxford AI Society, AI leadership, mentorship, society of the year">
   <meta name="author" content="Roxana Akhmetova">
 
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            dark: '#1a1a1a',
-            mid: '#4d4d4d',
+            dark: '#000000',
+            mid: '#1a1a1a',
             light: '#f7f7f8',
             oxford: '#002147',
             'oxford-100': '#e6eefb',
@@ -29,64 +30,313 @@
   <link rel="stylesheet" href="/style.css">
 
   <style>
+    /* Page baseline */
     html, body {
-      background-color: #1a1a1a !important;
+      background-color: #000 !important;
+      color: #e6eefb;
       min-height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      scroll-behavior: smooth;
     }
-    
+
     main {
-      margin: 100px auto 60px;
-      max-width: 900px;
-      padding: 0 40px;
+      margin: 100px auto 80px;
+      max-width: 1100px;
+      padding: 0 28px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 18px;
+      color: #ffffff;
+      font-weight: 700;
+      text-align: left;
+    }
+
+    .page-lead {
+      color: #cbd5e1;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 26px;
+    }
+
+    /* Section and project formatting (copied format) */
+    .section-title {
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: #fff;
+      margin-top: 40px;
+      margin-bottom: 18px;
+    }
+
+    .project-entry {
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      scroll-margin-top: 120px;
+    }
+
+    .project-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: #9fc0ff;
+    }
+
+    .project-date {
+      color: #888;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .project-description {
+      color: #ddd;
+      line-height: 1.8;
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    .project-link {
+      color: #9fc0ff;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+      font-size: 0.95rem;
+    }
+    .project-link:hover { border-bottom-color: #9fc0ff; }
+
+    /* Carousel (event gallery) */
+    .carousel {
+      margin-top: 28px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .carousel-viewport {
+      position: relative;
+      width: 100%;
+      padding-top: 56%;
+      overflow: hidden;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .carousel-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: translateX(4%);
+      transition: opacity .35s ease, transform .35s ease;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 60vh;
-    }
-    
-    h1 {
-      font-size: 2.5em !important;
-      margin-bottom: 25px !important;
-      color: #ffffff !important;
-      font-weight: 600 !important;
-      -webkit-text-fill-color: #ffffff !important;
-      text-align: center;
+      padding: 18px;
+      box-sizing: border-box;
+      color: #fff;
     }
 
-    .coming-soon {
-      color: #9fc0ff;
-      font-size: 1.5rem;
-      font-weight: 500;
-      text-align: center;
-      margin-top: 20px;
+    .carousel-slide.active {
+      opacity: 1;
+      transform: translateX(0);
+      z-index: 2;
     }
 
-    .placeholder-text {
-      color: #d8e1eb;
-      font-size: 1.1rem;
-      text-align: center;
-      margin-top: 15px;
-      opacity: 0.7;
+    .slide-media {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      background: linear-gradient(90deg, rgba(35,78,133,0.6), rgba(220,80,80,0.3));
+      min-height: 160px;
     }
+
+    .slide-caption {
+      margin-top: 10px;
+      color: #e6eefb;
+    }
+
+    .carousel-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .carousel-prev { left: 12px; }
+    .carousel-next { right: 12px; }
+
+    .carousel-thumbs { display:flex; gap:10px; overflow-x:auto; padding:8px; margin-top:8px; }
+    .thumb { min-width:120px; height:72px; border-radius:8px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.04); display:flex; align-items:center; justify-content:center; color:#cbd5e1; cursor:pointer; padding:6px; flex-shrink:0;}
+    .thumb.active { outline:2px solid rgba(159,192,255,0.16); border-color:rgba(159,192,255,0.16); }
+
+    /* small helper */
+    .archive-note { background: rgba(159,192,255,0.04); border-left:4px solid #9fc0ff; padding:12px 16px; color:#ddd; margin-top:18px; border-radius:6px; }
+
+    /* copy protection deterrent (still accessible) */
+    .no-copy { -webkit-user-select:none; -moz-user-select:none; user-select:none; }
   </style>
 </head>
 
-<body>
+<body class="no-copy">
   <custom-navbar></custom-navbar>
 
   <main>
     <h1>Oxford AI Leadership</h1>
-    
-    <div class="coming-soon">Coming Soon</div>
-    
-    <div class="placeholder-text">
-      Content being prepared
+    <p class="page-lead">Work in student leadership, mentorship and society governance at the University of Oxford. Below: event gallery and three core activities/roles.</p>
+
+    <!-- EVENT GALLERY / CAROUSEL -->
+    <section id="event-gallery" class="carousel" aria-label="Event gallery">
+      <div class="carousel-viewport" role="region" aria-roledescription="carousel" aria-label="Leadership event images">
+        <figure class="carousel-slide active" data-index="0" aria-hidden="false">
+          <div style="width:100%;height:100%;display:flex;flex-direction:column;">
+            <div class="slide-media" role="img" aria-label="Event image 1 (add image URL to data-src)" data-src=""></div>
+            <figcaption class="slide-caption"><strong>Event Title One</strong> — Summary or date.</figcaption>
+          </div>
+        </figure>
+
+        <figure class="carousel-slide" data-index="1" aria-hidden="true">
+          <div style="width:100%;height:100%;display:flex;flex-direction:column;">
+            <div class="slide-media" role="img" aria-label="Event image 2 (add image URL to data-src)" data-src=""></div>
+            <figcaption class="slide-caption"><strong>Event Title Two</strong> — Summary or date.</figcaption>
+          </div>
+        </figure>
+
+        <figure class="carousel-slide" data-index="2" aria-hidden="true">
+          <div style="width:100%;height:100%;display:flex;flex-direction:column;">
+            <div class="slide-media" role="img" aria-label="Event image 3 (add image URL to data-src)" data-src=""></div>
+            <figcaption class="slide-caption"><strong>Event Title Three</strong> — Summary or date.</figcaption>
+          </div>
+        </figure>
+
+        <button class="carousel-control carousel-prev" aria-label="Previous slide" id="carousel-prev">‹</button>
+        <button class="carousel-control carousel-next" aria-label="Next slide" id="carousel-next">›</button>
+      </div>
+
+      <div class="carousel-thumbs" role="tablist" aria-label="Thumbnails">
+        <button class="thumb active" data-index="0" role="tab" aria-selected="true">Slide 1</button>
+        <button class="thumb" data-index="1" role="tab" aria-selected="false">Slide 2</button>
+        <button class="thumb" data-index="2" role="tab" aria-selected="false">Slide 3</button>
+      </div>
+    </section>
+
+    <!-- Three content categories (presidency, mentorship, board) -->
+    <div class="section-title" id="presidency">Oxford AI Society Presidency</div>
+    <div class="project-entry">
+      <div class="project-title">President, Oxford AI Society</div>
+      <div class="project-date">2024 – 2025</div>
+      <div class="project-description">
+        Led the student organisation, established flagship events and partnerships, oversaw operations and strategy, expanded membership, and coordinated the Oxford AI Gala. Responsible for sponsorship development, event programming, and cross-institution collaboration.
+      </div>
+      <a class="project-link" href="#event-gallery">See gallery →</a>
+    </div>
+
+    <div class="section-title" id="mentorship">AI Mentorship Scheme</div>
+    <div class="project-entry">
+      <div class="project-title">Founder, AI Mentorship Scheme</div>
+      <div class="project-date">2020 – 2023</div>
+      <div class="project-description">
+        Created a mentorship program matching graduate students and early-career researchers with professionals across academia, policy, and industry. Designed onboarding, mentor training, and evaluation metrics; tracked outcomes and career progression for mentees.
+      </div>
+      <a class="project-link" href="#contact" onclick="window.location='/contact.html'">Contact for collaboration →</a>
+    </div>
+
+    <div class="section-title" id="board">Oxford AI Society Board of Advisors</div>
+    <div class="project-entry">
+      <div class="project-title">Board Member — Oxford AI Society</div>
+      <div class="project-date">Advisory Role</div>
+      <div class="project-description">
+        Advisory role supporting governance, strategy and ethical frameworks for student-led AI work. Provided oversight for curriculum, events, partnerships, and student welfare initiatives.
+      </div>
+      <a class="project-link" href="#presidency">Back to Presidency →</a>
+    </div>
+
+    <div class="archive-note">
+      🔖 <strong>Note:</strong> Event images are placeholders — replace each slide's <code>data-src</code> with your image URL or swap the slide-media div for an <code>&lt;img src="..."&gt;</code> element.
     </div>
   </main>
 
   <custom-footer></custom-footer>
-  <script src="/components/navbar.js"></script>
-  <script src="/components/footer.js"></script>
+
+  <!-- navbar/footer scripts (use your domain to preserve consistent header) -->
+  <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
+  <script src="https://roxanaakhmetova.com/components/footer.js"></script>
+
+  <!-- carousel behaviour -->
+  <script>
+    (function() {
+      const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+      const thumbs = Array.from(document.querySelectorAll('.thumb'));
+      const prevBtn = document.getElementById('carousel-prev');
+      const nextBtn = document.getElementById('carousel-next');
+      let current = slides.findIndex(s => s.classList.contains('active')) || 0;
+
+      function setActive(index) {
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        slides.forEach((s,i) => {
+          const active = i === index;
+          s.classList.toggle('active', active);
+          s.setAttribute('aria-hidden', (!active).toString());
+        });
+        thumbs.forEach((t,i) => {
+          t.classList.toggle('active', i === index);
+          t.setAttribute('aria-selected', (i===index).toString());
+        });
+        current = index;
+        // lazy-load placeholder: if slide-media has data-src, set background-image
+        const media = slides[current].querySelector('.slide-media');
+        if (media) {
+          const src = media.getAttribute('data-src');
+          if (src && !media.dataset.loaded) {
+            media.style.backgroundImage = "url('" + src + "')";
+            media.dataset.loaded = '1';
+          }
+        }
+      }
+
+      function next() { setActive(current + 1); }
+      function prev() { setActive(current - 1); }
+
+      thumbs.forEach(t => t.addEventListener('click', () => setActive(parseInt(t.dataset.index,10))));
+      if (nextBtn) nextBtn.addEventListener('click', next);
+      if (prevBtn) prevBtn.addEventListener('click', prev);
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
+      });
+
+      setActive(current);
+      window.__simpleCarousel = { setActive, next, prev };
+    })();
+  </script>
+
+  <!-- Copy-protection deterrent (non-invasive) -->
+  <script>
+    (function() {
+      document.addEventListener('contextmenu', e => e.preventDefault());
+      document.addEventListener('copy', e => e.preventDefault());
+      document.addEventListener('cut', e => e.preventDefault());
+      document.addEventListener('selectstart', e => e.preventDefault());
+      document.addEventListener('keydown', e => {
+        // block common copy/inspect combos
+        if ((e.ctrlKey || e.metaKey) && ['c','x','s','u'].includes(String(e.key).toLowerCase())) e.preventDefault();
+        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) e.preventDefault();
+      });
+      // allow accessibility: users can still use browser menu if they explicitly enable selection
+    })();
+  </script>
 </body>
 </html>
