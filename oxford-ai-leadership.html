@@ -88,9 +88,10 @@
     /* Image gallery grid */
     .image-gallery {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: auto 1fr;
       gap: 24px;
       margin-top: 24px;
+      align-items: center;
     }
 
     .gallery-item {
@@ -106,9 +107,102 @@
       display: block;
     }
 
+    .gallery-item.gold-badge {
+      max-width: 280px;
+    }
+
+    /* Collapsible archive section */
+    .archive-section {
+      margin-top: 32px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.01);
+      overflow: hidden;
+    }
+
+    .archive-header {
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+
+    .archive-header:hover {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .archive-header h4 {
+      font-size: 1.2rem;
+      color: #9fc0ff;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .archive-toggle {
+      color: #9fc0ff;
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+      line-height: 1;
+    }
+
+    .archive-toggle.open {
+      transform: rotate(180deg);
+    }
+
+    .archive-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .archive-content.open {
+      max-height: 3000px;
+    }
+
+    .archive-article {
+      padding: 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .archive-article h5 {
+      font-size: 1.1rem;
+      color: #eaf2ff;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .archive-article .article-source {
+      color: #9aa4b2;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .archive-article .article-source a {
+      color: #9fc0ff;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    .archive-article .article-source a:hover {
+      border-bottom-color: #9fc0ff;
+    }
+
+    .archive-article p {
+      color: #e6e9ec;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
     @media (max-width: 768px) {
       .image-gallery {
         grid-template-columns: 1fr;
+      }
+      
+      .gallery-item.gold-badge {
+        max-width: 200px;
+        margin: 0 auto;
       }
     }
 
@@ -134,13 +228,84 @@
       </div>
       
       <div class="image-gallery">
-        <div class="gallery-item">
+        <div class="gallery-item gold-badge">
           <img src="/images/Gold.webp" alt="TopGrad Gold Award - Society of the Year 2022-2023">
         </div>
         <div class="gallery-item">
           <img src="/images/team photo.png" alt="Oxford AI Society Team Photo">
         </div>
       </div>
+
+      <!-- Collapsible Archive Section -->
+      <div class="archive-section">
+        <div class="archive-header" onclick="toggleArchive()">
+          <h4>Press & Recognition</h4>
+          <span class="archive-toggle" id="archiveToggle">▼</span>
+        </div>
+        <div class="archive-content" id="archiveContent">
+          
+          <!-- Article 1 -->
+          <article class="archive-article">
+            <h5>Oxford AI Society: Building an Interdisciplinary AI Community for Social Benefit</h5>
+            <div class="article-source">
+              Source: <a href="https://topgrad.co.uk/blog/Jb4zIpfyrX2v9Tv4mrDr" target="_blank" rel="noopener noreferrer">Topgrad Blog</a>
+            </div>
+            <p>
+              <strong>Introduction to the Oxford AI Society (OxAI)</strong><br>
+              Are you fascinated by the world of artificial intelligence (AI) but worried about its impact on society? Do you want to be part of a community that's working towards ensuring AI benefits everyone, regardless of their background or experience? The Oxford AI Society (OxAI) - a vibrant student society established in 2016 with a mission to create an interdisciplinary AI community for social benefit.
+            </p>
+            <p>
+              <strong>Platform for Educating and Connecting an AI Community</strong><br>
+              OxAI provides a platform to educate, build, connect, and employ an interdisciplinary AI community that drives innovation and works towards the long-term social benefit of AI. With seven sub-teams focused on Diversity & Inclusion, Education, Entrepreneurship Hub, Events & Media, Labs, Safety Hub, and Sponsorships/Partnerships/Careers team + exec committee, OxAI offers a range of projects, talks, mentorships, networking events, and reading groups to those with and without technical or STEM backgrounds.
+            </p>
+            <p>
+              <strong>Student-Led Labs Team</strong><br>
+              One of OxAI's proudest achievements is its ability to cater to a range of students in STEM, Social Sciences, and Humanities via diverse projects. The Labs team, which is fully student-led and student-supervised, has published research papers at the best and most competitive venues in natural language processing and AI, including the Association for Computational Linguistics and the Neural Information Processing Systems conferences.
+            </p>
+            <p>
+              <strong>Investigating Societal Impacts</strong><br>
+              OxAI's work is always focused on investigating the societal impacts of AI systems, including bias, privacy, and more. As a lab group, this focus on societal impact is a cool mission/remit to have. OxAI's most exciting projects include using synthetic data and text2image models to improve datasets to measure sociodemographic biases, as well as a tech trek to London, featuring large companies, startups, and academic groups using or creating AI technologies. The society has also hosted noteworthy events, such as a talk by Geoffrey Hinton, widely revered as the "Godfather of Deep Learning," who spoke to 134 students about his latest research.
+            </p>
+            <p>
+              <strong>Joining OxAI's Events, Projects, and Mentorship Programs</strong><br>
+              Students from any university can get involved in the OxAI Society by signing up for the newsletter via the website, attending events, and joining projects and programs. There is no membership fee for the academic year 2022/23, and active students can grow their AI knowledge and network. Even those without a computer science or STEM background can become part of the society, and OxAI offers technical and non-technical mentorship through its Labs and Diversity & Inclusion teams.
+            </p>
+            <p>
+              <strong>Noteworthy Events and Research Papers</strong><br>
+              Over three years, OxAI's non-technical EDI mentorship scheme has paired 66 mentors from Microsoft, Google, Apple, and QuantumBlack with 87 Oxford students who don't feel like they belong in AI/tech. One participant noted, "We spent a lot of time identifying what do I really want out of my career and how I can envision my career path." Approximately 25 people from varied backgrounds have passed through the labs pipeline and learned how to do cutting-edge AI research, resulting in five peer-reviewed research papers.
+            </p>
+            <p>
+              <strong>Working Towards the Long-Term Social Benefit of AI with OxAI</strong><br>
+              In summary, OxAI is a fantastic opportunity for anyone interested in the world of AI to be part of a community that's dedicated to ensuring AI benefits everyone. Follow the society's talks, projects, events, and programs on social media and the website to get involved and work towards the long-term social benefit of AI.
+            </p>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="archive-article">
+            <h5>Topgrad Society of the Year Awards 2022/23: Winners</h5>
+            <div class="article-source">
+              Source: <a href="https://topgrad.co.uk/blog/PS6ew1JXlbcZY7fmmM9r" target="_blank" rel="noopener noreferrer">Topgrad Blog</a>
+            </div>
+            <p>
+              After careful consideration, we are pleased to announce the winners of the Society of the Year Awards 2022/23. We thank each society that took the time to submit an application, we appreciate your commitment to providing valuable resources and opportunities for your members.
+            </p>
+            <p>
+              We must note that we were overwhelmed by the quality and volume of applications we received, which made the choice extremely difficult. We decided to recognise this with Silver and Bronze awards for the most competitive categories. In addition, we gave special consideration to those who have made remarkable efforts to promote Diversity & Inclusion initiatives and support their members' well-being.
+            </p>
+            <p>
+              <strong>Natural and Applied Sciences:</strong><br>
+              First Place (Gold): <strong>Oxford AI Society</strong><br>
+              Second Place (Silver): Warwick Data Science Society<br>
+              Third Place (Bronze): Glasgow University Orbit Society
+            </p>
+            <p>
+              Stay tuned for our follow-up series of articles, where you'll be able to learn more about each society's achievements.
+            </p>
+          </article>
+
+        </div>
+      </div>
+
     </section>
 
     <!-- Section 2: Mentorship -->
@@ -172,6 +337,15 @@
   <script src="/components/footer.js"></script>
 
   <script>
+    // Toggle archive section
+    function toggleArchive() {
+      const content = document.getElementById('archiveContent');
+      const toggle = document.getElementById('archiveToggle');
+      
+      content.classList.toggle('open');
+      toggle.classList.toggle('open');
+    }
+
     // Copy protection deterrent (basic)
     (function preventCopy() {
       document.addEventListener('contextmenu', e => e.preventDefault());
