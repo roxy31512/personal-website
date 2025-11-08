@@ -85,82 +85,31 @@
       margin-bottom: 12px;
     }
 
-    .see-gallery {
-      color: #9fc0ff;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      display:inline-block;
-      margin-top: 10px;
+    /* Image gallery grid */
+    .image-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
     }
-    .see-gallery:hover { border-bottom-color: #9fc0ff; }
 
-    /* Carousel (copied/adapted) */
-    .carousel-wrap {
-      margin-top: 48px;
-      position: relative;
-    }
-    .carousel-container {
-      overflow: hidden;
+    .gallery-item {
       border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.04);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
       background: rgba(255,255,255,0.01);
     }
-    .carousel-track {
-      display:flex;
-      transition: transform 0.45s ease;
-    }
-    .carousel-slide {
-      min-width: 100%;
-      box-sizing: border-box;
-      padding: 0;
-      display:flex;
-      flex-direction:row;
-      gap:0;
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
-    .slide-media {
-      width: 45%;
-      min-height: 360px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background: rgba(255,255,255,0.02);
-      color: #7a8086;
-      font-size: 0.95rem;
-    }
-
-    .slide-content {
-      width: 55%;
-      padding: 28px;
-    }
-
-    .slide-title { font-size: 1.35rem; color: #9fc0ff; margin-bottom: 8px; font-weight:700;}
-    .slide-meta { color: #9aa4b2; margin-bottom: 12px; font-size: 0.95rem;}
-    .slide-desc { color: #e6e9ec; line-height:1.7; margin-bottom: 14px; }
-    .slide-link { color:#9fc0ff; text-decoration:none; border-bottom:1px solid transparent; }
-    .slide-link:hover { border-bottom-color:#9fc0ff; }
-
-    .carousel-controls { display:flex; gap:12px; justify-content:center; margin-top:16px; }
-    .carousel-btn {
-      background: rgba(159,192,255,0.06);
-      border: 1px solid rgba(159,192,255,0.14);
-      color: #9fc0ff;
-      padding: 10px 18px;
-      border-radius: 8px;
-      cursor:pointer;
-      font-weight:600;
-    }
-    .carousel-btn:disabled { opacity:0.35; cursor:not-allowed; }
-
-    .carousel-dots { display:flex; gap:8px; justify-content:center; margin-top:14px; }
-    .dot { width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.18); cursor:pointer; }
-    .dot.active { background:#9fc0ff; }
-
-    /* small screens */
-    @media (max-width:900px) {
-      .slide-media { width:100%; min-height:220px; }
-      .slide-content { width:100%; padding:20px; }
-      .carousel-slide { flex-direction:column; }
+    @media (max-width: 768px) {
+      .image-gallery {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* copy protection (deterrent) - keep as you requested */
@@ -183,7 +132,15 @@
         Led the student organisation, established flagship events and partnerships, oversaw operations and strategy, expanded membership,
         and coordinated the Oxford AI Gala. Responsible for sponsorship development, event programming, and cross-institution collaboration.
       </div>
-      <a class="see-gallery" href="#gallery">See gallery →</a>
+      
+      <div class="image-gallery">
+        <div class="gallery-item">
+          <img src="/images/Gold.webp" alt="TopGrad Gold Award - Society of the Year 2022-2023">
+        </div>
+        <div class="gallery-item">
+          <img src="/images/team photo.png" alt="Oxford AI Society Team Photo">
+        </div>
+      </div>
     </section>
 
     <!-- Section 2: Mentorship -->
@@ -207,68 +164,6 @@
       </div>
     </section>
 
-    <!-- GALLERY (below all sections) -->
-    <section class="carousel-wrap" id="gallery" aria-label="Event gallery">
-      <h2 style="color:#fff;margin-top:10px;margin-bottom:12px;">Event & Media Gallery</h2>
-
-      <div class="carousel-container" aria-hidden="false">
-        <div class="carousel-track" id="carouselTrack">
-
-          <!-- Slide 1 (placeholder) -->
-          <article class="carousel-slide" data-slide-index="0">
-            <div class="slide-media" data-src="">
-              <!-- Replace this placeholder with: <img src="/images/your-image.jpg" alt="..."> -->
-              <div>Image placeholder — add slide image file to <code>/images/</code> and replace this element with an &lt;img&gt; or set data-src.</div>
-            </div>
-
-            <div class="slide-content">
-              <div class="slide-title">Oxford AI Gala — Highlights</div>
-              <div class="slide-meta">Event • Oxford AI Gala, 2025</div>
-              <div class="slide-desc">Highlights from the flagship gala: keynote snapshots, panel discussions, and sponsor showcases. Replace slide-media with actual image files for each slide.</div>
-              <a class="slide-link" href="#" onclick="return false;">View details →</a>
-            </div>
-          </article>
-
-          <!-- Slide 2 (placeholder) -->
-          <article class="carousel-slide" data-slide-index="1">
-            <div class="slide-media" data-src="">
-              <div>Image placeholder — add slide image file to <code>/images/</code>.</div>
-            </div>
-
-            <div class="slide-content">
-              <div class="slide-title">Mentorship Scheme Graduation</div>
-              <div class="slide-meta">Program • 2023</div>
-              <div class="slide-desc">Mentorship program closing session and cohort showcase. Replace with gallery image(s).</div>
-              <a class="slide-link" href="#" onclick="return false;">View details →</a>
-            </div>
-          </article>
-
-          <!-- Slide 3 (placeholder) -->
-          <article class="carousel-slide" data-slide-index="2">
-            <div class="slide-media" data-src="">
-              <div>Image placeholder — add slide image file to <code>/images/</code>.</div>
-            </div>
-
-            <div class="slide-content">
-              <div class="slide-title">Board Session — Strategy</div>
-              <div class="slide-meta">Advisory • 2024</div>
-              <div class="slide-desc">Board strategy session on student engagement and ethics programming. Replace slide-media with photo or graphic.</div>
-              <a class="slide-link" href="#" onclick="return false;">View details →</a>
-            </div>
-          </article>
-
-        </div>
-      </div>
-
-      <div class="carousel-controls" role="group" aria-label="carousel controls">
-        <button class="carousel-btn" id="prevBtn" aria-label="Previous slide">← Previous</button>
-        <button class="carousel-btn" id="nextBtn" aria-label="Next slide">Next →</button>
-      </div>
-
-      <div class="carousel-dots" id="dots" aria-hidden="false"></div>
-
-    </section>
-
   </main>
 
   <custom-footer></custom-footer>
@@ -277,53 +172,6 @@
   <script src="/components/footer.js"></script>
 
   <script>
-    // Carousel logic
-    (function () {
-      const track = document.getElementById('carouselTrack');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
-      const dotsWrap = document.getElementById('dots');
-      const slides = track ? Array.from(track.querySelectorAll('.carousel-slide')) : [];
-      let index = 0;
-
-      function renderDots() {
-        dotsWrap.innerHTML = '';
-        slides.forEach((_, i) => {
-          const d = document.createElement('div');
-          d.className = 'dot' + (i === index ? ' active' : '');
-          d.addEventListener('click', () => goto(i));
-          dotsWrap.appendChild(d);
-        });
-      }
-
-      function update() {
-        if (!track) return;
-        track.style.transform = `translateX(-${index * 100}%)`;
-        renderDots();
-        prevBtn.disabled = index === 0;
-        nextBtn.disabled = index === slides.length - 1;
-      }
-
-      function goto(i) {
-        index = Math.max(0, Math.min(i, slides.length - 1));
-        update();
-      }
-      function next() { goto(index + 1); }
-      function prev() { goto(index - 1); }
-
-      prevBtn && prevBtn.addEventListener('click', prev);
-      nextBtn && nextBtn.addEventListener('click', next);
-
-      // keyboard nav
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') prev();
-        if (e.key === 'ArrowRight') next();
-      });
-
-      // init
-      update();
-    })();
-
     // Copy protection deterrent (basic)
     (function preventCopy() {
       document.addEventListener('contextmenu', e => e.preventDefault());
