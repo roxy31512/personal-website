@@ -110,6 +110,7 @@ class CustomNavbar extends HTMLElement {
                 <a href="/oxford-ai-leadership.html">Oxford AI Leadership</a>
               </div>
             </div>
+            <a href="/blog.html">Blog</a>
             <a href="/publications.html">Publications</a>
             <a href="/bio.html">Bio</a>
             <a href="/education.html">Education</a>
