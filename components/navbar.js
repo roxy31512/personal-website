@@ -108,7 +108,6 @@ class CustomNavbar extends HTMLElement {
               <div class="dropdown-menu">
                 <a href="/oxford-ai-gala.html">Oxford AI Gala 2025</a>
                 <a href="/oxford-ai-leadership.html">Oxford AI Leadership</a>
-                <a href="/indigenous-newcomer-relations.html">Indigenous-Newcomer Relations</a>
               </div>
             </div>
             <a href="/publications.html">Publications</a>
