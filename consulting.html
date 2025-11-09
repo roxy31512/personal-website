@@ -27,6 +27,17 @@
       color: #ffffff !important;
       -webkit-text-fill-color: #ffffff !important;
     }
+    .credential-badge {
+      display: inline-block;
+      background: rgba(159,192,255,0.1);
+      border: 1px solid rgba(159,192,255,0.3);
+      color: #9fc0ff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-right: 12px;
+      margin-bottom: 8px;
+    }
     .service-card {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.1);
@@ -44,14 +55,31 @@
       color: #d8e1eb;
       line-height: 1.7;
     }
+    .clients-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .client-item {
+      color: #d8e1eb;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
   </style>
 </head>
 <body class="bg-dark text-light font-sans">
   <custom-navbar></custom-navbar>
   <main class="container mx-auto px-6 py-12" style="margin-top: 100px; max-width: 1200px;">
     <h1 class="text-4xl font-semibold mb-6">Consulting</h1>
+    
+    <div style="margin-bottom: 24px;">
+      <span class="credential-badge">Cited by UK Government's 2024 Ethics Framework</span>
+      <span class="credential-badge">Advised Canadian Border Agency Officials</span>
+    </div>
+
     <p class="text-xl text-gray-300 mb-12" style="color: #d8e1eb; line-height: 1.8;">
-      I help governments and organizations navigate AI policy, governance frameworks, and stakeholder engagement. My work translates complex technology policy into actionable strategies for decision-makers.
+      I develop AI governance frameworks for governments and organizations navigating regulatory complexity. My research has informed UK Government policy, and I've advised Canadian immigration officials on AI risk assessment frameworks. I specialize in translating technical AI safety concepts into actionable policy for decision-makers.
     </p>
 
     <section class="mb-12">
@@ -64,7 +92,7 @@
 
       <div class="service-card">
         <h3>Legislative Analysis & Advocacy Materials</h3>
-        <p>Policy briefings, legislative tracking, and advocacy materials for government stakeholders. Experience translating technical AI research into policy-relevant recommendations for bipartisan audiences.</p>
+        <p>Congressional and regulatory monitoring, policy brief drafting, and advocacy materials. Experience tracking U.S. semiconductor policy, CHIPS Act implementation, and AI governance legislation for congressional staffers.</p>
       </div>
 
       <div class="service-card">
@@ -75,6 +103,16 @@
       <div class="service-card">
         <h3>Risk Assessment & Compliance Frameworks</h3>
         <p>Development of AI risk assessment frameworks and compliance protocols for automated decision-making systems in government.</p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-6" style="color: #ffffff;">Who I Work With</h2>
+      <div class="clients-list">
+        <div class="client-item">Government agencies (federal, state, international)</div>
+        <div class="client-item">Think tanks and research institutions</div>
+        <div class="client-item">Technology companies navigating regulation</div>
+        <div class="client-item">Civil society organizations</div>
       </div>
     </section>
 
