@@ -53,9 +53,56 @@
     .page-subtitle {
       color: #9fc0ff;
       font-size: 1.1rem;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
       font-weight: 400;
     }
+
+    /* Word Cloud Styles */
+    .word-cloud-container {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(159, 192, 255, 0.2);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    .word-cloud-title {
+      color: #9fc0ff;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .word-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      align-items: center;
+      min-height: 200px;
+    }
+
+    .word-cloud-item {
+      color: #9fc0ff;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: default;
+      line-height: 1;
+    }
+
+    .word-cloud-item:hover {
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+
+    .word-cloud-item.size-1 { font-size: 2.5rem; opacity: 1; }
+    .word-cloud-item.size-2 { font-size: 2rem; opacity: 0.9; }
+    .word-cloud-item.size-3 { font-size: 1.6rem; opacity: 0.8; }
+    .word-cloud-item.size-4 { font-size: 1.3rem; opacity: 0.7; }
+    .word-cloud-item.size-5 { font-size: 1.1rem; opacity: 0.6; }
 
     .blog-post {
       background: rgba(255,255,255,0.03);
@@ -116,6 +163,14 @@
       .blog-post {
         padding: 20px;
       }
+      .word-cloud-container {
+        padding: 20px;
+      }
+      .word-cloud-item.size-1 { font-size: 1.8rem; }
+      .word-cloud-item.size-2 { font-size: 1.5rem; }
+      .word-cloud-item.size-3 { font-size: 1.3rem; }
+      .word-cloud-item.size-4 { font-size: 1.1rem; }
+      .word-cloud-item.size-5 { font-size: 0.95rem; }
     }
   </style>
 </head>
@@ -126,6 +181,14 @@
   <main>
     <h1>Blog</h1>
     <div class="page-subtitle">Thoughts on AI policy, governance, and emerging technology</div>
+
+    <!-- Word Cloud -->
+    <div class="word-cloud-container">
+      <div class="word-cloud-title">Key Topics</div>
+      <div class="word-cloud" id="wordCloud">
+        <!-- Words will be generated dynamically by JavaScript -->
+      </div>
+    </div>
 
     <!-- Blog Post 1: US-China AGI Relations -->
     <article class="blog-post">
@@ -394,8 +457,8 @@
         <span class="blog-tag">Transparency</span>
       </div>
     </article>
-    
-<!-- Blog Post 10: AI-Enabled Power Concentration -->
+
+    <!-- Blog Post 10: AI-Enabled Power Concentration -->
     <article class="blog-post">
       <div class="blog-post-date">November 2025</div>
       <h2 class="blog-post-title">AI-Enabled Power Concentration: Comparing Risks in Authoritarian Regimes and Democracies</h2>
@@ -533,6 +596,71 @@
   <custom-footer></custom-footer>
   <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
   <script src="https://roxanaakhmetova.com/components/footer.js"></script>
+
+  <script>
+    // Word Cloud Generator
+    function generateWordCloud() {
+      // Extract all text from blog posts
+      const blogPosts = document.querySelectorAll('.blog-post-excerpt');
+      const allText = Array.from(blogPosts).map(post => post.textContent).join(' ');
+      
+      // Common stop words to exclude
+      const stopWords = new Set([
+        'the', 'be', 'to', 'of', 'and', 'a', 'in', 'that', 'have', 'i', 'it', 'for', 'not',
+        'on', 'with', 'he', 'as', 'you', 'do', 'at', 'this', 'but', 'his', 'by', 'from',
+        'they', 'we', 'say', 'her', 'she', 'or', 'an', 'will', 'my', 'one', 'all', 'would',
+        'there', 'their', 'what', 'so', 'up', 'out', 'if', 'about', 'who', 'get', 'which',
+        'go', 'me', 'when', 'make', 'can', 'like', 'time', 'no', 'just', 'him', 'know',
+        'take', 'people', 'into', 'year', 'your', 'good', 'some', 'could', 'them', 'see',
+        'other', 'than', 'then', 'now', 'look', 'only', 'come', 'its', 'over', 'think',
+        'also', 'back', 'after', 'use', 'two', 'how', 'our', 'work', 'first', 'well',
+        'way', 'even', 'new', 'want', 'because', 'any', 'these', 'give', 'day', 'most',
+        'us', 'is', 'are', 'was', 'been', 'has', 'had', 'were', 'said', 'did', 'may',
+        'should', 'might', 'must', 'does', 'being', 'am', 'having', 'such', 'those',
+        'very', 'more', 'many', 'much', 'both', 'through', 'each', 'before', 'between',
+        'during', 'under', 'since', 'while', 'where', 'why', 'here', 'down', 'still',
+        'own', 'same', 'too', 'off', 'again', 'further', 'once', 'however', 'though'
+      ]);
+      
+      // Count word frequencies
+      const words = allText.toLowerCase()
+        .replace(/[^\w\s-]/g, ' ')
+        .split(/\s+/)
+        .filter(word => word.length > 3 && !stopWords.has(word));
+      
+      const wordCount = {};
+      words.forEach(word => {
+        wordCount[word] = (wordCount[word] || 0) + 1;
+      });
+      
+      // Get top 30 words
+      const sortedWords = Object.entries(wordCount)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 30);
+      
+      // Calculate sizes (5 tiers)
+      const maxCount = sortedWords[0][1];
+      const minCount = sortedWords[sortedWords.length - 1][1];
+      const range = maxCount - minCount;
+      
+      // Generate word cloud HTML
+      const wordCloudContainer = document.getElementById('wordCloud');
+      wordCloudContainer.innerHTML = sortedWords.map(([word, count]) => {
+        const normalized = (count - minCount) / range;
+        let sizeClass;
+        if (normalized > 0.8) sizeClass = 'size-1';
+        else if (normalized > 0.6) sizeClass = 'size-2';
+        else if (normalized > 0.4) sizeClass = 'size-3';
+        else if (normalized > 0.2) sizeClass = 'size-4';
+        else sizeClass = 'size-5';
+        
+        return `<span class="word-cloud-item ${sizeClass}">${word}</span>`;
+      }).join('');
+    }
+    
+    // Generate word cloud on page load
+    document.addEventListener('DOMContentLoaded', generateWordCloud);
+  </script>
 
   <script>
     document.addEventListener('selectstart', e => e.preventDefault());
