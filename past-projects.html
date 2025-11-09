@@ -1,404 +1,201 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Past Projects & Media | Roxana Akhmetova</title>
-  <meta name="description" content="Past projects and media coverage of Roxana Akhmetova including Oxford AI Gala, AI Mentorship Scheme, and press features.">
-  <meta name="keywords" content="Roxana Akhmetova projects, Oxford AI, press coverage, media">
-  <meta name="author" content="Roxana Akhmetova">
+<!-- CAROUSEL STYLES - Add to <head> or <style> section -->
+<style>
+  .carousel-container {
+    position: relative;
+    margin: 40px 0;
+    overflow: hidden;
+  }
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            dark: '#1a1a1a',
-            mid: '#4d4d4d',
-            light: '#f7f7f8',
-            oxford: '#002147',
-            'oxford-100': '#e6eefb',
-            'oxford-600': '#234e85'
-          }
-        }
-      }
-    }
-  </script>
+  .carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
 
-  <link rel="stylesheet" href="/style.css">
+  .carousel-slide {
+    min-width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+  }
 
-  <style>
-    html {
-      background-color: #000 !important;
-      scroll-behavior: smooth;
-    }
+  .slide-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    background: rgba(255, 255, 255, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  .slide-content {
+    padding: 25px;
+  }
+
+  .slide-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #9fc0ff;
+    margin-bottom: 10px;
+  }
+
+  .slide-meta {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+
+  .slide-description {
+    color: #ddd;
+    line-height: 1.7;
+    margin-bottom: 15px;
+  }
+
+  .slide-link {
+    display: inline-block;
+    color: #9fc0ff;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .slide-link:hover {
+    border-bottom-color: #9fc0ff;
+  }
+
+  .carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .carousel-btn {
+    background: rgba(159, 192, 255, 0.1);
+    border: 1px solid #9fc0ff;
+    color: #9fc0ff;
+    padding: 12px 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .carousel-btn:hover {
+    background: rgba(159, 192, 255, 0.2);
+  }
+
+  .carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .dot.active {
+    background: #9fc0ff;
+  }
+</style>
+
+<!-- CAROUSEL HTML - Paste where you want the carousel to appear -->
+<div class="carousel-container">
+  <div class="carousel-wrapper" id="carouselWrapper">
     
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      background-color: #000 !important;
-      color: #fff;
-      line-height: 1.6;
-      min-height: 100%;
-    }
-    
-    main {
-      margin: 100px auto 60px;
-      max-width: 1100px;
-      padding: 0 40px;
-    }
-    
-    h1 {
-      font-size: 2.5em !important;
-      margin-bottom: 50px !important;
-      color: #ffffff !important;
-      font-weight: 600 !important;
-      -webkit-text-fill-color: #ffffff !important;
-      padding-bottom: 15px !important;
-      border-bottom: 3px solid #ffffff !important;
-      display: inline-block !important;
-      width: auto !important;
-    }
-
-    .section-title {
-      font-weight: 700;
-      font-size: 1.125rem;
-      margin-top: 0;
-      margin-bottom: 20px;
-      color: #fff;
-    }
-    
-    .section-title:not(:first-of-type) {
-      margin-top: 60px;
-    }
-    
-    .project-entry {
-      margin-bottom: 40px;
-      padding-bottom: 40px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      scroll-margin-top: 120px;
-    }
-    
-    .project-entry:last-of-type {
-      border-bottom: none;
-      margin-bottom: 60px;
-    }
-    
-    .project-title {
-      font-weight: 700;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      color: #9fc0ff;
-    }
-    
-    .project-date {
-      color: #888;
-      font-size: 0.95rem;
-      margin-bottom: 15px;
-    }
-    
-    .project-description {
-      color: #ddd;
-      line-height: 1.8;
-      margin-bottom: 15px;
-    }
-    
-    .project-link {
-      color: #9fc0ff;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-      font-size: 0.95rem;
-    }
-    
-    .project-link:hover {
-      border-bottom-color: #9fc0ff;
-    }
-
-    .carousel-container {
-      position: relative;
-      margin: 40px 0;
-      overflow: hidden;
-    }
-
-    .carousel-wrapper {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .carousel-slide {
-      min-width: 100%;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .slide-image {
-      width: 100%;
-      height: 500px;
-      object-fit: cover;
-      background: rgba(255, 255, 255, 0.03);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #666;
-      font-size: 0.9rem;
-    }
-
-    .slide-content {
-      padding: 25px;
-    }
-
-    .slide-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #9fc0ff;
-      margin-bottom: 10px;
-    }
-
-    .slide-meta {
-      color: #888;
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-    }
-
-    .slide-description {
-      color: #ddd;
-      line-height: 1.7;
-      margin-bottom: 15px;
-    }
-
-    .slide-link {
-      display: inline-block;
-      color: #9fc0ff;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
-
-    .slide-link:hover {
-      border-bottom-color: #9fc0ff;
-    }
-
-    .carousel-controls {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    .carousel-btn {
-      background: rgba(159, 192, 255, 0.1);
-      border: 1px solid #9fc0ff;
-      color: #9fc0ff;
-      padding: 12px 30px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-size: 1rem;
-      font-weight: 500;
-    }
-
-    .carousel-btn:hover {
-      background: rgba(159, 192, 255, 0.2);
-    }
-
-    .carousel-btn:disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
-    }
-
-    .carousel-dots {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.3);
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .dot.active {
-      background: #9fc0ff;
-    }
-
-    .archive-note {
-      background: rgba(159, 192, 255, 0.1);
-      border-left: 4px solid #9fc0ff;
-      padding: 15px 20px;
-      margin-top: 30px;
-      border-radius: 4px;
-      color: #ddd;
-      font-size: 0.95rem;
-    }
-  </style>
-</head>
-
-<body class="bg-dark text-light font-sans">
-  <custom-navbar></custom-navbar>
-
-  <main>
-    <h1>Past Projects & Media</h1>
-
-    <div class="section-title">Past Projects</div>
-
-    <div class="project-entry" id="oxford-ai-gala">
-      <div class="project-title">Oxford AI Gala 2025</div>
-      <div class="project-date">2025</div>
-      <div class="project-description">
-        Founded and chaired flagship AI governance conference, securing partnerships with Anthropic, Sony AI, RAND Europe, and Tony Blair Institute to convene 250+ senior stakeholders including C-suite executives, government officials, and academic leaders. Managed budget planning, sponsorship development, vendor coordination, and financial delivery, generating £50K revenue with £10K profit in inaugural year.
+    <!-- Slide 1 - DUPLICATE THIS STRUCTURE FOR MORE SLIDES -->
+    <div class="carousel-slide">
+      <div class="slide-image">
+        <img src="/images/your-image.jpg" alt="Description" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.parentElement.innerHTML='Add image to /images/'">
       </div>
-    </div>
-
-    <div class="project-entry" id="oxford-ai-society">
-      <div class="project-title">Oxford AI Mentorship Scheme</div>
-      <div class="project-date">2020 - 2023 </div>
-      <div class="project-description">
-        A mentorship program connecting graduate students and early-career researchers in AI with established professionals in academia, policy, and industry to foster knowledge exchange and career development.
-      </div>
-    </div>
-
-    <div class="project-entry" id="indigenous-newcomer">
-      <div class="project-title">Hearty Breakfast</div>
-      <div class="project-date">2012</div>
-      <div class="project-description">
-        A community fundraising initiative promoting heart health awareness and raising funds for cardiovascular disease research.
-      </div>
-      <a href="https://www.winnipegfreepress.com/our-communities/herald/2012/03/07/fundraiser-to-promote-healthy-hearts" target="_blank" rel="noopener noreferrer" class="project-link">Read press coverage →</a>
-    </div>
-
-    <div class="section-title">Press & Media</div>
-
-    <div class="carousel-container">
-      <div class="carousel-wrapper" id="carouselWrapper">
-        
-        <!-- Slide 1: Keble Showcase -->
-        <div class="carousel-slide">
-          <div class="slide-image">
-            <img src="/images/keble-showcase.jpg" alt="Keble Graduate Research Showcase" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.parentElement.innerHTML='Screenshot: Add keble-showcase.jpg to /images/'">
-          </div>
-          <div class="slide-content">
-            <div class="slide-title">Showcasing Graduate Research</div>
-            <div class="slide-meta">The Brick, Keble College • November 23, 2023</div>
-            <div class="slide-description">
-              Featured presentation on AI and algorithms in border surveillance and immigration decisions at Keble College's Graduate Research Showcase, alongside research on the English prison system.
-            </div>
-            <a href="https://thebrick.keble.net/issue-77/content/showcasing-graduate-research" class="slide-link">Read full article →</a>
-          </div>
+      <div class="slide-content">
+        <div class="slide-title">Your Title</div>
+        <div class="slide-meta">Source • Date</div>
+        <div class="slide-description">
+          Your description text goes here.
         </div>
-
-        <!-- Slide 2: Hearty Breakfast -->
-        <div class="carousel-slide">
-          <div class="slide-image">
-            <img src="/images/hearty-breakfast-team.jpg" alt="Winnipeg Free Press - Hearty Breakfast" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.parentElement.innerHTML='Screenshot: Add hearty-breakfast-press.jpg to /images/'">
-          </div>
-          <div class="slide-content">
-            <div class="slide-title">Fundraiser to Promote Healthy Hearts</div>
-            <div class="slide-meta">Winnipeg Free Press • March 7, 2012</div>
-            <div class="slide-description">
-              Community fundraising initiative promoting heart health awareness and raising funds for cardiovascular disease research.
-            </div>
-            <a href="https://www.winnipegfreepress.com/our-communities/herald/2012/03/07/fundraiser-to-promote-healthy-hearts" target="_blank" rel="noopener noreferrer" class="slide-link">View archived article →</a>
-          </div>
-        </div>
-
+        <a href="https://your-link.com" class="slide-link" target="_blank">Read more →</a>
       </div>
     </div>
 
-    <div class="carousel-controls">
-      <button class="carousel-btn" id="prevBtn" onclick="moveSlide(-1)">← Previous</button>
-      <button class="carousel-btn" id="nextBtn" onclick="moveSlide(1)">Next →</button>
-    </div>
+    <!-- Add more slides here by copying the structure above -->
 
-    <div class="carousel-dots" id="dotsContainer"></div>
+  </div>
+</div>
 
-    <div class="archive-note">
-      📰 <strong>Archival Note:</strong> These articles are archived here to preserve media coverage of work and initiatives. Original links are provided where available.
-    </div>
+<div class="carousel-controls">
+  <button class="carousel-btn" id="prevBtn" onclick="moveSlide(-1)">← Previous</button>
+  <button class="carousel-btn" id="nextBtn" onclick="moveSlide(1)">Next →</button>
+</div>
 
-  </main>
+<div class="carousel-dots" id="dotsContainer"></div>
 
-  <custom-footer></custom-footer>
-  <script src="/components/navbar.js"></script>
-  <script src="/components/footer.js"></script>
+<!-- CAROUSEL JAVASCRIPT - Add before closing </body> tag -->
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const totalSlides = slides.length;
+  const wrapper = document.getElementById('carouselWrapper');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dotsContainer = document.getElementById('dotsContainer');
 
-  <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-slide');
-    const totalSlides = slides.length;
-    const wrapper = document.getElementById('carouselWrapper');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const dotsContainer = document.getElementById('dotsContainer');
+  // Create dots
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot';
+    if (i === 0) dot.classList.add('active');
+    dot.onclick = () => goToSlide(i);
+    dotsContainer.appendChild(dot);
+  }
 
-    // Create dots
-    for (let i = 0; i < totalSlides; i++) {
-      const dot = document.createElement('div');
-      dot.className = 'dot';
-      if (i === 0) dot.classList.add('active');
-      dot.onclick = () => goToSlide(i);
-      dotsContainer.appendChild(dot);
-    }
+  function updateCarousel() {
+    wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    // Update dots
+    document.querySelectorAll('.dot').forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentSlide);
+    });
 
-    function updateCarousel() {
-      wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
-      
-      // Update dots
-      document.querySelectorAll('.dot').forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
-      });
+    // Update button states
+    prevBtn.disabled = currentSlide === 0;
+    nextBtn.disabled = currentSlide === totalSlides - 1;
+  }
 
-      // Update button states
-      prevBtn.disabled = currentSlide === 0;
-      nextBtn.disabled = currentSlide === totalSlides - 1;
-    }
-
-    function moveSlide(direction) {
-      currentSlide += direction;
-      if (currentSlide < 0) currentSlide = 0;
-      if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
-      updateCarousel();
-    }
-
-    function goToSlide(index) {
-      currentSlide = index;
-      updateCarousel();
-    }
-
-    // Initialize
+  function moveSlide(direction) {
+    currentSlide += direction;
+    if (currentSlide < 0) currentSlide = 0;
+    if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
     updateCarousel();
+  }
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') moveSlide(-1);
-      if (e.key === 'ArrowRight') moveSlide(1);
-    });
-  </script>
+  function goToSlide(index) {
+    currentSlide = index;
+    updateCarousel();
+  }
 
-  <script>
-    // Copy protection
-    document.addEventListener('selectstart', e => e.preventDefault());
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-      if (
-        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
-        (e.ctrlKey && e.key === 'p')
-      ) {
-        e.preventDefault();
-      }
-    });
-    document.body.style.userSelect = 'none';
-  </script>
-</body>
-</html>
+  // Initialize
+  updateCarousel();
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') moveSlide(-1);
+    if (e.key === 'ArrowRight') moveSlide(1);
+  });
+</script>
