@@ -12,6 +12,10 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://roxanaakhmetova.com/">
   <meta property="og:image" content="https://raw.githubusercontent.com/roxy31512/personal-website/main/images/Profile%20Image.jpg">
+  
+  <!-- Canonical URL for SEO -->
+  <link rel="canonical" href="https://roxanaakhmetova.com/" />
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     // Tailwind extension (colors used across pages)
@@ -82,6 +86,11 @@
     if (window.feather) { try { feather.replace(); } catch(e) {} }
   </script>
   <script>
+  // Clean URL by removing index.html
+  if (window.location.pathname === '/index.html') {
+    window.history.replaceState(null, '', '/');
+  }
+
   // Disable text selection
   document.addEventListener('selectstart', e => e.preventDefault());
 
