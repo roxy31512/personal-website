@@ -189,6 +189,241 @@
       </div>
     </article>
 
+    <!-- Blog Post 3: NVIDIA B30A China Export Forecast -->
+    <article class="blog-post">
+      <div class="blog-post-date">November 2025</div>
+      <h2 class="blog-post-title">Will Chinese Companies Import Over 100K NVIDIA B30A Chips by End of 2026?</h2>
+      <p class="blog-post-excerpt">
+        Chinese authorities have recently signalled a disinterest in importing NVIDIA H20 chips, mainly on security grounds. The NVIDIA B30A would be a more powerful chip than the H20, and the US government may allow B30As to be exported to China.
+      </p>
+      <p class="blog-post-excerpt">
+        My prediction is that there's a 35-45% chance Chinese companies import >100K B30As by end of 2026 if the US government allows B30A exports to China.
+      </p>
+      <p class="blog-post-excerpt">
+        Chinese firms placed $16 billion in H20 orders (~1.3M chips) in 2025 despite the H20 being optimised for inference rather than for training. If B30As offer better performance, demand would logically increase.
+      </p>
+      <p class="blog-post-excerpt">
+        Three factors reduce the probability. First, Chinese domestic alternatives are emerging. Huawei's Ascend 910C, while only ~60% of H100 performance, which represents China's push toward self-sufficiency.
+      </p>
+      <p class="blog-post-excerpt">
+        Second, US export controls are reactive and tighten quickly. Even if B30A exports are approved now (late 2025), there's only ~14 months until end of 2026. The risk of export approval being reversed mid-purchase will create hesitation; so firms may prefer stockpiling existing H20s or investing in domestic alternatives rather than betting on sustained B30A access. And third, China has signalled disinterest in H20s because of security concerns. B30As' superior training capabilities may overcome security objections that applied to inference-focused H20s. These concerns about backdoors or supply chain vulnerabilities could be genuine. B30As are more powerful, so they might face even stronger internal resistance from Chinese authorities prioritising technological sovereignty over performance gains.
+      </p>
+      <p class="blog-post-excerpt">
+        The 100K threshold is significant but achievable because it's only 7.5% of the 1.3M H20 order size. If B30As are approved and Chinese firms believe access will last through 2026, they'll likely hit this threshold. But the combination of a compressed timeline, domestic alternatives, regulatory risk, and strategic caution keeps my estimate below 50%.
+      </p>
+      <div class="blog-post-tags">
+        <span class="blog-tag">Export Controls</span>
+        <span class="blog-tag">China</span>
+        <span class="blog-tag">NVIDIA</span>
+        <span class="blog-tag">Forecasting</span>
+      </div>
+    </article>
+
+    <!-- Blog Post 4: GPU Verification -->
+    <article class="blog-post">
+      <div class="blog-post-date">November 2025</div>
+      <h2 class="blog-post-title">Thermal Signature Monitoring: A Cost-Effective Approach to GPU Verification</h2>
+      <p class="blog-post-excerpt">
+        How can the Bureau of Industry and Security (BIS) verify, with reasonably high confidence, that GPUs in a given data center have not been physically transported? For already-installed GPUs that cannot rely on technical location verification, I propose a cheap, scalable solution using thermal signature monitoring.
+      </p>
+      <p class="blog-post-excerpt">
+        Each data centre's GPU cluster produces a unique, stable thermal signature with a combination of heat output patterns, airflow distribution, and cooling load response. This thermal fingerprint can give rack configuration and serve as a physics-based verification mechanism.
+      </p>
+      <p class="blog-post-excerpt">
+        During initial inspection, BIS would record a baseline thermal fingerprint of each rack of temperature and airflow data from inexpensive off-the-shelf IoT sensors (cost: ~$150-200 per rack). Data centres would then need submit monthly thermal audits which are 2–3-minute sensor recordings that are captured under standard computational load. BIS software would automatically compare new readings against the baseline profile.
+      </p>
+      <p class="blog-post-excerpt">
+        If GPUs have been physically removed, rearranged, or replaced, the rack's cooling pattern would change. Changes in airflow and thermal will likely create silent, automated tamper alerts that would flag those facilities which require to be physically inspected.
+      </p>
+      <p class="blog-post-excerpt">
+        This approach is cheap and scalable and requires no site visits for routine verification. It's challenging to spoof. Adversaries can fake documentation but will have a hard time easily replicating the precise airflow physics of a specific GPU configuration. The system also has a bonus of improving data centre efficiency monitoring. Legitimate cooling adjustments would create some false positives requiring manual follow-up, but the system would still catch most physical GPU diversions. The system will automatically scan for unusual sites and tell inspectors where to focus.
+      </p>
+      <div class="blog-post-tags">
+        <span class="blog-tag">Export Controls</span>
+        <span class="blog-tag">Verification</span>
+        <span class="blog-tag">Technical Solutions</span>
+        <span class="blog-tag">BIS</span>
+      </div>
+    </article>
+
+    <!-- Blog Post 5: AI Agents for Export Control -->
+    <article class="blog-post">
+      <div class="blog-post-date">November 2025</div>
+      <h2 class="blog-post-title">Two Critical Failure Modes of AI Agents in Export Control Monitoring</h2>
+      <p class="blog-post-excerpt">
+        If BIS deployed AI agents to continuously monitor shipping manifests, customs declarations, corporate filings, and other documents to detect export control violations, the system could fail badly or create new problems in distinct ways.
+      </p>
+      <p class="blog-post-excerpt">
+        <strong>Failure 1: Adversarial Prompt Tampering</strong><br>
+        Adversaries could tamper with AI prompts by embedding adversarial content that causes AI to misclassify. For example, shell companies could include specific linguistic patterns, formatting quirks, or metadata signatures that the agent learns to associate with 'legitimate' transactions during training. If agents autonomously investigate and clear transactions, bad actors could inject prompts in shipping documents or customs forms that cause agents to misinterpret their instructions. This matters because it creates an adversarial arms race where adversaries constantly look for weaknesses in the AI. Some ways to mitigate this are to constantly red-team agents with synthetic evasion attempts before they're deployed; if an agent encounters document patterns outside their training distribution confidence intervals, require mandatory human review.
+      </p>
+      <p class="blog-post-excerpt">
+        <strong>Failure 2: Diffused Accountability</strong><br>
+        If BIS becomes structurally dependent on AI and doesn't have human expertise to validate agent outputs and doesn't have technical capacity to step in for the AI, BIS will lose its ability to audit agent performance or recognize systematic failures. When AI agents make mistakes, it becomes unclear who is accountable – BIS or the AI developer. If an agent autonomously clears a transaction that later proves to be a major violation (like the TSMC-Huawei case), who is responsible? This matters: if BIS can't evaluate whether agents are correctly identifying violations, then it risks institutionalising unverified automation. Some ways to mitigate this would be to have AI produce human-readable audit trails showing reasoning chains for every decision or have humans approve any transaction >$10M or involving entities on watchlists.
+      </p>
+      <div class="blog-post-tags">
+        <span class="blog-tag">AI Agents</span>
+        <span class="blog-tag">Export Controls</span>
+        <span class="blog-tag">Risk Analysis</span>
+        <span class="blog-tag">BIS</span>
+      </div>
+    </article>
+
+    <!-- Blog Post 6: International AI Safety Cooperation -->
+    <article class="blog-post">
+      <div class="blog-post-date">November 2025</div>
+      <h2 class="blog-post-title">The Current State of International AI Safety Cooperation</h2>
+      <p class="blog-post-excerpt">
+        Over the past 5 years, international cooperation on AI safety has expanded significantly, with several overlapping mechanisms that aimed to bring governments, corporations, and civil society organisations together on the same page about how to safely build and deploy AI. Despite the growing concern about risks from frontier AI, leading corporations and governments are falling behind on ensuring that there are robust accountability, transparency, and fairness frameworks implemented.
+      </p>
+      <p class="blog-post-excerpt">
+        States organised a number of multilateral summits and talks in the past 5 years which brought together governments, labs, and civil society to discuss frontier AI risks (Bletchley Park 2023, Seoul 2024, Paris 2025, Delhi 2026). One success is the Bletchley 2023 produced the Bletchley Declaration which was signed by 28 countries, including the US and China. This was a rare consensus on existential risks. The Declaration also created AI Safety Institutes in the UK, US, Singapore, and Japan as national nodes for technical safety evaluation.
+      </p>
+      <p class="blog-post-excerpt">
+        But states aren't the only ones contributing to AI safety. The UN AI Advisory Body & High-Level AI Governance Process was developed and has become a key player. The Secretary-General's advisory body released recommendations in 2024 for global AI governance which pushed for creating an international scientific panel (IPCC-style) for AI risks. A General Assembly resolution in March 2024 focused on 'safe, secure and trustworthy AI' and was the first global consensus document.
+      </p>
+      <p class="blog-post-excerpt">
+        Despite this, there are signs of cooperation. For one, the US and the UK have strong signs of cooperation via their AI Safety Institutes. Both institutes share technical staff, collaborate on model evaluation frameworks, and coordinate approaches to capability testing. Their partnership functions partly because both countries share similar regulation approaches and neither sees the other as a strategic competitor in AI development. US and EU cooperation efforts may be less optimistic, in part due to how each approaches AI governance. America prioritises innovation and the European Union prioritises regulation-first frameworks. The EU AI Act is a very comprehensive regulatory model that influences global debates; however, it does not have strong enforcement mechanisms yet. In contrast, the US would unlikely to adopt a similar AI Act because of how structing it may seem to US AI labs.
+      </p>
+      <p class="blog-post-excerpt">
+        Given Chinese and American dominance in frontier AI, their cooperation is under the most tension. Although there are some academic and informal dialogues between the two countries, government-level engagement is constrained by geopolitical tensions. There is a lot of tension around export controls on advanced chips and national security concerns. What drives this tension is the broader US-China rivalry over technological supremacy. Adding to it is that both sides don't know how far along the other is in the race toward AGI, and so both are accelerating their own domestic AI development. This is creating the race dynamic that makes international safety coordination necessary but challenging to achieve.
+      </p>
+      <p class="blog-post-excerpt">
+        One limitation is that one of the most visible forms of coordination which is on export controls of advanced chips doesn't prioritise safety over competition. The US has restricted exports of H100 and H200 GPUs to China and separately coordinated with the Netherlands and Japan to limit China's access to semiconductor manufacturing equipment. This fragments the global AI ecosystem. Experts argue that treating AI development as a national security competition while simultaneously trying to coordinate on safety thresholds is contradictory. Countries cannot verify each other's safety commitments when they view each other as adversaries who are racing toward strategic advantage.
+      </p>
+      <div class="blog-post-tags">
+        <span class="blog-tag">International Cooperation</span>
+        <span class="blog-tag">AI Safety</span>
+        <span class="blog-tag">Governance</span>
+        <span class="blog-tag">Diplomacy</span>
+      </div>
+    </article>
+
+    <!-- Blog Post 7: Cooperative AI Safety Framework -->
+    <article class="blog-post">
+      <div class="blog-post-date">November 2025</div>
+      <h2 class="blog-post-title">A Quarterly Evaluation Sprint Program for Frontier AI Safety</h2>
+      <p class="blog-post-excerpt">
+        Small, like-minded countries—the UK, Japan, Canada, and Singapore—could build trust and shared capacity on frontier AI safety through a modest but practical cooperative step. Rather than duplicating the UN or G7, I propose a quarterly evaluation sprint program.
+      </p>
+      <p class="blog-post-excerpt">
+        These four countries already have established AI safety institutes, democratic governance structures, and an interest in coordinating without US or Chinese leadership. Each country would test frontier models that are deployed in its own jurisdiction against an agreed set of safety benchmarks.
+      </p>
+      <p class="blog-post-excerpt">
+        Each sprint would focus on one specific risk domain: biosecurity misuse, cyber offensive capabilities, deceptive alignment, or autonomous replication and resource acquisition. Member countries would evaluate their domestic models using standardised protocols that are developed collectively by the group.
+      </p>
+      <p class="blog-post-excerpt">
+        This design can help to reduce risks and improve coordination by addressing three coordination challenges. First, it builds shared technical language and standards. Currently when regulators discuss "dangerous capabilities," they may mean different things operationally. By conducting parallel evaluations with standardised protocols, countries would develop common metrics and risk thresholds that would enable meaningful cross-border policy dialogue. If one country proposes restrictions based on evaluation results, others can assess if similar restrictions can apply in their jurisdiction.
+      </p>
+      <p class="blog-post-excerpt">
+        Second, it builds trust without requiring labs to share model weights. This is very useful because labs tend to resist international cooperation out of fear of exposing their IP and competitive disadvantage. As countries conduct evaluations on their own infrastructure, they share only three categories of information: evaluation methodologies and prompting strategies, results which shows if models passed or failed safety thresholds, and lessons about evaluation design.
+      </p>
+      <p class="blog-post-excerpt">
+        Third, if done well, the countries involved will be building cumulative institutional knowledge. Each sprint would be producing documented failure modes and lessons about what evaluation approaches actually work in practice. This could prevent wasteful duplication where each country independently discovers the same problems. This also builds regulatory capacity so agencies can develop in-house expertise in frontier model testing rather than being structurally dependent on labs' self-assessments. The proposal may also support responsible scaling by reducing the uncertainty that labs have about international regulatory expectations.
+      </p>
+      <p class="blog-post-excerpt">
+        A rotating team of 2-3 researchers from participating AI safety institutes would be sufficient to coordinate the development of methodology, manage the publication schedule, and synthesise findings. After a year that would cover different risk domains, the coalition would be advised to jointly publish a frontier evaluation playbook and document where evaluation approaches converged, where they diverged and why, and what this reveals about the maturity and reliability of different testing paradigms. The core participants would include national AI safety agencies in each country (UK AISI, Japan AIST, Canada ISED, Singapore AISG) and domestic frontier labs, which would be participating voluntarily. Governments could create incentives through procurement preferences or liability safe harbours for companies that submit to cooperative evaluation.
+      </p>
+      <p class="blog-post-excerpt">
+        This evaluation framework could eventually extend to if-then commitments where countries agree on something like 'If models demonstrate capability X in our standardised tests, then we collectively implement restriction Y.' These conditional commitments could reduce arms race dynamics by creating predictable, coordinated responses to capability thresholds.
+      </p>
+      <p class="blog-post-excerpt">
+        After two sprints (6 months), participant agencies would report if protocols were feasible and that cross-country comparisons are yielding useful insights; this mid-year checkpoint would determine if this proposal should be continued. After 4 sprints, success could mean completing four evaluation sprints (one per risk domain) and publishing a joint frontier evaluation playbook. If member countries commit to a second year and at least 1 additional country joins, it would show that this project is contributing to increased trust. Success also requires that labs in participating countries report that the process was less burdensome than they thought and that protocols seem technically sound.
+      </p>
+      <div class="blog-post-tags">
+        <span class="blog-tag">International Cooperation</span>
+        <span class="blog-tag">AI Safety</span>
+        <span class="blog-tag">Model Evaluation</span>
+        <span class="blog-tag">Policy Framework</span>
+      </div>
+    </article>
+
+    <!-- Blog Post 8: Information Asymmetries -->
+    <article class="blog-post">
+      <div class="blog-post-date">November 2025</div>
+      <h2 class="blog-post-title">The Biggest Information Asymmetry in AI: Proprietary Capability Forecasting Models</h2>
+      <p class="blog-post-excerpt">
+        I think the biggest information asymmetry in the AI debate is that capability forecasting models remain proprietary to labs, specifically, their internal predictions of when dangerous capabilities will emerge at scale. Other asymmetries exist, such as deployment data, safety research findings, or incident reports, but capability models shape predictions about future capabilities rather than just documenting current systems. I argue that this creates the following three governance failures:
+      </p>
+      <p class="blog-post-excerpt">
+        Since AI labs are private, neither China nor the US know what the other's capability models predict, so both assume that the other is closer to transformative capabilities. So, domestic AI labs move faster for the sake of national security and don't prioritise domestic safety concerns. But, even if countries agreed in principle to capability thresholds, enforcing that would be very challenging because AI capabilities can emerge from algorithmic improvements on existing hardware. Without sharing capability models functionally or some visible infrastructure that would disclose this (like nuclear programs), verification remains a challenge. But transparency can still enable meaningful coordination around capability milestones.
+      </p>
+      <p class="blog-post-excerpt">
+        Domestic regulation fails because labs can publicly claim that results are unpredictable but internally plan around high-confidence forecasts. So, rules-based regulation becomes nearly impossible since there is no legal mechanism that could force disclosure of internal predictions. Labs can also claim their capability models are 'too uncertain' or 'proprietary trade secrets' to share even with regulators. When California's SB 1047 tried to require labs to make capability disclosures, labs claimed these protections. This prevents regulators from developing independent expertise, which makes them structurally dependent on labs' own safety assessments.
+      </p>
+      <p class="blog-post-excerpt">
+        Proper risk allocation breaks down because insurers cannot price risks they cannot predict. Since AI labs can't be properly insured without sharing capability models, the risks become everyone's burden - taxpayers/society bear costs that should price labs out of dangerous experiments. When OpenAI's Preparedness Framework promised to halt deployment at 'medium risk' for CBRN capabilities, there was no mechanism that could have been invoked to verify if their internal evals actually detected medium risk. This made their commitment unenforceable. If labs genuinely couldn't have known about risks, they have legal cover, but if capability forecasts predicted those risks, this becomes negligence. If capability forecasts were disclosed to regulators, liability insurance could then price risks appropriately and create market pressure against dangerous experiments.
+      </p>
+      <p class="blog-post-excerpt">
+        Those outside AI labs are left to make educated guesses about AI development without having access to key variables like capability timeline. Policymakers who design AI policies and frameworks are making important decisions about how much to fund AI, whether we should slow down AI development, and what safety standards should be implemented, but they don't have access to the most relevant information. This creates governance that lacks legitimacy because informed consent is impossible when important facts are withheld.
+      </p>
+      <div class="blog-post-tags">
+        <span class="blog-tag">AI Governance</span>
+        <span class="blog-tag">Transparency</span>
+        <span class="blog-tag">Information Asymmetry</span>
+        <span class="blog-tag">Policy</span>
+      </div>
+    </article>
+
+    <!-- Blog Post 9: Strategies for Information Gaps -->
+    <article class="blog-post">
+      <div class="blog-post-date">November 2025</div>
+      <h2 class="blog-post-title">Three Strategies to Address AI Information Gaps</h2>
+      <p class="blog-post-excerpt">
+        The core challenge is building institutional capacity to enforce and process the information. I'd prioritise 3 strategies:
+      </p>
+      <p class="blog-post-excerpt">
+        <strong>1. Mandatory Disclosure:</strong><br>
+        Labs above a certain compute threshold should submit capability models to regulators before major training runs. The implementation challenge is that regulatory agencies would need to hire ML researchers or contract third-party auditors with security clearances. Labs will likely claim trade secret protections, as they did with California's SB 1047. Regulatory framework needs authority to compel disclosure despite labs' proprietary nature, similar to how pharmaceutical companies disclose clinical trial data to the US FDA.
+      </p>
+      <p class="blog-post-excerpt">
+        <strong>2. Liability-Based Economic Pressure:</strong><br>
+        Develop safe harbors where labs that share capability models with regulators get liability protection if forecasts turn out wrong. And labs which conceal information face strict liability for harms from capability surprises. Insurers would demand capability models to price risk so labs can't deploy models without liability coverage. Insurers may lack expertise to evaluate AI risk, as we saw with pandemic insurance where underwriters mispriced tail risks.
+      </p>
+      <p class="blog-post-excerpt">
+        <strong>3. International Coordination:</strong><br>
+        Design a US-China agreement to share capability models insights via a trusted intermediary. The implementation challenge is: Who is the intermediary? If US-dominated (like IAEA historically was), China won't trust it. If neutral (UN-affiliated?), both countries may fear intelligence leakage. More realistic could be to start with coordination among the US, UK, and EU on disclosure standards. If these jurisdictions align on what capability models information labs must report, they create de facto global standards since most frontier labs need access to these markets.
+      </p>
+      <p class="blog-post-excerpt">
+        I would deprioritise whistleblower protections and procurement conditions because whistleblowing is reactive rather than preventive and procurement leverage is limited since most frontier AI developments aren't government funded.
+      </p>
+      <div class="blog-post-tags">
+        <span class="blog-tag">AI Governance</span>
+        <span class="blog-tag">Policy Strategy</span>
+        <span class="blog-tag">Regulation</span>
+        <span class="blog-tag">Transparency</span>
+      </div>
+    </article>
+
+    <!-- Blog Post 10: Research Planning Approach -->
+    <article class="blog-post">
+      <div class="blog-post-date">November 2025</div>
+      <h2 class="blog-post-title">My Approach to Planning and Executing Long Research Assignments</h2>
+      <p class="blog-post-excerpt">
+        I organise my research projects in three phases: scoping, investigation, and synthesis. Each phase has different outputs to help me progress toward concrete contributions rather than just accumulate information.
+      </p>
+      <p class="blog-post-excerpt">
+        <strong>Scoping (Week 1-2):</strong><br>
+        I start by defining success criteria. For a 10-week project, this could mean identifying the question I am answering, the contribution I'd like to make, and the 3-5 key sources or experts I'd like to consult. I'd then map existing literature to find gaps to see where I can add value and then I commit to a direction. At the end of week 2, I'd share the document with my mentor, so we're aligned before I dive any deeper.
+      </p>
+      <p class="blog-post-excerpt">
+        <strong>Investigation (Weeks 3-7):</strong><br>
+        During this phase I focus on tracking sources, key findings, contradictions, and implications and schedule weekly check-ins (email or a meeting) to share what I learned, what's blocking me and what I'm doing next week. I also use AI tools like Claude for synthesis to rapidly map research landscapes and identify gaps, etc. If I hit obstacles (sources contradict each other, experts aren't responding, my initial question seems wrong), I give myself 3-5 days to troubleshoot, then escalate to my mentor.
+      </p>
+      <p class="blog-post-excerpt">
+        During my doctoral research, I initially was set on analysing how AI is used in border control broadly, and after having research interviews with government officials, I narrowed my research to how government officials can maintain meaningful human oversight. I spent a week reading policy documents and conducting targeted follow-up interviews to learn more about this. I discussed this pivot with my supervisors, and we agreed that this was a better research path.
+      </p>
+      <p class="blog-post-excerpt">
+        <strong>Synthesis (Weeks 8-10):</strong><br>
+        In the final weeks, I go over my draft a few times and focus on my core argument and supporting evidence, any gaps and weak claims, and clarity and style. Before submitting, I'd build in time for my mentor to give me feedback. For this mentorship, I'd adapt this approach to Kevin's focus areas. For public-facing writing, I'd frontload interviews and draft for clarity; for legal mechanisms research, I'd prioritise regulatory precedent; for institutional capacity work, I'd test if frameworks from adjacent domains generalise to AI governance.
+      </p>
+      <div class="blog-post-tags">
+        <span class="blog-tag">Research Methods</span>
+        <span class="blog-tag">Project Management</span>
+        <span class="blog-tag">Academia</span>
+      </div>
+    </article>
+
   </main>
 
   <custom-footer></custom-footer>
