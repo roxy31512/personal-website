@@ -35,6 +35,129 @@
     }
   </script>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .stats-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .stat-item {
+      text-align: center;
+      color: #d8e1eb;
+    }
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #9fc0ff;
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.9rem;
+      color: #9aa4b2;
+      margin-top: 0.25rem;
+    }
+    .currently-box {
+      background: rgba(159, 192, 255, 0.08);
+      border: 1px solid rgba(159, 192, 255, 0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .currently-box h3 {
+      color: #9fc0ff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+    .currently-box p {
+      color: #d8e1eb;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .highlight-item {
+      display: flex;
+      align-items: start;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .highlight-item:last-child {
+      border-bottom: none;
+    }
+    .highlight-icon {
+      color: #9fc0ff;
+      font-size: 1.25rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .highlight-text {
+      color: #d8e1eb;
+      line-height: 1.6;
+    }
+    .blog-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.2s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(159, 192, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    .blog-title {
+      color: #9fc0ff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .blog-date {
+      color: #9aa4b2;
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+    .blog-excerpt {
+      color: #d8e1eb;
+      line-height: 1.6;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+    .blog-link {
+      color: #9fc0ff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .blog-link:hover {
+      border-bottom-color: #9fc0ff;
+    }
+    .section-heading {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+  </style>
 </head>
 <body class="bg-dark text-light font-sans">
   <!-- Particle Background -->
@@ -44,34 +167,113 @@
 
   <main class="container mx-auto px-6 py-16 max-w-6xl" style="position: relative; z-index: 10;">
     <!-- Hero -->
-<section class="flex flex-col items-center text-center mb-16">
-  <div class="hero-photo rounded-full overflow-hidden mb-6 border border-mid"
-       style="background-image: url('https://huggingface.co/spaces/roxy31512/oxford-ai-policy-luminary/resolve/main/images/Profile%20Image.jpg');">
-  </div>
+    <section class="flex flex-col items-center text-center mb-12">
+      <div class="hero-photo rounded-full overflow-hidden mb-6 border border-mid"
+           style="background-image: url('https://huggingface.co/spaces/roxy31512/oxford-ai-policy-luminary/resolve/main/images/Profile%20Image.jpg');">
+      </div>
 
-  <h1 class="hero-name">Roxana Akhmetova</h1>
-  <p class="hero-sub">AI Policy & Governance — bridging social science and technology.</p>
+      <h1 class="hero-name">Roxana Akhmetova</h1>
+      <p class="hero-sub">AI Policy & Governance — bridging social science and technology.</p>
 
-  <div class="flex flex-wrap justify-center gap-4">
-    <a href="consulting.html" class="btn-primary rounded-md">Consulting</a>
-    <a href="current-projects.html" class="btn-primary rounded-md">Current Projects</a>
-    <a href="contact.html" class="btn-primary rounded-md">Contact</a>
-  </div>
-</section>
+      <div class="flex flex-wrap justify-center gap-4 mb-8">
+        <a href="consulting.html" class="btn-primary rounded-md">Consulting</a>
+        <a href="current-projects.html" class="btn-primary rounded-md">Current Projects</a>
+        <a href="contact.html" class="btn-primary rounded-md">Contact</a>
+      </div>
 
+      <!-- Statistics Bar -->
+      <div class="stats-bar" style="width: 100%; max-width: 900px;">
+        <div class="stat-item">
+          <span class="stat-number">250+</span>
+          <span class="stat-label">Stakeholders Convened</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">£60K</span>
+          <span class="stat-label">Grants Secured</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">87</span>
+          <span class="stat-label">Mentees</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">UK Gov</span>
+          <span class="stat-label">Policy Citation</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Currently Section -->
+    <section class="currently-box mb-12">
+      <h3>Currently</h3>
+      <p>AI Safety Policy Fellow at Georgia Tech, tracking U.S. congressional AI legislation and conducting research on compute governance and semiconductor export controls.</p>
+    </section>
+
+    <!-- Recent Highlights -->
+    <section class="mb-12">
+      <h2 class="section-heading">Recent Highlights</h2>
+      <div class="bg-white p-6 rounded-lg shadow-sm border" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+        <div class="highlight-item">
+          <span class="highlight-icon">📋</span>
+          <span class="highlight-text">Cited in UK Government's 2024 Ethics Framework for Automated Decision-Making</span>
+        </div>
+        <div class="highlight-item">
+          <span class="highlight-icon">🎓</span>
+          <span class="highlight-text">Founded Oxford AI Gala, convening 250+ senior stakeholders and generating £50K revenue in inaugural year</span>
+        </div>
+        <div class="highlight-item">
+          <span class="highlight-icon">🛂</span>
+          <span class="highlight-text">Advised Canadian border agency officials on AI risk assessment frameworks</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Writing -->
+    <section class="mb-12">
+      <h2 class="section-heading">Latest Writing</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        
+        <!-- Blog Post 1 -->
+        <article class="blog-card">
+          <h3 class="blog-title">US-China AGI Relations and Diplomatic Interventions (2025-2030)</h3>
+          <div class="blog-date">November 2025</div>
+          <p class="blog-excerpt">Examining escalation risks in US-China AGI competition and proposing compute-based incident reporting protocols and joint technical standards.</p>
+          <a href="blog.html#us-china-agi" class="blog-link">Read more →</a>
+        </article>
+
+        <!-- Blog Post 2 -->
+        <article class="blog-card">
+          <h3 class="blog-title">Strengthening AI Chip Export Controls</h3>
+          <div class="blog-date">November 2025</div>
+          <p class="blog-excerpt">Recommendations for the Department of Commerce on tiered export licensing and rapid technical assessment capabilities for BIS.</p>
+          <a href="blog.html#export-controls" class="blog-link">Read more →</a>
+        </article>
+
+        <!-- Blog Post 3 -->
+        <article class="blog-card">
+          <h3 class="blog-title">Thermal Signature Monitoring for GPU Verification</h3>
+          <div class="blog-date">November 2025</div>
+          <p class="blog-excerpt">A cost-effective technical solution using thermal fingerprinting to verify GPU locations in data centers without invasive hardware.</p>
+          <a href="blog.html#thermal-monitoring" class="blog-link">Read more →</a>
+        </article>
+
+      </div>
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="blog.html" style="color: #9fc0ff; text-decoration: none; font-weight: 500; border-bottom: 1px solid transparent; transition: border-color 0.2s;" onmouseover="this.style.borderBottomColor='#9fc0ff'" onmouseout="this.style.borderBottomColor='transparent'">View all writing →</a>
+      </div>
+    </section>
     
     <!-- Summary / Quick links -->
     <section class="grid md:grid-cols-2 gap-8">
-      <div class="bg-white p-6 rounded-lg shadow-sm border">
-        <h3 class="text-lg font-semibold mb-2">Research & Publications</h3>
-        <p class="text-sm text-mid mb-3">Selected papers on governance frameworks, evaluation, and policy impact.</p>
-        <a href="publications.html" class="text-oxford-600 hover:underline text-sm">View publications →</a>
+      <div class="bg-white p-6 rounded-lg shadow-sm border" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+        <h3 class="text-lg font-semibold mb-2" style="color: #9fc0ff;">Research & Publications</h3>
+        <p class="text-sm mb-3" style="color: #d8e1eb;">Selected papers on governance frameworks, evaluation, and policy impact.</p>
+        <a href="publications.html" class="text-oxford-600 hover:underline text-sm" style="color: #9fc0ff;">View publications →</a>
       </div>
 
-      <div class="bg-white p-6 rounded-lg shadow-sm border">
-        <h3 class="text-lg font-semibold mb-2">Past Projects</h3>
-        <p class="text-sm text-mid mb-3">Comparative analysis and framework development for AI governance and policy implementation.</p>
-        <a href="past-projects.html" class="text-oxford-600 hover:underline text-sm">View past projects →</a>
+      <div class="bg-white p-6 rounded-lg shadow-sm border" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+        <h3 class="text-lg font-semibold mb-2" style="color: #9fc0ff;">Past Projects</h3>
+        <p class="text-sm mb-3" style="color: #d8e1eb;">Comparative analysis and framework development for AI governance and policy implementation.</p>
+        <a href="past-projects.html" class="text-oxford-600 hover:underline text-sm" style="color: #9fc0ff;">View past projects →</a>
       </div>
     </section>
   </main>
