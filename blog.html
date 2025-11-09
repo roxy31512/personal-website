@@ -62,10 +62,10 @@
       background: rgba(255,255,255,0.02);
       border: 1px solid rgba(159, 192, 255, 0.2);
       border-radius: 12px;
-      padding: 20px 15px;
+      padding: 30px 20px;
       margin-bottom: 50px;
       text-align: center;
-      max-width: 750px;
+      max-width: 700px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -76,18 +76,16 @@
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     .word-cloud {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px 15px;
-      align-items: center;
-      min-height: 180px;
-      padding: 15px;
-      line-height: 1.5;
+      align-items: baseline;
+      gap: 12px 18px;
+      padding: 10px;
     }
 
     .word-cloud-item {
@@ -95,19 +93,21 @@
       font-weight: 600;
       transition: all 0.3s ease;
       cursor: default;
-      line-height: 1;
+      white-space: nowrap;
+      display: inline-block;
+      padding: 4px 8px;
     }
 
     .word-cloud-item:hover {
       color: #ffffff;
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
 
-    .word-cloud-item.size-1 { font-size: 2rem; opacity: 1; }
-    .word-cloud-item.size-2 { font-size: 1.6rem; opacity: 0.9; }
-    .word-cloud-item.size-3 { font-size: 1.3rem; opacity: 0.8; }
-    .word-cloud-item.size-4 { font-size: 1.1rem; opacity: 0.7; }
-    .word-cloud-item.size-5 { font-size: 0.95rem; opacity: 0.6; }
+    .word-cloud-item.size-1 { font-size: 1.8rem; opacity: 1; }
+    .word-cloud-item.size-2 { font-size: 1.5rem; opacity: 0.9; }
+    .word-cloud-item.size-3 { font-size: 1.25rem; opacity: 0.8; }
+    .word-cloud-item.size-4 { font-size: 1.05rem; opacity: 0.7; }
+    .word-cloud-item.size-5 { font-size: 0.9rem; opacity: 0.6; }
 
     .blog-post {
       background: rgba(255,255,255,0.03);
