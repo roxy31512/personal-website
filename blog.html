@@ -80,9 +80,11 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
+      gap: 20px 25px;
       align-items: center;
-      min-height: 200px;
+      min-height: 250px;
+      padding: 20px;
+      line-height: 2;
     }
 
     .word-cloud-item {
@@ -599,64 +601,68 @@
 
   <script>
     // Word Cloud Generator
-    function generateWordCloud() {
-      // Extract all text from blog posts
-      const blogPosts = document.querySelectorAll('.blog-post-excerpt');
-      const allText = Array.from(blogPosts).map(post => post.textContent).join(' ');
-      
-      // Common stop words to exclude
-      const stopWords = new Set([
-        'the', 'be', 'to', 'of', 'and', 'a', 'in', 'that', 'have', 'i', 'it', 'for', 'not',
-        'on', 'with', 'he', 'as', 'you', 'do', 'at', 'this', 'but', 'his', 'by', 'from',
-        'they', 'we', 'say', 'her', 'she', 'or', 'an', 'will', 'my', 'one', 'all', 'would',
-        'there', 'their', 'what', 'so', 'up', 'out', 'if', 'about', 'who', 'get', 'which',
-        'go', 'me', 'when', 'make', 'can', 'like', 'time', 'no', 'just', 'him', 'know',
-        'take', 'people', 'into', 'year', 'your', 'good', 'some', 'could', 'them', 'see',
-        'other', 'than', 'then', 'now', 'look', 'only', 'come', 'its', 'over', 'think',
-        'also', 'back', 'after', 'use', 'two', 'how', 'our', 'work', 'first', 'well',
-        'way', 'even', 'new', 'want', 'because', 'any', 'these', 'give', 'day', 'most',
-        'us', 'is', 'are', 'was', 'been', 'has', 'had', 'were', 'said', 'did', 'may',
-        'should', 'might', 'must', 'does', 'being', 'am', 'having', 'such', 'those',
-        'very', 'more', 'many', 'much', 'both', 'through', 'each', 'before', 'between',
-        'during', 'under', 'since', 'while', 'where', 'why', 'here', 'down', 'still',
-        'own', 'same', 'too', 'off', 'again', 'further', 'once', 'however', 'though'
-      ]);
-      
-      // Count word frequencies
-      const words = allText.toLowerCase()
-        .replace(/[^\w\s-]/g, ' ')
-        .split(/\s+/)
-        .filter(word => word.length > 3 && !stopWords.has(word));
-      
-      const wordCount = {};
-      words.forEach(word => {
-        wordCount[word] = (wordCount[word] || 0) + 1;
-      });
-      
-      // Get top 30 words
-      const sortedWords = Object.entries(wordCount)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 30);
-      
-      // Calculate sizes (5 tiers)
-      const maxCount = sortedWords[0][1];
-      const minCount = sortedWords[sortedWords.length - 1][1];
-      const range = maxCount - minCount;
-      
-      // Generate word cloud HTML
-      const wordCloudContainer = document.getElementById('wordCloud');
-      wordCloudContainer.innerHTML = sortedWords.map(([word, count]) => {
-        const normalized = (count - minCount) / range;
-        let sizeClass;
-        if (normalized > 0.8) sizeClass = 'size-1';
-        else if (normalized > 0.6) sizeClass = 'size-2';
-        else if (normalized > 0.4) sizeClass = 'size-3';
-        else if (normalized > 0.2) sizeClass = 'size-4';
-        else sizeClass = 'size-5';
-        
-        return `<span class="word-cloud-item ${sizeClass}">${word}</span>`;
-      }).join('');
-    }
+function generateWordCloud() {
+  // Extract all text from blog posts
+  const blogPosts = document.querySelectorAll('.blog-post-excerpt');
+  const allText = Array.from(blogPosts).map(post => post.textContent).join(' ');
+  
+  // Common stop words to exclude
+  const stopWords = new Set([
+    'the', 'be', 'to', 'of', 'and', 'a', 'in', 'that', 'have', 'i', 'it', 'for', 'not',
+    'on', 'with', 'he', 'as', 'you', 'do', 'at', 'this', 'but', 'his', 'by', 'from',
+    'they', 'we', 'say', 'her', 'she', 'or', 'an', 'will', 'my', 'one', 'all', 'would',
+    'there', 'their', 'what', 'so', 'up', 'out', 'if', 'about', 'who', 'get', 'which',
+    'go', 'me', 'when', 'make', 'can', 'like', 'time', 'no', 'just', 'him', 'know',
+    'take', 'people', 'into', 'year', 'your', 'good', 'some', 'could', 'them', 'see',
+    'other', 'than', 'then', 'now', 'look', 'only', 'come', 'its', 'over', 'think',
+    'also', 'back', 'after', 'use', 'two', 'how', 'our', 'work', 'first', 'well',
+    'way', 'even', 'new', 'want', 'because', 'any', 'these', 'give', 'day', 'most',
+    'us', 'is', 'are', 'was', 'been', 'has', 'had', 'were', 'said', 'did', 'may',
+    'should', 'might', 'must', 'does', 'being', 'am', 'having', 'such', 'those',
+    'very', 'more', 'many', 'much', 'both', 'through', 'each', 'before', 'between',
+    'during', 'under', 'since', 'while', 'where', 'why', 'here', 'down', 'still',
+    'own', 'same', 'too', 'off', 'again', 'further', 'once', 'however', 'though',
+    'without', 'against', 'including', 'around', 'another', 'whether', 'already'
+  ]);
+  
+  // Count word frequencies
+  const words = allText.toLowerCase()
+    .replace(/[^\w\s-]/g, ' ')
+    .split(/\s+/)
+    .filter(word => word.length > 4 && !stopWords.has(word));
+  
+  const wordCount = {};
+  words.forEach(word => {
+    wordCount[word] = (wordCount[word] || 0) + 1;
+  });
+  
+  // Get top 25 words (reduced from 30 for better spacing)
+  const sortedWords = Object.entries(wordCount)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 25);
+  
+  // Shuffle array for better visual distribution
+  const shuffled = sortedWords.sort(() => Math.random() - 0.5);
+  
+  // Calculate sizes (5 tiers)
+  const maxCount = Math.max(...sortedWords.map(w => w[1]));
+  const minCount = Math.min(...sortedWords.map(w => w[1]));
+  const range = maxCount - minCount || 1;
+  
+  // Generate word cloud HTML
+  const wordCloudContainer = document.getElementById('wordCloud');
+  wordCloudContainer.innerHTML = shuffled.map(([word, count]) => {
+    const normalized = (count - minCount) / range;
+    let sizeClass;
+    if (normalized > 0.8) sizeClass = 'size-1';
+    else if (normalized > 0.6) sizeClass = 'size-2';
+    else if (normalized > 0.4) sizeClass = 'size-3';
+    else if (normalized > 0.2) sizeClass = 'size-4';
+    else sizeClass = 'size-5';
+    
+    return `<span class="word-cloud-item ${sizeClass}">${word}</span>`;
+  }).join('');
+}
     
     // Generate word cloud on page load
     document.addEventListener('DOMContentLoaded', generateWordCloud);
