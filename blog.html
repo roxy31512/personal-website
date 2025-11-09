@@ -80,34 +80,32 @@
     }
 
     .word-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: baseline;
-      gap: 12px 18px;
-      padding: 10px;
-    }
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      place-items: center;
+}
 
-    .word-cloud-item {
-      color: #9fc0ff;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      cursor: default;
-      white-space: nowrap;
-      display: inline-block;
-      padding: 4px 8px;
-    }
+.word-cloud-item {
+  color: #9fc0ff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: default;
+  white-space: nowrap;
+  text-align: center;
+}
 
-    .word-cloud-item:hover {
-      color: #ffffff;
-      transform: scale(1.05);
-    }
+.word-cloud-item:hover {
+  color: #ffffff;
+  transform: scale(1.05);
+}
 
-    .word-cloud-item.size-1 { font-size: 1.8rem; opacity: 1; }
-    .word-cloud-item.size-2 { font-size: 1.5rem; opacity: 0.9; }
-    .word-cloud-item.size-3 { font-size: 1.25rem; opacity: 0.8; }
-    .word-cloud-item.size-4 { font-size: 1.05rem; opacity: 0.7; }
-    .word-cloud-item.size-5 { font-size: 0.9rem; opacity: 0.6; }
+.word-cloud-item.size-1 { font-size: 1.6rem; opacity: 1; }
+.word-cloud-item.size-2 { font-size: 1.35rem; opacity: 0.9; }
+.word-cloud-item.size-3 { font-size: 1.15rem; opacity: 0.8; }
+.word-cloud-item.size-4 { font-size: 1rem; opacity: 0.7; }
+.word-cloud-item.size-5 { font-size: 0.9rem; opacity: 0.65; }
 
     .blog-post {
       background: rgba(255,255,255,0.03);
