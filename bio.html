@@ -4,9 +4,18 @@
   <meta charset="utf-8" />
   <title>Bio | Roxana Akhmetova</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Biography of Roxana Akhmetova - AI policy strategist specializing in AI governance, tech diplomacy, and automated decision-making systems. Oxford DPhil researcher and policy advisor.">
-  <meta name="keywords" content="Roxana Akhmetova bio, AI policy researcher, Oxford AI, AI governance expert, tech diplomacy, policy strategist">
+  <meta name="description" content="Biography of Roxana Akhmetova - AI policy researcher specializing in frontier AI governance, semiconductor export controls, and technology regulation. Founder of Oxford AI Gala, former President of Oxford Artificial Intelligence Society.">
+  <meta name="keywords" content="Roxana Akhmetova bio, AI policy researcher, Oxford AI Gala, Oxford Gala, Oxford AI Society, Oxford Artificial Intelligence Society, frontier AI governance, semiconductor export controls, AI safety policy, Georgia Tech AI Safety, Pierre Elliott Trudeau Scholar, University of Oxford">
   <meta name="author" content="Roxana Akhmetova">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="About Roxana Akhmetova | AI Policy Researcher">
+  <meta property="og:description" content="AI Safety Policy Fellow at Georgia Tech. Founder of Oxford AI Gala. Specializing in frontier AI governance and semiconductor export controls.">
+  <meta property="og:url" content="https://roxanaakhmetova.com/bio.html">
+  <meta property="og:type" content="profile">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://roxanaakhmetova.com/bio.html" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -28,7 +37,6 @@
 
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Minor page-specific overrides that keep the dark theme but respect global navbar styling */
     main { max-width: 800px; margin: 4.5rem auto; padding: 1.25rem; line-height: 1.8; }
     h1 { font-size: 2.5rem; margin-bottom: 1.25rem; border-bottom: 3px solid #e6eefb; display: inline-block; color: #f7f7f8; font-weight: 600; }
     h2 { font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; color: #f7f7f8; font-weight: 600; }
@@ -75,16 +83,24 @@
 
   <custom-footer></custom-footer>
 
-  <!-- load your components from the same path as the working page -->
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
 
   <script>
-    // Optional: keep light protections but avoid blocking dev tools / copy during development:
-    // document.addEventListener('selectstart', e => e.preventDefault());
-    // document.addEventListener('contextmenu', e => e.preventDefault());
-    // remove the aggressive keyboard blocks while debugging
-    document.body.style.userSelect = '';
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (
+        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+        (e.ctrlKey && e.key === 'p')
+      ) {
+        e.preventDefault();
+      }
+    });
+    document.body.style.userSelect = 'none';
   </script>
 </body>
 </html>
