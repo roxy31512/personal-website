@@ -102,7 +102,7 @@ class CustomNavbar extends HTMLElement {
             <a href="/current-projects.html">Current Projects</a>
             <div class="dropdown">
               <span class="dropdown-toggle">
-                <a href="/past-projects.html" style="color: #d8e1eb; text-decoration: none; font-weight: 500;">Past Projects</a>
+                <a href="/past-projects.html">Past Projects</a>
                 <span class="dropdown-arrow">▼</span>
               </span>
               <div class="dropdown-menu">
