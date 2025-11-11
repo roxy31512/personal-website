@@ -111,7 +111,7 @@ class CustomNavbar extends HTMLElement {
               </div>
             </div>
             <a href="/blog.html">Blog</a>
-            <a href="/publications.html">Publications</a>
+            <a href="/publications.html">Publications & Media</a>
             <a href="/bio.html">Bio</a>
             <a href="/education.html">Education</a>
             <a href="/awards.html">Awards</a>
