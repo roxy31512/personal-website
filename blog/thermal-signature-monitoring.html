@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thermal Signature Monitoring: A Cost-Effective Approach to GPU Verification | Roxana Akhmetova</title>
-  <meta name="description" content="Proposal for using thermal signature monitoring as a scalable verification method for GPU integrity in data centers.">
-  <meta name="keywords" content="Export Controls, Verification, Technical Solutions, BIS, AI Chips">
-  <meta name="author" content="Roxana Akhmetova">
+  <meta name="description" content="Thermal Signature Monitoring: A Cost-Effective Approach to GPU Verification" />
+  <meta name="author" content="Roxana Akhmetova" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -26,7 +25,7 @@
     }
   </script>
 
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css" />
 
   <style>
     html, body {
@@ -66,10 +65,7 @@
       font-size: 1.05rem;
       line-height: 1.8;
       margin-bottom: 20px;
-    }
-
-    .post-content strong {
-      color: #ffffff;
+      white-space: pre-wrap;
     }
 
     .blog-post-tags {
@@ -116,45 +112,18 @@
     <a href="/blog.html" class="back-link">&larr; Back to Blog</a>
 
     <h1>Thermal Signature Monitoring: A Cost-Effective Approach to GPU Verification</h1>
-    <div class="post-date">November 3, 2025</div>
+    <div class="post-date">November 2025</div>
 
     <div class="post-content">
-      <p>
-        How can the Bureau of Industry and Security (BIS) verify, with reasonably high confidence, 
-        that GPUs in a given data center have not been physically transported? 
-        For already-installed GPUs that cannot rely on technical location verification, 
-        I propose a cheap, scalable solution using thermal signature monitoring.
-      </p>
+      <p>How can the Bureau of Industry and Security (BIS) verify, with reasonably high confidence, that GPUs in a given data center have not been physically transported? For already-installed GPUs that cannot rely on technical location verification, I propose a cheap, scalable solution using thermal signature monitoring.</p>
 
-      <p>
-        Each data centre's GPU cluster produces a unique, stable thermal signature with a combination 
-        of heat output patterns, airflow distribution, and cooling load response. 
-        This thermal fingerprint can give rack configuration and serve as a physics-based verification mechanism.
-      </p>
+      <p>Each data centre's GPU cluster produces a unique, stable thermal signature with a combination of heat output patterns, airflow distribution, and cooling load response. This thermal fingerprint can give rack configuration and serve as a physics-based verification mechanism.</p>
 
-      <p>
-        During initial inspection, BIS would record a baseline thermal fingerprint of each rack 
-        of temperature and airflow data from inexpensive off-the-shelf IoT sensors 
-        (cost: ~$150–200 per rack). Data centres would then need to submit monthly thermal audits 
-        consisting of 2–3-minute sensor recordings captured under standard computational load. 
-        BIS software would automatically compare new readings against the baseline profile.
-      </p>
+      <p>During initial inspection, BIS would record a baseline thermal fingerprint of each rack of temperature and airflow data from inexpensive off-the-shelf IoT sensors (cost: ~$150-200 per rack). Data centres would then need to submit monthly thermal audits which are 2–3-minute sensor recordings that are captured under standard computational load. BIS software would automatically compare new readings against the baseline profile.</p>
 
-      <p>
-        If GPUs have been physically removed, rearranged, or replaced, the rack's cooling pattern 
-        would change. Changes in airflow and thermal behaviour would likely trigger silent, automated 
-        tamper alerts that flag facilities for physical inspection.
-      </p>
+      <p>If GPUs have been physically removed, rearranged, or replaced, the rack's cooling pattern would change. Changes in airflow and thermal will likely create silent, automated tamper alerts that would flag those facilities which require to be physically inspected.</p>
 
-      <p>
-        This approach is cheap and scalable and requires no site visits for routine verification. 
-        It's also challenging to spoof. Adversaries can fake documentation but will have difficulty 
-        replicating the precise airflow physics of a specific GPU configuration. 
-        The system also improves data centre efficiency monitoring. 
-        Legitimate cooling adjustments could create some false positives requiring manual review, 
-        but the system would still catch most physical GPU diversions. 
-        The system can automatically scan for unusual sites and tell inspectors where to focus.
-      </p>
+      <p>This approach is cheap and scalable and requires no site visits for routine verification. It's challenging to spoof. Adversaries can fake documentation but will have a hard time easily replicating the precise airflow physics of a specific GPU configuration. The system also has a bonus of improving data centre efficiency monitoring. Legitimate cooling adjustments would create some false positives requiring manual follow-up, but the system would still catch most physical GPU diversions. The system will automatically scan for unusual sites and tell inspectors where to focus.</p>
     </div>
 
     <div class="blog-post-tags">
@@ -168,22 +137,5 @@
   <custom-footer></custom-footer>
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
-
-  <script>
-    document.addEventListener('selectstart', e => e.preventDefault());
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-      if (
-        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
-        (e.ctrlKey && e.key === 'p')
-      ) {
-        e.preventDefault();
-      }
-    });
-    document.body.style.userSelect = 'none';
-  </script>
 </body>
 </html>
