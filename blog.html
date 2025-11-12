@@ -149,6 +149,41 @@
       font-weight: 500;
     }
 
+/* Search Bar Styles */
+    .search-container {
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.05);
+      border: 2px solid rgba(159, 192, 255, 0.3);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: #9fc0ff;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .search-input::placeholder {
+      color: #9fc0ff;
+      opacity: 0.6;
+    }
+
+    .no-results {
+      color: #9fc0ff;
+      text-align: center;
+      padding: 40px;
+      font-size: 1.1rem;
+    }
+
     @media (max-width: 768px) {
       main {
         padding: 0 20px;
@@ -181,6 +216,20 @@
   <main>
     <h1>Blog</h1>
     <div class="page-subtitle">Thoughts on AI policy, governance, and emerging technology</div>
+
+<!-- Search Bar -->
+    <div class="search-container">
+      <input 
+        type="text" 
+        id="blogSearch" 
+        class="search-input" 
+        placeholder="🔍 Search posts by title, tags, or keywords..."
+        onkeyup="searchPosts()"
+      >
+    </div>
+    <div id="noResults" class="no-results" style="display: none;">
+      No posts found matching your search.
+    </div>
 
     <!-- Blog Preview Cards -->
     
@@ -470,7 +519,39 @@
   <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
   <script src="https://roxanaakhmetova.com/components/footer.js"></script>
 
-  <script>
+<script>
+    // Search functionality
+    function searchPosts() {
+      const searchTerm = document.getElementById('blogSearch').value.toLowerCase();
+      const posts = document.querySelectorAll('.blog-preview-card');
+      const noResults = document.getElementById('noResults');
+      let visibleCount = 0;
+
+      posts.forEach(post => {
+        const title = post.querySelector('.blog-preview-title').textContent.toLowerCase();
+        const excerpt = post.querySelector('.blog-preview-excerpt').textContent.toLowerCase();
+        const tags = Array.from(post.querySelectorAll('.blog-tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+        const category = post.querySelector('.blog-category').textContent.toLowerCase();
+        
+        const searchableText = `${title} ${excerpt} ${tags} ${category}`;
+        
+        if (searchableText.includes(searchTerm)) {
+          post.style.display = 'block';
+          visibleCount++;
+        } else {
+          post.style.display = 'none';
+        }
+      });
+
+      // Show/hide no results message
+      if (visibleCount === 0 && searchTerm !== '') {
+        noResults.style.display = 'block';
+      } else {
+        noResults.style.display = 'none';
+      }
+    }
+
+    // Copy protection
     document.addEventListener('selectstart', e => e.preventDefault());
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
@@ -486,5 +567,6 @@
     });
     document.body.style.userSelect = 'none';
   </script>
+
 </body>
 </html>
