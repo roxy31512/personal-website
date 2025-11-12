@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Strengthening AI Chip Export Controls | Roxana Akhmetova</title>
-  <meta name="description" content="Recommendations to strengthen AI chip export controls through tiered verification licensing and technical assessment capabilities at NIST AISI.">
-  <meta name="keywords" content="AI chips, export controls, BIS, policy memo, verification, NIST AISI">
-  <meta name="author" content="Roxana Akhmetova">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strengthening AI Chip Export Controls: Recommendations for Department of Commerce | Roxana Akhmetova</title>
+  <meta name="description" content="Strengthening AI Chip Export Controls: Recommendations for Department of Commerce" />
+  <meta name="author" content="Roxana Akhmetova" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -26,7 +25,7 @@
     }
   </script>
 
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css" />
 
   <style>
     html, body {
@@ -66,10 +65,7 @@
       font-size: 1.05rem;
       line-height: 1.8;
       margin-bottom: 20px;
-    }
-
-    .post-content strong {
-      color: #ffffff;
+      white-space: pre-wrap;
     }
 
     .blog-post-tags {
@@ -119,50 +115,21 @@
     <div class="post-date">November 7, 2025</div>
 
     <div class="post-content">
-      <p>
-        I recommend BIS adopt two interventions to close enforcement gaps: 
-        (1) tiered export licensing that is based on verification requirements, 
-        and (2) an embedded technical assessment capability at NIST AISI.
-      </p>
+      <p>I recommend BIS adopt two interventions to close enforcement gaps: (1) tiered export licensing that is based on verification requirements, and (2) an embedded technical assessment capability at NIST AISI.</p>
 
       <p><strong>Current Controls: Intent and Limitations</strong></p>
-      <p>
-        BIS export AI chips controls use three mechanisms: performance-based thresholds 
-        which restrict advanced logic chips and high-bandwidth memory, end-use controls 
-        which target supercomputer and military applications, and expanded Foreign Direct 
-        Product Rule coverage of semiconductor manufacturing equipment. 
-        Since the "AI Diffusion Rule" was rescinded in May 2025, controls focus on maintaining 
-        allied access while imposing targeted restrictions for China.
-      </p>
 
-      <p>
-        However, there are three critical limits. First, BIS cannot effectively track chip 
-        location or deployment after export. China has reportedly acquired tens of thousands 
-        of H100-class chips through indirect channels despite controls. Second, current 
-        thresholds target chips optimized for training workloads, but AI development is 
-        shifting toward inference-heavy architecture. Third, control updates need 6–12 months 
-        from when the gap was identified to be implemented.
-      </p>
+      <p>BIS export AI chips controls use three mechanisms: performance-based thresholds which restrict advanced logic chips and high-bandwidth memory, end-use controls which target supercomputer and military applications, and expanded Foreign Direct Product Rule coverage of semiconductor manufacturing equipment. Since the "AI Diffusion Rule" was rescinded in May 2025, controls focus on maintaining allied access while imposing targeted restrictions for China.</p>
+
+      <p>However, there are three critical limits. First, BIS cannot effectively track chip location or deployment after export. China has reportedly acquired tens of thousands of H100-class chips through indirect channels despite controls. Second, current thresholds target chips optimized for training workloads, but AI development is shifting toward inference-heavy architecture. Third, control updates need 6-12 months from when the gap was identified to be implemented.</p>
 
       <p><strong>Recommendation 1: Tiered Export Licensing Based on Verification Requirements</strong></p>
-      <p>
-        A tiered approach would restructure controls around tiers based on end users' willingness 
-        to accept verification. Tier 1 would provide expedited licensing for advanced chips (e.g.: B200) 
-        to end users who would accept quarterly aggregate compute usage reporting, remote chip 
-        inventory verification, and network isolation. Tier 2 would provide standard licensing 
-        for current-generation chips to end users who would accept on-site inspections. 
-        Tier 3: end users who refuse verification would face presumptive denial.
-      </p>
+
+      <p>A tiered approach would restructure controls around tiers based on end users' willingness to accept verification. Tier 1 would provide expedited licensing for advanced chips (e.g.: B200) to end users who would accept quarterly aggregate compute usage reporting, remote chip inventory verification, and network isolation. Tier 2 would provide standard licensing for current-generation chips to end users who would accept on-site inspections. Tier 3: end users who refuse verification would face presumptive denial.</p>
 
       <p><strong>Recommendation 2: Establish Rapid Technical Assessment Capability</strong></p>
-      <p>
-        BIS lacks embedded technical expertise to anticipate how AI architectural development 
-        creates control vulnerabilities before adversaries exploit them. I propose establishing 
-        a small technical team (5–7 staff) in NIST's AI Safety Institute to stress-test regulations 
-        against emerging AI developments. This "regulatory red team" could reduce the current 
-        6–12 month implementation lag to weeks by continuously stress-testing controls against 
-        new AI developments.
-      </p>
+
+      <p>BIS lacks embedded technical expertise to anticipate how AI architectural development creates control vulnerabilities before adversaries exploit them. I propose to establish a small technical team (5-7 staff) in NIST's AI Safety Institute to stress-test regulations against emerging AI developments. This 'regulatory red team' could reduce the current 6-12 month implementation lag to weeks by continuously stress-testing controls against new AI developments.</p>
     </div>
 
     <div class="blog-post-tags">
@@ -176,22 +143,5 @@
   <custom-footer></custom-footer>
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
-
-  <script>
-    document.addEventListener('selectstart', e => e.preventDefault());
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-      if (
-        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
-        (e.ctrlKey && e.key === 'p')
-      ) {
-        e.preventDefault();
-      }
-    });
-    document.body.style.userSelect = 'none';
-  </script>
 </body>
 </html>
