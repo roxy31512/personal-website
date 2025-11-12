@@ -139,5 +139,23 @@
   <custom-footer></custom-footer>
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
+
+<script>
+  document.addEventListener('selectstart', e => e.preventDefault());
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('keydown', e => {
+    if (
+      (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+      (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+      (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+      (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+      (e.ctrlKey && e.key === 'p')
+    ) {
+      e.preventDefault();
+    }
+  });
+  document.body.style.userSelect = 'none';
+</script>
+
 </body>
 </html>
