@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lessons from High-Frequency Trading for AI Governance | Roxana Akhmetova</title>
+  <meta name="description" content="Exploring lessons from high-frequency trading and the 2010 market crash to inform AI governance and automated system regulation." />
+  <meta name="keywords" content="Technology Governance, Financial Regulation, Case Study, Policy Lessons, AI Governance" />
+  <meta name="author" content="Roxana Akhmetova" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#1a1a1a',
+            mid: '#4d4d4d',
+            light: '#f7f7f8',
+            oxford: '#002147',
+            'oxford-100': '#e6eefb',
+            'oxford-600': '#234e85'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="/style.css" />
+
+  <style>
+    html, body {
+      background-color: #1a1a1a !important;
+      min-height: 100%;
+      color: #ffffff;
+    }
+
+    main {
+      margin-top: 100px;
+      max-width: 900px;
+      padding: 0 40px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 80px;
+    }
+
+    h1 {
+      font-size: 2.2rem !important;
+      margin-bottom: 24px !important;
+      color: #ffffff !important;
+      font-weight: 600 !important;
+      border-bottom: 3px solid #e6eefb;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    .post-date {
+      color: #9fc0ff;
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+
+    .post-content p {
+      color: #d8e1eb;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .post-content strong {
+      color: #ffffff;
+    }
+
+    .blog-post-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .blog-tag {
+      background: rgba(159, 192, 255, 0.1);
+      color: #9fc0ff;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    a.back-link {
+      display: inline-block;
+      color: #9fc0ff;
+      margin-bottom: 40px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    a.back-link:hover {
+      color: #ffffff;
+      transform: translateX(-4px);
+    }
+
+    @media (max-width: 768px) {
+      main { padding: 0 20px; }
+      h1 { font-size: 1.8rem !important; }
+      .post-content p { font-size: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <custom-navbar></custom-navbar>
+
+  <main>
+    <a href="/blog.html" class="back-link">&larr; Back to Blog</a>
+
+    <h1>Lessons from High-Frequency Trading for AI Governance</h1>
+    <div class="post-date">September 29, 2025</div>
+
+    <div class="post-content">
+      <p>
+        I chose high-frequency trading as a case study. As algorithmic tools became more popular between the 2000s and 2010s, 
+        the finance world adopted autonomous trading systems — algorithmic decision rules and statistical models — to make and 
+        cancel orders at microsecond to millisecond timescales. These algorithms could exploit tiny price discrepancies and make rapid decisions based on them.
+      </p>
+
+      <p>
+        No single institution had visibility of these automated interactions. Regulators faced severe informational asymmetry because trading firms' algorithms were proprietary, 
+        making it nearly impossible to audit their behavior. Governance mechanisms operated on human and bureaucratic timescales, 
+        while market dynamics unfolded in microseconds.
+      </p>
+
+      <p>
+        As a result, human oversight was nearly impossible, and established control mechanisms were ill-equipped for this new technology. 
+        In 2010, a “flash crash” lasted only a few minutes but wiped out billions in market value. 
+        Safeguards at the time assumed humans were in the loop, but there were no mechanisms capable of intervening at machine speed. 
+        Regulators couldn’t respond in real time, and markets lacked automated safety locks designed for microsecond-scale decision systems.
+      </p>
+
+      <p>
+        After the crash, regulators introduced circuit breakers and market controls to pause trading if prices moved too quickly, 
+        and to limit cascading order cancellations. Post-crash reforms also established joint monitoring protocols 
+        and data-sharing between regulators and exchanges.
+      </p>
+
+      <p>
+        Similarly, advanced AIs are now outpacing regulation. The 2010 flash crash showed that when systems operate faster than human oversight, 
+        we need preventive, automated safety locks. AI regulation today risks being reactive — waiting for a crisis before acting. 
+        Frontier AI systems may require “AI circuit breakers,” capability registries, mandatory audit trails, shared telemetry, 
+        automated oversight layers, or transnational safety boards that can intervene at machine speed before harms occur.
+      </p>
+
+      <p>
+        Market incentives must also evolve to reward safety over speed and profit. 
+        Design mechanisms could include trading fees for ultra-fast strategies, liability for cascading failures, 
+        or mandatory safety certifications for automated systems.
+      </p>
+    </div>
+
+    <div class="blog-post-tags">
+      <span class="blog-tag">Technology Governance</span>
+      <span class="blog-tag">Financial Regulation</span>
+      <span class="blog-tag">Case Study</span>
+      <span class="blog-tag">Policy Lessons</span>
+    </div>
+  </main>
+
+  <custom-footer></custom-footer>
+
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
+
+  <script>
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (
+        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
+        (e.ctrlKey && e.key === 'p')
+      ) {
+        e.preventDefault();
+      }
+    });
+    document.body.style.userSelect = 'none';
+  </script>
+</body>
+</html>
