@@ -67,12 +67,24 @@
       margin-bottom: 20px;
     }
 
-    .post-content strong {
+    /* --- Section styling --- */
+    .tier-title {
       color: #ffffff;
-      display: block;
-      margin-top: 25px;
-      margin-bottom: 8px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      border-left: 4px solid #9fc0ff;
+      padding-left: 10px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    .subheading {
+      color: #9fc0ff;
       font-weight: 600;
+      font-size: 1.05rem;
+      margin-top: 15px;
+      margin-bottom: 6px;
+      display: block;
     }
 
     .blog-post-tags {
@@ -124,25 +136,25 @@
     <div class="post-content">
       <p>A core challenge for accreditation is verifying an assessor's "independence from undue pressures", especially from the well-funded and influential AI developer being assessed. I propose a two-tiered system for ensuring and auditing this independence.</p>
 
-      <strong>Tier 1:</strong>
+      <div class="tier-title">Tier 1</div>
 
-      <p><strong>Pooled funding:</strong> To reduce the risk of AI developers influencing assessments, developers would pay into shared funds based on their AI model’s risk level; to reduce the risk of assessors picking clients themselves, accreditors would manage funding pools and compensate assessment firms via (algorithmic) randomisation.</p>
+      <p><span class="subheading">Pooled funding:</span> To reduce the risk of AI developers influencing assessments, developers would pay into shared funds based on their AI model’s risk level; to reduce the risk of assessors picking clients themselves, accreditors would manage funding pools and compensate assessment firms via (algorithmic) randomisation.</p>
 
-      <p><strong>Revenue diversification:</strong> To ensure independence, assessment firms would face revenue caps of no more than 8% from any developer ecosystem, including subsidiaries and major suppliers. 8% is stricter than typical audit standards for financial auditing, because of AI’s high market concentration in frontier AI. Senior assessment firm staff would not be allowed to be employed by assessed companies for 36 months, with mutual restrictions during ongoing evaluations.</p>
+      <p><span class="subheading">Revenue diversification:</span> To ensure independence, assessment firms would face revenue caps of no more than 8% from any developer ecosystem, including subsidiaries and major suppliers. 8% is stricter than typical audit standards for financial auditing, because of AI’s high market concentration in frontier AI. Senior assessment firm staff would not be allowed to be employed by assessed companies for 36 months, with mutual restrictions during ongoing evaluations.</p>
 
-      <p><strong>Rotating networks:</strong> Accredited firms would occasionally reshuffle assessors to maintain assessors’ objectivity and autonomy preventing the same person/team from constantly assessing the same AI developer.</p>
+      <p><span class="subheading">Rotating networks:</span> Accredited firms would occasionally reshuffle assessors to maintain assessors’ objectivity and autonomy, preventing the same person/team from constantly assessing the same AI developer.</p>
 
-      <p><strong>Tamper-evident documentation:</strong> To ensure a transparent and verifiable audit trail, accreditors would keep records by tracking developer-assessor interactions, methodology choices, and decisions. This also deters behind-the-scenes pressure tactics, as both parties know that all communication is subject to later audits.</p>
+      <p><span class="subheading">Tamper-evident documentation:</span> To ensure a transparent and verifiable audit trail, accreditors would keep records by tracking developer-assessor interactions, methodology choices, and decisions. This also deters behind-the-scenes pressure tactics, as both parties know that all communication is subject to later audits.</p>
 
-      <strong>Tier 2:</strong>
+      <div class="tier-title">Tier 2</div>
 
-      <p><strong>Multi-modal verification:</strong> To detect potential compromise, independent teams would re-evaluate a random 15% of all assessments for warning signs such as unusually favorable outcomes, suspicious timing correlations, or systematic outlier patterns. To catch systematic bias, assessments that show a 20% variance from peer norms would automatically trigger an investigation.</p>
+      <p><span class="subheading">Multi-modal verification:</span> To detect potential compromise, independent teams would re-evaluate a random 15% of all assessments for warning signs such as unusually favorable outcomes, suspicious timing correlations, or systematic outlier patterns. To catch systematic bias, assessments that show a 20% variance from peer norms would automatically trigger an investigation.</p>
 
-      <p><strong>Process analysis:</strong> To identify undue influence, investigators would examine communication patterns, decision timelines, and methodology deviations during formal reviews. To ensure thoroughness, investigators should focus specifically on developer pressure tactics and assessment manipulation attempts.</p>
+      <p><span class="subheading">Process analysis:</span> To identify undue influence, investigators would examine communication patterns, decision timelines, and methodology deviations during formal reviews. To ensure thoroughness, investigators should focus specifically on developer pressure tactics and assessment manipulation attempts.</p>
 
-      <p><strong>Cross-reference validation:</strong> To catch systematic under-assessment, the accreditation body would verify conclusions against a variety of independent indicators, including academic benchmarks and red-team results. To ensure thorough validation, they would cross-check findings with incident reports and real-world deployment outcomes.</p>
+      <p><span class="subheading">Cross-reference validation:</span> To catch systematic under-assessment, the accreditation body would verify conclusions against a variety of independent indicators, including academic benchmarks and red-team results. To ensure thorough validation, they would cross-check findings with incident reports and real-world deployment outcomes.</p>
 
-      <p><strong>Graduated enforcement:</strong> To maintain credible deterrence, an accreditation body would escalate sanctions from corrections and fines to suspension and debarment in severe cases. To address developer misconduct, their pressure tactics would result in pool exclusion and regulatory notification.</p>
+      <p><span class="subheading">Graduated enforcement:</span> To maintain credible deterrence, an accreditation body would escalate sanctions from corrections and fines to suspension and debarment in severe cases. To address developer misconduct, their pressure tactics would result in pool exclusion and regulatory notification.</p>
 
       <p>Both tiers are important because they create complementary defense mechanisms against AI developer influence. The ex-ante mechanisms outlined above are aimed at making corruption structurally difficult while ex-post mechanisms are designed to catch sophisticated evasion attempts. Overall, this framework is designed to enable institutional learning. Prevention, detection, and adaptation can help ensure the system remains dynamic and effective.</p>
     </div>
@@ -159,22 +171,22 @@
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
 
-<script>
-  document.addEventListener('selectstart', e => e.preventDefault());
-  document.addEventListener('contextmenu', e => e.preventDefault());
-  document.addEventListener('keydown', e => {
-    if (
-      (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-      (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-      (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-      (e.ctrlKey && e.shiftKey && e.key === 'J') ||
-      (e.ctrlKey && e.key === 'p')
-    ) {
-      e.preventDefault();
-    }
-  });
-  document.body.style.userSelect = 'none';
-</script>
+  <script>
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (
+        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+        (e.ctrlKey && e.key === 'p')
+      ) {
+        e.preventDefault();
+      }
+    });
+    document.body.style.userSelect = 'none';
+  </script>
 
 </body>
 </html>
