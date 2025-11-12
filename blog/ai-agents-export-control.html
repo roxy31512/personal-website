@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Two Critical Failure Modes of AI Agents in Export Control Monitoring | Roxana Akhmetova</title>
-  <meta name="description" content="Analysis of two potential failure modes of AI agents used for export control monitoring: adversarial prompt tampering and diffused accountability.">
-  <meta name="keywords" content="AI Agents, Export Controls, Risk Analysis, BIS, AI Governance">
-  <meta name="author" content="Roxana Akhmetova">
+  <meta name="description" content="Two Critical Failure Modes of AI Agents in Export Control Monitoring" />
+  <meta name="author" content="Roxana Akhmetova" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -26,7 +25,7 @@
     }
   </script>
 
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css" />
 
   <style>
     html, body {
@@ -66,10 +65,7 @@
       font-size: 1.05rem;
       line-height: 1.8;
       margin-bottom: 20px;
-    }
-
-    .post-content strong {
-      color: #ffffff;
+      white-space: pre-wrap;
     }
 
     .blog-post-tags {
@@ -119,46 +115,15 @@
     <div class="post-date">November 1, 2025</div>
 
     <div class="post-content">
-      <p>
-        If the Bureau of Industry and Security (BIS) deployed AI agents to continuously monitor shipping manifests, 
-        customs declarations, corporate filings, and other documents to detect export control violations, 
-        the system could fail badly or create new problems in distinct ways.
-      </p>
+      <p>If BIS deployed AI agents to continuously monitor shipping manifests, customs declarations, corporate filings, and other documents to detect export control violations, the system could fail badly or create new problems in distinct ways.</p>
 
       <p><strong>Failure 1: Adversarial Prompt Tampering</strong></p>
-      <p>
-        Adversaries could tamper with AI prompts by embedding adversarial content that causes the AI to misclassify. 
-        For example, shell companies could include specific linguistic patterns, formatting quirks, or metadata signatures 
-        that the agent learns to associate with “legitimate” transactions during training. 
-        If agents autonomously investigate and clear transactions, bad actors could inject prompts in shipping documents 
-        or customs forms that cause agents to misinterpret their instructions.
-      </p>
 
-      <p>
-        This matters because it creates an adversarial arms race where adversaries constantly look for weaknesses in the AI. 
-        Some ways to mitigate this include continuously red-teaming agents with synthetic evasion attempts before deployment. 
-        If an agent encounters document patterns outside its training distribution or confidence intervals, 
-        mandatory human review should be triggered.
-      </p>
+      <p>Adversaries could tamper with AI prompts by embedding adversarial content that causes AI to misclassify. For example, shell companies could include specific linguistic patterns, formatting quirks, or metadata signatures that the agent learns to associate with 'legitimate' transactions during training. If agents autonomously investigate and clear transactions, bad actors could inject prompts in shipping documents or customs forms that cause agents to misinterpret their instructions. This matters because it creates an adversarial arms race where adversaries constantly look for weaknesses in the AI. Some ways to mitigate this are to constantly red-team agents with synthetic evasion attempts before they're deployed; if an agent encounters document patterns outside their training distribution confidence intervals, require mandatory human review.</p>
 
       <p><strong>Failure 2: Diffused Accountability</strong></p>
-      <p>
-        If BIS becomes structurally dependent on AI and lacks human expertise to validate agent outputs—or technical capacity 
-        to intervene when agents fail—it risks losing its ability to audit performance or recognize systematic errors. 
-        When AI agents make mistakes, accountability becomes unclear: is BIS responsible, or the AI developer?
-      </p>
 
-      <p>
-        For instance, if an agent autonomously clears a transaction that later proves to be a major violation 
-        (like the TSMC–Huawei case), who bears responsibility? 
-        This is dangerous because BIS may institutionalize unverified automation, eroding oversight integrity.
-      </p>
-
-      <p>
-        To mitigate this, AI agents should produce human-readable audit trails showing reasoning chains for every decision. 
-        Additionally, humans should be required to approve any transaction exceeding $10 million or involving 
-        entities on export watchlists.
-      </p>
+      <p>If BIS becomes structurally dependent on AI and doesn't have human expertise to validate agent outputs and doesn't have technical capacity to step in for the AI, BIS will lose its ability to audit agent performance or recognize systematic failures. When AI agents make mistakes, it becomes unclear who is accountable – BIS or the AI developer. If an agent autonomously clears a transaction that later proves to be a major violation (like the TSMC-Huawei case), who is responsible? This matters: if BIS can't evaluate whether agents are correctly identifying violations, then it risks institutionalising unverified automation. Some ways to mitigate this would be to have AI produce human-readable audit trails showing reasoning chains for every decision or have humans approve any transaction >$10M or involving entities on watchlists.</p>
     </div>
 
     <div class="blog-post-tags">
@@ -172,22 +137,5 @@
   <custom-footer></custom-footer>
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
-
-  <script>
-    document.addEventListener('selectstart', e => e.preventDefault());
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-      if (
-        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
-        (e.ctrlKey && e.key === 'p')
-      ) {
-        e.preventDefault();
-      }
-    });
-    document.body.style.userSelect = 'none';
-  </script>
 </body>
 </html>
