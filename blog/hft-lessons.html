@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lessons from High-Frequency Trading for AI Governance | Roxana Akhmetova</title>
-  <meta name="description" content="Exploring lessons from high-frequency trading and the 2010 market crash to inform AI governance and automated system regulation." />
-  <meta name="keywords" content="Technology Governance, Financial Regulation, Case Study, Policy Lessons, AI Governance" />
+  <meta name="description" content="Lessons from High-Frequency Trading for AI Governance" />
   <meta name="author" content="Roxana Akhmetova" />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -70,6 +69,10 @@
 
     .post-content strong {
       color: #ffffff;
+      display: block;
+      margin-top: 25px;
+      margin-bottom: 8px;
+      font-weight: 600;
     }
 
     .blog-post-tags {
@@ -119,43 +122,20 @@
     <div class="post-date">September 29, 2025</div>
 
     <div class="post-content">
-      <p>
-        I chose high-frequency trading as a case study. As algorithmic tools became more popular between the 2000s and 2010s, 
-        the finance world adopted autonomous trading systems — algorithmic decision rules and statistical models — to make and 
-        cancel orders at microsecond to millisecond timescales. These algorithms could exploit tiny price discrepancies and make rapid decisions based on them.
-      </p>
+      <p>I chose high-frequency trading as a case study. As algorithmic tools became more popular between 2000s - 2010s, the finance world adopted autonomous trading tools (algorithmic decision rules and statistical models) into their trading systems to make and cancel orders at microsecond to millisecond timescales. These algorithms could pick up on tiny price discrepancies and make fast decisions based on them.</p>
 
-      <p>
-        No single institution had visibility of these automated interactions. Regulators faced severe informational asymmetry because trading firms' algorithms were proprietary, 
-        making it nearly impossible to audit their behavior. Governance mechanisms operated on human and bureaucratic timescales, 
-        while market dynamics unfolded in microseconds.
-      </p>
+      <p>No single institution had visibility of these automated interactions. Regulators also faced severe informational asymmetry because trading firms' algorithms were proprietary, and so it was nearly impossible to audit their behavior. Governance mechanisms operated on human and bureaucratic timescales, but the system dynamics happened in microseconds.</p>
 
-      <p>
-        As a result, human oversight was nearly impossible, and established control mechanisms were ill-equipped for this new technology. 
-        In 2010, a “flash crash” lasted only a few minutes but wiped out billions in market value. 
-        Safeguards at the time assumed humans were in the loop, but there were no mechanisms capable of intervening at machine speed. 
-        Regulators couldn’t respond in real time, and markets lacked automated safety locks designed for microsecond-scale decision systems.
-      </p>
+      <p>As a result, human oversight was nearly impossible and established ways to control markets weren't equipped to deal with this new tech. In 2010 there was a fast crash in the market that lasted several minutes but resulted in billions lost in market value. Safeguards and frameworks that were already in place were designed in such a way that assumed human-in-the-loop and manual interventions were in place; there weren't enough mechanisms that could act fast to catch automated trading, regulators couldn't intervene in real time, and the market lacked automated safety mechanisms that were designed for microsecond-timescale decisions.</p>
 
-      <p>
-        After the crash, regulators introduced circuit breakers and market controls to pause trading if prices moved too quickly, 
-        and to limit cascading order cancellations. Post-crash reforms also established joint monitoring protocols 
-        and data-sharing between regulators and exchanges.
-      </p>
+      <strong>After the crash:</strong>
+      <p>Regulators introduced circuit breakers and other market controls that could pause the system if prices move rapidly again and limit order cancellation cascading. The post-crash reforms also created joint monitoring protocols and data-sharing between regulators and exchanges.</p>
 
-      <p>
-        Similarly, advanced AIs are now outpacing regulation. The 2010 flash crash showed that when systems operate faster than human oversight, 
-        we need preventive, automated safety locks. AI regulation today risks being reactive — waiting for a crisis before acting. 
-        Frontier AI systems may require “AI circuit breakers,” capability registries, mandatory audit trails, shared telemetry, 
-        automated oversight layers, or transnational safety boards that can intervene at machine speed before harms occur.
-      </p>
+      <strong>Similarly, advanced AIs are outpacing regulation:</strong>
+      <p>The 2010 market crash taught us that when systems operate on timescales that are faster than human oversight, we need preventative automated safety locks. AI regulations are lagging behind, and may be similarly reactive in nature, waiting for a big crisis to trigger serious regulation. Advanced AI may require AI 'circuit breakers,' capability registries, mandatory audit trails, shared telemetry, automated oversight systems, or transnational safety boards to intervene at machine speed before harms occur.</p>
 
-      <p>
-        Market incentives must also evolve to reward safety over speed and profit. 
-        Design mechanisms could include trading fees for ultra-fast strategies, liability for cascading failures, 
-        or mandatory safety certifications for automated systems.
-      </p>
+      <strong>Incentives and governance:</strong>
+      <p>There also need to be incentives to reward safety over speed/efficiency/profit, and market design itself must reward caution through trading fees on high-frequency strategies, liability for cascade failures, or mandatory safety certifications.</p>
     </div>
 
     <div class="blog-post-tags">
@@ -167,24 +147,7 @@
   </main>
 
   <custom-footer></custom-footer>
-
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
-
-  <script>
-    document.addEventListener('selectstart', e => e.preventDefault());
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-      if (
-        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
-        (e.ctrlKey && e.key === 'p')
-      ) {
-        e.preventDefault();
-      }
-    });
-    document.body.style.userSelect = 'none';
-  </script>
 </body>
 </html>
