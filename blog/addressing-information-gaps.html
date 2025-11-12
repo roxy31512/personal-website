@@ -60,18 +60,28 @@
       font-weight: 500;
     }
 
-    .post-content p, .post-content li {
+    .post-content p {
       color: #d8e1eb;
       font-size: 1.05rem;
       line-height: 1.8;
       margin-bottom: 20px;
-      white-space: pre-wrap;
     }
 
-    .post-content ol {
+    ol {
       list-style-type: decimal;
       margin-left: 1.5rem;
-      margin-bottom: 20px;
+      padding-left: 0;
+    }
+
+    ol li {
+      margin-bottom: 25px;
+      color: #d8e1eb;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    ol li strong {
+      color: #ffffff;
     }
 
     .blog-post-tags {
@@ -106,7 +116,7 @@
     @media (max-width: 768px) {
       main { padding: 0 20px; }
       h1 { font-size: 1.8rem !important; }
-      .post-content p, .post-content li { font-size: 1rem; }
+      .post-content p, ol li { font-size: 1rem; }
     }
   </style>
 </head>
