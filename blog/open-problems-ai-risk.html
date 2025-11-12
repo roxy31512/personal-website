@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Five Urgent Open Problems in Frontier AI Risk Management | Roxana Akhmetova</title>
+  <meta name="description" content="Five urgent open problems in frontier AI risk management: detection, calibration, organisational readiness, cross-jurisdictional response, and competition-driven norm solidification." />
+  <meta name="keywords" content="AI Risk, Frontier AI, Risk Management, AI Safety" />
+  <meta name="author" content="Roxana Akhmetova" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#1a1a1a',
+            mid: '#4d4d4d',
+            light: '#f7f7f8',
+            oxford: '#002147',
+            'oxford-100': '#e6eefb',
+            'oxford-600': '#234e85'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    html, body {
+      background-color: #1a1a1a !important;
+      min-height: 100%;
+      color: #ffffff;
+    }
+
+    main {
+      margin-top: 100px;
+      max-width: 900px;
+      padding: 0 40px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 80px;
+    }
+
+    h1 {
+      font-size: 2.2rem !important;
+      margin-bottom: 24px !important;
+      color: #ffffff !important;
+      font-weight: 600 !important;
+      border-bottom: 3px solid #e6eefb;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    .post-date {
+      color: #9fc0ff;
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+
+    .post-content p {
+      color: #d8e1eb;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .post-content strong {
+      color: #ffffff;
+    }
+
+    .section-heading {
+      color: #ffffff;
+      font-weight: 600;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .blog-post-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .blog-tag {
+      background: rgba(159, 192, 255, 0.1);
+      color: #9fc0ff;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    a.back-link {
+      display: inline-block;
+      color: #9fc0ff;
+      margin-bottom: 40px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    a.back-link:hover {
+      color: #ffffff;
+      transform: translateX(-4px);
+    }
+
+    @media (max-width: 768px) {
+      main { padding: 0 20px; }
+      h1 { font-size: 1.8rem !important; }
+      .post-content p { font-size: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <custom-navbar></custom-navbar>
+
+  <main>
+    <a href="/blog.html" class="back-link">&larr; Back to Blog</a>
+
+    <h1>Five Urgent Open Problems in Frontier AI Risk Management</h1>
+    <div class="post-date">September 30, 2025</div>
+
+    <div class="post-content">
+      <p><strong>Problem 1: Detecting Dangerous Capabilities Faster Than the System Can Act</strong></p>
+      <p>
+        With frontier AI, capability jumps will likely be unpredictable and non-linear and often invisible until they cross some deployment threshold.
+        So the detection lag needs to be shorter than capability emergence timescales, but right now it's inverted. We need metrics that can signal
+        dangerous capability before it actually happens. This is urgent because by the time a lab can detect dangerous capability through current
+        methods, it may already be deployed or too late to stop.
+      </p>
+
+      <p><strong>Problem 2: Calibrating Likelihood × Severity Without Precedent</strong></p>
+      <p>
+        Most control layers assume some calibration of likelihood × severity, but we don't have a way to measure how likely dangerous outcomes are and
+        how severe they would be. The goal is to set limits so we can say something like — under these assumptions, risk could exceed X%. Because frontier AI
+        is so new and develops so rapidly, we can't just copy what we learned from nuclear or biotech regulation. We need models that tell us how AI scales
+        with more compute, and how real threat actors would actually use those capabilities. Right now, each safety evaluation gives us pieces of information
+        about the risks, but we have no systematic way to combine all those pieces into risk assessment. This is urgent because every frontier model
+        deployment without clear risk thresholds is a gamble on unknowable tail risks.
+      </p>
+
+      <p><strong>Problem 3: Organizational Readiness and Accountability Structures</strong></p>
+      <p>
+        Even if we solve technical risk, governments and labs may still be dysfunctional and create issues. Many labs equate safety with having an internal
+        policy, but they often lack decision rules for when something goes wrong and who can stop the release of a potentially dangerous or non-compliant model.
+        Who bears risk ownership? Where does accountability live? This is urgent because governance structures take years to mature. The field may only have
+        quarters before truly frontier-level models appear — you can't build organisational readiness overnight.
+      </p>
+
+      <p><strong>Problem 4: Cross-Jurisdictional Incident Response</strong></p>
+      <p>
+        Open-source and fine-tuned derivatives make centralised response difficult. Incident response across jurisdictions is unclear — who shuts down a
+        rogue API endpoint hosted abroad? Cybersecurity has CERT networks for coordinated disclosure, but frontier AI doesn't have an equivalent. Without
+        cross-border incident protocols, a frontier model deployed in one jurisdiction can be exploited everywhere else before response mechanisms activate.
+      </p>
+
+      <p><strong>Problem 5: Competition-Driven Norm Solidification</strong></p>
+      <p>
+        The fifth problem is about detecting issues fast and aligning incentives. Current norms, driven by competition and profit, will solidify if we don't
+        act now, and we will miss the opportunity to align frontier AI on safety.
+      </p>
+    </div>
+
+    <div class="blog-post-tags">
+      <span class="blog-tag">AI Risk</span>
+      <span class="blog-tag">Frontier AI</span>
+      <span class="blog-tag">Risk Management</span>
+      <span class="blog-tag">AI Safety</span>
+    </div>
+  </main>
+
+  <custom-footer></custom-footer>
+
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
+
+  <script>
+    // Minimal content-protection handlers (optional)
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (
+        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
+        (e.ctrlKey && e.key === 'p')
+      ) {
+        e.preventDefault();
+      }
+    });
+    document.body.style.userSelect = 'none';
+  </script>
+</body>
+</html>
