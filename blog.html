@@ -59,7 +59,7 @@
     .page-subtitle {
       color: #9fc0ff;
       font-size: 1.1rem;
-      margin-bottom: 30px;
+      margin-bottom: 50px;
       font-weight: 400;
     }
 
@@ -91,69 +91,103 @@
       gap: 20px;
       padding: 20px;
       place-items: center;
-}
+    }
 
-.word-cloud-item {
-  color: #9fc0ff;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  cursor: default;
-  white-space: nowrap;
-  text-align: center;
-}
+    .word-cloud-item {
+      color: #9fc0ff;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: default;
+      white-space: nowrap;
+      text-align: center;
+    }
 
-.word-cloud-item:hover {
-  color: #ffffff;
-  transform: scale(1.05);
-}
+    .word-cloud-item:hover {
+      color: #ffffff;
+      transform: scale(1.05);
+    }
 
-.word-cloud-item.size-1 { font-size: 1.6rem; opacity: 1; }
-.word-cloud-item.size-2 { font-size: 1.35rem; opacity: 0.9; }
-.word-cloud-item.size-3 { font-size: 1.15rem; opacity: 0.8; }
-.word-cloud-item.size-4 { font-size: 1rem; opacity: 0.7; }
-.word-cloud-item.size-5 { font-size: 0.9rem; opacity: 0.65; }
+    .word-cloud-item.size-1 { font-size: 1.6rem; opacity: 1; }
+    .word-cloud-item.size-2 { font-size: 1.35rem; opacity: 0.9; }
+    .word-cloud-item.size-3 { font-size: 1.15rem; opacity: 0.8; }
+    .word-cloud-item.size-4 { font-size: 1rem; opacity: 0.7; }
+    .word-cloud-item.size-5 { font-size: 0.9rem; opacity: 0.65; }
 
-    .blog-post {
+    /* Blog Preview Card Styles */
+    .blog-preview-card {
       background: rgba(255,255,255,0.03);
       border-left: 3px solid #9fc0ff;
       padding: 30px;
       margin-bottom: 30px;
       border-radius: 8px;
       transition: all 0.3s ease;
+      text-decoration: none;
+      display: block;
     }
 
-    .blog-post:hover {
+    .blog-preview-card:hover {
       background: rgba(255,255,255,0.05);
       transform: translateX(5px);
+      border-left-color: #ffffff;
     }
 
-    .blog-post-date {
-      color: #9fc0ff;
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
       font-size: 0.9rem;
-      margin-bottom: 10px;
+      color: #9fc0ff;
       font-weight: 500;
     }
 
-    .blog-post-title {
+    .blog-meta-separator {
+      color: #4d4d4d;
+    }
+
+    .blog-category {
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.85rem;
+    }
+
+    .blog-preview-title {
       color: #ffffff;
       font-size: 1.5rem;
       font-weight: 600;
-      margin-bottom: 12px;
+      margin-bottom: 15px;
       line-height: 1.3;
     }
 
-    .blog-post-excerpt {
+    .blog-preview-excerpt {
       color: #d8e1eb;
       font-size: 1.05rem;
       line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .read-more {
+      color: #9fc0ff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
       margin-bottom: 15px;
     }
 
-    .blog-post-tags {
+    .read-more:hover {
+      color: #ffffff;
+      gap: 12px;
+    }
+
+    .blog-preview-tags {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(159, 192, 255, 0.1);
     }
 
     .blog-tag {
@@ -166,15 +200,22 @@
     }
 
     @media (max-width: 768px) {
+      main {
+        padding: 0 20px;
+      }
+      
       h1 {
         font-size: 2em !important;
       }
-      .blog-post {
+      
+      .blog-preview-card {
         padding: 20px;
       }
+      
       .word-cloud-container {
         padding: 20px;
       }
+      
       .word-cloud-item.size-1 { font-size: 1.8rem; }
       .word-cloud-item.size-2 { font-size: 1.5rem; }
       .word-cloud-item.size-3 { font-size: 1.3rem; }
@@ -194,460 +235,290 @@
     <!-- Word Cloud -->
     <div class="word-cloud-container">
       <div class="word-cloud-title">Key Topics</div>
-      <div class="word-cloud" id="wordCloud">
-        <!-- Words will be generated dynamically by JavaScript -->
-      </div>
+      <div class="word-cloud" id="wordCloud"></div>
     </div>
 
-    <!-- Blog Post 1: US-China AGI Relations -->
-    <article class="blog-post">
-      <div class="blog-post-date">November 2025</div>
-      <h2 class="blog-post-title">US-China AGI Relations and Diplomatic Interventions (2025-2030)</h2>
-      <p class="blog-post-excerpt">
-        Over the next 1-5 years, I expect that the U.S.-China AGI relations will escalate because of three dynamics: (1) accelerated development of frontier AI, (2) China may increase its technical independence from U.S. export controls by producing domestic chips, (3) as AI systems become more autonomous they will become more opaque and harder to control.
+    <!-- Blog Preview Cards -->
+    
+    <!-- Post 1 -->
+    <a href="/blog/us-china-agi-relations.html" class="blog-preview-card">
+      <div class="blog-meta">
+        <span>November 2025</span>
+        <span class="blog-meta-separator">•</span>
+        <span class="blog-category">Diplomatic Policy</span>
+      </div>
+      <h2 class="blog-preview-title">US-China AGI Relations and Diplomatic Interventions (2025-2030)</h2>
+      <p class="blog-preview-excerpt">
+        Over the next 1-5 years, I expect that the U.S.-China AGI relations will escalate because of three dynamics: (1) accelerated development of frontier AI, (2) China may increase its technical independence from U.S. export controls by producing domestic chips, (3) as AI systems become more autonomous they will become more opaque and harder to control. The main risk in US-China relations is unintentional escalation...
       </p>
-      <p class="blog-post-excerpt">
-        The main risk in US-China relations is unintentional escalation given that both nations will deploy frontier systems in military and other applications as soon as they become available. Technical failures could be misattributed as adversarial action which could trigger disproportionate responses before the U.S. and China do an investigation. Current diplomatic channels don't have the required technical mechanisms to help distinguish an AI malfunction from a deliberate attack.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>Intervention 1: Compute-Based Incident Reporting Protocol</strong><br>
-        There are no AI-specific notification protocols between the U.S. and China. Deep mistrust makes traditional self-reporting incident mechanisms politically impossible. I propose tying incident reporting to compute signatures which are observable metrics that could be tracked through enhanced export controls (including chip activity, power consumption, cluster size, etc.). This would allow the U.S. and China to verify potential AI failures independently without exposing their strategic capabilities.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>Intervention 2: Joint Technical Standards</strong><br>
-        I recommend joint technical standards to identify and benchmark dangerous AI capabilities. Establish bilateral working groups that are hosted by neutral third parties (ISO or IEEE) to develop shared benchmarks for capabilities that both nations would consider high-risk. This can include autonomous cyber offense, biological design, strategic deception, and/or autonomous weapons integration.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>Reporting Triggers:</strong> Tier 1 (24-hour notification): immediate safety threats, including AI-caused death or injury or models that demonstrate autonomous replication across distributed infrastructure. Tier 2 (48-hour notification): signal economic and/or infrastructure harm. This includes incidents during frontier-scale training runs (≥10²⁶ total FLOPs) that cause economic/infrastructure harm exceeding $100M.
-      </p>
-      <p class="blog-post-excerpt">
-        To see the most success, this proposal should be presented through bilateral channels and framed as operational safety cooperation, rather than arms control with an 18-month pilot to begin immediately. Embed this in chip export strategy where compute access is conditioned on reporting participation.
-      </p>
-      <div class="blog-post-tags">
+      <span class="read-more">Read More →</span>
+      <div class="blog-preview-tags">
         <span class="blog-tag">US-China Relations</span>
         <span class="blog-tag">AGI</span>
         <span class="blog-tag">Diplomatic Policy</span>
         <span class="blog-tag">AI Safety</span>
       </div>
-    </article>
+    </a>
 
-    <!-- Blog Post 2: Compute Controls -->
-    <article class="blog-post">
-      <div class="blog-post-date">November 2025</div>
-      <h2 class="blog-post-title">Strengthening AI Chip Export Controls: Recommendations for Department of Commerce</h2>
-      <p class="blog-post-excerpt">
-        I recommend BIS adopt two interventions to close enforcement gaps: (1) tiered export licensing that is based on verification requirements, and (2) an embedded technical assessment capability at NIST AISI.
+    <!-- Post 2 -->
+    <a href="/blog/ai-chip-export-controls.html" class="blog-preview-card">
+      <div class="blog-meta">
+        <span>November 2025</span>
+        <span class="blog-meta-separator">•</span>
+        <span class="blog-category">Export Controls</span>
+      </div>
+      <h2 class="blog-preview-title">Strengthening AI Chip Export Controls: Recommendations for Department of Commerce</h2>
+      <p class="blog-preview-excerpt">
+        I recommend BIS adopt two interventions to close enforcement gaps: (1) tiered export licensing that is based on verification requirements, and (2) an embedded technical assessment capability at NIST AISI. BIS export AI chips controls use three mechanisms: performance-based thresholds which restrict advanced logic chips and high-bandwidth memory...
       </p>
-      <p class="blog-post-excerpt">
-        <strong>Current Controls: Intent and Limitations</strong><br>
-        BIS export AI chips controls use three mechanisms: performance-based thresholds which restrict advanced logic chips and high-bandwidth memory, end-use controls which target supercomputer and military applications, and expanded Foreign Direct Product Rule coverage of semiconductor manufacturing equipment. Since the "AI Diffusion Rule" was rescinded in May 2025, controls focus on maintaining allied access while imposing targeted restrictions for China.
-      </p>
-      <p class="blog-post-excerpt">
-        However, there are three critical limits. First, BIS cannot effectively track chip location or deployment after export. China has reportedly acquired tens of thousands of H100-class chips through indirect channels despite controls. Second, current thresholds target chips optimized for training workloads, but AI development is shifting toward inference-heavy architecture. Third, control updates need 6-12 months from when the gap was identified to be implemented.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>Recommendation 1: Tiered Export Licensing Based on Verification Requirements</strong><br>
-        A tiered approach would restructure controls around tiers based on end users' willingness to accept verification. Tier 1 would provide expedited licensing for advanced chips (e.g.: B200) to end users who would accept quarterly aggregate compute usage reporting, remote chip inventory verification, and network isolation. Tier 2 would provide standard licensing for current-generation chips to end users who would accept on-site inspections. Tier 3: end users who refuse verification would face presumptive denial.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>Recommendation 2: Establish Rapid Technical Assessment Capability</strong><br>
-        BIS lacks embedded technical expertise to anticipate how AI architectural development creates control vulnerabilities before adversaries exploit them. I propose to establish a small technical team (5-7 staff) in NIST's AI Safety Institute to stress-test regulations against emerging AI developments. This 'regulatory red team' could reduce the current 6-12 month implementation lag to weeks by continuously stress-testing controls against new AI developments.
-      </p>
-      <div class="blog-post-tags">
+      <span class="read-more">Read More →</span>
+      <div class="blog-preview-tags">
         <span class="blog-tag">Export Controls</span>
         <span class="blog-tag">AI Chips</span>
         <span class="blog-tag">Policy Memo</span>
         <span class="blog-tag">BIS</span>
       </div>
-    </article>
+    </a>
 
-    <!-- Blog Post 3: NVIDIA B30A China Export Forecast -->
-    <article class="blog-post">
-      <div class="blog-post-date">November 2025</div>
-      <h2 class="blog-post-title">Will Chinese Companies Import Over 100K NVIDIA B30A Chips by End of 2026?</h2>
-      <p class="blog-post-excerpt">
-        Chinese authorities have recently signalled a disinterest in importing NVIDIA H20 chips, mainly on security grounds. The NVIDIA B30A would be a more powerful chip than the H20, and the US government may allow B30As to be exported to China.
+    <!-- Post 3 -->
+    <a href="/blog/nvidia-b30a-forecast.html" class="blog-preview-card">
+      <div class="blog-meta">
+        <span>November 2025</span>
+        <span class="blog-meta-separator">•</span>
+        <span class="blog-category">Forecasting</span>
+      </div>
+      <h2 class="blog-preview-title">Will Chinese Companies Import Over 100K NVIDIA B30A Chips by End of 2026?</h2>
+      <p class="blog-preview-excerpt">
+        Chinese authorities have recently signalled a disinterest in importing NVIDIA H20 chips, mainly on security grounds. The NVIDIA B30A would be a more powerful chip than the H20, and the US government may allow B30As to be exported to China. My prediction is that there's a 35-45% chance Chinese companies import >100K B30As by end of 2026...
       </p>
-      <p class="blog-post-excerpt">
-        My prediction is that there's a 35-45% chance Chinese companies import >100K B30As by end of 2026 if the US government allows B30A exports to China.
-      </p>
-      <p class="blog-post-excerpt">
-        Chinese firms placed $16 billion in H20 orders (~1.3M chips) in 2025 despite the H20 being optimised for inference rather than for training. If B30As offer better performance, demand would logically increase.
-      </p>
-      <p class="blog-post-excerpt">
-        Three factors reduce the probability. First, Chinese domestic alternatives are emerging. Huawei's Ascend 910C, while only ~60% of H100 performance, which represents China's push toward self-sufficiency.
-      </p>
-      <p class="blog-post-excerpt">
-        Second, US export controls are reactive and tighten quickly. Even if B30A exports are approved now (late 2025), there's only ~14 months until end of 2026. The risk of export approval being reversed mid-purchase will create hesitation; so firms may prefer stockpiling existing H20s or investing in domestic alternatives rather than betting on sustained B30A access. And third, China has signalled disinterest in H20s because of security concerns. B30As' superior training capabilities may overcome security objections that applied to inference-focused H20s. These concerns about backdoors or supply chain vulnerabilities could be genuine. B30As are more powerful, so they might face even stronger internal resistance from Chinese authorities prioritising technological sovereignty over performance gains.
-      </p>
-      <p class="blog-post-excerpt">
-        The 100K threshold is significant but achievable because it's only 7.5% of the 1.3M H20 order size. If B30As are approved and Chinese firms believe access will last through 2026, they'll likely hit this threshold. But the combination of a compressed timeline, domestic alternatives, regulatory risk, and strategic caution keeps my estimate below 50%.
-      </p>
-      <div class="blog-post-tags">
+      <span class="read-more">Read More →</span>
+      <div class="blog-preview-tags">
         <span class="blog-tag">Export Controls</span>
         <span class="blog-tag">China</span>
         <span class="blog-tag">NVIDIA</span>
         <span class="blog-tag">Forecasting</span>
       </div>
-    </article>
+    </a>
 
-    <!-- Blog Post 4: GPU Verification -->
-    <article class="blog-post">
-      <div class="blog-post-date">November 2025</div>
-      <h2 class="blog-post-title">Thermal Signature Monitoring: A Cost-Effective Approach to GPU Verification</h2>
-      <p class="blog-post-excerpt">
-        How can the Bureau of Industry and Security (BIS) verify, with reasonably high confidence, that GPUs in a given data center have not been physically transported? For already-installed GPUs that cannot rely on technical location verification, I propose a cheap, scalable solution using thermal signature monitoring.
+    <!-- Post 4 -->
+    <a href="/blog/thermal-signature-monitoring.html" class="blog-preview-card">
+      <div class="blog-meta">
+        <span>November 2025</span>
+        <span class="blog-meta-separator">•</span>
+        <span class="blog-category">Technical Solutions</span>
+      </div>
+      <h2 class="blog-preview-title">Thermal Signature Monitoring: A Cost-Effective Approach to GPU Verification</h2>
+      <p class="blog-preview-excerpt">
+        How can the Bureau of Industry and Security (BIS) verify, with reasonably high confidence, that GPUs in a given data center have not been physically transported? For already-installed GPUs that cannot rely on technical location verification, I propose a cheap, scalable solution using thermal signature monitoring...
       </p>
-      <p class="blog-post-excerpt">
-        Each data centre's GPU cluster produces a unique, stable thermal signature with a combination of heat output patterns, airflow distribution, and cooling load response. This thermal fingerprint can give rack configuration and serve as a physics-based verification mechanism.
-      </p>
-      <p class="blog-post-excerpt">
-        During initial inspection, BIS would record a baseline thermal fingerprint of each rack of temperature and airflow data from inexpensive off-the-shelf IoT sensors (cost: ~$150-200 per rack). Data centres would then need submit monthly thermal audits which are 2–3-minute sensor recordings that are captured under standard computational load. BIS software would automatically compare new readings against the baseline profile.
-      </p>
-      <p class="blog-post-excerpt">
-        If GPUs have been physically removed, rearranged, or replaced, the rack's cooling pattern would change. Changes in airflow and thermal will likely create silent, automated tamper alerts that would flag those facilities which require to be physically inspected.
-      </p>
-      <p class="blog-post-excerpt">
-        This approach is cheap and scalable and requires no site visits for routine verification. It's challenging to spoof. Adversaries can fake documentation but will have a hard time easily replicating the precise airflow physics of a specific GPU configuration. The system also has a bonus of improving data centre efficiency monitoring. Legitimate cooling adjustments would create some false positives requiring manual follow-up, but the system would still catch most physical GPU diversions. The system will automatically scan for unusual sites and tell inspectors where to focus.
-      </p>
-      <div class="blog-post-tags">
+      <span class="read-more">Read More →</span>
+      <div class="blog-preview-tags">
         <span class="blog-tag">Export Controls</span>
         <span class="blog-tag">Verification</span>
         <span class="blog-tag">Technical Solutions</span>
         <span class="blog-tag">BIS</span>
       </div>
-    </article>
+    </a>
 
-    <!-- Blog Post 5: AI Agents for Export Control -->
-    <article class="blog-post">
-      <div class="blog-post-date">November 2025</div>
-      <h2 class="blog-post-title">Two Critical Failure Modes of AI Agents in Export Control Monitoring</h2>
-      <p class="blog-post-excerpt">
-        If BIS deployed AI agents to continuously monitor shipping manifests, customs declarations, corporate filings, and other documents to detect export control violations, the system could fail badly or create new problems in distinct ways.
+    <!-- Post 5 -->
+    <a href="/blog/ai-agents-export-control.html" class="blog-preview-card">
+      <div class="blog-meta">
+        <span>November 2025</span>
+        <span class="blog-meta-separator">•</span>
+        <span class="blog-category">Risk Analysis</span>
+      </div>
+      <h2 class="blog-preview-title">Two Critical Failure Modes of AI Agents in Export Control Monitoring</h2>
+      <p class="blog-preview-excerpt">
+        If BIS deployed AI agents to continuously monitor shipping manifests, customs declarations, corporate filings, and other documents to detect export control violations, the system could fail badly or create new problems in distinct ways. Failure 1: Adversarial Prompt Tampering. Adversaries could tamper with AI prompts by embedding adversarial content...
       </p>
-      <p class="blog-post-excerpt">
-        <strong>Failure 1: Adversarial Prompt Tampering</strong><br>
-        Adversaries could tamper with AI prompts by embedding adversarial content that causes AI to misclassify. For example, shell companies could include specific linguistic patterns, formatting quirks, or metadata signatures that the agent learns to associate with 'legitimate' transactions during training. If agents autonomously investigate and clear transactions, bad actors could inject prompts in shipping documents or customs forms that cause agents to misinterpret their instructions. This matters because it creates an adversarial arms race where adversaries constantly look for weaknesses in the AI. Some ways to mitigate this are to constantly red-team agents with synthetic evasion attempts before they're deployed; if an agent encounters document patterns outside their training distribution confidence intervals, require mandatory human review.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>Failure 2: Diffused Accountability</strong><br>
-        If BIS becomes structurally dependent on AI and doesn't have human expertise to validate agent outputs and doesn't have technical capacity to step in for the AI, BIS will lose its ability to audit agent performance or recognize systematic failures. When AI agents make mistakes, it becomes unclear who is accountable – BIS or the AI developer. If an agent autonomously clears a transaction that later proves to be a major violation (like the TSMC-Huawei case), who is responsible? This matters: if BIS can't evaluate whether agents are correctly identifying violations, then it risks institutionalising unverified automation. Some ways to mitigate this would be to have AI produce human-readable audit trails showing reasoning chains for every decision or have humans approve any transaction >$10M or involving entities on watchlists.
-      </p>
-      <div class="blog-post-tags">
+      <span class="read-more">Read More →</span>
+      <div class="blog-preview-tags">
         <span class="blog-tag">AI Agents</span>
         <span class="blog-tag">Export Controls</span>
         <span class="blog-tag">Risk Analysis</span>
         <span class="blog-tag">BIS</span>
       </div>
-    </article>
+    </a>
 
-    <!-- Blog Post 6: International AI Safety Cooperation -->
-    <article class="blog-post">
-      <div class="blog-post-date">October 2025</div>
-      <h2 class="blog-post-title">The Current State of International AI Safety Cooperation</h2>
-      <p class="blog-post-excerpt">
-        Over the past 5 years, international cooperation on AI safety has expanded significantly, with several overlapping mechanisms that aimed to bring governments, corporations, and civil society organisations together on the same page about how to safely build and deploy AI. Despite the growing concern about risks from frontier AI, leading corporations and governments are falling behind on ensuring that there are robust accountability, transparency, and fairness frameworks implemented.
+    <!-- Post 6 -->
+    <a href="/blog/international-ai-cooperation.html" class="blog-preview-card">
+      <div class="blog-meta">
+        <span>October 2025</span>
+        <span class="blog-meta-separator">•</span>
+        <span class="blog-category">Governance</span>
+      </div>
+      <h2 class="blog-preview-title">The Current State of International AI Safety Cooperation</h2>
+      <p class="blog-preview-excerpt">
+        Over the past 5 years, international cooperation on AI safety has expanded significantly, with several overlapping mechanisms that aimed to bring governments, corporations, and civil society organisations together on the same page about how to safely build and deploy AI. Despite the growing concern about risks from frontier AI...
       </p>
-      <p class="blog-post-excerpt">
-        States organised a number of multilateral summits and talks in the past 5 years which brought together governments, labs, and civil society to discuss frontier AI risks (Bletchley Park 2023, Seoul 2024, Paris 2025, Delhi 2026). One success is the Bletchley 2023 produced the Bletchley Declaration which was signed by 28 countries, including the US and China. This was a rare consensus on existential risks. The Declaration also created AI Safety Institutes in the UK, US, Singapore, and Japan as national nodes for technical safety evaluation.
-      </p>
-      <p class="blog-post-excerpt">
-        But states aren't the only ones contributing to AI safety. The UN AI Advisory Body & High-Level AI Governance Process was developed and has become a key player. The Secretary-General's advisory body released recommendations in 2024 for global AI governance which pushed for creating an international scientific panel (IPCC-style) for AI risks. A General Assembly resolution in March 2024 focused on 'safe, secure and trustworthy AI' and was the first global consensus document.
-      </p>
-      <p class="blog-post-excerpt">
-        Despite this, there are signs of cooperation. For one, the US and the UK have strong signs of cooperation via their AI Safety Institutes. Both institutes share technical staff, collaborate on model evaluation frameworks, and coordinate approaches to capability testing. Their partnership functions partly because both countries share similar regulation approaches and neither sees the other as a strategic competitor in AI development. US and EU cooperation efforts may be less optimistic, in part due to how each approaches AI governance. America prioritises innovation and the European Union prioritises regulation-first frameworks. The EU AI Act is a very comprehensive regulatory model that influences global debates; however, it does not have strong enforcement mechanisms yet. In contrast, the US would unlikely to adopt a similar AI Act because of how structing it may seem to US AI labs.
-      </p>
-      <p class="blog-post-excerpt">
-        Given Chinese and American dominance in frontier AI, their cooperation is under the most tension. Although there are some academic and informal dialogues between the two countries, government-level engagement is constrained by geopolitical tensions. There is a lot of tension around export controls on advanced chips and national security concerns. What drives this tension is the broader US-China rivalry over technological supremacy. Adding to it is that both sides don't know how far along the other is in the race toward AGI, and so both are accelerating their own domestic AI development. This is creating the race dynamic that makes international safety coordination necessary but challenging to achieve.
-      </p>
-      <p class="blog-post-excerpt">
-        One limitation is that one of the most visible forms of coordination which is on export controls of advanced chips doesn't prioritise safety over competition. The US has restricted exports of H100 and H200 GPUs to China and separately coordinated with the Netherlands and Japan to limit China's access to semiconductor manufacturing equipment. This fragments the global AI ecosystem. Experts argue that treating AI development as a national security competition while simultaneously trying to coordinate on safety thresholds is contradictory. Countries cannot verify each other's safety commitments when they view each other as adversaries who are racing toward strategic advantage.
-      </p>
-      <div class="blog-post-tags">
+      <span class="read-more">Read More →</span>
+      <div class="blog-preview-tags">
         <span class="blog-tag">International Cooperation</span>
         <span class="blog-tag">AI Safety</span>
         <span class="blog-tag">Governance</span>
         <span class="blog-tag">Diplomacy</span>
       </div>
-    </article>
+    </a>
 
-    <!-- Blog Post 7: Cooperative AI Safety Framework -->
-    <article class="blog-post">
-      <div class="blog-post-date">October 2025</div>
-      <h2 class="blog-post-title">A Quarterly Evaluation Sprint Program for Frontier AI Safety</h2>
-      <p class="blog-post-excerpt">
-        Small, like-minded countries—the UK, Japan, Canada, and Singapore—could build trust and shared capacity on frontier AI safety through a modest but practical cooperative step. Rather than duplicating the UN or G7, I propose a quarterly evaluation sprint program.
+    <!-- Post 7 -->
+    <a href="/blog/quarterly-evaluation-sprint.html" class="blog-preview-card">
+      <div class="blog-meta">
+        <span>October 2025</span>
+        <span class="blog-meta-separator">•</span>
+        <span class="blog-category">Policy Framework</span>
+      </div>
+      <h2 class="blog-preview-title">A Quarterly Evaluation Sprint Program for Frontier AI Safety</h2>
+      <p class="blog-preview-excerpt">
+        Small, like-minded countries—the UK, Japan, Canada, and Singapore—could build trust and shared capacity on frontier AI safety through a modest but practical cooperative step. Rather than duplicating the UN or G7, I propose a quarterly evaluation sprint program. These four countries already have established AI safety institutes...
       </p>
-      <p class="blog-post-excerpt">
-        These four countries already have established AI safety institutes, democratic governance structures, and an interest in coordinating without US or Chinese leadership. Each country would test frontier models that are deployed in its own jurisdiction against an agreed set of safety benchmarks.
-      </p>
-      <p class="blog-post-excerpt">
-        Each sprint would focus on one specific risk domain: biosecurity misuse, cyber offensive capabilities, deceptive alignment, or autonomous replication and resource acquisition. Member countries would evaluate their domestic models using standardised protocols that are developed collectively by the group.
-      </p>
-      <p class="blog-post-excerpt">
-        This design can help to reduce risks and improve coordination by addressing three coordination challenges. First, it builds shared technical language and standards. Currently when regulators discuss "dangerous capabilities," they may mean different things operationally. By conducting parallel evaluations with standardised protocols, countries would develop common metrics and risk thresholds that would enable meaningful cross-border policy dialogue. If one country proposes restrictions based on evaluation results, others can assess if similar restrictions can apply in their jurisdiction.
-      </p>
-      <p class="blog-post-excerpt">
-        Second, it builds trust without requiring labs to share model weights. This is very useful because labs tend to resist international cooperation out of fear of exposing their IP and competitive disadvantage. As countries conduct evaluations on their own infrastructure, they share only three categories of information: evaluation methodologies and prompting strategies, results which shows if models passed or failed safety thresholds, and lessons about evaluation design.
-      </p>
-      <p class="blog-post-excerpt">
-        Third, if done well, the countries involved will be building cumulative institutional knowledge. Each sprint would be producing documented failure modes and lessons about what evaluation approaches actually work in practice. This could prevent wasteful duplication where each country independently discovers the same problems. This also builds regulatory capacity so agencies can develop in-house expertise in frontier model testing rather than being structurally dependent on labs' self-assessments. The proposal may also support responsible scaling by reducing the uncertainty that labs have about international regulatory expectations.
-      </p>
-      <p class="blog-post-excerpt">
-        A rotating team of 2-3 researchers from participating AI safety institutes would be sufficient to coordinate the development of methodology, manage the publication schedule, and synthesise findings. After a year that would cover different risk domains, the coalition would be advised to jointly publish a frontier evaluation playbook and document where evaluation approaches converged, where they diverged and why, and what this reveals about the maturity and reliability of different testing paradigms. The core participants would include national AI safety agencies in each country (UK AISI, Japan AIST, Canada ISED, Singapore AISG) and domestic frontier labs, which would be participating voluntarily. Governments could create incentives through procurement preferences or liability safe harbours for companies that submit to cooperative evaluation.
-      </p>
-      <p class="blog-post-excerpt">
-        This evaluation framework could eventually extend to if-then commitments where countries agree on something like 'If models demonstrate capability X in our standardised tests, then we collectively implement restriction Y.' These conditional commitments could reduce arms race dynamics by creating predictable, coordinated responses to capability thresholds.
-      </p>
-      <p class="blog-post-excerpt">
-        After two sprints (6 months), participant agencies would report if protocols were feasible and that cross-country comparisons are yielding useful insights; this mid-year checkpoint would determine if this proposal should be continued. After 4 sprints, success could mean completing four evaluation sprints (one per risk domain) and publishing a joint frontier evaluation playbook. If member countries commit to a second year and at least 1 additional country joins, it would show that this project is contributing to increased trust. Success also requires that labs in participating countries report that the process was less burdensome than they thought and that protocols seem technically sound.
-      </p>
-      <div class="blog-post-tags">
+      <span class="read-more">Read More →</span>
+      <div class="blog-preview-tags">
         <span class="blog-tag">International Cooperation</span>
         <span class="blog-tag">AI Safety</span>
         <span class="blog-tag">Model Evaluation</span>
         <span class="blog-tag">Policy Framework</span>
       </div>
-    </article>
+    </a>
 
-    <!-- Blog Post 8: Information Asymmetries -->
-    <article class="blog-post">
-      <div class="blog-post-date">October 2025</div>
-      <h2 class="blog-post-title">The Biggest Information Asymmetry in AI: Proprietary Capability Forecasting Models</h2>
-      <p class="blog-post-excerpt">
-        I think the biggest information asymmetry in the AI debate is that capability forecasting models remain proprietary to labs, specifically, their internal predictions of when dangerous capabilities will emerge at scale. Other asymmetries exist, such as deployment data, safety research findings, or incident reports, but capability models shape predictions about future capabilities rather than just documenting current systems. I argue that this creates the following three governance failures:
+    <!-- Post 8 -->
+    <a href="/blog/capability-forecasting-asymmetry.html" class="blog-preview-card">
+      <div class="blog-meta">
+        <span>October 2025</span>
+        <span class="blog-meta-separator">•</span>
+        <span class="blog-category">Transparency</span>
+      </div>
+      <h2 class="blog-preview-title">The Biggest Information Asymmetry in AI: Proprietary Capability Forecasting Models</h2>
+      <p class="blog-preview-excerpt">
+        I think the biggest information asymmetry in the AI debate is that capability forecasting models remain proprietary to labs, specifically, their internal predictions of when dangerous capabilities will emerge at scale. Other asymmetries exist, such as deployment data, safety research findings, or incident reports, but capability models shape predictions...
       </p>
-      <p class="blog-post-excerpt">
-        Since AI labs are private, neither China nor the US know what the other's capability models predict, so both assume that the other is closer to transformative capabilities. So, domestic AI labs move faster for the sake of national security and don't prioritise domestic safety concerns. But, even if countries agreed in principle to capability thresholds, enforcing that would be very challenging because AI capabilities can emerge from algorithmic improvements on existing hardware. Without sharing capability models functionally or some visible infrastructure that would disclose this (like nuclear programs), verification remains a challenge. But transparency can still enable meaningful coordination around capability milestones.
-      </p>
-      <p class="blog-post-excerpt">
-        Domestic regulation fails because labs can publicly claim that results are unpredictable but internally plan around high-confidence forecasts. So, rules-based regulation becomes nearly impossible since there is no legal mechanism that could force disclosure of internal predictions. Labs can also claim their capability models are 'too uncertain' or 'proprietary trade secrets' to share even with regulators. When California's SB 1047 tried to require labs to make capability disclosures, labs claimed these protections. This prevents regulators from developing independent expertise, which makes them structurally dependent on labs' own safety assessments.
-      </p>
-      <p class="blog-post-excerpt">
-        Proper risk allocation breaks down because insurers cannot price risks they cannot predict. Since AI labs can't be properly insured without sharing capability models, the risks become everyone's burden - taxpayers/society bear costs that should price labs out of dangerous experiments. When OpenAI's Preparedness Framework promised to halt deployment at 'medium risk' for CBRN capabilities, there was no mechanism that could have been invoked to verify if their internal evals actually detected medium risk. This made their commitment unenforceable. If labs genuinely couldn't have known about risks, they have legal cover, but if capability forecasts predicted those risks, this becomes negligence. If capability forecasts were disclosed to regulators, liability insurance could then price risks appropriately and create market pressure against dangerous experiments.
-      </p>
-      <p class="blog-post-excerpt">
-        Those outside AI labs are left to make educated guesses about AI development without having access to key variables like capability timeline. Policymakers who design AI policies and frameworks are making important decisions about how much to fund AI, whether we should slow down AI development, and what safety standards should be implemented, but they don't have access to the most relevant information. This creates governance that lacks legitimacy because informed consent is impossible when important facts are withheld.
-      </p>
-      <div class="blog-post-tags">
+      <span class="read-more">Read More →</span>
+      <div class="blog-preview-tags">
         <span class="blog-tag">AI Governance</span>
         <span class="blog-tag">Transparency</span>
         <span class="blog-tag">Information Asymmetry</span>
         <span class="blog-tag">Policy</span>
       </div>
-    </article>
+    </a>
 
-    <!-- Blog Post 9: Strategies for Information Gaps -->
-    <article class="blog-post">
-      <div class="blog-post-date">October 2025</div>
-      <h2 class="blog-post-title">Three Strategies to Address AI Information Gaps</h2>
-      <p class="blog-post-excerpt">
-        The core challenge is building institutional capacity to enforce and process the information. I'd prioritise 3 strategies:
+    <!-- Post 9 -->
+    <a href="/blog/addressing-information-gaps.html" class="blog-preview-card">
+      <div class="blog-meta">
+        <span>October 2025</span>
+        <span class="blog-meta-separator">•</span>
+        <span class="blog-category">Policy Strategy</span>
+      </div>
+      <h2 class="blog-preview-title">Three Strategies to Address AI Information Gaps</h2>
+      <p class="blog-preview-excerpt">
+        The core challenge is building institutional capacity to enforce and process the information. I'd prioritise 3 strategies: (1) Mandatory Disclosure - Labs above a certain compute threshold should submit capability models to regulators before major training runs. (2) Liability-Based Economic Pressure - Develop safe harbors where labs that share capability models...
       </p>
-      <p class="blog-post-excerpt">
-        <strong>1. Mandatory Disclosure:</strong><br>
-        Labs above a certain compute threshold should submit capability models to regulators before major training runs. The implementation challenge is that regulatory agencies would need to hire ML researchers or contract third-party auditors with security clearances. Labs will likely claim trade secret protections, as they did with California's SB 1047. Regulatory framework needs authority to compel disclosure despite labs' proprietary nature, similar to how pharmaceutical companies disclose clinical trial data to the US FDA.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>2. Liability-Based Economic Pressure:</strong><br>
-        Develop safe harbors where labs that share capability models with regulators get liability protection if forecasts turn out wrong. And labs which conceal information face strict liability for harms from capability surprises. Insurers would demand capability models to price risk so labs can't deploy models without liability coverage. Insurers may lack expertise to evaluate AI risk, as we saw with pandemic insurance where underwriters mispriced tail risks.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>3. International Coordination:</strong><br>
-        Design a US-China agreement to share capability models insights via a trusted intermediary. The implementation challenge is: Who is the intermediary? If US-dominated (like IAEA historically was), China won't trust it. If neutral (UN-affiliated?), both countries may fear intelligence leakage. More realistic could be to start with coordination among the US, UK, and EU on disclosure standards. If these jurisdictions align on what capability models information labs must report, they create de facto global standards since most frontier labs need access to these markets.
-      </p>
-      <p class="blog-post-excerpt">
-        I would deprioritise whistleblower protections and procurement conditions because whistleblowing is reactive rather than preventive and procurement leverage is limited since most frontier AI developments aren't government funded.
-      </p>
-      <div class="blog-post-tags">
+      <span class="read-more">Read More →</span>
+      <div class="blog-preview-tags">
         <span class="blog-tag">AI Governance</span>
         <span class="blog-tag">Policy Strategy</span>
         <span class="blog-tag">Regulation</span>
         <span class="blog-tag">Transparency</span>
       </div>
-    </article>
+    </a>
 
-    <!-- Blog Post 10: AI-Enabled Power Concentration -->
-    <article class="blog-post">
-      <div class="blog-post-date">October 2025</div>
-      <h2 class="blog-post-title">AI-Enabled Power Concentration: Comparing Risks in Authoritarian Regimes and Democracies</h2>
-      <p class="blog-post-excerpt">
-        Both authoritarian regimes and democracies face risks from AI-enabled power concentration, though these threats manifest in different ways.
+    <!-- Post 10 -->
+    <a href="/blog/power-concentration.html" class="blog-preview-card">
+      <div class="blog-meta">
+        <span>October 2025</span>
+        <span class="blog-meta-separator">•</span>
+        <span class="blog-category">Democracy</span>
+      </div>
+      <h2 class="blog-preview-title">AI-Enabled Power Concentration: Comparing Risks in Authoritarian Regimes and Democracies</h2>
+      <p class="blog-preview-excerpt">
+        Both authoritarian regimes and democracies face risks from AI-enabled power concentration, though these threats manifest in different ways. In authoritarian systems, AI doesn't just make transitions messier, but it also makes them more likely to be violent. After a change in leadership, either via a coup or some other method...
       </p>
-      <p class="blog-post-excerpt">
-        <strong>Risks in Authoritarian Regimes:</strong><br>
-        I think this risk is greater near-term risk among both regimes because it doesn't just make transitions messier, but it also makes them more likely to be violent. After a change in leadership, either via a coup or some other method, the ex-leader's inner circle may remain as gatekeepers who built the surveillance and control infrastructure. Hence, they may remain loyal to the ex-leader. When the new one arrives, the new leader may inherit the old guards, the old structural knowledge and the ex-leader may have access which they can weaponize even after losing formal power. This could make internal coups or power struggles more volatile, because you now have competition over control of an opaque and technically complex system where neither side fully understands what the other can do with it.
-      </p>
-      <p class="blog-post-excerpt">
-        In authoritarian systems, its leaders can negotiate with the military, party elites, and security services. The leader can buy them, remove them, or co-opt them. But with AI systems, particularly those that may become self-aware - who controls the data, who controls the model? The data and its biases may be difficult to change, or fool/convince of something because AI may have a mind of its own.
-      </p>
-      <p class="blog-post-excerpt">
-        Regime failure may require more extreme population suffering before collapse. If AI is in charge of making decisions and then helps governments to act on them, AI (as it's not a human living being) may be able to tolerate higher levels of dysfunction before institutional failure happens or the AI recommends some way to address the issues. For example, a pre-AI authoritarian system might crumble at 30% economic decline, but an AI-enabled one might only crack at 50%+ decline.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>Risks in Democracies:</strong><br>
-        An unjust law can be repealed, a corrupt or defying official can be removed, but an algorithm that becomes progressively more biased through feedback loops. This can led to legitimacy failure which citizens will have trouble challenging. It's also arguably harder to resist an AI than explicit repression because there's no obvious oppressor. You can't protest an algorithm that's 'just optimising your preferences'.
-      </p>
-      <p class="blog-post-excerpt">
-        Information gaps and false information generated by sophisticated AI which may erode democratic processes.
-      </p>
-      <p class="blog-post-excerpt">
-        If western democracies, particularly the US grant access to authoritarian regimes to advanced AI chips, western democracies will risk creating a structural dependency. Authoritarian regimes may become reliant on Western infrastructure for their most critical strategic technology. But if western democracies restrict it, they may accelerate those regimes' drive toward autarky and independence. Autocracies may eventually achieve this, but at a much faster pace and with greater geopolitical disruption. Democracies face a constrained choice: they either create dependent authoritarian states or accelerate authoritarian self-sufficiency. Restricting it may accelerate authoritarian drive toward domestic semiconductor capacity. Strategic diversification of allied chip manufacturing capacity is necessary but may not be enough to resolve this dilemma.
-      </p>
-      <p class="blog-post-excerpt">
-        Democracies move slowly by design but AI systems move fast. Democratic institutions cannot keep pace with algorithmic deployment, and so democracies may lose governance capacity and legitimacy.
-      </p>
-      <div class="blog-post-tags">
+      <span class="read-more">Read More →</span>
+      <div class="blog-preview-tags">
         <span class="blog-tag">AI Governance</span>
         <span class="blog-tag">Democracy</span>
         <span class="blog-tag">Authoritarianism</span>
         <span class="blog-tag">Power Concentration</span>
       </div>
-    </article>
+    </a>
 
-    <!-- Blog Post 11: Open Problems in AI Risk Management -->
-    <article class="blog-post">
-      <div class="blog-post-date">September 2025</div>
-      <h2 class="blog-post-title">Five Urgent Open Problems in Frontier AI Risk Management</h2>
-      <p class="blog-post-excerpt">
-        <strong>Problem 1: Detecting Dangerous Capabilities Faster Than the System Can Act</strong><br>
-        With frontier AI, capability jumps will likely be unpredictable and non-linear and often invisible until they cross some deployment threshold. So the detection lag needs to be shorter than capability emergence timescales, but right now it's inverted. So, we need metrics that can signal dangerous capability before it actually happens. This is urgent because by the time a lab can detect dangerous capability through current methods, it may already be deployed or too late to stop.
+    <!-- Post 11 -->
+    <a href="/blog/open-problems-ai-risk.html" class="blog-preview-card">
+      <div class="blog-meta">
+        <span>September 2025</span>
+        <span class="blog-meta-separator">•</span>
+        <span class="blog-category">Risk Management</span>
+      </div>
+      <h2 class="blog-preview-title">Five Urgent Open Problems in Frontier AI Risk Management</h2>
+      <p class="blog-preview-excerpt">
+        With frontier AI, capability jumps will likely be unpredictable and non-linear and often invisible until they cross some deployment threshold. So the detection lag needs to be shorter than capability emergence timescales, but right now it's inverted. We need metrics that can signal dangerous capability before it actually happens...
       </p>
-      <p class="blog-post-excerpt">
-        <strong>Problem 2: Calibrating Likelihood × Severity Without Precedent</strong><br>
-        Most control layers assume some calibration of likelihood × severity, but we don't have a way to measure how likely dangerous outcomes are and how severe they would be. The goal is to set limits so we can say something like - under these assumptions, risk could exceed X%. Because frontier AI is so new and develops so rapidly, we can't just copy what we learned from nuclear or biotech regulation. We need models that tell us how AI scales with more compute, and how real threat actors would actually use those capabilities. Right now, each safety evaluation gives us pieces of information about the risks, but we have no systematic way to combine all those pieces into risk assessment. This is urgent because every frontier model deployment without clear risk thresholds is a gamble on unknowable tail risks.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>Problem 3: Organizational Readiness and Accountability Structures</strong><br>
-        Even if we solve technical risk, governments/labs may still be dysfunctional and create some issues. The problem is that even if governments are ready, the labs developing frontier AI aren't compliant. Many labs equate safety with having an internal policy, but what some don't have is how decisions will be made when something goes wrong and who can stop the release of a potentially dangerous or non-compliant model? Who bears risk ownership? Where does accountability live? This is urgent because governance structures take years to mature. The field may only have quarters before truly frontier-level models appear. You can't build organisational readiness overnight.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>Problem 4: Cross-Jurisdictional Incident Response</strong><br>
-        Open-source and fine-tuned derivatives make it difficult to have a centralized response. Incident response across jurisdictions is unclear - who shuts down a rogue API endpoint hosted abroad? Cybersecurity has CERT networks for coordinated disclosure, but frontier AI doesn't have an equivalent. This is urgent because without cross-border incident protocols, a frontier model deployed in one jurisdiction can be exploited everywhere else before response mechanisms activate.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>Problem 5: Competition-Driven Norm Solidification</strong><br>
-        The fifth problem is about detecting issues fast and being aligned on incentives, the current norms which are driven by competition/profit will solidify if we don't act now, and we will miss the opportunity to align frontier AI on safety.
-      </p>
-      <div class="blog-post-tags">
+      <span class="read-more">Read More →</span>
+      <div class="blog-preview-tags">
         <span class="blog-tag">AI Risk</span>
         <span class="blog-tag">Frontier AI</span>
         <span class="blog-tag">Risk Management</span>
         <span class="blog-tag">AI Safety</span>
       </div>
-    </article>
+    </a>
 
-    <!-- Blog Post 12: High-Frequency Trading -->
-    <article class="blog-post">
-      <div class="blog-post-date">September 2025</div>
-      <h2 class="blog-post-title">Lessons from High-Frequency Trading for AI Governance</h2>
-      <p class="blog-post-excerpt">
-        I chose high-frequency trading as a case study. As algorithmic tools became more popular between 2000s - 2010s, the finance world adopted autonomous trading tools (algorithmic decision rules and statistical models) into their trading systems to make and cancel orders at microsecond to millisecond timescales. These algorithms could pick up on tiny price discrepancies and make fast decisions based on them.
+    <!-- Post 12 -->
+    <a href="/blog/hft-lessons.html" class="blog-preview-card">
+      <div class="blog-meta">
+        <span>September 2025</span>
+        <span class="blog-meta-separator">•</span>
+        <span class="blog-category">Case Study</span>
+      </div>
+      <h2 class="blog-preview-title">Lessons from High-Frequency Trading for AI Governance</h2>
+      <p class="blog-preview-excerpt">
+        I chose high-frequency trading as a case study. As algorithmic tools became more popular between 2000s - 2010s, the finance world adopted autonomous trading tools (algorithmic decision rules and statistical models) into their trading systems to make and cancel orders at microsecond to millisecond timescales...
       </p>
-      <p class="blog-post-excerpt">
-        No single institution had visibility of these automated interactions. Regulators also faced severe informational asymmetry because trading firms' algorithms were proprietary, and so it was nearly impossible to audit their behavior. Governance mechanisms operated on human and bureaucratic timescales, but the system dynamics happened in microseconds.
-      </p>
-      <p class="blog-post-excerpt">
-        As a result, human oversight was nearly impossible and established ways to control markets weren't equipped to deal with this new tech. In 2010 there was a fast crash in the market that lasted several minutes but resulted in billions lost in market value. Safeguards and frameworks that were already in place were designed in such a way that assumed human-in-the-loop and manual interventions were in place; there weren't enough mechanisms that could act fast to catch automated trading, regulators couldn't intervene in real time, and the market lacked automated safety mechanisms that were designed for microsecond-timescale decisions.
-      </p>
-      <p class="blog-post-excerpt">
-        After the crash, regulators introduced circuit breakers and other market controls that could pause the system if prices move rapidly again and limit order cancellation cascading. The post-crash reforms also created joint monitoring protocols and data-sharing between regulators and exchanges.
-      </p>
-      <p class="blog-post-excerpt">
-        Similarly, advanced AIs are outpacing regulation. The 2010 market crash taught us that when systems operate on timescales that are faster than human oversight, we need preventative automated safety locks. AI regulations are lagging behind, and may be similarly reactive in nature, waiting for a big crisis to trigger serious regulation. Advanced AI may require AI 'circuit breakers,' capability registries, mandatory audit trails, shared telemetry, automated oversight systems, or transnational safety boards to intervene at machine speed before harms occur.
-      </p>
-      <p class="blog-post-excerpt">
-        There also need to be incentives to reward safety over speed/efficiency/profit, and market design itself must reward caution through trading fees on high-frequency strategies, liability for cascade failures, or mandatory safety certifications.
-      </p>
-      <div class="blog-post-tags">
+      <span class="read-more">Read More →</span>
+      <div class="blog-preview-tags">
         <span class="blog-tag">Technology Governance</span>
         <span class="blog-tag">Financial Regulation</span>
         <span class="blog-tag">Case Study</span>
         <span class="blog-tag">Policy Lessons</span>
       </div>
-    </article>
+    </a>
 
-    <!-- Blog Post 13: Children and Chatbots -->
-    <article class="blog-post">
-      <div class="blog-post-date">September 2025</div>
-      <h2 class="blog-post-title">Children and AI Chatbots: Weighing Concerns About Regulation</h2>
-      <p class="blog-post-excerpt">
-        AI chatbots are now able to engage in natural, emotional conversations with people. They can also convincingly simulate the personalities of specific people and characters. It has been reported that growing numbers of children and teenagers are spending significant time interacting with these chatbots, and there is anecdotal evidence that some are developing what appear to be meaningful relationships with them.
+    <!-- Post 13 -->
+    <a href="/blog/children-chatbots.html" class="blog-preview-card">
+      <div class="blog-meta">
+        <span>September 2025</span>
+        <span class="blog-meta-separator">•</span>
+        <span class="blog-category">AI Ethics</span>
+      </div>
+      <h2 class="blog-preview-title">Children and AI Chatbots: Weighing Concerns About Regulation</h2>
+      <p class="blog-preview-excerpt">
+        AI chatbots are now able to engage in natural, emotional conversations with people. They can also convincingly simulate the personalities of specific people and characters. It has been reported that growing numbers of children and teenagers are spending significant time interacting with these chatbots...
       </p>
-      <p class="blog-post-excerpt">
-        Some groups have raised concerns about these interactions. They are worried that if children form relationships with chatbots, they will fail to form social relationships, experience stunted emotional growth, and be vulnerable to behavioural manipulation by chatbot providers. They are calling for governments to intervene to protect children from these potential harms.
-      </p>
-      <p class="blog-post-excerpt">
-        These concerns are well-founded and, as a result, it would be overall beneficial for governments to place restrictions on the ability of children to access AI chatbots.
-      </p>
-      <p class="blog-post-excerpt">
-        I'm ~70% confident the concerns about harms are valid, but only ~30% confident that government restrictions would be beneficial overall. Granted, I've limited knowledge of how AI impacts children. I know AI chatbots can be addicting and emotionally manipulative.
-      </p>
-      <p class="blog-post-excerpt">
-        But, I also want to be careful about assuming that chatbot relationships cause social problems. It might be that socially struggling kids gravitate toward AI chatbots as safer alternatives and might already be socially isolated. I just don't know if chatbots are the best option, though, if designed well, they might be great for those who can't afford professional help.
-      </p>
-      <p class="blog-post-excerpt">
-        I'm hesitant about AI chatbot regulation because chatbots operate globally and regulations are national. Restrictive policies in one country could shift children to black-market/unregulated platforms. I also don't know how to distinguish harmful chatbots from beneficial tutors/mental health support. Might aggressive content monitoring/age verification be more privacy-invasive than the chatbots are harmful?
-      </p>
-      <p class="blog-post-excerpt">
-        I think regulation is needed, but AI evolves so fast that policy could become obsolete or counterproductive. Longitudinal studies comparing children who do and don't use chatbots intensively and measuring best policy approaches (i.e.: parental controls vs. usage limits vs. age verification) should be done.
-      </p>
-      <div class="blog-post-tags">
+      <span class="read-more">Read More →</span>
+      <div class="blog-preview-tags">
         <span class="blog-tag">AI Ethics</span>
         <span class="blog-tag">Children</span>
         <span class="blog-tag">Chatbots</span>
         <span class="blog-tag">Regulation</span>
       </div>
-    </article>
+    </a>
 
-        <!-- Blog Post 14: Who Evaluates the Evaluators? -->
-    <article class="blog-post">
-      <div class="blog-post-date">September 2025</div>
-      <h2 class="blog-post-title">Who Evaluates the Evaluators? Frameworks for Accreditation in Frontier AI Governance</h2>
-
-      <p class="blog-post-excerpt">
-        A core challenge for accreditation is verifying an assessor's "independence from undue pressures", especially from the well-funded and influential AI developer being assessed. I propose a two-tiered system for ensuring and auditing this independence.
+    <!-- Post 14 -->
+    <a href="/blog/evaluating-evaluators.html" class="blog-preview-card">
+      <div class="blog-meta">
+        <span>September 2025</span>
+        <span class="blog-meta-separator">•</span>
+        <span class="blog-category">Audit</span>
+      </div>
+      <h2 class="blog-preview-title">Who Evaluates the Evaluators? Frameworks for Accreditation in Frontier AI Governance</h2>
+      <p class="blog-preview-excerpt">
+        A core challenge for accreditation is verifying an assessor's "independence from undue pressures", especially from the well-funded and influential AI developer being assessed. I propose a two-tiered system for ensuring and auditing this independence. Tier 1 includes pooled funding, revenue diversification, rotating networks...
       </p>
-
-      <p class="blog-post-excerpt"><strong>Tier 1:</strong></p>
-      <p class="blog-post-excerpt">
-        <strong>Pooled funding:</strong> To reduce the risk of AI developers influencing assessments, developers would pay into shared funds based on their AI model’s risk level; to reduce the risk of assessors picking clients themselves, accreditors would manage funding pools and compensate assessment firms via (algorithmic) randomisation.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>Revenue diversification:</strong> To ensure independence, assessment firms would face revenue caps of no more than 8% from any developer ecosystem, including subsidiaries and major suppliers. 8% is stricter than typical audit standards for financial auditing, because of AI’s high market concentration in frontier AI. Senior assessment firm staff would not be allowed to be employed by assessed companies for 36 months, with mutual restrictions during ongoing evaluations.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>Rotating networks:</strong> Accredited firms would occasionally reshuffle assessors to maintain assessors’ objectivity and autonomy preventing the same person/team from constantly assessing the same AI developer.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>Tamper-evident documentation:</strong> To ensure a transparent and verifiable audit trail, accreditors would keep records by tracking developer-assessor interactions, methodology choices, and decisions. This also deters behind-the-scenes pressure tactics, as both parties know that all communication is subject to later audits.
-      </p>
-
-      <p class="blog-post-excerpt"><strong>Tier 2:</strong></p>
-      <p class="blog-post-excerpt">
-        <strong>Multi-modal verification:</strong> To detect potential compromise, independent teams would re-evaluate a random 15% of all assessments for warning signs such as unusually favorable outcomes, suspicious timing correlations, or systematic outlier patterns. To catch systematic bias, assessments that show a 20% variance from peer norms would automatically trigger an investigation.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>Process analysis:</strong> To identify undue influence, investigators would examine communication patterns, decision timelines, and methodology deviations during formal reviews. To ensure thoroughness, investigators should focus specifically on developer pressure tactics and assessment manipulation attempts.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>Cross-reference validation:</strong> To catch systematic under-assessment, the accreditation body would verify conclusions against a variety of independent indicators, including academic benchmarks and red-team results. To ensure thorough validation, they would cross-check findings with incident reports and real-world deployment outcomes.
-      </p>
-      <p class="blog-post-excerpt">
-        <strong>Graduated enforcement:</strong> To maintain credible deterrence, an accreditation body would escalate sanctions from corrections and fines to suspension and debarment in severe cases. To address developer misconduct, their pressure tactics would result in pool exclusion and regulatory notification.
-      </p>
-
-      <p class="blog-post-excerpt">
-        Both tiers are important because they create complementary defense mechanisms against AI developer influence. The ex-ante mechanisms outlined above are aimed at making corruption structurally difficult while ex-post mechanisms are designed to catch sophisticated evasion attempts. Overall, this framework is designed to enable institutional learning. Prevention, detection, and adaptation can help ensure the system remains dynamic and effective.
-      </p>
-
-      <div class="blog-post-tags">
+      <span class="read-more">Read More →</span>
+      <div class="blog-preview-tags">
         <span class="blog-tag">Accreditation</span>
         <span class="blog-tag">AI Governance</span>
         <span class="blog-tag">Audit</span>
         <span class="blog-tag">Policy</span>
       </div>
-    </article>
+    </a>
 
   </main>
 
@@ -657,63 +528,57 @@
 
   <script>
     // Word Cloud Generator
-// Word Cloud Generator
-function generateWordCloud() {
-  const blogPosts = document.querySelectorAll('.blog-post-excerpt');
-  const allText = Array.from(blogPosts).map(post => post.textContent).join(' ');
-  
-  const stopWords = new Set([
-    'the', 'be', 'to', 'of', 'and', 'a', 'in', 'that', 'have', 'i', 'it', 'for', 'not',
-    'on', 'with', 'he', 'as', 'you', 'do', 'at', 'this', 'but', 'his', 'by', 'from',
-    'they', 'we', 'say', 'her', 'she', 'or', 'an', 'will', 'my', 'one', 'all', 'would',
-    'there', 'their', 'what', 'so', 'up', 'out', 'if', 'about', 'who', 'get', 'which',
-    'go', 'me', 'when', 'make', 'can', 'like', 'time', 'no', 'just', 'him', 'know',
-    'take', 'people', 'into', 'year', 'your', 'good', 'some', 'could', 'them', 'see',
-    'other', 'than', 'then', 'now', 'look', 'only', 'come', 'its', 'over', 'think',
-    'also', 'back', 'after', 'use', 'two', 'how', 'our', 'work', 'first', 'well',
-    'way', 'even', 'new', 'want', 'because', 'any', 'these', 'give', 'day', 'most',
-    'us', 'is', 'are', 'was', 'been', 'has', 'had', 'were', 'said', 'did', 'may',
-    'should', 'might', 'must', 'does', 'being', 'am', 'having', 'such', 'those',
-    'very', 'more', 'many', 'much', 'both', 'through', 'each', 'before', 'between',
-    'during', 'under', 'since', 'while', 'where', 'why', 'here', 'down', 'still',
-    'own', 'same', 'too', 'off', 'again', 'further', 'once', 'however', 'though',
-    'without', 'against', 'including', 'around', 'another', 'whether', 'already'
-  ]);
-  
-  const words = allText.toLowerCase()
-    .replace(/[^\w\s-]/g, ' ')
-    .split(/\s+/)
-    .filter(word => word.length > 4 && !stopWords.has(word));
-  
-  const wordCount = {};
-  words.forEach(word => {
-    wordCount[word] = (wordCount[word] || 0) + 1;
-  });
-  
-  const sortedWords = Object.entries(wordCount)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 15);
-  
-  const maxCount = Math.max(...sortedWords.map(w => w[1]));
-  const minCount = Math.min(...sortedWords.map(w => w[1]));
-  const range = maxCount - minCount || 1;
-  
-  const wordCloudContainer = document.getElementById('wordCloud');
-  wordCloudContainer.innerHTML = sortedWords.map(([word, count]) => {
-    const normalized = (count - minCount) / range;
-    let sizeClass;
-    if (normalized > 0.85) sizeClass = 'size-1';
-    else if (normalized > 0.65) sizeClass = 'size-2';
-    else if (normalized > 0.45) sizeClass = 'size-3';
-    else if (normalized > 0.25) sizeClass = 'size-4';
-    else sizeClass = 'size-5';
-    
-    return `<span class="word-cloud-item ${sizeClass}">${word}</span>`;
-  }).join(' ');
-}
+    const keywords = [
+      'export controls', 'china', 'safety', 'governance', 'regulation',
+      'capabilities', 'cooperation', 'verification', 'policy', 'frontier',
+      'transparency', 'risk', 'democracy', 'evaluation', 'chips'
+    ];
 
-document.addEventListener('DOMContentLoaded', generateWordCloud);
+    function generateWordCloud() {
+      const wordCount = {
+        'export': 8, 'controls': 8, 'safety': 7, 'governance': 6,
+        'china': 5, 'regulation': 5, 'capabilities': 5, 'cooperation': 4,
+        'verification': 4, 'policy': 6, 'frontier': 5, 'transparency': 4,
+        'evaluation': 4, 'chips': 3, 'risk': 5
+      };
+      
+      const sortedWords = Object.entries(wordCount).sort((a, b) => b[1] - a[1]);
+      const maxCount = Math.max(...sortedWords.map(w => w[1]));
+      const minCount = Math.min(...sortedWords.map(w => w[1]));
+      const range = maxCount - minCount || 1;
+      
+      const wordCloudContainer = document.getElementById('wordCloud');
+      wordCloudContainer.innerHTML = sortedWords.map(([word, count]) => {
+        const normalized = (count - minCount) / range;
+        let sizeClass;
+        if (normalized > 0.75) sizeClass = 'size-1';
+        else if (normalized > 0.55) sizeClass = 'size-2';
+        else if (normalized > 0.35) sizeClass = 'size-3';
+        else if (normalized > 0.15) sizeClass = 'size-4';
+        else sizeClass = 'size-5';
+        
+        return `<span class="word-cloud-item ${sizeClass}">${word}</span>`;
+      }).join(' ');
+    }
+
+    document.addEventListener('DOMContentLoaded', generateWordCloud);
   </script>
 
- </body>
+  <script>
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (
+        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+        (e.ctrlKey && e.key === 'p')
+      ) {
+        e.preventDefault();
+      }
+    });
+    document.body.style.userSelect = 'none';
+  </script>
+</body>
 </html>
