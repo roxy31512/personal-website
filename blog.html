@@ -63,56 +63,6 @@
       font-weight: 400;
     }
 
-    /* Word Cloud Styles */
-    .word-cloud-container {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(159, 192, 255, 0.2);
-      border-radius: 12px;
-      padding: 30px 20px;
-      margin-bottom: 50px;
-      text-align: center;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .word-cloud-title {
-      color: #9fc0ff;
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 25px;
-    }
-
-    .word-cloud {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      place-items: center;
-    }
-
-    .word-cloud-item {
-      color: #9fc0ff;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      cursor: default;
-      white-space: nowrap;
-      text-align: center;
-    }
-
-    .word-cloud-item:hover {
-      color: #ffffff;
-      transform: scale(1.05);
-    }
-
-    .word-cloud-item.size-1 { font-size: 1.6rem; opacity: 1; }
-    .word-cloud-item.size-2 { font-size: 1.35rem; opacity: 0.9; }
-    .word-cloud-item.size-3 { font-size: 1.15rem; opacity: 0.8; }
-    .word-cloud-item.size-4 { font-size: 1rem; opacity: 0.7; }
-    .word-cloud-item.size-5 { font-size: 0.9rem; opacity: 0.65; }
-
     /* Blog Preview Card Styles */
     .blog-preview-card {
       background: rgba(255,255,255,0.03);
@@ -231,12 +181,6 @@
   <main>
     <h1>Blog</h1>
     <div class="page-subtitle">Thoughts on AI policy, governance, and emerging technology</div>
-
-    <!-- Word Cloud -->
-    <div class="word-cloud-container">
-      <div class="word-cloud-title">Key Topics</div>
-      <div class="word-cloud" id="wordCloud"></div>
-    </div>
 
     <!-- Blog Preview Cards -->
     
@@ -525,44 +469,6 @@
   <custom-footer></custom-footer>
   <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
   <script src="https://roxanaakhmetova.com/components/footer.js"></script>
-
-  <script>
-    // Word Cloud Generator
-    const keywords = [
-      'export controls', 'china', 'safety', 'governance', 'regulation',
-      'capabilities', 'cooperation', 'verification', 'policy', 'frontier',
-      'transparency', 'risk', 'democracy', 'evaluation', 'chips'
-    ];
-
-    function generateWordCloud() {
-      const wordCount = {
-        'export': 8, 'controls': 8, 'safety': 7, 'governance': 6,
-        'china': 5, 'regulation': 5, 'capabilities': 5, 'cooperation': 4,
-        'verification': 4, 'policy': 6, 'frontier': 5, 'transparency': 4,
-        'evaluation': 4, 'chips': 3, 'risk': 5
-      };
-      
-      const sortedWords = Object.entries(wordCount).sort((a, b) => b[1] - a[1]);
-      const maxCount = Math.max(...sortedWords.map(w => w[1]));
-      const minCount = Math.min(...sortedWords.map(w => w[1]));
-      const range = maxCount - minCount || 1;
-      
-      const wordCloudContainer = document.getElementById('wordCloud');
-      wordCloudContainer.innerHTML = sortedWords.map(([word, count]) => {
-        const normalized = (count - minCount) / range;
-        let sizeClass;
-        if (normalized > 0.75) sizeClass = 'size-1';
-        else if (normalized > 0.55) sizeClass = 'size-2';
-        else if (normalized > 0.35) sizeClass = 'size-3';
-        else if (normalized > 0.15) sizeClass = 'size-4';
-        else sizeClass = 'size-5';
-        
-        return `<span class="word-cloud-item ${sizeClass}">${word}</span>`;
-      }).join(' ');
-    }
-
-    document.addEventListener('DOMContentLoaded', generateWordCloud);
-  </script>
 
   <script>
     document.addEventListener('selectstart', e => e.preventDefault());
