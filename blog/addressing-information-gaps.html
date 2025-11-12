@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Three Strategies to Address AI Information Gaps | Roxana Akhmetova</title>
-  <meta name="description" content="Three prioritized strategies to address information gaps in AI: mandatory disclosure, liability-based economic pressure, and international coordination."/>
-  <meta name="keywords" content="AI Governance, Policy Strategy, Regulation, Transparency, Capability Disclosure"/>
-  <meta name="author" content="Roxana Akhmetova"/>
+  <meta name="description" content="Three Strategies to Address AI Information Gaps" />
+  <meta name="author" content="Roxana Akhmetova" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -26,7 +25,7 @@
     }
   </script>
 
-  <link rel="stylesheet" href="/style.css"/>
+  <link rel="stylesheet" href="/style.css" />
 
   <style>
     html, body {
@@ -61,27 +60,18 @@
       font-weight: 500;
     }
 
-    .post-content p {
+    .post-content p, .post-content li {
       color: #d8e1eb;
       font-size: 1.05rem;
       line-height: 1.8;
       margin-bottom: 20px;
+      white-space: pre-wrap;
     }
 
     .post-content ol {
-      color: #d8e1eb;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      margin-left: 1.15rem;
+      list-style-type: decimal;
+      margin-left: 1.5rem;
       margin-bottom: 20px;
-    }
-
-    .post-content li {
-      margin-bottom: 12px;
-    }
-
-    .post-content strong {
-      color: #ffffff;
     }
 
     .blog-post-tags {
@@ -131,42 +121,26 @@
     <div class="post-date">October 21, 2025</div>
 
     <div class="post-content">
-      <p>
-        The core challenge is building institutional capacity to enforce and process the information. I'd prioritise three strategies:
-      </p>
+      <p>The core challenge is building institutional capacity to enforce and process the information. I'd prioritise 3 strategies:</p>
 
       <ol>
         <li>
           <strong>Mandatory Disclosure:</strong><br>
-          Labs above a certain compute threshold should submit capability models to regulators before major training runs.
-          The implementation challenge is that regulatory agencies would need to hire ML researchers or contract third-party auditors
-          with security clearances. Labs will likely claim trade secret protections, as they did with California's SB 1047.
-          The regulatory framework needs authority to compel disclosure despite labs' proprietary nature—similar to how pharmaceutical
-          companies disclose clinical trial data to the US FDA.
+          Labs above a certain compute threshold should submit capability models to regulators before major training runs. The implementation challenge is that regulatory agencies would need to hire ML researchers or contract third-party auditors with security clearances. Labs will likely claim trade secret protections, as they did with California's SB 1047. Regulatory framework needs authority to compel disclosure despite labs' proprietary nature, similar to how pharmaceutical companies disclose clinical trial data to the US FDA.
         </li>
 
         <li>
           <strong>Liability-Based Economic Pressure:</strong><br>
-          Develop safe harbors where labs that share capability models with regulators receive liability protection if forecasts turn out wrong.
-          Labs that conceal information would face strict liability for harms from capability surprises. Insurers would demand capability
-          models to price risk so labs cannot deploy models without liability coverage. Insurers may lack expertise to evaluate AI risk,
-          as we saw with pandemic insurance where underwriters mispriced tail risks.
+          Develop safe harbors where labs that share capability models with regulators get liability protection if forecasts turn out wrong. And labs which conceal information face strict liability for harms from capability surprises. Insurers would demand capability models to price risk so labs can't deploy models without liability coverage. Insurers may lack expertise to evaluate AI risk, as we saw with pandemic insurance where underwriters mispriced tail risks.
         </li>
 
         <li>
           <strong>International Coordination:</strong><br>
-          Design a US–China agreement to share capability model insights via a trusted intermediary. The implementation challenge is:
-          who is the intermediary? If US-dominated (like the IAEA historically was), China won't trust it. If neutral (UN-affiliated?),
-          both countries may fear intelligence leakage. A more realistic near-term path is coordination among the US, UK, and EU on disclosure
-          standards. If these jurisdictions align on what capability model information labs must report, they create de facto global standards
-          because most frontier labs need market access in these regions.
+          Design a US-China agreement to share capability models insights via a trusted intermediary. The implementation challenge is: Who is the intermediary? If US-dominated (like IAEA historically was), China won't trust it. If neutral (UN-affiliated?), both countries may fear intelligence leakage. More realistic could be to start with coordination among the US, UK, and EU on disclosure standards. If these jurisdictions align on what capability models information labs must report, they create de facto global standards since most frontier labs need access to these markets.
         </li>
       </ol>
 
-      <p>
-        I would deprioritise whistleblower protections and procurement conditions because whistleblowing is reactive rather than preventive,
-        and procurement leverage is limited since most frontier AI developments aren't government-funded.
-      </p>
+      <p>I would deprioritise whistleblower protections and procurement conditions because whistleblowing is reactive rather than preventive and procurement leverage is limited since most frontier AI developments aren't government funded.</p>
     </div>
 
     <div class="blog-post-tags">
@@ -180,22 +154,5 @@
   <custom-footer></custom-footer>
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
-
-  <script>
-    document.addEventListener('selectstart', e => e.preventDefault());
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-      if (
-        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
-        (e.ctrlKey && e.key === 'p')
-      ) {
-        e.preventDefault();
-      }
-    });
-    document.body.style.userSelect = 'none';
-  </script>
 </body>
 </html>
