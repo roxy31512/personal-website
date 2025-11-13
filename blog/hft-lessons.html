@@ -104,6 +104,47 @@
       transform: translateX(-4px);
     }
 
+    .share-section {
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(159, 192, 255, 0.2);
+    }
+
+    .share-title {
+      color: #9fc0ff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: rgba(159, 192, 255, 0.1);
+      border: 1px solid rgba(159, 192, 255, 0.3);
+      border-radius: 6px;
+      color: #9fc0ff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .share-btn:hover {
+      background: rgba(159, 192, 255, 0.2);
+      border-color: #9fc0ff;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
     @media (max-width: 768px) {
       main { padding: 0 20px; }
       h1 { font-size: 1.8rem !important; }
@@ -122,20 +163,26 @@
     <div class="post-date">September 29, 2025</div>
 
     <div class="post-content">
-      <p>I chose high-frequency trading as a case study. As algorithmic tools became more popular between 2000s - 2010s, the finance world adopted autonomous trading tools (algorithmic decision rules and statistical models) into their trading systems to make and cancel orders at microsecond to millisecond timescales. These algorithms could pick up on tiny price discrepancies and make fast decisions based on them.</p>
+      <p>On May 6, 2010, the U.S. stock market lost nearly $1 trillion in value in minutes before partially recovering—all driven by automated trading algorithms operating faster than humans could comprehend, let alone control. The "Flash Crash" revealed a fundamental problem: when systems operate at machine speed, human oversight becomes structurally impossible. This same challenge now confronts AI governance.</p>
 
-      <p>No single institution had visibility of these automated interactions. Regulators also faced severe informational asymmetry because trading firms' algorithms were proprietary, and so it was nearly impossible to audit their behavior. Governance mechanisms operated on human and bureaucratic timescales, but the system dynamics happened in microseconds.</p>
+      <p>Between the 2000s and 2010s, financial markets adopted autonomous trading tools—algorithmic decision rules and statistical models that could make and cancel orders at microsecond to millisecond timescales. These algorithms could detect tiny price discrepancies and execute decisions based on them before human traders could even perceive the opportunity.</p>
 
-      <p>As a result, human oversight was nearly impossible and established ways to control markets weren't equipped to deal with this new tech. In 2010 there was a fast crash in the market that lasted several minutes but resulted in billions lost in market value. Safeguards and frameworks that were already in place were designed in such a way that assumed human-in-the-loop and manual interventions were in place; there weren't enough mechanisms that could act fast to catch automated trading, regulators couldn't intervene in real time, and the market lacked automated safety mechanisms that were designed for microsecond-timescale decisions.</p>
+      <p>The governance gap was severe. No single institution had visibility into these automated interactions. Regulators faced extreme informational asymmetry because trading firms' algorithms were proprietary, making it nearly impossible to audit their behavior. Governance mechanisms operated on human and bureaucratic timescales—hours, days, weeks—while the system dynamics happened in microseconds.</p>
+
+      <p>Human oversight became essentially impossible. The safeguards and frameworks already in place assumed human-in-the-loop decision-making and manual interventions. There weren't mechanisms that could act fast enough to catch automated trading cascades. Regulators couldn't intervene in real time, and markets lacked automated safety mechanisms designed for microsecond-timescale decisions. The Flash Crash was the inevitable result.</p>
 
       <strong>After the crash:</strong>
-      <p>Regulators introduced circuit breakers and other market controls that could pause the system if prices move rapidly again and limit order cancellation cascading. The post-crash reforms also created joint monitoring protocols and data-sharing between regulators and exchanges.</p>
+      <p>Regulators introduced circuit breakers and other market controls that could automatically pause the system if prices moved too rapidly, limiting order cancellation cascades. Post-crash reforms also created joint monitoring protocols and mandatory data-sharing between regulators and exchanges. These weren't perfect solutions, but they acknowledged a key insight: you can't govern machine-speed systems with human-speed oversight alone.</p>
 
-      <strong>Similarly, advanced AIs are outpacing regulation:</strong>
-      <p>The 2010 market crash taught us that when systems operate on timescales that are faster than human oversight, we need preventative automated safety locks. AI regulations are lagging behind, and may be similarly reactive in nature, waiting for a big crisis to trigger serious regulation. Advanced AI may require AI 'circuit breakers,' capability registries, mandatory audit trails, shared telemetry, automated oversight systems, or transnational safety boards to intervene at machine speed before harms occur.</p>
+      <strong>Advanced AI systems are outpacing regulation in similar ways:</strong>
+      <p>The 2010 market crash demonstrated that when systems operate faster than human oversight can respond, we need preventative automated safety mechanisms. AI regulation is currently following a similar trajectory—largely reactive, waiting for a major crisis to trigger serious intervention. But advanced AI systems are already operating at scales and speeds that exceed traditional regulatory capacity.</p>
+
+      <p>We need AI equivalents of circuit breakers: capability registries that track what systems can do, mandatory audit trails that record decision-making processes, shared telemetry between developers and regulators, automated oversight systems that can flag anomalies in real time, and transnational safety boards empowered to intervene at machine speed before harms cascade. The alternative is waiting for AI's "Flash Crash" moment—except with potentially higher stakes than financial markets.</p>
 
       <strong>Incentives and governance:</strong>
-      <p>There also need to be incentives to reward safety over speed/efficiency/profit, and market design itself must reward caution through trading fees on high-frequency strategies, liability for cascade failures, or mandatory safety certifications.</p>
+      <p>Financial markets also taught us that safety requires aligning incentives. Post-Flash Crash reforms didn't just add technical safeguards—they restructured market incentives to reward caution over pure speed. This included trading fees on high-frequency strategies, liability frameworks for cascade failures, and mandatory safety certifications.</p>
+
+      <p>AI governance needs similar incentive structures. Labs currently face competitive pressure to deploy faster, not safer. Without mechanisms that reward thorough testing, transparency, and cautious deployment—or impose meaningful costs on failures—we're recreating the pre-2010 financial environment where speed was everything and safety was someone else's problem. The question isn't whether we'll learn these lessons, but whether we'll learn them before or after a crisis.</p>
     </div>
 
     <div class="blog-post-tags">
@@ -144,28 +191,82 @@
       <span class="blog-tag">Case Study</span>
       <span class="blog-tag">Policy Lessons</span>
     </div>
+
+    <div class="share-section">
+      <div class="share-title">Share this post</div>
+      <div class="share-buttons">
+        <a href="#" class="share-btn" onclick="shareTwitter(event)">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          Twitter
+        </a>
+        <a href="#" class="share-btn" onclick="shareLinkedIn(event)">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="#" class="share-btn" onclick="copyLink(event)">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+          </svg>
+          Copy Link
+        </a>
+      </div>
+    </div>
   </main>
 
   <custom-footer></custom-footer>
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
 
-<script>
-  document.addEventListener('selectstart', e => e.preventDefault());
-  document.addEventListener('contextmenu', e => e.preventDefault());
-  document.addEventListener('keydown', e => {
-    if (
-      (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-      (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-      (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-      (e.ctrlKey && e.shiftKey && e.key === 'J') ||
-      (e.ctrlKey && e.key === 'p')
-    ) {
+  <script>
+    function shareTwitter(e) {
       e.preventDefault();
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '_blank', 'width=550,height=420');
     }
-  });
-  document.body.style.userSelect = 'none';
-</script>
+
+    function shareLinkedIn(e) {
+      e.preventDefault();
+      const url = encodeURIComponent(window.location.href);
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=550,height=420');
+    }
+
+    function copyLink(e) {
+      e.preventDefault();
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = e.currentTarget;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+          </svg>
+          Copied!
+        `;
+        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+      });
+    }
+  </script>
+
+  <script>
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (
+        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+        (e.ctrlKey && e.key === 'p')
+      ) {
+        e.preventDefault();
+      }
+    });
+    document.body.style.userSelect = 'none';
+  </script>
 
 </body>
 </html>
