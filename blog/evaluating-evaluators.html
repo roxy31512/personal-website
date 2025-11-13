@@ -116,6 +116,47 @@
       transform: translateX(-4px);
     }
 
+    .share-section {
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(159, 192, 255, 0.2);
+    }
+
+    .share-title {
+      color: #9fc0ff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: rgba(159, 192, 255, 0.1);
+      border: 1px solid rgba(159, 192, 255, 0.3);
+      border-radius: 6px;
+      color: #9fc0ff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .share-btn:hover {
+      background: rgba(159, 192, 255, 0.2);
+      border-color: #9fc0ff;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
     @media (max-width: 768px) {
       main { padding: 0 20px; }
       h1 { font-size: 1.8rem !important; }
@@ -134,29 +175,31 @@
     <div class="post-date">September 25, 2025</div>
 
     <div class="post-content">
-      <p>A core challenge for accreditation is verifying an assessor's "independence from undue pressures", especially from the well-funded and influential AI developer being assessed. I propose a two-tiered system for ensuring and auditing this independence.</p>
+      <p>As governments increasingly look to third-party auditors to verify AI safety claims, a critical question emerges: who ensures these auditors remain independent? The lessons from financial auditing are instructive. Credit rating agencies in 2008, paid by the very institutions they were evaluating, failed to flag systemic risks that nearly collapsed the global financial system. In AI governance, where well-funded developers have even stronger incentives to shape assessments in their favor, we need stronger safeguards from the start.</p>
 
-      <div class="tier-title">Tier 1</div>
+      <p>A core challenge for accreditation is verifying an assessor's "independence from undue pressures", especially from influential AI developers being assessed. I propose a two-tiered system for ensuring and auditing this independence.</p>
 
-      <p><span class="subheading">Pooled funding:</span> To reduce the risk of AI developers influencing assessments, developers would pay into shared funds based on their AI model’s risk level; to reduce the risk of assessors picking clients themselves, accreditors would manage funding pools and compensate assessment firms via (algorithmic) randomisation.</p>
+      <div class="tier-title">Tier 1: Prevention Mechanisms</div>
 
-      <p><span class="subheading">Revenue diversification:</span> To ensure independence, assessment firms would face revenue caps of no more than 8% from any developer ecosystem, including subsidiaries and major suppliers. 8% is stricter than typical audit standards for financial auditing, because of AI’s high market concentration in frontier AI. Senior assessment firm staff would not be allowed to be employed by assessed companies for 36 months, with mutual restrictions during ongoing evaluations.</p>
+      <p><span class="subheading">Pooled funding:</span> Developers would pay into shared funds based on their AI model's risk level, reducing the risk of direct developer influence on assessments. Accreditors would manage these funding pools and compensate assessment firms via algorithmic randomization, preventing assessors from selecting their own clients.</p>
 
-      <p><span class="subheading">Rotating networks:</span> Accredited firms would occasionally reshuffle assessors to maintain assessors’ objectivity and autonomy, preventing the same person/team from constantly assessing the same AI developer.</p>
+      <p><span class="subheading">Revenue diversification:</span> Assessment firms would face strict revenue caps of no more than 8% from any single developer ecosystem, including subsidiaries and major suppliers. This 8% threshold is stricter than typical audit standards for financial auditing because of AI's high market concentration in frontier development. Senior assessment firm staff would face 36-month cooling-off periods before joining assessed companies, with mutual restrictions during ongoing evaluations.</p>
 
-      <p><span class="subheading">Tamper-evident documentation:</span> To ensure a transparent and verifiable audit trail, accreditors would keep records by tracking developer-assessor interactions, methodology choices, and decisions. This also deters behind-the-scenes pressure tactics, as both parties know that all communication is subject to later audits.</p>
+      <p><span class="subheading">Rotating networks:</span> Accredited firms would periodically reshuffle assessors to maintain objectivity and autonomy, preventing the same person or team from repeatedly assessing the same AI developer.</p>
 
-      <div class="tier-title">Tier 2</div>
+      <p><span class="subheading">Tamper-evident documentation:</span> Accreditors would maintain comprehensive audit trails by tracking developer-assessor interactions, methodology choices, and key decisions. This transparency deters behind-the-scenes pressure tactics, as both parties know that all communications are subject to later review.</p>
 
-      <p><span class="subheading">Multi-modal verification:</span> To detect potential compromise, independent teams would re-evaluate a random 15% of all assessments for warning signs such as unusually favorable outcomes, suspicious timing correlations, or systematic outlier patterns. To catch systematic bias, assessments that show a 20% variance from peer norms would automatically trigger an investigation.</p>
+      <div class="tier-title">Tier 2: Detection Mechanisms</div>
 
-      <p><span class="subheading">Process analysis:</span> To identify undue influence, investigators would examine communication patterns, decision timelines, and methodology deviations during formal reviews. To ensure thoroughness, investigators should focus specifically on developer pressure tactics and assessment manipulation attempts.</p>
+      <p><span class="subheading">Multi-modal verification:</span> Independent teams would re-evaluate a random 15% of all assessments, looking for warning signs such as unusually favorable outcomes, suspicious timing correlations, or systematic outlier patterns. Assessments showing a 20% variance from peer norms would automatically trigger investigation.</p>
 
-      <p><span class="subheading">Cross-reference validation:</span> To catch systematic under-assessment, the accreditation body would verify conclusions against a variety of independent indicators, including academic benchmarks and red-team results. To ensure thorough validation, they would cross-check findings with incident reports and real-world deployment outcomes.</p>
+      <p><span class="subheading">Process analysis:</span> Investigators would examine communication patterns, decision timelines, and methodology deviations during formal reviews, focusing specifically on developer pressure tactics and assessment manipulation attempts.</p>
 
-      <p><span class="subheading">Graduated enforcement:</span> To maintain credible deterrence, an accreditation body would escalate sanctions from corrections and fines to suspension and debarment in severe cases. To address developer misconduct, their pressure tactics would result in pool exclusion and regulatory notification.</p>
+      <p><span class="subheading">Cross-reference validation:</span> The accreditation body would verify conclusions against independent indicators, including academic benchmarks and red-team results, while cross-checking findings with incident reports and real-world deployment outcomes to catch systematic under-assessment.</p>
 
-      <p>Both tiers are important because they create complementary defense mechanisms against AI developer influence. The ex-ante mechanisms outlined above are aimed at making corruption structurally difficult while ex-post mechanisms are designed to catch sophisticated evasion attempts. Overall, this framework is designed to enable institutional learning. Prevention, detection, and adaptation can help ensure the system remains dynamic and effective.</p>
+      <p><span class="subheading">Graduated enforcement:</span> The accreditation body would escalate sanctions from corrections and fines to suspension and debarment in severe cases, maintaining credible deterrence. Developer pressure tactics would result in pool exclusion and regulatory notification.</p>
+
+      <p>Both tiers create complementary defense mechanisms against AI developer influence. The ex-ante mechanisms are designed to make corruption structurally difficult, while ex-post mechanisms catch sophisticated evasion attempts. Overall, this framework enables institutional learning—prevention, detection, and adaptation working together to ensure the system remains dynamic and effective as AI capabilities advance.</p>
     </div>
 
     <div class="blog-post-tags">
@@ -165,11 +208,65 @@
       <span class="blog-tag">Audit</span>
       <span class="blog-tag">Policy</span>
     </div>
+
+    <div class="share-section">
+      <div class="share-title">Share this post</div>
+      <div class="share-buttons">
+        <a href="#" class="share-btn" onclick="shareTwitter(event)">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          Twitter
+        </a>
+        <a href="#" class="share-btn" onclick="shareLinkedIn(event)">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="#" class="share-btn" onclick="copyLink(event)">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+          </svg>
+          Copy Link
+        </a>
+      </div>
+    </div>
   </main>
 
   <custom-footer></custom-footer>
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
+
+  <script>
+    function shareTwitter(e) {
+      e.preventDefault();
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '_blank', 'width=550,height=420');
+    }
+
+    function shareLinkedIn(e) {
+      e.preventDefault();
+      const url = encodeURIComponent(window.location.href);
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=550,height=420');
+    }
+
+    function copyLink(e) {
+      e.preventDefault();
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = e.currentTarget;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+          </svg>
+          Copied!
+        `;
+        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+      });
+    }
+  </script>
 
   <script>
     document.addEventListener('selectstart', e => e.preventDefault());
