@@ -44,9 +44,24 @@ class CustomNavbar extends HTMLElement {
           cursor: pointer;
         }
         
+        .dropdown-toggle a {
+          color: #d8e1eb;
+          text-decoration: none;
+          font-weight: 500;
+          padding: 6px 10px;
+          border-radius: 6px;
+          transition: all 0.15s ease;
+        }
+        
+        .dropdown-toggle a:hover {
+          background: rgba(255,255,255,0.08);
+          color: #fff;
+        }
+        
         .dropdown-arrow {
           font-size: 0.7rem;
           transition: transform 0.2s;
+          color: #d8e1eb;
         }
         
         .dropdown:hover .dropdown-arrow {
@@ -102,12 +117,13 @@ class CustomNavbar extends HTMLElement {
             <a href="/current-projects">Current Projects</a>
             <div class="dropdown">
               <span class="dropdown-toggle">
-                <a href="/past-projects" style="color: #d8e1eb; text-decoration: none; font-weight: 500;">Past Projects</a>
+                <a href="/past-projects">Past Projects</a>
                 <span class="dropdown-arrow">▼</span>
               </span>
               <div class="dropdown-menu">
                 <a href="/oxford-ai-gala">Oxford AI Gala 2025</a>
                 <a href="/oxford-ai-leadership">Oxford AI Leadership</a>
+                <a href="/indigenous-newcomer-relations">Indigenous-Newcomer Relations</a>
               </div>
             </div>
             <a href="/publications">Publications</a>
