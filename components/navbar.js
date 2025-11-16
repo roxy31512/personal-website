@@ -92,30 +92,30 @@ class CustomNavbar extends HTMLElement {
             <a href="https://scholar.google.com/citations?user=uxvwJb4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; padding: 4px; border-radius: 6px; transition: all 0.15s ease; opacity: 0.9;" aria-label="Google Scholar" onmouseover="this.style.opacity='1';" onmouseout="this.style.opacity='0.9';">
               <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" style="width: 24px; height: 24px;">
             </a>
-            <a class="brand" href="/index.html" aria-label="Home" style="display: flex; align-items: center; gap: 0.6rem; font-weight: 600; font-size: 1.1rem; color: #f0f4ff; text-decoration: none;">
+            <a class="brand" href="/index" aria-label="Home" style="display: flex; align-items: center; gap: 0.6rem; font-weight: 600; font-size: 1.1rem; color: #f0f4ff; text-decoration: none;">
               Home
             </a>
           </div>
 
           <nav class="nav-links" aria-label="Primary">
-            <a href="/consulting.html">Consulting</a>
-            <a href="/current-projects.html">Current Projects</a>
+            <a href="/consulting">Consulting</a>
+            <a href="/current-projects">Current Projects</a>
             <div class="dropdown">
               <span class="dropdown-toggle">
-                <a href="/past-projects.html">Past Projects</a>
+                <a href="/past-projects" style="color: #d8e1eb; text-decoration: none; font-weight: 500;">Past Projects</a>
                 <span class="dropdown-arrow">▼</span>
               </span>
               <div class="dropdown-menu">
-                <a href="/oxford-ai-gala.html">Oxford AI Gala 2025</a>
-                <a href="/oxford-ai-leadership.html">Oxford AI Leadership</a>
+                <a href="/oxford-ai-gala">Oxford AI Gala 2025</a>
+                <a href="/oxford-ai-leadership">Oxford AI Leadership</a>
+                <a href="/indigenous-newcomer-relations">Indigenous-Newcomer Relations</a>
               </div>
             </div>
-            <a href="/blog.html">Blog</a>
-            <a href="/publications.html">Publications & Media</a>
-            <a href="/bio.html">Bio</a>
-            <a href="/education.html">Education</a>
-            <a href="/awards.html">Awards</a>
-            <a href="/contact.html" class="cta-link">Contact</a>
+            <a href="/publications">Publications</a>
+            <a href="/bio">Bio</a>
+            <a href="/education">Education</a>
+            <a href="/awards">Awards</a>
+            <a href="/contact" class="cta-link">Contact</a>
           </nav>
         </div>
       </header>
