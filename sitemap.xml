@@ -2,34 +2,134 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://roxanaakhmetova.com/</loc>
+    <lastmod>2025-11-16</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://roxanaakhmetova.com/oxford-ai-gala.html</loc>
+    <lastmod>2025-11-16</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://roxanaakhmetova.com/bio.html</loc>
+    <lastmod>2025-11-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://roxanaakhmetova.com/consulting.html</loc>
+    <lastmod>2025-11-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://roxanaakhmetova.com/current-projects.html</loc>
+    <lastmod>2025-11-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://roxanaakhmetova.com/past-projects.html</loc>
+    <lastmod>2025-11-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://roxanaakhmetova.com/oxford-ai-leadership.html</loc>
+    <lastmod>2025-11-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://roxanaakhmetova.com/blog.html</loc>
+    <lastmod>2025-11-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://roxanaakhmetova.com/publications.html</loc>
+    <lastmod>2025-11-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://roxanaakhmetova.com/education.html</loc>
+    <lastmod>2025-11-16</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://roxanaakhmetova.com/awards.html</loc>
+    <lastmod>2025-11-16</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://roxanaakhmetova.com/contact.html</loc>
+    <lastmod>2025-11-16</lastmod>
     <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://roxanaakhmetova.com/blog/addressing-information-gaps.html</loc>
+    <lastmod>2025-11-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://roxanaakhmetova.com/blog/ai-agents-export-control.html</loc>
+    <lastmod>2025-11-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://roxanaakhmetova.com/blog/ai-chip-export-controls.html</loc>
+    <lastmod>2025-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://roxanaakhmetova.com/blog/capability-forecasting-asymmetry.html</loc>
+    <lastmod>2025-10-23</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://roxanaakhmetova.com/blog/children-chatbots.html</loc>
+    <lastmod>2025-09-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://roxanaakhmetova.com/blog/evaluating-evaluators.html</loc>
+    <lastmod>2025-09-25</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://roxanaakhmetova.com/blog/hft-lessons.html</loc>
+    <lastmod>2025-09-29</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://roxanaakhmetova.com/blog/international-ai-cooperation.html</loc>
+    <lastmod>2025-10-01</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://roxanaakhmetova.com/blog/nvidia-b30a-forecast.html</loc>
+    <lastmod>2025-11-01</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://roxanaakhmetova.com/blog/open-problems-ai-risk.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://roxanaakhmetova.com/blog/power-concentration.html</loc>
+    <lastmod>2025-11-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://roxanaakhmetova.com/blog/quarterly-evaluation-sprint.html</loc>
+    <lastmod>2025-11-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://roxanaakhmetova.com/blog/thermal-signature-monitoring.html</loc>
+    <lastmod>2025-11-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://roxanaakhmetova.com/blog/us-china-aai-relations.html</loc>
+    <lastmod>2025-11-16</lastmod>
+    <priority>0.6</priority>
   </url>
 </urlset>
