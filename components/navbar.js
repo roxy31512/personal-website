@@ -107,7 +107,7 @@ class CustomNavbar extends HTMLElement {
             <a href="https://scholar.google.com/citations?user=uxvwJb4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; padding: 4px; border-radius: 6px; transition: all 0.15s ease; opacity: 0.9;" aria-label="Google Scholar" onmouseover="this.style.opacity='1';" onmouseout="this.style.opacity='0.9';">
               <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" style="width: 24px; height: 24px;">
             </a>
-            <a class="brand" href="/index" aria-label="Home" style="display: flex; align-items: center; gap: 0.6rem; font-weight: 600; font-size: 1.1rem; color: #f0f4ff; text-decoration: none;">
+            <a class="brand" href="/" aria-label="Home" style="display: flex; align-items: center; gap: 0.6rem; font-weight: 600; font-size: 1.1rem; color: #f0f4ff; text-decoration: none;">
               Home
             </a>
           </div>
