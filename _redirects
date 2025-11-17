@@ -1,1 +1,12 @@
-/index    /    301
+/index              /               301
+/blog               /blog.html      200
+/contact            /contact.html   200
+/bio                /bio.html       200
+/consulting         /consulting.html 200
+/publications       /publications.html 200
+/education          /education.html 200
+/awards             /awards.html    200
+/current-projects   /current-projects.html 200
+/past-projects      /past-projects.html 200
+/oxford-ai-gala     /oxford-ai-gala.html 200
+/oxford-ai-leadership /oxford-ai-leadership.html 200
