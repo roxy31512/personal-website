@@ -99,147 +99,151 @@
   </script>
   <link rel="stylesheet" href="style.css">
   <style>
-  /* Consistent white veil overlay for all sections */
+    /* Consistent white veil overlay for all sections */
 
-.stats-bar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin: 2rem 0;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
+    .stats-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
 
-.stat-item {
-  text-align: center;
-  color: #d8e1eb;
-}
+    .stat-item {
+      text-align: center;
+      color: #d8e1eb;
+    }
 
-.stat-number {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #9fc0ff;
-  display: block;
-}
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #9fc0ff;
+      display: block;
+    }
 
-.stat-label {
-  font-size: 0.9rem;
-  color: #9aa4b2;
-  margin-top: 0.25rem;
-}
+    .stat-label {
+      font-size: 0.9rem;
+      color: #9aa4b2;
+      margin-top: 0.25rem;
+    }
 
-.about-me-box {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-}
+    .about-me-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
 
-.about-me-box h3 {
-  color: #9fc0ff;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.75rem;
-}
+    .about-me-box h3 {
+      color: #9fc0ff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
 
-.about-me-box p {
-  color: #d8e1eb;
-  line-height: 1.7;
-  margin: 0;
-}
+    .about-me-box p {
+      color: #d8e1eb;
+      line-height: 1.7;
+      margin: 0;
+    }
 
-.highlight-item {
-  display: flex;
-  align-items: start;
-  gap: 0.75rem;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
+    .highlight-item {
+      display: flex;
+      align-items: start;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
 
-.highlight-item:last-child {
-  border-bottom: none;
-}
+    .highlight-item:last-child {
+      border-bottom: none;
+    }
 
-.highlight-icon {
-  color: #9fc0ff;
-  font-size: 1.25rem;
-  line-height: 1;
-  flex-shrink: 0;
-}
+    .highlight-icon {
+      color: #9fc0ff;
+      font-size: 1.25rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
 
-.highlight-text {
-  color: #d8e1eb;
-  line-height: 1.6;
-}
+    .highlight-text {
+      color: #d8e1eb;
+      line-height: 1.6;
+    }
 
-.blog-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.2s;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
+    .blog-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.2s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
 
-.blog-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(159, 192, 255, 0.3);
-  transform: translateY(-2px);
-}
+    .blog-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(159, 192, 255, 0.3);
+      transform: translateY(-2px);
+    }
 
-.blog-title {
-  color: #9fc0ff;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
-}
+    .blog-title {
+      color: #9fc0ff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
 
-.blog-date {
-  color: #9aa4b2;
-  font-size: 0.85rem;
-  margin-bottom: 0.75rem;
-}
+    .blog-date {
+      color: #9aa4b2;
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
 
-.blog-excerpt {
-  color: #d8e1eb;
-  line-height: 1.6;
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-  flex-grow: 1;
-}
+    .blog-excerpt {
+      color: #d8e1eb;
+      line-height: 1.6;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
 
-.blog-link {
-  color: #9fc0ff;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
-}
+    .blog-link {
+      color: #9fc0ff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
 
-.blog-link:hover {
-  border-bottom-color: #9fc0ff;
-}
+    .blog-link:hover {
+      border-bottom-color: #9fc0ff;
+    }
 
-.section-heading {
-  color: #ffffff;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
+    .section-heading {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">    
   </style>
   
 </head>
@@ -357,29 +361,7 @@
   if (window.location.pathname === '/index.html') {
     window.history.replaceState(null, '', '/');
   }
-
-  // Disable text selection
-  document.addEventListener('selectstart', e => e.preventDefault());
-
-  // Disable right-click context menu
-  document.addEventListener('contextmenu', e => e.preventDefault());
-
-  // Disable common keyboard shortcuts for copying
-  document.addEventListener('keydown', e => {
-    if (
-      (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-      (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-      (e.ctrlKey && e.shiftKey && e.key === 'I') || // Ctrl+Shift+I
-      (e.ctrlKey && e.shiftKey && e.key === 'J') || // Ctrl+Shift+J
-      (e.ctrlKey && e.key === 'p') // Print
-    ) {
-      e.preventDefault();
-    }
-  });
-
-  // Optional: hide selection highlight visually (CSS fallback)
-  document.body.style.userSelect = 'none';
-</script>
+  </script>
 
 </body>
 </html>
