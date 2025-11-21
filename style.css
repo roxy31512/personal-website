@@ -339,3 +339,10 @@ main h1 {
   font-weight: 600;
   display: inline-block;
 }
+/* Override for consistent white veil - MUST BE AT BOTTOM */
+.stats-bar,
+.about-me-box,
+.blog-card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
