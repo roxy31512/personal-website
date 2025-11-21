@@ -211,7 +211,6 @@
     }
 
     /* copy protection (deterrent) - keep as you requested */
-    body { -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; }
   </style>
 </head>
 
@@ -350,15 +349,5 @@
       toggle.classList.toggle('open');
     }
 
-    // Copy protection deterrent (basic)
-    (function preventCopy() {
-      document.addEventListener('contextmenu', e => e.preventDefault());
-      document.addEventListener('selectstart', e => e.preventDefault());
-      document.addEventListener('keydown', function (e) {
-        if (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'u' || e.key === 's')) e.preventDefault();
-        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) e.preventDefault();
-      });
-    })();
-  </script>
 </body>
 </html>
