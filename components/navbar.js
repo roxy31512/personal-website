@@ -53,6 +53,12 @@ class CustomNavbar extends HTMLElement {
   render() {
     this.innerHTML = `
       <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
         header.site-header {
           background: rgba(0,0,0,0.95);
           backdrop-filter: blur(10px);
@@ -61,18 +67,25 @@ class CustomNavbar extends HTMLElement {
           top: 0;
           z-index: 999;
           padding: 1rem 0;
+          width: 100%;
         }
 
         .nav-inner {
           display: flex;
           align-items: center;
           justify-content: space-between;
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1.5rem;
         }
 
         .nav-links {
           display: flex;
           gap: 2rem;
           align-items: center;
+          flex: 1;
+          justify-content: flex-end;
         }
 
         .nav-links a {
