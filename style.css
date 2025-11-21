@@ -19,7 +19,6 @@ html,body {
 .container { max-width:1100px; }
 
 /* panels used across pages */
-.bg-white { background: var(--panel) !important; }
 .text-dark { color: var(--text) !important; }
 .text-mid { color: var(--muted) !important; }
 
