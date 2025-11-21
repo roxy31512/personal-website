@@ -131,7 +131,7 @@ body.bg-dark a { color: #9fc0ff; }
 body.bg-dark .container { --card-bg: #0f0f10; }
 
 /* cards (the three boxes) */
-.card, .feature-card, .bg-white {
+.card, .feature-card {
   background: var(--card-bg, #111);
   color: #dee8f5;
   border-radius: 12px;
@@ -329,6 +329,7 @@ body.bg-dark .container { --card-bg: #0f0f10; }
   object-fit: cover;
   object-position: 30% center !important;
 }
+
 /* Contact page h1 styling */
 main h1 {
   font-size: 2.5em;
@@ -339,10 +340,15 @@ main h1 {
   font-weight: 600;
   display: inline-block;
 }
-/* Override for consistent white veil - MUST BE AT BOTTOM */
+
+/* ====================================
+   CONSISTENT WHITE VEIL BACKGROUNDS
+   Must be at the end to override above
+   ==================================== */
 .stats-bar,
 .about-me-box,
-.blog-card {
+.blog-card,
+section .bg-white {
   background: rgba(255, 255, 255, 0.03) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
