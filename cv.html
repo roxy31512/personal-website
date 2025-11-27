@@ -88,7 +88,6 @@
       text-decoration: none;
       font-weight: 500;
       transition: all 0.2s;
-      margin-bottom: 32px;
     }
     .download-button:hover {
       background: rgba(159,192,255,0.2);
@@ -112,6 +111,38 @@
     }
     .publication-item:last-child {
       border-bottom: none;
+    }
+    .institution {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #9fc0ff;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+    .award-entry {
+      margin-bottom: 16px;
+    }
+    .award-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .award-entry .award-title {
+      font-size: 0.95rem;
+      flex: 1;
+    }
+    .award-entry .award-date {
+      color: #a0a0a0;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    .award-entry .award-description {
+      color: #d8e1eb;
+      font-size: 0.9rem;
+      margin-left: 0;
     }
     
     /* Side Navigation */
@@ -171,10 +202,29 @@
       color: #9fc0ff;
       font-weight: 500;
     }
+
+    .header-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .header-left h1 {
+      margin-bottom: 0;
+    }
     
     @media (max-width: 1024px) {
       .side-nav {
         display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
       }
     }
   </style>
@@ -182,13 +232,19 @@
 <body class="bg-dark text-light font-sans">
   <custom-navbar></custom-navbar>
   <main class="container mx-auto px-6 py-12" style="margin-top: 100px; max-width: 1200px;">
-    <h1 class="text-4xl font-semibold mb-6">Curriculum Vitae</h1>
     
-    <a href="/files/Akhmetova_Roxana_CV.pdf" class="download-button" download>
-      📄 Download Full CV (PDF)
-    </a>
+    <div class="header-section">
+      <div class="header-left">
+        <h1 class="text-4xl font-semibold">Curriculum Vitae</h1>
+      </div>
+      <div class="header-right">
+        <a href="/files/Akhmetova_Roxana_CV.pdf" class="download-button" download>
+          📄 Download Full CV (PDF)
+        </a>
+      </div>
+    </div>
 
-    <p class="text-xl mb-12" style="color: #d8e1eb; line-height: 1.8;">
+    <p class="text-xl mb-12" style="color: #d8e1eb; line-height: 1.8; text-align: center;">
       roxana.akhmetova@gmail.com | Canada/U.K. | 
       <a href="http://www.linkedin.com/in/roxanaakhmetova/" target="_blank" style="color: #9fc0ff; text-decoration: underline;">LinkedIn</a>
     </p>
@@ -309,7 +365,6 @@
           </div>
 
           <div class="award-item">
-          <div class="award-title"><a href="https://search.open.canada.ca/grants/record/sshrc-crsh%2C207-2018-2019-Q2-00869%2Ccurrent" target="_blank" style="color: #ffffff; text-decoration: underline;">Joseph Armand Bombardier Canada Graduate Scholarship</a></div>
             <div class="award-title">Joseph Armand Bombardier Canada Graduate Scholarship</div>
             <div class="award-amount">$17,000 | SSHRC | 2018</div>
             <p class="cv-description">Master's degree funding for research on the role of Canadian newcomers in Reconciliation with Indigenous Peoples.</p>
@@ -319,6 +374,118 @@
             <div class="award-title">Ethnography Travel Awards</div>
             <div class="award-amount">£2,000 | Oxford School of Anthropology & Museum Ethnography | 2022 and 2023</div>
             <p class="cv-description">Two £1,000 awards to support fieldwork at border security expos and visits to 2 border sites.</p>
+          </div>
+
+          <!-- University of Winnipeg Awards -->
+          <div class="institution">The University of Winnipeg</div>
+
+          <div class="award-entry">
+            <div class="award-header">
+              <span class="award-title"><a href="https://ipac.ca/Manitoba/Manitoba/Events___Awards/Willard_J_Condo_Award.aspx" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: underline;">The W. J. Condo Essay Award</a>, Institute of Public Administration of Canada</span>
+              <span class="award-date">July 2017</span>
+            </div>
+            <div class="award-description">Paper "That Wasn't Uber Nice: The Uberisation of Local and Global Political Economy"</div>
+          </div>
+
+          <div class="award-entry">
+            <div class="award-header">
+              <span class="award-title">Deans' Honour List - Student of Highest Distinction</span>
+              <span class="award-date">2015, 2016, 2017</span>
+            </div>
+          </div>
+
+          <div class="award-entry">
+            <div class="award-header">
+              <span class="award-title">Academic Proficiency Scholarships, GPA of 4.0+/4.5</span>
+              <span class="award-date">2015, 2016, 2017</span>
+            </div>
+          </div>
+
+          <div class="award-entry">
+            <div class="award-header">
+              <span class="award-title">Golden Key Chapter Scholarship, academics, leadership, commitment to community</span>
+              <span class="award-date">May 2015</span>
+            </div>
+          </div>
+
+          <div class="award-entry">
+            <div class="award-header">
+              <span class="award-title">Finalist - Fraser Institute Essay Contest</span>
+              <span class="award-date">2015</span>
+            </div>
+          </div>
+
+          <div class="award-entry">
+            <div class="award-header">
+              <span class="award-title">The David Franklin, Ad. E. Scholarship, Canada Iceland Foundation</span>
+              <span class="award-date">2015</span>
+            </div>
+            <div class="award-description">academic achievement, strong leadership, and community involvement</div>
+          </div>
+
+          <div class="award-entry">
+            <div class="award-header">
+              <span class="award-title">Explore Program Bursary to study French for 5 weeks at University of Laval</span>
+              <span class="award-date">2014</span>
+            </div>
+          </div>
+
+          <div class="award-entry">
+            <div class="award-header">
+              <span class="award-title">D. J. Jessiman Scholarship in Politics, highest standing in 1st year Political Science</span>
+              <span class="award-date">2014</span>
+            </div>
+          </div>
+
+          <div class="award-entry">
+            <div class="award-header">
+              <span class="award-title"><a href="https://www.goldenkey.org/2020/02/19/golden-key-spotlight-breanne-cadham-odion-kalaci-and-roxana-akhmetova/" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: underline;">Golden Key International Honour Society Membership</a></span>
+              <span class="award-date">2014</span>
+            </div>
+            <div class="award-description">offered to top 15%</div>
+          </div>
+
+          <div class="award-entry">
+            <div class="award-header">
+              <span class="award-title">Deans' Honour List - Student of Distinction</span>
+              <span class="award-date">2014</span>
+            </div>
+          </div>
+
+          <div class="award-entry">
+            <div class="award-header">
+              <span class="award-title">University of Winnipeg Special Entrance Scholarship</span>
+              <span class="award-date">2013</span>
+            </div>
+            <div class="award-description">high academic standing in high school (94%)</div>
+          </div>
+
+          <div class="award-entry">
+            <div class="award-header">
+              <span class="award-title">International Baccalaureate Program</span>
+              <span class="award-date">2010-2013</span>
+            </div>
+          </div>
+
+          <div class="award-entry">
+            <div class="award-header">
+              <span class="award-title">River East Transcona School Division Humanitarian Award</span>
+              <span class="award-date">June 2013</span>
+            </div>
+          </div>
+
+          <div class="award-entry">
+            <div class="award-header">
+              <span class="award-title">Award for Outstanding Contribution to Miles Macdonell Collegiate</span>
+              <span class="award-date">June 2013</span>
+            </div>
+          </div>
+
+          <div class="award-entry">
+            <div class="award-header">
+              <span class="award-title">World Languages Diploma (English, French, Spanish, Russian)</span>
+              <span class="award-date">June 2013</span>
+            </div>
           </div>
         </section>
 
