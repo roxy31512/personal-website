@@ -262,10 +262,9 @@ class CustomNavbar extends HTMLElement {
 
           <nav class="nav-links" aria-label="Primary">
             <a href="/consulting">Consulting</a>
-            <a href="/current-projects">Current Projects</a>
             <div class="dropdown">
               <span class="dropdown-toggle">
-                <a href="/past-projects">Past Projects</a>
+                <a href="/projects">Projects</a>
                 <span class="dropdown-arrow">▼</span>
               </span>
               <div class="dropdown-menu">
@@ -275,7 +274,7 @@ class CustomNavbar extends HTMLElement {
             </div>
             <a href="/publications">Publications</a>
             <a href="/bio">Bio</a>
-            <a href="/education">Education</a>
+            <a href="/cv">CV</a>
             <a href="/contact" class="cta-link">Contact</a>
           </nav>
 
