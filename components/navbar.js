@@ -273,6 +273,7 @@ class CustomNavbar extends HTMLElement {
               </div>
             </div>
             <a href="/publications">Publications</a>
+            <a href="/blog">Blog</a>  <!-- ADD THIS LINE -->
             <a href="/bio">Bio</a>
             <a href="/cv">CV</a>
             <a href="/contact" class="cta-link">Contact</a>
