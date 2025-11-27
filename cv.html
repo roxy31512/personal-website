@@ -39,6 +39,7 @@
       border-radius: 8px;
       padding: 32px;
       margin-bottom: 32px;
+      scroll-margin-top: 100px;
     }
     .cv-item {
       margin-bottom: 28px;
@@ -112,6 +113,70 @@
     .publication-item:last-child {
       border-bottom: none;
     }
+    
+    /* Side Navigation */
+    .cv-container {
+      display: flex;
+      gap: 3rem;
+      position: relative;
+    }
+    
+    .cv-content {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .side-nav {
+      width: 200px;
+      position: sticky;
+      top: 120px;
+      align-self: flex-start;
+      height: fit-content;
+    }
+    
+    .side-nav-inner {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    
+    .side-nav h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #a0a0a0;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .side-nav a {
+      display: block;
+      color: #d8e1eb;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      transition: all 0.15s ease;
+      margin-bottom: 4px;
+    }
+    
+    .side-nav a:hover {
+      background: rgba(255,255,255,0.08);
+      color: #9fc0ff;
+    }
+    
+    .side-nav a.active {
+      background: rgba(159,192,255,0.1);
+      color: #9fc0ff;
+      font-weight: 500;
+    }
+    
+    @media (max-width: 1024px) {
+      .side-nav {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body class="bg-dark text-light font-sans">
@@ -128,204 +193,262 @@
       <a href="http://www.linkedin.com/in/roxanaakhmetova/" target="_blank" style="color: #9fc0ff; text-decoration: underline;">LinkedIn</a>
     </p>
 
-    <!-- EDUCATION -->
-    <section class="cv-section">
-      <h2 class="text-2xl font-semibold mb-6">Education</h2>
-      
-      <div class="cv-item">
-        <div class="cv-title">DPhil Migration Studies (Anthropology Department)</div>
-        <div class="cv-organization">University of Oxford</div>
-        <div class="cv-date">2020 – December 2025 (expected)</div>
-        <p class="cv-description"><strong>Thesis:</strong> The Invisible Border Wall: The Use of AI in Canada's Immigration and Border Control</p>
-        <div class="cv-bullet">• Examined accountability, transparency, and fairness of AI in public sector decision-making</div>
-        <div class="cv-bullet">• Conducted 35 semi-structured interviews and fieldwork at border-technology expos</div>
-        <div class="cv-bullet">• Research cited in the U.K. Government's Ethics Framework for Automated Decision-Making (2024)</div>
-        <div class="cv-bullet">• Supervised by Dr Ruben Andersson (ODID) and Dr Helen Margetts (OII)</div>
+    <div class="cv-container">
+      <!-- Side Navigation -->
+      <nav class="side-nav">
+        <div class="side-nav-inner">
+          <h3>Sections</h3>
+          <a href="#education" class="nav-link">Education</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#awards" class="nav-link">Awards</a>
+          <a href="#publications" class="nav-link">Publications</a>
+          <a href="#skills" class="nav-link">Research Skills</a>
+          <a href="#conferences" class="nav-link">Conferences</a>
+          <a href="#teaching" class="nav-link">Teaching</a>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <div class="cv-content">
+        <!-- EDUCATION -->
+        <section id="education" class="cv-section">
+          <h2 class="text-2xl font-semibold mb-6">Education</h2>
+          
+          <div class="cv-item">
+            <div class="cv-title">DPhil Migration Studies (Anthropology Department)</div>
+            <div class="cv-organization">University of Oxford</div>
+            <div class="cv-date">2020 – December 2025 (expected)</div>
+            <p class="cv-description"><strong>Thesis:</strong> The Invisible Border Wall: The Use of AI in Canada's Immigration and Border Control</p>
+            <div class="cv-bullet">• Examined accountability, transparency, and fairness of AI in public sector decision-making</div>
+            <div class="cv-bullet">• Conducted 35 semi-structured interviews and fieldwork at border-technology expos</div>
+            <div class="cv-bullet">• Research cited in the U.K. Government's Ethics Framework for Automated Decision-Making (2024)</div>
+            <div class="cv-bullet">• Supervised by Dr Ruben Andersson (ODID) and Dr Helen Margetts (OII)</div>
+          </div>
+
+          <div class="cv-item">
+            <div class="cv-title">MSc in Migration Studies</div>
+            <div class="cv-organization">University of Oxford</div>
+            <div class="cv-date">2019 – 2020</div>
+            <p class="cv-description">Desk research on use of AI in Canadian immigration and border control. Supervised by Dr Lena Rose.</p>
+          </div>
+
+          <div class="cv-item">
+            <div class="cv-title">MA in Political Studies</div>
+            <div class="cv-organization">University of Manitoba</div>
+            <div class="cv-date">2017 – 2019</div>
+            <p class="cv-description">Thesis: Examined the role of recent newcomers to Canada in Reconciliation with Indigenous Peoples.</p>
+          </div>
+
+          <div class="cv-item">
+            <div class="cv-title">BA (Honors) in Political Science</div>
+            <div class="cv-organization">University of Winnipeg</div>
+            <div class="cv-date">2013 – 2017</div>
+            <p class="cv-description">15 awards, scholarships, and distinctions.</p>
+          </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience" class="cv-section">
+          <h2 class="text-2xl font-semibold mb-6">Experience</h2>
+          
+          <div class="cv-item">
+            <div class="cv-title">AI Safety Policy Fellow</div>
+            <div class="cv-organization">AI Safety Initiative at Georgia Tech (U.S. – remote)</div>
+            <div class="cv-date">September 2025 – November 2025</div>
+            <div class="cv-bullet">• Tracked congressional legislation and monitored regulatory proceedings across Commerce Department, Department of State, and NTIA on semiconductor export controls and CHIPS Act</div>
+            <div class="cv-bullet">• Conducted policy research on AI compute security and dual-use technology governance</div>
+          </div>
+
+          <div class="cv-item">
+            <div class="cv-title">Founder and Chair</div>
+            <div class="cv-organization">Oxford AI Gala (U.K.)</div>
+            <div class="cv-date">June 2024 – June 2025</div>
+            <div class="cv-bullet">• Founded inaugural AI governance conference with 200+ senior stakeholders including government officials and C-suite executives</div>
+            <div class="cv-bullet">• Built and managed relations with Anthropic as title sponsor and speakers from Anthropic, Sony AI, RAND Europe, Tony Blair Institute, and University of Oxford academic partners</div>
+            <div class="cv-bullet">• Set thematic agenda on AI governance and moderated the AI governance panel</div>
+          </div>
+
+          <div class="cv-item">
+            <div class="cv-title">President</div>
+            <div class="cv-organization">Oxford Artificial Intelligence Society (U.K.)</div>
+            <div class="cv-date">April 2022 – May 2023</div>
+            <div class="cv-bullet">• Led Europe's largest AI student society, managing 7 cross-functional teams and recognised as 2023 'U.K. Society of the Year'</div>
+            <div class="cv-bullet">• Facilitated $60,000 Amazon compute grant for AI bias research by building corporate partnerships</div>
+            <div class="cv-bullet">• Developed and managed a mentorship programme connecting 87 students with 66 professionals from Microsoft, Google, Apple, and QuantumBlack</div>
+          </div>
+
+          <div class="cv-item">
+            <div class="cv-title">Research Assistant</div>
+            <div class="cv-organization">Oxford Department of International Development (U.K.)</div>
+            <div class="cv-date">August 2020 – August 2021</div>
+            <div class="cv-bullet">• Co-authored 2 policy briefs on content moderation, platform regulation, and misinformation</div>
+            <div class="cv-bullet">• Co-facilitated a multi-stakeholder workshop with 20+ participants from U.K. government agencies, technology companies (including Facebook), and civil society organisations</div>
+          </div>
+        </section>
+
+        <!-- SCHOLARSHIPS & AWARDS -->
+        <section id="awards" class="cv-section">
+          <h2 class="text-2xl font-semibold mb-6">Select Scholarships and Awards</h2>
+          
+          <div class="award-item">
+            <div class="award-title"><a href="https://www.trudeaufoundation.ca/member/roxana-akhmetova" target="_blank" style="color: #ffffff; text-decoration: underline;">The Pierre Elliott Trudeau Foundation Scholarship</a></div>
+            <div class="award-amount">$180,000 | 2021</div>
+            <p class="cv-description">Funding to support the advancement of outstanding, top 2.5% cutting-edge PhDs.</p>
+          </div>
+
+          <div class="award-item">
+            <div class="award-title"><a href="https://search.open.canada.ca/grants/record/sshrc-crsh%2C207-2021-2022-Q1-01468%2Ccurrent" target="_blank" style="color: #ffffff; text-decoration: underline;">Doctoral Fellowship</a></div>
+            <div class="award-amount">$93,000 | Canadian Social Sciences and Humanities Research Council (SSHRC) | 2021</div>
+            <p class="cv-description">Funding for high-calibre students engaged in doctoral programs in the social sciences.</p>
+          </div>
+
+          <div class="award-item">
+            <div class="award-title">Sloane Robinson Graduate Scholarship</div>
+            <div class="award-amount">£23,000 | Keble College, University of Oxford | 2020</div>
+            <p class="cv-description">Support for graduate studies at Keble College.</p>
+          </div>
+
+          <div class="award-item">
+            <div class="award-title">Joseph Armand Bombardier Canada Graduate Scholarship</div>
+            <div class="award-amount">$17,000 | SSHRC | 2018</div>
+            <p class="cv-description">Master's degree funding for research on the role of Canadian newcomers in Reconciliation with Indigenous Peoples.</p>
+          </div>
+
+          <div class="award-item">
+            <div class="award-title">Ethnography Travel Awards</div>
+            <div class="award-amount">£2,000 | Oxford School of Anthropology & Museum Ethnography | 2022 and 2023</div>
+            <p class="cv-description">Two £1,000 awards to support fieldwork at border security expos and visits to 2 border sites.</p>
+          </div>
+        </section>
+
+        <!-- PUBLICATIONS -->
+        <section id="publications" class="cv-section">
+          <h2 class="text-2xl font-semibold mb-6">Publications</h2>
+          
+          <div class="publication-item">
+            <p class="cv-description">Akhmetova, R. (2025), "Challenging Mandated AI in the Public Sector" in <em>The State of AI Ethics Report (Volume 7)</em>, Montreal AI Ethics Institute.</p>
+          </div>
+
+          <div class="publication-item">
+            <p class="cv-description">Akhmetova, R. and Harris, E. (2021), "Politics of Technology: The Use of Artificial Intelligence by US and Canadian Immigration Agencies and their Impacts on Human Rights" in <em>Digital Identity, Virtual Borders and Social Media</em>, E. Korkmaz (Ed.).</p>
+          </div>
+
+          <div class="publication-item">
+            <p class="cv-description">Korkmaz, E. et al. (2021), "Digital Citizenship in Turkey". Working Paper. TMCD Working Paper Series No 83.</p>
+          </div>
+
+          <div class="publication-item">
+            <p class="cv-description">Akhmetova, R. (2020), "On How Governments Use Artificial Intelligence in Immigration". Oxford COMPAS Working Paper Series.</p>
+          </div>
+
+          <div class="publication-item">
+            <p class="cv-description">Akhmetova, R. (2020), "How AI Is Being Used in Canada's Immigration Decision-Making". Blog. University of Oxford's Centre on Migration, Policy, and Society.</p>
+          </div>
+        </section>
+
+        <!-- RESEARCH SKILLS -->
+        <section id="skills" class="cv-section">
+          <h2 class="text-2xl font-semibold mb-6">Key Research Skills & Interests</h2>
+          
+          <h3 class="text-lg font-semibold mb-3" style="margin-top: 16px;">Research Methods</h3>
+          <p class="cv-description">Qualitative interviewing; interview design; institutional and policy ethnography; document and policy analysis; qualitative coding; thematic analysis.</p>
+
+          <h3 class="text-lg font-semibold mb-3" style="margin-top: 16px;">Research Interests</h3>
+          <p class="cv-description">AI governance; sociotechnical systems; algorithmic accountability; public sector automation; organisational ethnography; AI law and policy; AI transparency; human-AI interaction.</p>
+
+          <h3 class="text-lg font-semibold mb-3" style="margin-top: 16px;">Policy & Governance Analysis</h3>
+          <p class="cv-description">Algorithmic impact evaluation; AI risk assessment; evaluation of public-sector automation; analysis of regulatory processes; technology governance; comparative policy analysis.</p>
+
+          <h3 class="text-lg font-semibold mb-3" style="margin-top: 16px;">Technical Skills</h3>
+          <p class="cv-description">STATA; NVivo; R; Git/GitHub; Web development (HTML, CSS, JavaScript); Zotero/Mendeley.</p>
+        </section>
+
+        <!-- CONFERENCE PROCEEDINGS -->
+        <section id="conferences" class="cv-section">
+          <h2 class="text-2xl font-semibold mb-6">Conference Proceedings</h2>
+          
+          <div class="cv-item">
+            <div class="cv-title">25th Annual Family Law Conference (South Africa)</div>
+            <div class="cv-date">April 2023</div>
+            <p class="cv-description">"Use of Artificial Intelligence in Legal Practice: Benefits and Drawbacks"</p>
+          </div>
+
+          <div class="cv-item">
+            <div class="cv-title">International Bar Association Annual Conference (U.S.)</div>
+            <div class="cv-date">November 2022</div>
+            <p class="cv-description">"Artificial Intelligence as the Decision Maker in Immigration Proceedings"</p>
+          </div>
+
+          <div class="cv-item">
+            <div class="cv-title">Rising Up: A Graduate Student Conference on Indigenous Knowledge and Research (Canada)</div>
+            <div class="cv-date">March 2019</div>
+            <p class="cv-description">"Refugee/Newcomer and Indigenous Relations"</p>
+          </div>
+        </section>
+
+        <!-- TEACHING -->
+        <section id="teaching" class="cv-section">
+          <h2 class="text-2xl font-semibold mb-6">Teaching Experience & Public Outreach</h2>
+          
+          <div class="cv-item">
+            <div class="cv-title">Inclusive AI Workshop</div>
+            <div class="cv-organization">Institute for Ethics in Technology (Germany – remote)</div>
+            <div class="cv-date">2024</div>
+            <p class="cv-description">Designed and delivered full-day workshop content on inclusive AI design and development for 50 AI professionals.</p>
+          </div>
+
+          <div class="cv-item">
+            <div class="cv-title">POLS-7300: Comparative Indigenous Politics Seminar</div>
+            <div class="cv-organization">University of Manitoba (Canada)</div>
+            <div class="cv-date">2018</div>
+            <p class="cv-description">Led graduate-level seminar discussions for 7 students over 1 semester.</p>
+          </div>
+        </section>
       </div>
-
-      <div class="cv-item">
-        <div class="cv-title">MSc in Migration Studies</div>
-        <div class="cv-organization">University of Oxford</div>
-        <div class="cv-date">2019 – 2020</div>
-        <p class="cv-description">Desk research on use of AI in Canadian immigration and border control. Supervised by Dr Lena Rose.</p>
-      </div>
-
-      <div class="cv-item">
-        <div class="cv-title">MA in Political Studies</div>
-        <div class="cv-organization">University of Manitoba</div>
-        <div class="cv-date">2017 – 2019</div>
-        <p class="cv-description">Thesis: Examined the role of recent newcomers to Canada in Reconciliation with Indigenous Peoples.</p>
-      </div>
-
-      <div class="cv-item">
-        <div class="cv-title">BA (Honors) in Political Science</div>
-        <div class="cv-organization">University of Winnipeg</div>
-        <div class="cv-date">2013 – 2017</div>
-        <p class="cv-description">15 awards, scholarships, and distinctions.</p>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="cv-section">
-      <h2 class="text-2xl font-semibold mb-6">Experience</h2>
-      
-      <div class="cv-item">
-        <div class="cv-title">AI Safety Policy Fellow</div>
-        <div class="cv-organization">AI Safety Initiative at Georgia Tech (U.S. – remote)</div>
-        <div class="cv-date">September 2025 – November 2025</div>
-        <div class="cv-bullet">• Tracked congressional legislation and monitored regulatory proceedings across Commerce Department, Department of State, and NTIA on semiconductor export controls and CHIPS Act</div>
-        <div class="cv-bullet">• Conducted policy research on AI compute security and dual-use technology governance</div>
-      </div>
-
-      <div class="cv-item">
-        <div class="cv-title">Founder and Chair</div>
-        <div class="cv-organization">Oxford AI Gala (U.K.)</div>
-        <div class="cv-date">June 2024 – June 2025</div>
-        <div class="cv-bullet">• Founded inaugural AI governance conference with 200+ senior stakeholders including government officials and C-suite executives</div>
-        <div class="cv-bullet">• Built and managed relations with Anthropic as title sponsor and speakers from Anthropic, Sony AI, RAND Europe, Tony Blair Institute, and University of Oxford academic partners</div>
-        <div class="cv-bullet">• Set thematic agenda on AI governance and moderated the AI governance panel</div>
-      </div>
-
-      <div class="cv-item">
-        <div class="cv-title">President</div>
-        <div class="cv-organization">Oxford Artificial Intelligence Society (U.K.)</div>
-        <div class="cv-date">April 2022 – May 2023</div>
-        <div class="cv-bullet">• Led Europe's largest AI student society, managing 7 cross-functional teams and recognised as 2023 'U.K. Society of the Year'</div>
-        <div class="cv-bullet">• Facilitated $60,000 Amazon compute grant for AI bias research by building corporate partnerships</div>
-        <div class="cv-bullet">• Developed and managed a mentorship programme connecting 87 students with 66 professionals from Microsoft, Google, Apple, and QuantumBlack</div>
-      </div>
-
-      <div class="cv-item">
-        <div class="cv-title">Research Assistant</div>
-        <div class="cv-organization">Oxford Department of International Development (U.K.)</div>
-        <div class="cv-date">August 2020 – August 2021</div>
-        <div class="cv-bullet">• Co-authored 2 policy briefs on content moderation, platform regulation, and misinformation</div>
-        <div class="cv-bullet">• Co-facilitated a multi-stakeholder workshop with 20+ participants from U.K. government agencies, technology companies (including Facebook), and civil society organisations</div>
-      </div>
-    </section>
-
-    <!-- SCHOLARSHIPS & AWARDS -->
-    <section class="cv-section">
-      <h2 class="text-2xl font-semibold mb-6">Select Scholarships and Awards</h2>
-      
-      <div class="award-item">
-        <div class="award-title">The Pierre Elliott Trudeau Foundation Scholarship</div>
-        <div class="award-amount">$180,000 | 2021</div>
-        <p class="cv-description">Funding to support the advancement of outstanding, top 2.5% cutting-edge PhDs.</p>
-      </div>
-
-      <div class="award-item">
-        <div class="award-title">Doctoral Fellowship</div>
-        <div class="award-amount">$93,000 | Canadian Social Sciences and Humanities Research Council (SSHRC) | 2021</div>
-        <p class="cv-description">Funding for high-calibre students engaged in doctoral programs in the social sciences.</p>
-      </div>
-
-      <div class="award-item">
-        <div class="award-title">Sloane Robinson Graduate Scholarship</div>
-        <div class="award-amount">£23,000 | Keble College, University of Oxford | 2020</div>
-        <p class="cv-description">Support for graduate studies at Keble College.</p>
-      </div>
-
-      <div class="award-item">
-        <div class="award-title">Joseph Armand Bombardier Canada Graduate Scholarship</div>
-        <div class="award-amount">$17,000 | SSHRC | 2018</div>
-        <p class="cv-description">Master's degree funding for research on the role of Canadian newcomers in Reconciliation with Indigenous Peoples.</p>
-      </div>
-
-      <div class="award-item">
-        <div class="award-title">Ethnography Travel Awards</div>
-        <div class="award-amount">£2,000 | Oxford School of Anthropology & Museum Ethnography | 2022 and 2023</div>
-        <p class="cv-description">Two £1,000 awards to support fieldwork at border security expos and visits to 2 border sites.</p>
-      </div>
-    </section>
-
-    <!-- PUBLICATIONS -->
-    <section class="cv-section">
-      <h2 class="text-2xl font-semibold mb-6">Publications</h2>
-      
-      <div class="publication-item">
-        <p class="cv-description">Akhmetova, R. (2025), "Challenging Mandated AI in the Public Sector" in <em>The State of AI Ethics Report (Volume 7)</em>, Montreal AI Ethics Institute.</p>
-      </div>
-
-      <div class="publication-item">
-        <p class="cv-description">Akhmetova, R. and Harris, E. (2021), "Politics of Technology: The Use of Artificial Intelligence by US and Canadian Immigration Agencies and their Impacts on Human Rights" in <em>Digital Identity, Virtual Borders and Social Media</em>, E. Korkmaz (Ed.).</p>
-      </div>
-
-      <div class="publication-item">
-        <p class="cv-description">Korkmaz, E. et al. (2021), "Digital Citizenship in Turkey". Working Paper. TMCD Working Paper Series No 83.</p>
-      </div>
-
-      <div class="publication-item">
-        <p class="cv-description">Akhmetova, R. (2020), "On How Governments Use Artificial Intelligence in Immigration". Oxford COMPAS Working Paper Series.</p>
-      </div>
-
-      <div class="publication-item">
-        <p class="cv-description">Akhmetova, R. (2020), "How AI Is Being Used in Canada's Immigration Decision-Making". Blog. University of Oxford's Centre on Migration, Policy, and Society.</p>
-      </div>
-    </section>
-
-    <!-- RESEARCH SKILLS -->
-    <section class="cv-section">
-      <h2 class="text-2xl font-semibold mb-6">Key Research Skills & Interests</h2>
-      
-      <h3 class="text-lg font-semibold mb-3" style="margin-top: 16px;">Research Methods</h3>
-      <p class="cv-description">Qualitative interviewing; interview design; institutional and policy ethnography; document and policy analysis; qualitative coding; thematic analysis.</p>
-
-      <h3 class="text-lg font-semibold mb-3" style="margin-top: 16px;">Research Interests</h3>
-      <p class="cv-description">AI governance; sociotechnical systems; algorithmic accountability; public sector automation; organisational ethnography; AI law and policy; AI transparency; human-AI interaction.</p>
-
-      <h3 class="text-lg font-semibold mb-3" style="margin-top: 16px;">Policy & Governance Analysis</h3>
-      <p class="cv-description">Algorithmic impact evaluation; AI risk assessment; evaluation of public-sector automation; analysis of regulatory processes; technology governance; comparative policy analysis.</p>
-
-      <h3 class="text-lg font-semibold mb-3" style="margin-top: 16px;">Technical Skills</h3>
-      <p class="cv-description">STATA; NVivo; R; Git/GitHub; Web development (HTML, CSS, JavaScript); Zotero/Mendeley.</p>
-    </section>
-
-    <!-- CONFERENCE PROCEEDINGS -->
-    <section class="cv-section">
-      <h2 class="text-2xl font-semibold mb-6">Conference Proceedings</h2>
-      
-      <div class="cv-item">
-        <div class="cv-title">25th Annual Family Law Conference (South Africa)</div>
-        <div class="cv-date">April 2023</div>
-        <p class="cv-description">"Use of Artificial Intelligence in Legal Practice: Benefits and Drawbacks"</p>
-      </div>
-
-      <div class="cv-item">
-        <div class="cv-title">International Bar Association Annual Conference (U.S.)</div>
-        <div class="cv-date">November 2022</div>
-        <p class="cv-description">"Artificial Intelligence as the Decision Maker in Immigration Proceedings"</p>
-      </div>
-
-      <div class="cv-item">
-        <div class="cv-title">Rising Up: A Graduate Student Conference on Indigenous Knowledge and Research (Canada)</div>
-        <div class="cv-date">March 2019</div>
-        <p class="cv-description">"Refugee/Newcomer and Indigenous Relations"</p>
-      </div>
-    </section>
-
-    <!-- TEACHING -->
-    <section class="cv-section">
-      <h2 class="text-2xl font-semibold mb-6">Teaching Experience & Public Outreach</h2>
-      
-      <div class="cv-item">
-        <div class="cv-title">Inclusive AI Workshop</div>
-        <div class="cv-organization">Institute for Ethics in Technology (Germany – remote)</div>
-        <div class="cv-date">2024</div>
-        <p class="cv-description">Designed and delivered full-day workshop content on inclusive AI design and development for 50 AI professionals.</p>
-      </div>
-
-      <div class="cv-item">
-        <div class="cv-title">POLS-7300: Comparative Indigenous Politics Seminar</div>
-        <div class="cv-organization">University of Manitoba (Canada)</div>
-        <div class="cv-date">2018</div>
-        <p class="cv-description">Led graduate-level seminar discussions for 7 students over 1 semester.</p>
-      </div>
-    </section>
+    </div>
 
   </main>
   <custom-footer></custom-footer>
   <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
   <script src="https://roxanaakhmetova.com/components/footer.js"></script>
+  
+  <script>
+    // Smooth scroll and active state for side nav
+    document.querySelectorAll('.side-nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          
+          // Update active state
+          document.querySelectorAll('.side-nav a').forEach(l => l.classList.remove('active'));
+          this.classList.add('active');
+        }
+      });
+    });
+    
+    // Update active state on scroll
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('.cv-section');
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        if (window.pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      document.querySelectorAll('.side-nav a').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
