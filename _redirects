@@ -1,12 +1,22 @@
+# Redirect www to non-www and force HTTPS
+https://www.roxanaakhmetova.com/*  https://roxanaakhmetova.com/:splat  301!
+http://www.roxanaakhmetova.com/*   https://roxanaakhmetova.com/:splat  301!
+http://roxanaakhmetova.com/*       https://roxanaakhmetova.com/:splat  301!
+
+# Redirect index to root
 /index              /               301
-/blog               /blog.html      200
-/contact            /contact.html   200
-/bio                /bio.html       200
-/consulting         /consulting.html 200
-/publications       /publications.html 200
-/education          /education.html 200
-/awards             /awards.html    200
-/current-projects   /current-projects.html 200
-/past-projects      /past-projects.html 200
-/oxford-ai-gala     /oxford-ai-gala.html 200
-/oxford-ai-leadership /oxford-ai-leadership.html 200
+
+# Redirect old .html URLs to clean URLs
+/blog.html                    /blog                   301
+/contact.html                 /contact                301
+/bio.html                     /bio                    301
+/consulting.html              /consulting             301
+/oxford-ai-gala.html          /oxford-ai-gala         301
+/oxford-ai-leadership.html    /oxford-ai-leadership   301
+
+# Redirect archived pages to relevant current pages
+/awards             /bio                301
+/publications       /bio                301
+/education          /bio                301
+/current-projects   /projects           301
+/past-projects      /projects           301
