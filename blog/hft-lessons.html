@@ -167,26 +167,13 @@
     <div class="post-date">September 29, 2025</div>
 
     <div class="post-content">
-      <p>On May 6, 2010, the U.S. stock market lost nearly $1 trillion in value in minutes before partially recovering, all driven by automated trading algorithms operating faster than humans could comprehend, let alone control. The "Flash Crash" revealed a fundamental problem: when systems operate at machine speed, human oversight becomes structurally impossible. This same challenge now confronts AI governance.</p>
+      <p>On May 6, 2010, the U.S. stock market lost nearly $1 trillion in value in minutes before partially recovering, all driven by automated trading algorithms. Yet, human oversight and circuit breakers were already in place, but neither could react in time to stop automated trading systems from making billions of trades within seconds.</p>
 
-      <p>Between the 2000s and 2010s, financial markets adopted autonomous trading tools, algorithmic decision rules and statistical models that could make and cancel orders at microsecond to millisecond timescales. These algorithms could detect tiny price discrepancies and execute decisions based on them before human traders could even perceive the opportunity.</p>
+      <p>As algorithmic tools were gaining popularity between 2000 and 2010s, the finance world kept up by adopting autonomous trading tools to make and cancel orders automatically. Fintech AI operated at microsecond to millisecond timescales. By the time humans notice a problem and respond, the automated system has already made millions of trades. Algorithmic decision rules and statistical models could pick up on small price discrepancies and make fast decisions. Regulators didn't have visibility into automated trading because algorithms were proprietary and couldn't be audited. Safeguards and existing frameworks assumed human-in-the-loop who could trigger manual interventions, but regulators couldn't intervene in real time because there weren't any automated safety mechanisms for microsecond-timescale decisions.</p>
 
-      <p>The governance gap was severe. No single institution had visibility into these automated interactions. Regulators faced extreme informational asymmetry because trading firms' algorithms were proprietary, making it nearly impossible to audit their behavior. Governance mechanisms operated on human and bureaucratic timescales, hours, days, weeks, while the system dynamics happened in microseconds.</p>
+      <p>After the crash, regulators adopted circuit breakers and other market controls that could pause the system if prices move rapidly again. Regulators and exchanges also started to share data and monitor markets together in real-time instead of working separately.</p>
 
-      <p>Human oversight became essentially impossible. The safeguards and frameworks already in place assumed human-in-the-loop decision-making and manual interventions. There weren't mechanisms that could act fast enough to catch automated trading cascades. Regulators couldn't intervene in real time, and markets lacked automated safety mechanisms designed for microsecond-timescale decisions. The Flash Crash was the inevitable result.</p>
-
-      <strong>After the crash:</strong>
-      <p>Regulators introduced circuit breakers and other market controls that could automatically pause the system if prices moved too rapidly, limiting order cancellation cascades. Post-crash reforms also created joint monitoring protocols and mandatory data-sharing between regulators and exchanges. These weren't perfect solutions, but they acknowledged a key insight: you can't govern machine-speed systems with human-speed oversight alone.</p>
-
-      <strong>Advanced AI systems are outpacing regulation in similar ways:</strong>
-      <p>The 2010 market crash demonstrated that when systems operate faster than human oversight can respond, we need preventative automated safety mechanisms. AI regulation is currently following a similar trajectory, largely reactive, waiting for a major crisis to trigger serious intervention. But advanced AI systems are already operating at scales and speeds that exceed traditional regulatory capacity.</p>
-
-      <p>We need AI equivalents of circuit breakers: capability registries that track what systems can do, mandatory audit trails that record decision-making processes, shared telemetry between developers and regulators, automated oversight systems that can flag anomalies in real time, and transnational safety boards empowered to intervene at machine speed before harms cascade. The alternative is waiting for AI's "Flash Crash" moment, except with potentially higher stakes than financial markets.</p>
-
-      <strong>Incentives and governance:</strong>
-      <p>Financial markets also taught us that safety requires aligning incentives. Post-Flash Crash reforms didn't just add technical safeguards, they restructured market incentives to reward caution over pure speed. This included trading fees on high-frequency strategies, liability frameworks for cascade failures, and mandatory safety certifications.</p>
-
-      <p>AI governance needs similar incentive structures. Labs currently face competitive pressure to deploy faster, not safer. Without mechanisms that reward thorough testing, transparency, and cautious deployment, or impose meaningful costs on failures, we're recreating the pre-2010 financial environment where speed was everything and safety was someone else's problem. The question isn't whether we'll learn these lessons, but whether we'll learn them before or after a crisis.</p>
+      <p>Advanced AIs are outpacing regulation in a similar way. This 2010 crash showed that systems that operate faster than human oversight need automated safety mechanisms. AI regulations are lagging behind, and may be similarly reactive in nature, waiting for a big crisis to trigger serious regulation. Advanced AI may require AI 'circuit breakers,' capability registries, mandatory audit trails, shared telemetry, automated oversight systems, or transnational safety boards to intervene at machine speed before harms occur.</p>
     </div>
 
     <div class="blog-post-tags">
@@ -253,23 +240,6 @@
         setTimeout(() => { btn.innerHTML = originalText; }, 2000);
       });
     }
-  </script>
-
-  <script>
-    document.addEventListener('selectstart', e => e.preventDefault());
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-      if (
-        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
-        (e.ctrlKey && e.key === 'p')
-      ) {
-        e.preventDefault();
-      }
-    });
-    document.body.style.userSelect = 'none';
   </script>
 
 </body>
