@@ -272,7 +272,6 @@ class CustomNavbar extends HTMLElement {
                 <a href="/oxford-ai-leadership">Oxford AI Leadership</a>
               </div>
             </div>
-            <a href="/blog">Blog</a>
             <a href="/bio">Bio</a>
             <a href="/cv">CV</a>
             <a href="/contact" class="cta-link">Contact</a>
