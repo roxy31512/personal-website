@@ -32,7 +32,7 @@
   <style>
     main { max-width: 800px; margin: 4.5rem auto; padding: 1.25rem; line-height: 1.8; }
     h1 { font-size: 2.5rem; margin-bottom: 1.25rem; border-bottom: 3px solid #e6eefb; display: inline-block; color: #f7f7f8; font-weight: 600; }
-    h2 { font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; color: #f7f7f8; font-weight: 600; }
+    h2 { font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; color: #9fc0ff; font-weight: 600; }
     p { margin-bottom: 1.25rem; color: #e6e6e6; font-size: 1.05rem; }
     a { color: #9fc0ff; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s; }
     a:hover { border-bottom-color: #9fc0ff; }
@@ -162,9 +162,7 @@
     <h2>Request a Call</h2>
     <p>Tell me a bit about yourself and what you are working on. I will review your request and follow up with a booking link if it is a good fit.</p>
 
-    <form id="launch-form">
-      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
-      <input type="hidden" name="subject" value="15 Minutes to Launch — New Request" />
+    <form id="launch-form" action="https://formspree.io/f/xovpyqww" method="POST">
       <input type="checkbox" name="botcheck" style="display:none" />
 
       <div class="form-row">
@@ -211,25 +209,25 @@
       status.textContent = '';
       status.className = '';
 
-      const data = Object.fromEntries(new FormData(form));
+      const formData = new FormData(form);
 
       try {
-        const res  = await fetch('https://api.web3forms.com/submit', {
+        const res = await fetch(form.action, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(data)
+          body: formData,
+          headers: { 'Accept': 'application/json' }
         });
-        const json = await res.json();
 
         if (res.ok) {
           status.textContent = "Got it. I'll review your request and be in touch.";
           status.className = 'success';
           form.reset();
         } else {
-          throw new Error(json.message || 'Something went wrong.');
+          status.textContent = 'There was a problem sending your request. Please try again.';
+          status.className = 'error';
         }
       } catch (err) {
-        status.textContent = err.message;
+        status.textContent = 'Network error. Please check your connection and try again.';
         status.className = 'error';
       } finally {
         btn.disabled = false;
