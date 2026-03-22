@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>15 Minutes to Launch</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ---- Layout ---- */
+    .launch-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1rem 5rem;
+    }
+
+    /* ---- Intro block ---- */
+    .launch-intro {
+      margin-bottom: 3rem;
+    }
+
+    .launch-intro p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .launch-intro p.lead-line {
+      color: var(--text);
+      font-size: 1.15rem;
+      font-weight: 400;
+    }
+
+    /* ---- Topics ---- */
+    .topics {
+      margin: 2rem 0;
+    }
+
+    .topics h3 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .topic-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .topic-list li {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 0.65rem 1rem;
+      color: var(--text);
+      font-size: 0.97rem;
+    }
+
+    /* ---- Fine print ---- */
+    .fine-print {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .fine-print p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ---- Divider ---- */
+    .section-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin: 3rem 0;
+    }
+
+    /* ---- Form ---- */
+    .form-heading {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-subhead {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 0.45rem;
+      letter-spacing: 0.02em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 1rem;
+      padding: 0.7rem 0.9rem;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      box-sizing: border-box;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(154,164,173,0.45);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(35,78,133,0.25);
+    }
+
+    .form-group textarea {
+      min-height: 110px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 560px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    button[type="submit"] {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.6rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s ease, opacity 0.15s ease;
+      margin-top: 0.25rem;
+    }
+
+    button[type="submit"]:hover { background: #1c3f6c; }
+    button[type="submit"]:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    #form-status {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    #form-status.success { color: #6fcf97; }
+    #form-status.error   { color: #eb5757; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar goes here (copy from your other pages) -->
+
+  <div class="site-banner">
+    <div class="banner-inner">
+      <h2>15 Minutes to Launch</h2>
+      <p>Free advice for people ready to move.</p>
+    </div>
+  </div>
+
+  <main>
+    <div class="launch-wrap">
+
+      <!-- Intro -->
+      <div class="launch-intro">
+        <p class="lead-line">
+          If you are trying to break into AI governance or policy, are an aspiring doctoral researcher, or want guidance on immigration and border control research, my calendar is open for a free 15-minute call.
+        </p>
+        <p>
+          I recently completed a DPhil and MSc at the University of Oxford on the use of AI in high-stakes bureaucratic decision-making, with a focus on immigration and border control. I also hold an MA from Canada in Politics on the role of newcomers in reconciliation efforts with Indigenous peoples.
+        </p>
+        <p>
+          I secured $300k+ in doctoral funding, led Europe's largest AI student society (Society of the Year under my leadership), helped a team win a $60k Amazon grant for AI bias research, and founded an AI governance conference at Oxford with Anthropic as title sponsor. I also developed and scaled a DEI AI mentorship scheme connecting Oxford students with mentors from big tech.
+        </p>
+        <p>
+          I know how much a single 15-minute conversation can do for someone's direction and confidence. This is my way of paying that forward.
+        </p>
+
+        <!-- Topics -->
+        <div class="topics">
+          <h3>Topics I can speak to</h3>
+          <ul class="topic-list">
+            <li>AI governance and policy fellowships</li>
+            <li>Immigration and border control research and methodology</li>
+            <li>University of Oxford applications, student life, and college differences (I cannot review your application)</li>
+            <li>Scholarships for PhD students in Canada and for Canadians abroad</li>
+          </ul>
+        </div>
+
+        <!-- Fine print -->
+        <div class="fine-print">
+          <p>The 15-minute slot is strict. I cannot go over that time.</p>
+          <p>This is free. I will not charge for this.</p>
+          <p>I am not guaranteeing any outcome, a job, a fellowship spot, or a university admission. This is free advice.</p>
+          <p>If I consider a request to be spam, off-topic, or missing key information, I will decline it at my own discretion.</p>
+          <p>The views I share in these calls are my own and do not reflect those of any past or present employer.</p>
+          <p>I am not collecting data from these calls. If you know someone who might benefit, please pass this along.</p>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- Form -->
+      <p class="form-heading">Request a Call</p>
+      <p class="form-subhead">Tell me a bit about yourself and what you are working on. I will review your request and follow up with a booking link if it is a good fit.</p>
+
+      <form id="launch-form">
+        <!-- Replace YOUR_ACCESS_KEY at web3forms.com (free, no account needed) -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
+        <input type="hidden" name="subject" value="15 Minutes to Launch — New Request" />
+        <input type="checkbox" name="botcheck" style="display:none" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="challenge">What is your #1 challenge?</label>
+          <textarea id="challenge" name="challenge" placeholder="What are you trying to figure out or get past?" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="tried">What have you already tried?</label>
+          <textarea id="tried" name="tried" placeholder="What have you done so far to work on this?"></textarea>
+        </div>
+
+        <button type="submit" id="submit-btn">Send Request</button>
+        <p id="form-status" aria-live="polite"></p>
+      </form>
+
+    </div>
+  </main>
+
+  <!-- Footer goes here (copy from your other pages) -->
+
+  <script>
+    const form   = document.getElementById('launch-form');
+    const btn    = document.getElementById('submit-btn');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      status.textContent = '';
+      status.className = '';
+
+      const data = Object.fromEntries(new FormData(form));
+
+      try {
+        const res  = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const json = await res.json();
+
+        if (res.ok) {
+          status.textContent = "Got it. I'll review your request and be in touch.";
+          status.className = 'success';
+          form.reset();
+        } else {
+          throw new Error(json.message || 'Something went wrong.');
+        }
+      } catch (err) {
+        status.textContent = err.message;
+        status.className = 'error';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Send Request';
+      }
+    });
+  </script>
+
+</body>
+</html>
