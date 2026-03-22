@@ -38,22 +38,36 @@
     a:hover { border-bottom-color: #9fc0ff; }
 
     /* Topics list */
-    .topic-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 1.25rem;
     }
-    .topic-list li {
+    .topic-card {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 8px;
-      padding: 0.65rem 1rem;
-      color: #e6e6e6;
-      font-size: 1.05rem;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      transition: border-color 0.2s;
     }
+    .topic-card:hover { border-color: #378add; }
+    .topic-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(55,138,221,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .topic-icon svg { width: 16px; height: 16px; stroke: #9fc0ff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .topic-card p { font-size: 1rem; color: #e6e6e6; margin: 0; line-height: 1.5; }
+    @media (max-width: 560px) { .topic-grid { grid-template-columns: 1fr; } }
 
     /* Fine print */
     .fine-print p {
@@ -142,12 +156,24 @@
     </p>
 
     <h2>Topics I can speak to</h2>
-    <ul class="topic-list">
-      <li>AI governance and policy fellowships</li>
-      <li>Immigration and border control research and methodology</li>
-      <li>University of Oxford applications, student life, and college differences (I cannot review your application)</li>
-      <li>Scholarships for PhD students in Canada and for Canadians abroad</li>
-    </ul>
+    <div class="topic-grid">
+      <div class="topic-card">
+        <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <p>AI governance and policy fellowships</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <p>Immigration and border control research and methodology</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <p>University of Oxford applications, student life, and college differences (I cannot review your application)</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+        <p>Scholarships for PhD students in Canada and for Canadians abroad</p>
+      </div>
+    </div>
 
     <h2>A few things to note</h2>
     <div class="fine-print">
