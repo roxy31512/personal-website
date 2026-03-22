@@ -112,17 +112,6 @@ class CustomNavbar extends HTMLElement {
           background: rgba(159,192,255,0.2) !important;
         }
 
-        .launch-link {
-          background: rgba(35,78,133,0.25);
-          border: 1px solid rgba(35,78,133,0.6);
-          color: #a8c4f0 !important;
-          white-space: nowrap;
-        }
-
-        .launch-link:hover {
-          background: rgba(35,78,133,0.45) !important;
-          color: #fff !important;
-        }
 
         .dropdown {
           position: relative;
@@ -286,7 +275,7 @@ class CustomNavbar extends HTMLElement {
             </div>
             <a href="/bio">Bio</a>
             <a href="/cv">CV</a>
-            <a href="/15-minutes-to-launch" class="launch-link">15 Minutes to Launch</a>
+            <a href="/15-minutes-to-launch">15 Minutes to Launch</a>
             <a href="/contact" class="cta-link">Contact</a>
           </nav>
 
