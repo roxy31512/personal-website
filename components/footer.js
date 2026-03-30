@@ -4,7 +4,7 @@ class CustomFooter extends HTMLElement {
     this.innerHTML = `
       <footer class="bg-transparent border-t mt-12">
         <div class="container mx-auto px-4 py-6 text-center text-sm text-gray-400">
-          <span>&copy; ${new Date().getFullYear()} Roxana Akhmetova &nbsp;·&nbsp; Hand-coded by Roxana Akhmetova</span>
+          <span>&copy; ${new Date().getFullYear()} Roxana Akhmetova &nbsp;·&nbsp; Coded by Roxana Akhmetova</span>
         </div>
       </footer>
     `;
