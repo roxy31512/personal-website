@@ -275,7 +275,7 @@ class CustomNavbar extends HTMLElement {
             </div>
             <a href="/bio">Bio</a>
             <a href="/cv">CV</a>
-            <a href="/15-minutes-to-launch">15 Minutes to Launch</a>
+            <a href="/mentorship">Mentorship</a>
             <a href="/contact" class="cta-link">Contact</a>
           </nav>
 
