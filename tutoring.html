@@ -70,6 +70,31 @@
       padding: 12px 0;
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
+    .glance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .glance-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .glance-item .glance-label {
+      color: #9fc0ff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .glance-item .glance-value {
+      color: #f0f4ff;
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body class="text-light font-sans">
@@ -78,58 +103,82 @@
     <h1 class="text-4xl font-semibold mb-6">Tutoring</h1>
 
     <div style="margin-bottom: 24px;">
-      <span class="credential-badge">Oxford DPhil, Social Sciences</span>
+      <span class="credential-badge">Oxford PhD, Social Sciences</span>
       <span class="credential-badge">Pierre Elliott Trudeau Foundation Scholar</span>
       <span class="credential-badge">Former President, Oxford AI Society</span>
     </div>
 
     <p class="text-xl text-gray-300 mb-12" style="color: #d8e1eb; line-height: 1.8;">
-      I work with students on graduate school applications, academic writing, and coursework in political science, international relations, and technology policy. My own path through a DPhil, multiple national scholarships, and academic publishing means I can speak to both the writing and the process from direct experience.
+      I work with undergraduate students on essays in political science, international relations, and technology policy. I help with structuring arguments, working with evidence, and turning research into clear, well-organized prose.
     </p>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-6" style="color: #ffffff;">Me at a Glance</h2>
+      <div class="glance-grid">
+        <div class="glance-item">
+          <div class="glance-label">Education</div>
+          <div class="glance-value">PhD, Social Sciences, University of Oxford</div>
+        </div>
+        <div class="glance-item">
+          <div class="glance-label">Field</div>
+          <div class="glance-value">Political science, migration, and AI governance</div>
+        </div>
+        <div class="glance-item">
+          <div class="glance-label">Teaching & Mentoring</div>
+          <div class="glance-value">AI Governance Mentor, Harvard-MIT Impact Research Initiative</div>
+        </div>
+        <div class="glance-item">
+          <div class="glance-label">Publications</div>
+          <div class="glance-value">Peer-reviewed chapters and working papers on AI, migration, and border governance</div>
+        </div>
+        <div class="glance-item">
+          <div class="glance-label">Scholarships</div>
+          <div class="glance-value">Pierre Elliott Trudeau Foundation, SSHRC Doctoral Fellowship</div>
+        </div>
+        <div class="glance-item">
+          <div class="glance-label">Based In</div>
+          <div class="glance-value">Oxford, UK</div>
+        </div>
+      </div>
+    </section>
 
     <section class="mb-12">
       <h2 class="text-2xl font-semibold mb-6" style="color: #ffffff;">What I Offer</h2>
 
       <div class="service-card">
-        <h3>Graduate School & Scholarship Applications</h3>
-        <p>Support with personal statements, research proposals, and interview preparation for graduate programs and competitive scholarships. I've been through the Trudeau Foundation, SSHRC, and Oxford college scholarship processes myself, and I know what selection committees are looking for in a research proposal.</p>
+        <h3>Essay Structure & Argument</h3>
+        <p>Help with building a clear thesis, organizing paragraphs around a coherent line of argument, and making sure each section does the work it needs to do.</p>
       </div>
 
       <div class="service-card">
-        <h3>Academic Writing & Dissertation Coaching</h3>
-        <p>One-on-one support for undergraduate and graduate students working on essays, theses, or dissertations in political science, international relations, or related social sciences. I help with structuring arguments, working with qualitative evidence, and turning research into readable prose.</p>
+        <h3>Working with Evidence</h3>
+        <p>Guidance on selecting and using sources effectively, integrating evidence into an argument rather than just listing it, and avoiding common pitfalls in citation and referencing.</p>
       </div>
 
       <div class="service-card">
-        <h3>Political Science & International Relations Tutoring</h3>
-        <p>Subject tutoring for students studying migration policy, border governance, technology and international relations, or related fields. Available for exam preparation, essay feedback, and general coursework support.</p>
+        <h3>Editing & Feedback</h3>
+        <p>Line-by-line feedback on drafts, covering clarity, tone, and academic style, along with broader comments on where the essay's argument could be sharpened.</p>
       </div>
 
       <div class="service-card">
-        <h3>AI Policy & Governance for Students</h3>
-        <p>Tutoring for students studying the policy and governance side of AI, including regulatory frameworks, algorithmic accountability, and the use of automated systems in public sector decision-making. Useful for students in law, public policy, or STS programs looking to build a foundation in this area.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Research Methods Support</h3>
-        <p>Guidance on qualitative research design, including semi-structured interviews and fieldwork planning, for students working on dissertations or independent research projects.</p>
+        <h3>Political Science & IR Subject Support</h3>
+        <p>Subject-specific tutoring for undergraduate essays in political science, international relations, migration policy, and technology governance.</p>
       </div>
     </section>
 
     <section class="mb-12">
       <h2 class="text-2xl font-semibold mb-6" style="color: #ffffff;">Who I Work With</h2>
       <div class="clients-list">
-        <div class="client-item">Undergraduate and graduate students</div>
-        <div class="client-item">Applicants to competitive graduate programs and scholarships</div>
-        <div class="client-item">Students studying migration, technology, or governance policy</div>
-        <div class="client-item">Researchers preparing qualitative fieldwork</div>
+        <div class="client-item">Undergraduate students</div>
+        <div class="client-item">Students writing essays in political science or IR</div>
+        <div class="client-item">Students studying migration or technology policy</div>
       </div>
     </section>
 
     <section class="mb-12" style="background: rgba(159,192,255,0.05); padding: 32px; border-radius: 12px; border: 1px solid rgba(159,192,255,0.2);">
       <h2 class="text-2xl font-semibold mb-4" style="color: #ffffff;">Get in Touch</h2>
       <p class="text-lg mb-6" style="color: #d8e1eb; line-height: 1.7;">
-        Available for one-off sessions or ongoing tutoring arrangements.
+        Available for one-off sessions or ongoing essay tutoring.
       </p>
       <a href="/contact.html" style="display: inline-block; background: #234e85; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 500; transition: background 0.2s;" onmouseover="this.style.background='#1c3f6c'" onmouseout="this.style.background='#234e85'">
         Contact Me
