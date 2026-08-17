@@ -62,16 +62,16 @@
   .credentials-line{ color:var(--muted); font-size:0.9rem; margin-top:22px; }
   .credentials-line .sep{ color:#3c4250; margin:0 10px; }
 
-  /* margin annotation, like a tutor's pencil note on a draft */
+  /* margin annotation, like a tutor's pencil note — anchored to the struck word itself */
   .margin-note{
-    position:absolute; right:2%; top:18%;
-    color:var(--mark-red); opacity:0.85;
-    font-size:1.5rem; transform:rotate(-3deg);
-    max-width:220px; text-align:left; line-height:1.15;
-    pointer-events:none; z-index:1;
+    position:absolute; left:100%; top:-38px;
+    color:var(--mark-red); opacity:0.9;
+    font-size:1.2rem; transform:rotate(-2deg);
+    width:200px; text-align:left; line-height:1.15;
+    pointer-events:none; z-index:1; white-space:nowrap;
   }
-  .margin-note svg{ position:absolute; top:-28px; left:-46px; }
-  @media (max-width:900px){ .margin-note{ display:none; } }
+  .margin-note svg{ position:absolute; top:22px; left:8px; }
+  @media (max-width:1100px){ .margin-note{ display:none; } }
 
   /* faint manuscript lines texture, right side */
   .ms-texture{
@@ -80,6 +80,20 @@
     -webkit-mask-image: linear-gradient(to left, black, transparent 85%);
     mask-image: linear-gradient(to left, black, transparent 85%);
   }
+
+  /* ---------- CONTACT BAR ---------- */
+  .contact-bar{
+    max-width:1100px; margin:0 auto; padding:26px 24px;
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
+    border-bottom:1px solid var(--hair);
+  }
+  .contact-bar p{ color:var(--sub); margin:0; font-size:0.98rem; }
+  .btn-square{
+    display:inline-block; background:#234e85; color:#fff;
+    padding:11px 24px; text-decoration:none; font-weight:500; font-size:0.92rem;
+    transition:background 0.15s ease; flex-shrink:0;
+  }
+  .btn-square:hover{ background:#1c3f6c; }
 
   /* ---------- TRACK SELECTOR ---------- */
   .track-wrap{ max-width:1100px; margin:0 auto; padding:70px 24px; }
@@ -138,8 +152,18 @@
   .step-content p{ color:var(--sub); line-height:1.65; font-size:0.95rem; }
 
   /* ---------- RATES ---------- */
-  .rate-group-title{ color:#fff; font-size:1.1rem; font-weight:500; margin-bottom:4px; }
-  .rate-group-desc{ color:var(--muted); font-size:0.88rem; line-height:1.5; margin-bottom:4px; }
+  .rate-group-title{
+    color:#fff; font-size:1.3rem; font-weight:500; margin-bottom:8px;
+    text-align:center; font-family:'Source Serif 4', Georgia, serif;
+    display:flex; align-items:center; gap:16px;
+  }
+  .rate-group-title::before, .rate-group-title::after{
+    content:""; flex:1; height:1px; background:var(--hair);
+  }
+  .rate-group-desc{
+    color:var(--muted); font-size:0.88rem; line-height:1.5; margin-bottom:18px;
+    text-align:center; max-width:52ch; margin-left:auto; margin-right:auto;
+  }
   .rate-row{
     display:flex; justify-content:space-between; align-items:baseline; gap:20px;
     padding:16px 0; border-bottom:1px solid var(--hair); flex-wrap:wrap;
@@ -162,6 +186,7 @@
 </style>
 </head>
 <body>
+  <custom-navbar></custom-navbar>
 
   <!-- ================= HERO ================= -->
   <section class="hero">
@@ -189,14 +214,12 @@
       </svg>
     </div>
 
-    <div class="margin-note annot">
-      <svg width="60" height="40" viewBox="0 0 60 40"><path d="M55 5 C 30 5, 15 15, 12 32" stroke="#c9633f" stroke-width="1.5" fill="none" opacity="0.8" marker-end="url(#ah)"/><defs><marker id="ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c9633f" opacity="0.8"/></marker></defs></svg>
-      stronger topic sentence?
-    </div>
-
     <div class="hero-inner">
       <div class="eyebrow">Essay & application coaching</div>
-      <h1>Turn a <span class="struck">rough draft</span> into an argument that holds up.</h1>
+      <h1>Turn a <span class="struck">rough draft<span class="margin-note annot">
+          <svg width="50" height="34" viewBox="0 0 50 34"><path d="M6 30 C 10 12, 24 4, 44 4" stroke="#c9633f" stroke-width="1.5" fill="none" opacity="0.85" marker-end="url(#ah)"/><defs><marker id="ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c9633f" opacity="0.85"/></marker></defs></svg>
+          stronger topic sentence?
+        </span></span> into an argument that holds up.</h1>
       <p class="lede">
         I work with undergraduate and master's students on essays, university and fellowship
         applications, and thesis-level writing — line by line, argument by argument, until
@@ -207,6 +230,12 @@
       </p>
     </div>
   </section>
+
+  <!-- ================= CONTACT BAR ================= -->
+  <div class="contact-bar">
+    <p>Available for one-off sessions or ongoing work, live or async, essays or applications.</p>
+    <a href="/contact.html" class="btn-square">Contact Me</a>
+  </div>
 
   <!-- ================= TRACK SELECTOR ================= -->
   <section class="track-wrap">
@@ -370,6 +399,9 @@
     </div>
   </section>
 
+  <custom-footer></custom-footer>
+  <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
+  <script src="https://roxanaakhmetova.com/components/footer.js"></script>
   <script>
     function scrollToTrack(id) {
       var el = document.getElementById(id);
