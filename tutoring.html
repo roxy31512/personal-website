@@ -9,6 +9,9 @@
   <title>Tutoring — Roxana Akhmetova</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {  
       theme: { 
@@ -27,9 +30,20 @@
   </script>
   <link rel="stylesheet" href="style.css">
   <style>
+    body {
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    }
+    h1, h2 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      letter-spacing: -0.01em;
+    }
     h1 {
       color: #ffffff !important;
       -webkit-text-fill-color: #ffffff !important;
+      font-weight: 500;
+    }
+    h2 {
+      font-weight: 500;
     }
     .credential-badge {
       display: inline-block;
@@ -84,6 +98,16 @@
       font-size: 0.9rem;
       text-align: right;
     }
+    .glance-link {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(159,192,255,0.35);
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    .glance-link:hover {
+      color: #9fc0ff;
+      border-bottom-color: #9fc0ff;
+    }
     .process-step {
       display: grid;
       grid-template-columns: 60px 1fr;
@@ -104,6 +128,7 @@
       font-weight: 600;
       font-size: 1rem;
       z-index: 1;
+      font-family: 'Source Serif 4', Georgia, serif;
     }
     .step-line {
       position: absolute;
@@ -122,6 +147,7 @@
       font-size: 1.15rem;
       font-weight: 600;
       margin-bottom: 8px;
+      font-family: 'Source Serif 4', Georgia, serif;
     }
     .step-content p {
       color: #b8c4d3;
@@ -149,13 +175,15 @@
     .rate-card .rate-price {
       color: #f0f4ff;
       font-size: 1.8rem;
-      font-weight: 600;
+      font-weight: 500;
       margin-bottom: 6px;
+      font-family: 'Source Serif 4', Georgia, serif;
     }
     .rate-card .rate-price span {
       font-size: 0.95rem;
       color: #8a97a8;
       font-weight: 400;
+      font-family: 'Inter', sans-serif;
     }
     .rate-card .rate-note {
       color: #b8c4d3;
@@ -170,16 +198,50 @@
       padding-top: 20px;
       border-top: 1px solid rgba(255,255,255,0.08);
     }
-    .clients-list {
+    .who-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
       margin-top: 24px;
     }
-    .client-item {
+    .who-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 26px 28px;
+    }
+    .who-card-title {
+      color: #ffffff;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(159,192,255,0.2);
+    }
+    .who-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .who-list li {
       color: #d8e1eb;
-      padding: 12px 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      padding: 9px 0 9px 18px;
+      position: relative;
       border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .who-list li:last-child { border-bottom: none; }
+    .who-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 17px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #9fc0ff;
     }
     .info-grid {
       display: grid;
@@ -300,9 +362,10 @@
     }
     .track-card-title {
       color: #ffffff;
-      font-weight: 600;
-      font-size: 1.05rem;
+      font-weight: 500;
+      font-size: 1.1rem;
       margin-bottom: 6px;
+      font-family: 'Source Serif 4', Georgia, serif;
     }
     .track-card-desc {
       color: #b8c4d3;
@@ -325,7 +388,7 @@
 <body class="text-light font-sans">
   <custom-navbar></custom-navbar>
   <main class="container mx-auto px-6 py-12" style="margin-top: 100px; max-width: 1200px;">
-    <h1 class="text-4xl font-semibold mb-6">Tutoring & Coaching</h1>
+    <h1 class="text-4xl mb-6">Tutoring & Coaching</h1>
 
     <div class="hero-grid">
       <p class="text-xl text-gray-300" style="color: #d8e1eb; line-height: 1.8;">
@@ -336,19 +399,25 @@
         <div class="glance-title">Me at a Glance</div>
         <div class="glance-row">
           <div class="glance-label">Education</div>
-          <div class="glance-value">DPhil, Social Sciences,<br>University of Oxford</div>
+          <div class="glance-value">
+            <a href="https://roxanaakhmetova.com/cv" class="glance-link">DPhil, Social Sciences,<br>University of Oxford</a>
+          </div>
         </div>
         <div class="glance-row">
           <div class="glance-label">Field</div>
-          <div class="glance-value">Essay writing, applications, AI governance</div>
+          <div class="glance-value">
+            <a href="https://roxanaakhmetova.com/blog" class="glance-link">Essay writing, applications, AI governance</a>
+          </div>
         </div>
         <div class="glance-row">
-          <div class="glance-label">Teaching</div>
+          <div class="glance-label">Teaching and Research</div>
           <div class="glance-value">University of Oxford, Harvard-MIT Impact Research Initiative, University of Manitoba Academic Learning Centre, University of Winnipeg</div>
         </div>
         <div class="glance-row">
-          <div class="glance-label">Scholarships</div>
-          <div class="glance-value">Trudeau Foundation, SSHRC Doctoral Fellowship</div>
+          <div class="glance-label">Funding and Scholarships</div>
+          <div class="glance-value">
+            <a href="https://roxanaakhmetova.com/cv" class="glance-link">Trudeau Foundation, SSHRC Doctoral Fellowship</a>
+          </div>
         </div>
         <div class="glance-row">
           <div class="glance-label">Based In</div>
@@ -358,7 +427,7 @@
     </div>
 
     <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4" style="color: #ffffff;">Find Your Track</h2>
+      <h2 class="text-2xl mb-4" style="color: #ffffff;">Find Your Track</h2>
       <p style="color: #b8c4d3; line-height: 1.6;">Not sure which one fits? Pick one and I'll jump you straight to it.</p>
       <div class="track-grid">
         <button type="button" class="track-card" onclick="scrollToTrack('essay-track')">
@@ -375,7 +444,7 @@
     </section>
 
     <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-8" style="color: #ffffff;">How Sessions Work</h2>
+      <h2 class="text-2xl mb-8" style="color: #ffffff;">How Sessions Work</h2>
 
       <div class="process-step">
         <div>
@@ -422,7 +491,7 @@
     </section>
 
     <section class="mb-12" id="essay-track">
-      <h2 class="text-2xl font-semibold mb-6" style="color: #ffffff;">Essay Tutoring — Rates</h2>
+      <h2 class="text-2xl mb-6" style="color: #ffffff;">Essay Tutoring — Rates</h2>
       <div class="rates-grid">
         <div class="rate-card">
           <div class="rate-label">Single session (online)</div>
@@ -446,7 +515,7 @@
     </section>
 
     <section class="mb-12" id="coaching-track">
-      <h2 class="text-2xl font-semibold mb-4" style="color: #ffffff;">Application & Research Coaching</h2>
+      <h2 class="text-2xl mb-4" style="color: #ffffff;">Application & Research Coaching</h2>
       <p style="color: #d8e1eb; line-height: 1.7;">
         For graduate school applications, scholarship and fellowship essays, and thesis or dissertation-level writing, especially in AI governance and technology policy. The working style is the same as essay tutoring: we go through structure and argument, then line edits, then a final pass. This track just sits at a more advanced level, and is priced accordingly.
       </p>
@@ -474,7 +543,7 @@
     </section>
 
     <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-6" style="color: #ffffff;">Good to Know</h2>
+      <h2 class="text-2xl mb-6" style="color: #ffffff;">Good to Know</h2>
       <div class="info-grid">
         <div class="info-item">
           <div class="info-label">Session Format</div>
@@ -496,19 +565,29 @@
     </section>
 
     <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-6" style="color: #ffffff;">Who I Work With</h2>
-      <div class="clients-list">
-        <div class="client-item">Undergraduate students</div>
-        <div class="client-item">Students writing essays in political science or IR</div>
-        <div class="client-item">Students studying migration or technology policy</div>
-        <div class="client-item">Graduate school applicants</div>
-        <div class="client-item">Scholarship and fellowship applicants</div>
-        <div class="client-item">Thesis and dissertation writers in AI governance or tech policy</div>
+      <h2 class="text-2xl mb-6" style="color: #ffffff;">Who I Work With</h2>
+      <div class="who-grid">
+        <div class="who-card">
+          <div class="who-card-title">Essay tutoring</div>
+          <ul class="who-list">
+            <li>Undergraduate students</li>
+            <li>Students writing essays in political science or IR</li>
+            <li>Students studying migration or technology policy</li>
+          </ul>
+        </div>
+        <div class="who-card">
+          <div class="who-card-title">Application &amp; research coaching</div>
+          <ul class="who-list">
+            <li>Graduate school applicants</li>
+            <li>Scholarship and fellowship applicants</li>
+            <li>Thesis and dissertation writers in AI governance or tech policy</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-6" style="color: #ffffff;">Experience</h2>
+      <h2 class="text-2xl mb-6" style="color: #ffffff;">Experience</h2>
 
       <div class="exp-item">
         <div class="exp-header">
@@ -588,7 +667,7 @@
     </section>
 
     <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-6" style="color: #ffffff;">Awards (Select)</h2>
+      <h2 class="text-2xl mb-6" style="color: #ffffff;">Awards (Select)</h2>
 
       <div class="award-group">
         <div class="award-group-title">University of Oxford</div>
@@ -750,7 +829,7 @@
     </section>
 
     <section class="mb-12" style="background: rgba(159,192,255,0.05); padding: 32px; border-radius: 12px; border: 1px solid rgba(159,192,255,0.2);">
-      <h2 class="text-2xl font-semibold mb-4" style="color: #ffffff;">Get in Touch</h2>
+      <h2 class="text-2xl mb-4" style="color: #ffffff;">Get in Touch</h2>
       <p class="text-lg mb-6" style="color: #d8e1eb; line-height: 1.7;">
         Available for one-off sessions or ongoing work, essay tutoring or application and research coaching, online or in person.
       </p>
