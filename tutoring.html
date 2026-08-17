@@ -44,23 +44,22 @@
     }
     h2 {
       font-weight: 500;
+      color: #ffffff;
     }
-    .credential-badge {
-      display: inline-block;
-      background: rgba(159,192,255,0.1);
-      border: 1px solid rgba(159,192,255,0.3);
-      color: #9fc0ff;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      margin-right: 12px;
-      margin-bottom: 8px;
+    .credentials-line {
+      color: #b8c4d3;
+      font-size: 0.92rem;
+      margin-bottom: 24px;
+    }
+    .credentials-line .sep {
+      color: #4d4d4d;
+      margin: 0 10px;
     }
     .hero-grid {
       display: grid;
       grid-template-columns: 1.4fr 1fr;
       gap: 40px;
-      margin-bottom: 60px;
+      margin-bottom: 40px;
       align-items: start;
     }
     @media (max-width: 800px) {
@@ -108,6 +107,33 @@
       color: #9fc0ff;
       border-bottom-color: #9fc0ff;
     }
+    a.plain-link {
+      color: #9fc0ff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(159,192,255,0.4);
+    }
+    a.plain-link:hover {
+      border-bottom-color: #9fc0ff;
+    }
+    .btn-square {
+      display: inline-block;
+      background: #234e85;
+      color: white;
+      padding: 10px 22px;
+      border-radius: 0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.92rem;
+      transition: background 0.15s ease;
+    }
+    .btn-square:hover { background: #1c3f6c; }
+
+    .hairline-section {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 32px;
+      margin-top: 32px;
+    }
+
     .process-step {
       display: grid;
       grid-template-columns: 60px 1fr;
@@ -136,7 +162,7 @@
       top: 40px;
       bottom: -8px;
       width: 1px;
-      background: rgba(159,192,255,0.25);
+      background: rgba(255,255,255,0.15);
     }
     .process-step:last-child .step-line { display: none; }
     .step-content {
@@ -154,274 +180,123 @@
       line-height: 1.65;
       font-size: 0.95rem;
     }
-    .rates-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 24px;
+
+    .track-row {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 22px 0;
+      cursor: pointer;
+      font-family: inherit;
     }
-    .rate-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 24px;
-    }
-    .rate-card .rate-label {
-      color: #9fc0ff;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .rate-card .rate-price {
-      color: #f0f4ff;
-      font-size: 1.8rem;
+    .track-row:first-child { padding-top: 0; }
+    .track-row:last-child { border-bottom: none; }
+    .track-row-title {
+      color: #ffffff;
       font-weight: 500;
+      font-size: 1.1rem;
       margin-bottom: 6px;
       font-family: 'Source Serif 4', Georgia, serif;
     }
-    .rate-card .rate-price span {
-      font-size: 0.95rem;
+    .track-row-desc {
+      color: #b8c4d3;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+    .track-row-arrow {
+      color: #9fc0ff;
+      font-size: 0.85rem;
+    }
+
+    .rate-group-title {
+      color: #ffffff;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .rate-group-desc {
+      color: #8a97a8;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin-bottom: 4px;
+    }
+    .rate-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 20px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      flex-wrap: wrap;
+    }
+    .rate-row:last-child { border-bottom: none; }
+    .rate-row-left {
+      color: #f0f4ff;
+      font-size: 0.98rem;
+    }
+    .rate-row-note {
+      color: #8a97a8;
+      font-size: 0.85rem;
+      margin-top: 2px;
+    }
+    .rate-row-price {
+      color: #f0f4ff;
+      font-size: 1.1rem;
+      font-weight: 500;
+      white-space: nowrap;
+      font-family: 'Source Serif 4', Georgia, serif;
+    }
+    .rate-row-price span {
+      font-size: 0.85rem;
       color: #8a97a8;
       font-weight: 400;
       font-family: 'Inter', sans-serif;
     }
-    .rate-card .rate-note {
-      color: #b8c4d3;
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-    .rate-group {
-      margin-top: 28px;
-    }
-    .rate-group:first-child {
-      margin-top: 0;
-    }
-    .rate-group-title {
-      color: #ffffff;
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 1.05rem;
-      font-weight: 500;
-      margin-bottom: 6px;
-    }
-    .rate-group-desc {
+    .price-tbd-text {
       color: #8a97a8;
       font-size: 0.85rem;
-      line-height: 1.5;
-      margin-bottom: 16px;
-    }
-    .price-tbd {
-      color: #8a97a8;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 20px;
-      padding: 3px 10px;
-      display: inline-block;
-      margin-left: 8px;
-      vertical-align: middle;
+      font-weight: 400;
+      text-transform: none;
+      margin-left: 4px;
     }
     .disclaimer {
       color: #8a97a8;
       font-size: 0.85rem;
       line-height: 1.6;
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    .who-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
       margin-top: 24px;
     }
-    .who-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 26px 28px;
-    }
-    .who-card-title {
-      color: #ffffff;
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 1.1rem;
-      font-weight: 500;
-      margin-bottom: 16px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid rgba(159,192,255,0.2);
-    }
-    .who-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    .who-list li {
-      color: #d8e1eb;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      padding: 9px 0 9px 18px;
-      position: relative;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .who-list li:last-child { border-bottom: none; }
-    .who-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 17px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #9fc0ff;
-    }
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin-top: 24px;
-    }
-    .info-item {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 22px 24px;
-    }
-    .info-item .info-label {
-      color: #9fc0ff;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .info-item .info-text {
-      color: #b8c4d3;
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-    .exp-item {
-      padding: 20px 0;
+
+    .info-row {
+      padding: 18px 0;
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .exp-item:last-child { border-bottom: none; }
-    .exp-header {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 6px 16px;
+    .info-row:last-child { border-bottom: none; }
+    .info-row .info-label {
+      color: #ffffff;
+      font-size: 0.92rem;
+      font-weight: 500;
       margin-bottom: 6px;
     }
-    .exp-title-wrap { display: flex; flex-direction: column; }
-    .exp-title {
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 1.02rem;
-    }
-    .exp-org {
-      color: #9fc0ff;
-      font-size: 0.88rem;
-      margin-top: 2px;
-    }
-    .exp-dates {
-      color: #8a97a8;
-      font-size: 0.85rem;
-      white-space: nowrap;
-    }
-    .exp-desc {
+    .info-row .info-text {
       color: #b8c4d3;
       font-size: 0.9rem;
       line-height: 1.6;
-      margin-top: 6px;
-    }
-    .award-group {
-      margin-bottom: 30px;
-    }
-    .award-group:last-child { margin-bottom: 0; }
-    .award-group-title {
-      color: #9fc0ff;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 14px;
-    }
-    .award-item {
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .award-item:last-child { border-bottom: none; }
-    .award-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .award-name {
-      color: #f0f4ff;
-      font-size: 0.92rem;
-    }
-    .award-date {
-      color: #8a97a8;
-      font-size: 0.85rem;
-      white-space: nowrap;
-    }
-    .award-note {
-      color: #b8c4d3;
-      font-size: 0.85rem;
-      margin-top: 4px;
-    }
-    .track-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-    .track-card {
-      display: block;
-      width: 100%;
-      text-align: left;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 24px;
-      cursor: pointer;
-      font-family: inherit;
-      transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
-    }
-    .track-card:hover {
-      border-color: rgba(159,192,255,0.5);
-      background: rgba(159,192,255,0.06);
-      transform: translateY(-2px);
-    }
-    .track-card-title {
-      color: #ffffff;
-      font-weight: 500;
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-      font-family: 'Source Serif 4', Georgia, serif;
-    }
-    .track-card-desc {
-      color: #b8c4d3;
-      font-size: 0.88rem;
-      line-height: 1.5;
-    }
-    .track-card-arrow {
-      color: #9fc0ff;
-      font-size: 0.85rem;
-      margin-top: 12px;
-      display: inline-block;
-    }
-    .track-highlight {
-      border-radius: 12px;
-      box-shadow: 0 0 0 3px rgba(159,192,255,0.55);
-      transition: box-shadow 1.4s ease;
     }
   </style>
 </head>
 <body class="text-light font-sans">
   <custom-navbar></custom-navbar>
   <main class="container mx-auto px-6 py-12" style="margin-top: 100px; max-width: 1200px;">
-    <h1 class="text-4xl mb-6">Tutoring & Coaching</h1>
+    <h1 class="text-4xl mb-4">Tutoring & Coaching</h1>
+
+    <p class="credentials-line">
+      DPhil, Social Sciences, University of Oxford<span class="sep">·</span>Cited in UK Government's 2024 Ethics Framework<span class="sep">·</span>Advised Canadian Border Agency officials
+    </p>
 
     <div class="hero-grid">
       <p class="text-xl text-gray-300" style="color: #d8e1eb; line-height: 1.8;">
@@ -455,36 +330,34 @@
           </div>
         </div>
       </div>
+    </div>
 
-      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; background: rgba(159,192,255,0.05); border: 1px solid rgba(159,192,255,0.2); border-radius: 12px; padding: 20px 28px; margin-bottom: 48px;">
-       <p style="color: #d8e1eb; margin: 0; font-size: 0.98rem;">
-         Available for one-off sessions or ongoing work, live or async, essays or applications.
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); margin-bottom: 12px;">
+     <p style="color: #d8e1eb; margin: 0; font-size: 0.98rem;">
+       Available for one-off sessions or ongoing work, live or async, essays or applications.
       </p>
-        <a href="/contact.html" style="flex-shrink: 0; display: inline-block; background: #234e85; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.92rem; transition: background 0.2s;" onmouseover="this.style.background='#1c3f6c'" onmouseout="this.style.background='#234e85'">
-         Contact Me
-      </a>
+      <a href="/contact.html" class="btn-square">Contact Me</a>
      </div>
-  </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl mb-4" style="color: #ffffff;">Find Your Track</h2>
-      <p style="color: #b8c4d3; line-height: 1.6;">Click on one of the tracks to learn more.</p>
-      <div class="track-grid">
-        <button type="button" class="track-card" onclick="scrollToTrack('live-track')">
-          <div class="track-card-title">Live 1-Hour Sessions</div>
-          <div class="track-card-desc">A video call where we work through your essay or application material together in real time.</div>
-          <span class="track-card-arrow">See live session rates ↓</span>
+    <section class="hairline-section">
+      <h2 class="text-2xl mb-1">Find Your Track</h2>
+      <p style="color: #b8c4d3; line-height: 1.6; margin-bottom: 8px;">Select one of the tracks below to see rates.</p>
+      <div>
+        <button type="button" class="track-row" onclick="scrollToTrack('live-track')">
+          <div class="track-row-title">Live 1-Hour Sessions</div>
+          <div class="track-row-desc">A video call where we work through your essay or application material together in real time.</div>
+          <span class="track-row-arrow">See live session rates ↓</span>
         </button>
-        <button type="button" class="track-card" onclick="scrollToTrack('async-track')">
-          <div class="track-card-title">Async Written Feedback</div>
-          <div class="track-card-desc">Send your draft by email and get it back with comments and a written summary within 48 hours.</div>
-          <span class="track-card-arrow">See async rates ↓</span>
+        <button type="button" class="track-row" onclick="scrollToTrack('async-track')">
+          <div class="track-row-title">Async Written Feedback</div>
+          <div class="track-row-desc">Send your draft by email and get it back with comments and a written summary within 48 hours.</div>
+          <span class="track-row-arrow">See async rates ↓</span>
         </button>
       </div>
     </section>
 
-    <section class="mb-12">
-      <h2 class="text-2xl mb-8" style="color: #ffffff;">How Sessions Work</h2>
+    <section class="hairline-section">
+      <h2 class="text-2xl mb-8">How Sessions Work</h2>
 
       <div class="process-step">
         <div>
@@ -530,106 +403,116 @@
       </div>
     </section>
 
-    <section class="mb-12" id="live-track">
-      <h2 class="text-2xl mb-6" style="color: #ffffff;">Live 1-Hour Sessions — Rates</h2>
-      <p style="color: #b8c4d3; line-height: 1.6; margin-bottom: 20px;">One-on-one, over video call. Online only. Book a single session or a 5-session package for ongoing work.</p>
-      <div class="rate-group">
+    <section class="hairline-section" id="live-track">
+      <h2 class="text-2xl mb-2">Live 1-Hour Sessions — Rates</h2>
+      <p style="color: #b8c4d3; line-height: 1.6; margin-bottom: 8px;">One-on-one, over video call. Online only. Book a single session or a 5-session package for ongoing work.</p>
+
+      <div style="margin-top: 20px;">
         <div class="rate-group-title">Essays</div>
         <div class="rate-group-desc">Undergraduate and master's level essays in political science, international relations, and related social science and humanities subjects.</div>
-        <div class="rates-grid">
-          <div class="rate-card">
-            <div class="rate-label">Single session</div>
-            <div class="rate-price">$50<span>/hour</span></div>
-            <div class="rate-note">Book as needed, no commitment.</div>
+        <div class="rate-row">
+          <div>
+            <div class="rate-row-left">Single session</div>
+            <div class="rate-row-note">Book as needed, no commitment.</div>
           </div>
-          <div class="rate-card">
-            <div class="rate-label">5-session package</div>
-            <div class="rate-price">$225<span>/5 hours</span></div>
-            <div class="rate-note">$45/hour. Good fit for ongoing work across a term or a longer essay.</div>
+          <div class="rate-row-price">$50<span>/hour</span></div>
+        </div>
+        <div class="rate-row">
+          <div>
+            <div class="rate-row-left">5-session package</div>
+            <div class="rate-row-note">$45/hour. Good fit for ongoing work across a term or a longer essay.</div>
           </div>
+          <div class="rate-row-price">$225<span>/5 hours</span></div>
         </div>
       </div>
-      <div class="rate-group">
+
+      <div style="margin-top: 32px;">
         <div class="rate-group-title">Applications & Coaching</div>
         <div class="rate-group-desc">Grad school applications, scholarship and fellowship essays, and thesis-level writing.</div>
-        <div class="rates-grid">
-          <div class="rate-card">
-            <div class="rate-label">Single session</div>
-            <div class="rate-price">$110<span>/hour</span></div>
-            <div class="rate-note">For a personal statement, research proposal, scholarship essay, or a section of your thesis.</div>
+        <div class="rate-row">
+          <div>
+            <div class="rate-row-left">Single session</div>
+            <div class="rate-row-note">For a personal statement, research proposal, scholarship essay, or a section of your thesis.</div>
           </div>
-          <div class="rate-card">
-            <div class="rate-label">5-session package</div>
-            <div class="rate-price">$500<span>/5 hours</span></div>
-            <div class="rate-note">$100/hour. Suited to a full application cycle or an extended piece of writing.</div>
+          <div class="rate-row-price">$110<span>/hour</span></div>
+        </div>
+        <div class="rate-row">
+          <div>
+            <div class="rate-row-left">5-session package</div>
+            <div class="rate-row-note">$100/hour. Suited to a full application cycle or an extended piece of writing.</div>
           </div>
+          <div class="rate-row-price">$500<span>/5 hours</span></div>
         </div>
       </div>
+
       <p class="disclaimer">
         I don't guarantee specific grades or outcomes: my role is to help you build stronger arguments and clearer writing, but the final essay and result are yours.
       </p>
     </section>
 
-    <section class="mb-12" id="async-track">
-      <h2 class="text-2xl mb-4" style="color: #ffffff;">Async Written Feedback — Rates<span class="price-tbd">Pricing TBD</span></h2>
-      <p style="color: #d8e1eb; line-height: 1.7; margin-bottom: 20px;">
+    <section class="hairline-section" id="async-track">
+      <h2 class="text-2xl mb-2">Async Written Feedback — Rates<span class="price-tbd-text">(pricing TBD)</span></h2>
+      <p style="color: #d8e1eb; line-height: 1.7; margin-bottom: 8px;">
         Send your draft and assignment by email. I return it with comments and a written summary, usually within 48 hours.
       </p>
-      <div class="rate-group">
+
+      <div style="margin-top: 20px;">
         <div class="rate-group-title">Essays</div>
-        <div class="rates-grid">
-          <div class="rate-card">
-            <div class="rate-label">Single draft review</div>
-            <div class="rate-price">$—<span>/draft</span></div>
-            <div class="rate-note">Written feedback on one essay draft, up to roughly [X] words.</div>
+        <div class="rate-row">
+          <div>
+            <div class="rate-row-left">Single draft review</div>
+            <div class="rate-row-note">Written feedback on one essay draft, up to roughly [X] words.</div>
           </div>
-          <div class="rate-card">
-            <div class="rate-label">Multi-round review</div>
-            <div class="rate-price">$—<span>/package</span></div>
-            <div class="rate-note">For essays that go through more than one round of revision before submission.</div>
+          <div class="rate-row-price">$—<span>/draft</span></div>
+        </div>
+        <div class="rate-row">
+          <div>
+            <div class="rate-row-left">Multi-round review</div>
+            <div class="rate-row-note">For essays that go through more than one round of revision before submission.</div>
           </div>
+          <div class="rate-row-price">$—<span>/package</span></div>
         </div>
       </div>
-      <div class="rate-group">
+
+      <div style="margin-top: 32px;">
         <div class="rate-group-title">Applications & Coaching</div>
-        <div class="rates-grid">
-          <div class="rate-card">
-            <div class="rate-label">Single draft review</div>
-            <div class="rate-price">$—<span>/draft</span></div>
-            <div class="rate-note">Written feedback on one document, e.g. a personal statement or proposal.</div>
+        <div class="rate-row">
+          <div>
+            <div class="rate-row-left">Single draft review</div>
+            <div class="rate-row-note">Written feedback on one document, e.g. a personal statement or proposal.</div>
           </div>
-          <div class="rate-card">
-            <div class="rate-label">Full application package</div>
-            <div class="rate-price">$—<span>/package</span></div>
-            <div class="rate-note">Written feedback across all materials for one application cycle.</div>
+          <div class="rate-row-price">$—<span>/draft</span></div>
+        </div>
+        <div class="rate-row">
+          <div>
+            <div class="rate-row-left">Full application package</div>
+            <div class="rate-row-note">Written feedback across all materials for one application cycle.</div>
           </div>
+          <div class="rate-row-price">$—<span>/package</span></div>
         </div>
       </div>
     </section>
 
-    <section class="mb-12">
-      <h2 class="text-2xl mb-6" style="color: #ffffff;">Good to Know</h2>
-      <div class="info-grid">
-        <div class="info-item">
-          <div class="info-label">Session Format</div>
-          <div class="info-text">The work and final wording remain the student's own. I do not complete assignments on a student's behalf.</div>
-        </div>
-        <div class="info-item">
-          <div class="info-label">Turnaround Time</div>
-          <div class="info-text">For async written feedback, expect to hear back within 48 hours of sending your draft.</div>
-        </div>
-        <div class="info-item">
-          <div class="info-label">Cancellations & Rescheduling</div>
-          <div class="info-text">Please give at least 24 hours' notice to cancel or reschedule a live session. Sessions cancelled with less notice, or missed without notice, are charged in full.</div>
-        </div>
-        <div class="info-item">
-          <div class="info-label">Payment</div>
-          <div class="info-text">Payment is due 24-hours before each session or package, by Interac e-Transfer. I'll send transfer details once we've confirmed a booking.</div>
-        </div>
+    <section class="hairline-section">
+      <h2 class="text-2xl mb-2">Good to Know</h2>
+      <div class="info-row">
+        <div class="info-label">Session Format</div>
+        <div class="info-text">The work and final wording remain the student's own. I do not complete assignments on a student's behalf.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Turnaround Time</div>
+        <div class="info-text">For async written feedback, expect to hear back within 48 hours of sending your draft.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Cancellations & Rescheduling</div>
+        <div class="info-text">Please give at least 24 hours' notice to cancel or reschedule a live session. Sessions cancelled with less notice, or missed without notice, are charged in full.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Payment</div>
+        <div class="info-text">Payment is due 24 hours before each session or package, by Interac e-Transfer. I'll send transfer details once we've confirmed a booking.</div>
       </div>
     </section>
 
-    </section>
   </main>
   <custom-footer></custom-footer>
   <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
@@ -639,8 +522,6 @@
       var el = document.getElementById(id);
       if (!el) return;
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      el.classList.add('track-highlight');
-      setTimeout(function () { el.classList.remove('track-highlight'); }, 1600);
     }
   </script>
 </body>
