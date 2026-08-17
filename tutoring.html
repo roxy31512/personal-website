@@ -190,6 +190,39 @@
       font-size: 0.85rem;
       line-height: 1.5;
     }
+    .rate-group {
+      margin-top: 28px;
+    }
+    .rate-group:first-child {
+      margin-top: 0;
+    }
+    .rate-group-title {
+      color: #ffffff;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .rate-group-desc {
+      color: #8a97a8;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .price-tbd {
+      color: #8a97a8;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 3px 10px;
+      display: inline-block;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
     .disclaimer {
       color: #8a97a8;
       font-size: 0.85rem;
@@ -430,15 +463,15 @@
       <h2 class="text-2xl mb-4" style="color: #ffffff;">Find Your Track</h2>
       <p style="color: #b8c4d3; line-height: 1.6;">Not sure which one fits? Pick one to learn more.</p>
       <div class="track-grid">
-        <button type="button" class="track-card" onclick="scrollToTrack('essay-track')">
-          <div class="track-card-title">Essay Tutoring</div>
-          <div class="track-card-desc">Undergraduate essays in political science, international relations, and social science and humanities subjects.</div>
-          <span class="track-card-arrow">See essay tutoring rates ↓</span>
+        <button type="button" class="track-card" onclick="scrollToTrack('live-track')">
+          <div class="track-card-title">Live 1-Hour Sessions</div>
+          <div class="track-card-desc">A video call where we work through your essay or application material together in real time. Online only.</div>
+          <span class="track-card-arrow">See live session rates ↓</span>
         </button>
-        <button type="button" class="track-card" onclick="scrollToTrack('coaching-track')">
-          <div class="track-card-title">Application & Research Coaching</div>
-          <div class="track-card-desc">Grad school applications, scholarship and fellowship essays, and thesis-level writing, especially in migration and immigration, border control, AI governance, and tech policy.</div>
-          <span class="track-card-arrow">See coaching rates ↓</span>
+        <button type="button" class="track-card" onclick="scrollToTrack('async-track')">
+          <div class="track-card-title">Async Written Feedback</div>
+          <div class="track-card-desc">Send your draft by email and get it back with comments and a written summary. No call required.</div>
+          <span class="track-card-arrow">See async rates ↓</span>
         </button>
       </div>
     </section>
@@ -490,23 +523,39 @@
       </div>
     </section>
 
-    <section class="mb-12" id="essay-track">
-      <h2 class="text-2xl mb-6" style="color: #ffffff;">Essay Tutoring — Rates</h2>
-      <div class="rates-grid">
-        <div class="rate-card">
-          <div class="rate-label">Single session (online)</div>
-          <div class="rate-price">$50<span>/hour</span></div>
-          <div class="rate-note">One-on-one, over video call. Book as needed, no commitment.</div>
+    <section class="mb-12" id="live-track">
+      <h2 class="text-2xl mb-6" style="color: #ffffff;">Live 1-Hour Sessions — Rates</h2>
+      <p style="color: #b8c4d3; line-height: 1.6; margin-bottom: 20px;">One-on-one, over video call. Online only. Book a single session as needed, or a 5-session package for ongoing work.</p>
+      <div class="rate-group">
+        <div class="rate-group-title">Essays</div>
+        <div class="rate-group-desc">Undergraduate essays in political science, international relations, and related social science and humanities subjects.</div>
+        <div class="rates-grid">
+          <div class="rate-card">
+            <div class="rate-label">Single session</div>
+            <div class="rate-price">$50<span>/hour</span></div>
+            <div class="rate-note">Book as needed, no commitment.</div>
+          </div>
+          <div class="rate-card">
+            <div class="rate-label">5-session package</div>
+            <div class="rate-price">$225<span>/5 hours</span></div>
+            <div class="rate-note">$45/hour. Good fit for ongoing work across a term or a longer essay.</div>
+          </div>
         </div>
-        <div class="rate-card">
-          <div class="rate-label">5-session package (online)</div>
-          <div class="rate-price">$225<span>/5 hours</span></div>
-          <div class="rate-note">$45/hour. Good fit for ongoing work across a term or a longer essay.</div>
-        </div>
-        <div class="rate-card">
-          <div class="rate-label">In-person session</div>
-          <div class="rate-price">$70<span>/hour</span></div>
-          <div class="rate-note">Available in Winnipeg, Canada (Fall 2026). Get in touch to check availability before booking.</div>
+      </div>
+      <div class="rate-group">
+        <div class="rate-group-title">Applications & Coaching</div>
+        <div class="rate-group-desc">Grad school applications, scholarship and fellowship essays, and thesis-level writing.</div>
+        <div class="rates-grid">
+          <div class="rate-card">
+            <div class="rate-label">Single session</div>
+            <div class="rate-price">$110<span>/hour</span></div>
+            <div class="rate-note">For a personal statement, research proposal, scholarship essay, or a section of your thesis.</div>
+          </div>
+          <div class="rate-card">
+            <div class="rate-label">5-session package</div>
+            <div class="rate-price">$500<span>/5 hours</span></div>
+            <div class="rate-note">$100/hour. Suited to a full application cycle or an extended piece of writing.</div>
+          </div>
         </div>
       </div>
       <p class="disclaimer">
@@ -514,25 +563,43 @@
       </p>
     </section>
 
-    <section class="mb-12" id="coaching-track">
-      <h2 class="text-2xl mb-4" style="color: #ffffff;">Application & Research Coaching</h2>
-      <p style="color: #d8e1eb; line-height: 1.7;">
-        For graduate school applications, scholarship and fellowship essays, and thesis or dissertation-level writing, especially in AI governance and technology policy. The working style is the same as essay tutoring: we go through structure and argument, then line edits, then a final pass. This track just sits at a more advanced level, and is priced accordingly.
+    <section class="mb-12" id="async-track">
+      <h2 class="text-2xl mb-4" style="color: #ffffff;">Async Written Feedback — Rates<span class="price-tbd">Pricing TBD</span></h2>
+      <p style="color: #d8e1eb; line-height: 1.7; margin-bottom: 20px;">
+        Send your draft and assignment by email. I return it with comments and a written summary, usually within 24-48 hours. No call needed.
       </p>
-      <div class="rates-grid" style="margin-top: 24px;">
-        <div class="rate-card">
-          <div class="rate-label">Single session</div>
-          <div class="rate-price">$110<span>/hour</span></div>
-          <div class="rate-note">One-on-one, online. For a personal statement, research proposal, scholarship essay, or a section of your thesis.</div>
+      <div class="rate-group">
+        <div class="rate-group-title">Essays</div>
+        <div class="rates-grid">
+          <div class="rate-card">
+            <div class="rate-label">Single draft review</div>
+            <div class="rate-price">$—<span>/draft</span></div>
+            <div class="rate-note">Written feedback on one essay draft, up to roughly [X] words.</div>
+          </div>
+          <div class="rate-card">
+            <div class="rate-label">Multi-round review</div>
+            <div class="rate-price">$—<span>/package</span></div>
+            <div class="rate-note">For essays that go through more than one round of revision before submission.</div>
+          </div>
         </div>
-        <div class="rate-card">
-          <div class="rate-label">5-session package</div>
-          <div class="rate-price">$500<span>/5 hours</span></div>
-          <div class="rate-note">$100/hour. Suited to a full application cycle or an extended piece of writing.</div>
+      </div>
+      <div class="rate-group">
+        <div class="rate-group-title">Applications & Coaching</div>
+        <div class="rates-grid">
+          <div class="rate-card">
+            <div class="rate-label">Single draft review</div>
+            <div class="rate-price">$—<span>/draft</span></div>
+            <div class="rate-note">Written feedback on one document, e.g. a personal statement or proposal.</div>
+          </div>
+          <div class="rate-card">
+            <div class="rate-label">Full application package</div>
+            <div class="rate-price">$—<span>/package</span></div>
+            <div class="rate-note">Written feedback across all materials for one application cycle.</div>
+          </div>
         </div>
       </div>
       <p class="disclaimer">
-        These rates are a starting point rather than fixed. If your project doesn't fit neatly into hourly sessions, a full application package, for instance, get in touch and we can work out a flat rate instead.
+        These rates are a starting point rather than fixed. If your project doesn't fit neatly into these options, get in touch and we can work out a flat rate instead.
       </p>
     </section>
 
@@ -541,15 +608,15 @@
       <div class="info-grid">
         <div class="info-item">
           <div class="info-label">Session Format</div>
-          <div class="info-text">Sessions are one-on-one, mostly held online over video call. In-person sessions are available in London or Winnipeg by arrangement. I'm not teaching course material: the focus is your essay, your argument, and your writing.</div>
+          <div class="info-text">Live sessions are one-on-one over video call, online only. Async feedback is sent and returned by email, no call needed. I'm not teaching course material: the focus is your essay, your argument, and your writing.</div>
         </div>
         <div class="info-item">
           <div class="info-label">Turnaround Time</div>
-          <div class="info-text">If you send a draft for written feedback rather than a live session, expect to hear back within 24-48 hours.</div>
+          <div class="info-text">For async written feedback, expect to hear back within 24-48 hours of sending your draft.</div>
         </div>
         <div class="info-item">
           <div class="info-label">Cancellations & Rescheduling</div>
-          <div class="info-text">Please give at least 24 hours' notice to cancel or reschedule. Sessions cancelled with less notice, or missed without notice, are charged in full.</div>
+          <div class="info-text">Please give at least 24 hours' notice to cancel or reschedule a live session. Sessions cancelled with less notice, or missed without notice, are charged in full.</div>
         </div>
         <div class="info-item">
           <div class="info-label">Payment</div>
@@ -825,7 +892,7 @@
     <section class="mb-12" style="background: rgba(159,192,255,0.05); padding: 32px; border-radius: 12px; border: 1px solid rgba(159,192,255,0.2);">
       <h2 class="text-2xl mb-4" style="color: #ffffff;">Get in Touch</h2>
       <p class="text-lg mb-6" style="color: #d8e1eb; line-height: 1.7;">
-        Available for one-off sessions or ongoing work, essay tutoring or application and research coaching, online or in person.
+        Available for one-off sessions or ongoing work, live or async, essays or applications.
       </p>
       <a href="/contact.html" style="display: inline-block; background: #234e85; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 500; transition: background 0.2s;" onmouseover="this.style.background='#1c3f6c'" onmouseout="this.style.background='#234e85'">
         Contact Me
