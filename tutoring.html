@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<script src="/components/analytics.js"></script>
+<google-analytics></google-analytics>
+
+  <meta charset="utf-8" />
+  <title>Tutoring — Roxana Akhmetova</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { 
+      theme: { 
+        extend: { 
+          colors: { 
+            dark:'#1a1a1a', 
+            mid:'#4d4d4d', 
+            light:'#f7f7f8', 
+            oxford:'#002147', 
+            'oxford-100':'#e6eefb', 
+            'oxford-600':'#234e85' 
+          } 
+        } 
+      } 
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    h1 {
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+    }
+    .credential-badge {
+      display: inline-block;
+      background: rgba(159,192,255,0.1);
+      border: 1px solid rgba(159,192,255,0.3);
+      color: #9fc0ff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-right: 12px;
+      margin-bottom: 8px;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .service-card h3 {
+      color: #9fc0ff;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .service-card p {
+      color: #d8e1eb;
+      line-height: 1.7;
+    }
+    .clients-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .client-item {
+      color: #d8e1eb;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body class="text-light font-sans">
+  <custom-navbar></custom-navbar>
+  <main class="container mx-auto px-6 py-12" style="margin-top: 100px; max-width: 1200px;">
+    <h1 class="text-4xl font-semibold mb-6">Tutoring</h1>
+
+    <div style="margin-bottom: 24px;">
+      <span class="credential-badge">Oxford DPhil, Social Sciences</span>
+      <span class="credential-badge">Pierre Elliott Trudeau Foundation Scholar</span>
+      <span class="credential-badge">Former President, Oxford AI Society</span>
+    </div>
+
+    <p class="text-xl text-gray-300 mb-12" style="color: #d8e1eb; line-height: 1.8;">
+      I work with students on graduate school applications, academic writing, and coursework in political science, international relations, and technology policy. My own path through a DPhil, multiple national scholarships, and academic publishing means I can speak to both the writing and the process from direct experience.
+    </p>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-6" style="color: #ffffff;">What I Offer</h2>
+
+      <div class="service-card">
+        <h3>Graduate School & Scholarship Applications</h3>
+        <p>Support with personal statements, research proposals, and interview preparation for graduate programs and competitive scholarships. I've been through the Trudeau Foundation, SSHRC, and Oxford college scholarship processes myself, and I know what selection committees are looking for in a research proposal.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Academic Writing & Dissertation Coaching</h3>
+        <p>One-on-one support for undergraduate and graduate students working on essays, theses, or dissertations in political science, international relations, or related social sciences. I help with structuring arguments, working with qualitative evidence, and turning research into readable prose.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Political Science & International Relations Tutoring</h3>
+        <p>Subject tutoring for students studying migration policy, border governance, technology and international relations, or related fields. Available for exam preparation, essay feedback, and general coursework support.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>AI Policy & Governance for Students</h3>
+        <p>Tutoring for students studying the policy and governance side of AI, including regulatory frameworks, algorithmic accountability, and the use of automated systems in public sector decision-making. Useful for students in law, public policy, or STS programs looking to build a foundation in this area.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Research Methods Support</h3>
+        <p>Guidance on qualitative research design, including semi-structured interviews and fieldwork planning, for students working on dissertations or independent research projects.</p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-6" style="color: #ffffff;">Who I Work With</h2>
+      <div class="clients-list">
+        <div class="client-item">Undergraduate and graduate students</div>
+        <div class="client-item">Applicants to competitive graduate programs and scholarships</div>
+        <div class="client-item">Students studying migration, technology, or governance policy</div>
+        <div class="client-item">Researchers preparing qualitative fieldwork</div>
+      </div>
+    </section>
+
+    <section class="mb-12" style="background: rgba(159,192,255,0.05); padding: 32px; border-radius: 12px; border: 1px solid rgba(159,192,255,0.2);">
+      <h2 class="text-2xl font-semibold mb-4" style="color: #ffffff;">Get in Touch</h2>
+      <p class="text-lg mb-6" style="color: #d8e1eb; line-height: 1.7;">
+        Available for one-off sessions or ongoing tutoring arrangements.
+      </p>
+      <a href="/contact.html" style="display: inline-block; background: #234e85; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 500; transition: background 0.2s;" onmouseover="this.style.background='#1c3f6c'" onmouseout="this.style.background='#234e85'">
+        Contact Me
+      </a>
+    </section>
+  </main>
+  <custom-footer></custom-footer>
+  <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
+  <script src="https://roxanaakhmetova.com/components/footer.js"></script>
+</body>
+</html>
