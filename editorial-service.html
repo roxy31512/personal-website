@@ -53,14 +53,39 @@
   .credentials-line{ color:var(--muted); font-size:0.9rem; margin-top:22px; }
   .credentials-line .sep{ color:#3c4250; margin:0 10px; }
 
+  /* Arrow anchor: a zero-width span sitting in the text flow right after "rough".
+     Because it's inline and in-flow, the browser places it exactly at that word
+     boundary regardless of viewport width or the clamp() font-size resolving
+     differently. The arrow SVG is positioned off THIS anchor, not off the
+     whole "rough idea" phrase. */
+  .arrow-mark{
+    position:relative;
+    display:inline-block;
+    width:0;
+    height:0;
+  }
+  .arrow-mark svg{
+    position:absolute;
+    left:-6px;
+    bottom:0.85em; /* em-based so it scales with the heading's clamp() font-size */
+    overflow:visible;
+  }
+
+  /* "clear thesis!" label — anchored off the SAME .arrow-mark point as the
+     SVG (not off the whole "rough idea" phrase), positioned to sit right at
+     the arrow's tip. The arrow path ends at (86,4) inside a 90x40 viewBox
+     that itself sits at left:-6px / bottom:0.85em, so the tip in real pixels
+     is roughly (86-6)=80px right and (40-4)=36px up from the anchor point.
+     Nudge the left/bottom values below if you want the label to hug the
+     arrowhead more or less tightly. */
   .margin-note{
-    position:absolute; left:100%; top:-38px; color:var(--mark-red); opacity:0.9;
+    position:absolute;
+    left:95px;
+    bottom:calc(0.85em + 55px);
+    color:var(--mark-red); opacity:0.9;
     font-size:1.2rem; transform:rotate(-2deg); width:max-content; text-align:left; line-height:1.15;
-    pointer-events:none; z-index:1; white-space:nowrap; margin-left:-85px;
-}
-.margin-note svg{
-    position:absolute; top:22px; left:55px; overflow:visible;
-}
+    pointer-events:none; z-index:1; white-space:nowrap;
+  }
 
   .ms-texture{
     position:absolute; top:0; right:0; bottom:0; width:46%; opacity:0.5; z-index:0;
@@ -170,10 +195,13 @@
 
     <div class="hero-inner">
       <div class="eyebrow">Essay &amp; thesis coaching</div>
-      <h1>Turn a <span class="struck-anchor"><span class="struck">rough idea</span><span class="margin-note annot">
-          <svg width="50" height="34" viewBox="0 0 50 34" style="overflow:visible;"><path d="M6 30 C 10 12, 24 4, 50 4" stroke="#c9633f" stroke-width="1.5" fill="none" opacity="0.85" marker-end="url(#ah)"/><defs><marker id="ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c9633f" opacity="0.85"/></marker></defs></svg>
-          clear thesis!
-        </span></span> into an unshakeable argument.</h1>
+      <h1>Turn a <span class="struck-anchor"><span class="struck">rough<span class="arrow-mark">
+            <svg width="90" height="40" viewBox="0 0 90 40" style="overflow:visible;">
+              <path d="M 6 36 C 14 14, 40 4, 86 4" stroke="#c9633f" stroke-width="1.5" fill="none" opacity="0.85" marker-end="url(#ah)"/>
+              <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c9633f" opacity="0.85"/></marker></defs>
+            </svg>
+            <span class="margin-note annot">clear thesis!</span>
+          </span> idea</span></span> into an unshakeable argument.</h1>
       <p class="lede">
         I work with undergraduate and master's students on essays and thesis-level writing.
       </p>
