@@ -5,38 +5,40 @@ class CustomNavbar extends HTMLElement {
   }
 
   attachEventListeners() {
-    const dropdown = this.querySelector('.dropdown');
-    const dropdownMenu = this.querySelector('.dropdown-menu');
-    
-    if (dropdown && dropdownMenu) {
+    const dropdowns = this.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(dropdown => {
+      const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+      if (!dropdownMenu) return;
+
       let timeout;
-      
+
       const showMenu = () => {
         clearTimeout(timeout);
         dropdownMenu.style.display = 'block';
       };
-      
+
       const hideMenu = () => {
         timeout = setTimeout(() => {
           dropdownMenu.style.display = 'none';
         }, 200);
       };
-      
+
       dropdown.addEventListener('mouseenter', showMenu);
       dropdown.addEventListener('mouseleave', hideMenu);
       dropdownMenu.addEventListener('mouseenter', showMenu);
       dropdownMenu.addEventListener('mouseleave', hideMenu);
-    }
+    });
 
     const hamburger = this.querySelector('.hamburger');
     const navLinks = this.querySelector('.nav-links');
-    
+
     if (hamburger && navLinks) {
       hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('open');
         hamburger.classList.toggle('open');
       });
-      
+
       const links = navLinks.querySelectorAll('a');
       links.forEach(link => {
         link.addEventListener('click', () => {
@@ -118,22 +120,31 @@ class CustomNavbar extends HTMLElement {
           display: flex;
           align-items: center;
           gap: 4px;
-          cursor: pointer;
+          cursor: default;
+          padding: 6px 10px;
+          border-radius: 6px;
+          color: #d8e1eb;
+          font-weight: 500;
+          transition: all 0.15s ease;
+        }
+
+        .dropdown-toggle:hover {
+          background: rgba(255,255,255,0.08);
+          color: #fff;
         }
 
         .dropdown-toggle a {
           color: #d8e1eb;
           text-decoration: none;
           font-weight: 500;
-          padding: 6px 10px;
-          border-radius: 6px;
+          padding: 0;
           transition: all 0.15s ease;
         }
 
         .dropdown-arrow {
           font-size: 0.7rem;
           transition: transform 0.2s;
-          color: #d8e1eb;
+          color: inherit;
         }
 
         .dropdown:hover .dropdown-arrow {
@@ -258,7 +269,17 @@ class CustomNavbar extends HTMLElement {
           </div>
 
           <nav class="nav-links" aria-label="Primary">
-            <a href="/consulting">Consulting</a>
+            <div class="dropdown">
+              <span class="dropdown-toggle">
+                Services
+                <span class="dropdown-arrow">▼</span>
+              </span>
+              <div class="dropdown-menu">
+                <a href="/consulting">Government &amp; Org Consulting</a>
+                <a href="/editorial-service">Editorial Service</a>
+                <a href="/mentorship">Mentorship</a>
+              </div>
+            </div>
             <div class="dropdown">
               <span class="dropdown-toggle">
                 <a href="/projects">Projects</a>
@@ -272,8 +293,6 @@ class CustomNavbar extends HTMLElement {
             <a href="/bio">Bio</a>
             <a href="/cv">CV</a>
             <a href="/blog">Blog</a>
-            <a href="/mentorship">Mentorship</a>
-            <a href="/editorial-consulting">Editorial Consulting</a>
             <a href="/contact" class="cta-link">Contact</a>
           </nav>
 
