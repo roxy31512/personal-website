@@ -275,7 +275,7 @@ class CustomNavbar extends HTMLElement {
                 <span class="dropdown-arrow">▼</span>
               </span>
               <div class="dropdown-menu">
-                <a href="/consulting">Government &amp; Org Consulting</a>
+                <a href="/consulting">Policy Consulting</a>
                 <a href="/editorial-service">Editorial Service</a>
                 <a href="/mentorship">Mentorship</a>
               </div>
