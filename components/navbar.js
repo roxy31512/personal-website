@@ -88,7 +88,7 @@ class CustomNavbar extends HTMLElement {
         }
 
         .nav-links a {
-          color: #d8e1eb;
+          color: #d8d4cb;
           text-decoration: none;
           font-weight: 500;
           padding: 6px 10px;
@@ -102,13 +102,14 @@ class CustomNavbar extends HTMLElement {
         }
 
         .cta-link {
-          background: rgba(159,192,255,0.1);
-          border: 1px solid rgba(159,192,255,0.3);
-          color: #9fc0ff !important;
+          background: #000000;
+          border: 1px solid rgba(245,243,239,0.25);
+          color: #f5f3ef !important;
         }
 
         .cta-link:hover {
-          background: rgba(159,192,255,0.2) !important;
+          background: #1a1a1a !important;
+          border-color: rgba(245,243,239,0.45);
         }
 
         .dropdown {
@@ -123,7 +124,7 @@ class CustomNavbar extends HTMLElement {
           cursor: default;
           padding: 6px 10px;
           border-radius: 6px;
-          color: #d8e1eb;
+          color: #d8d4cb;
           font-weight: 500;
           transition: all 0.15s ease;
         }
@@ -134,7 +135,7 @@ class CustomNavbar extends HTMLElement {
         }
 
         .dropdown-toggle a {
-          color: #d8e1eb;
+          color: #d8d4cb;
           text-decoration: none;
           font-weight: 500;
           padding: 0;
@@ -157,7 +158,7 @@ class CustomNavbar extends HTMLElement {
           top: 100%;
           left: 0;
           min-width: 220px;
-          background: rgba(10,10,12,0.95);
+          background: rgba(0,0,0,0.97);
           border-radius: 8px;
           box-shadow: 0 8px 25px rgba(0,0,0,0.6);
           padding: 8px 0;
@@ -169,7 +170,7 @@ class CustomNavbar extends HTMLElement {
         .dropdown-menu a {
           display: block;
           padding: 10px 16px;
-          color: #d8e1eb;
+          color: #d8d4cb;
           text-decoration: none;
           font-weight: 500;
           transition: all 0.15s ease;
@@ -193,7 +194,7 @@ class CustomNavbar extends HTMLElement {
         .hamburger span {
           width: 24px;
           height: 2px;
-          background: #d8e1eb;
+          background: #d8d4cb;
           transition: all 0.3s ease;
           display: block;
         }
@@ -223,7 +224,7 @@ class CustomNavbar extends HTMLElement {
             display: none;
             flex-direction: column;
             width: 100%;
-            background: rgba(10,10,12,0.98);
+            background: rgba(0,0,0,0.98);
             padding: 1rem;
             gap: 0.5rem;
             border-top: 1px solid rgba(255,255,255,0.1);
@@ -263,7 +264,7 @@ class CustomNavbar extends HTMLElement {
             <a href="https://scholar.google.com/citations?user=uxvwJb4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; padding: 4px; border-radius: 6px; transition: all 0.15s ease; opacity: 0.9;" aria-label="Google Scholar" onmouseover="this.style.opacity='1';" onmouseout="this.style.opacity='0.9';">
               <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" style="width: 24px; height: 24px;">
             </a>
-            <a class="brand" href="/" aria-label="Home" style="display: flex; align-items: center; gap: 0.6rem; font-weight: 600; font-size: 1.1rem; color: #f0f4ff; text-decoration: none;">
+            <a class="brand" href="/" aria-label="Home" style="display: flex; align-items: center; gap: 0.6rem; font-weight: 600; font-size: 1.1rem; color: #f5f3ef; text-decoration: none;">
               Home
             </a>
           </div>
