@@ -104,12 +104,13 @@ class CustomNavbar extends HTMLElement {
         .cta-link {
           background: #000000;
           border: 1px solid rgba(245,243,239,0.25);
-          color: #f5f3ef !important;
+          color: #ffffff !important;
         }
 
         .cta-link:hover {
           background: #1a1a1a !important;
           border-color: rgba(245,243,239,0.45);
+          color: #ffffff !important;
         }
 
         .dropdown {
