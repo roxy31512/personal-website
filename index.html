@@ -51,7 +51,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Libre+Franklin:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
@@ -62,65 +62,100 @@
       font-family: 'Libre Franklin', sans-serif;
     }
 
-    .serif {
-      font-family: 'Fraunces', serif;
+    .mono {
+      font-family: 'IBM Plex Mono', monospace;
     }
 
     .eyebrow {
-      font-family: 'Libre Franklin', sans-serif;
-      color: #a2522f;
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      margin-bottom: 0.9rem;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #8c877e;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
     }
 
-    .hero-wrap {
-      max-width: 760px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 4rem;
+      align-items: start;
       padding-top: 4rem;
-      padding-bottom: 2.5rem;
+      padding-bottom: 4rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
     }
 
     .hero-name {
       font-family: 'Fraunces', serif;
-      font-size: clamp(2.9rem, 8vw, 4.75rem);
-      line-height: 1.03;
+      font-size: clamp(2.75rem, 6vw, 4.25rem);
+      line-height: 1.05;
       font-weight: 500;
       color: #f2efe9;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
     }
 
     .hero-sub {
       color: #b9b3a7;
       font-size: 1.1rem;
       line-height: 1.65;
-      max-width: 540px;
-      margin-bottom: 2.25rem;
-    }
-
-    .text-link {
-      color: #a2522f;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      border-bottom: 1px solid rgba(162, 82, 47, 0.4);
-      transition: border-color 0.2s, color 0.2s;
-      padding-bottom: 1px;
-    }
-
-    .text-link:hover {
-      border-bottom-color: #a2522f;
-      color: #c06a3f;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
     }
 
     .link-row {
       display: flex;
+      align-items: center;
       gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .link-primary {
+      color: #f2efe9;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.98rem;
+      border-bottom: 1px solid #f2efe9;
+      padding-bottom: 2px;
+    }
+
+    .link-secondary {
+      color: #79746a;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.98rem;
+      transition: color 0.15s;
+    }
+
+    .link-secondary:hover {
+      color: #b9b3a7;
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+    }
+
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-caption {
+      font-family: 'IBM Plex Mono', monospace;
+      color: #635e54;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      margin-top: 0.9rem;
     }
 
     .section {
-      max-width: 760px;
+      max-width: 100%;
       padding: 3rem 0;
       border-top: 1px solid rgba(233, 229, 221, 0.09);
     }
@@ -133,56 +168,36 @@
       margin-bottom: 1.75rem;
     }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 2.25rem;
-      align-items: start;
-    }
-
-    @media (max-width: 640px) {
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-      .about-photo {
-        width: 120px;
-      }
-    }
-
-    .about-photo {
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 2px;
-    }
-
-    .about-grid p {
+    .about-text p {
       color: #c4beb0;
       line-height: 1.8;
       font-size: 1.02rem;
+      max-width: 720px;
     }
 
-    .about-grid p + p {
+    .about-text p + p {
       margin-top: 1.1rem;
     }
 
-    .blog-list {
+    .blog-grid {
       display: flex;
       flex-direction: column;
+      gap: 1rem;
     }
 
-    .blog-row {
+    .blog-card {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       gap: 1.5rem;
-      padding: 1.25rem 0;
-      border-bottom: 1px solid rgba(233, 229, 221, 0.08);
+      padding: 1.4rem 1.6rem;
+      border: 1px solid rgba(233, 229, 221, 0.14);
       text-decoration: none;
+      transition: border-color 0.15s;
     }
 
-    .blog-row:first-child {
-      border-top: 1px solid rgba(233, 229, 221, 0.08);
+    .blog-card:hover {
+      border-color: rgba(233, 229, 221, 0.4);
     }
 
     .blog-title {
@@ -191,19 +206,14 @@
       font-size: 1.15rem;
       font-weight: 400;
       line-height: 1.4;
-      transition: color 0.15s;
-    }
-
-    .blog-row:hover .blog-title {
-      color: #a2522f;
     }
 
     .blog-date {
+      font-family: 'IBM Plex Mono', monospace;
       color: #79746a;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       white-space: nowrap;
       flex-shrink: 0;
-      font-family: 'Libre Franklin', sans-serif;
     }
 
     .quick-links {
@@ -233,6 +243,14 @@
       margin-bottom: 0.75rem;
       line-height: 1.6;
     }
+
+    .quick-links a {
+      color: #e9e5dd;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.92rem;
+      border-bottom: 1px solid rgba(233, 229, 221, 0.4);
+    }
   </style>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -242,51 +260,56 @@
 
   <custom-navbar></custom-navbar>
 
-  <main class="container mx-auto px-6 max-w-3xl">
+  <main class="container mx-auto px-6 py-12 max-w-6xl">
 
-    <section class="hero-wrap">
-      <div class="eyebrow">AI Governance Researcher</div>
-      <h1 class="hero-name">Roxana<br>Akhmetova</h1>
-      <p class="hero-sub">I advise governments on how to adopt AI in high-stakes, politicised domains, including immigration, border control, and welfare decision-making.</p>
+    <section class="hero-grid">
+      <div>
+        <div class="eyebrow">REF: AI-GOV / OXFORD / 2026</div>
+        <h1 class="hero-name">Roxana<br>Akhmetova</h1>
+        <p class="hero-sub">A researcher working at the point where technology policy becomes governable, translating AI risk into frameworks institutions can actually use.</p>
 
-      <div class="link-row">
-        <a href="consulting.html" class="text-link">Consulting</a>
-        <a href="contact.html" class="text-link">Contact</a>
+        <div class="link-row">
+          <a href="consulting.html" class="link-primary">Consulting inquiries</a>
+          <a href="/blog" class="link-secondary">Selected writing</a>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="https://huggingface.co/spaces/roxy31512/oxford-ai-policy-luminary/resolve/main/images/Profile%20Image.jpg" alt="Roxana Akhmetova">
+        <div class="hero-caption">FIG. 01 — OXFORD, 2026</div>
       </div>
     </section>
 
     <section class="section">
-      <div class="about-grid">
-        <img class="about-photo" src="https://huggingface.co/spaces/roxy31512/oxford-ai-policy-luminary/resolve/main/images/Profile%20Image.jpg" alt="Roxana Akhmetova">
-        <div>
-          <p>I completed my DPhil at the University of Oxford, researching how governments adopt AI in immigration, border control, and other high-stakes, politically sensitive decisions.</p>
-          <p>I advised the Canadian federal government on AI adoption in immigration decision-making, and my research was cited by the UK Government's Fairness Framework.</p>
-        </div>
+      <h2 class="section-heading">About</h2>
+      <div class="about-text">
+        <p>I completed my DPhil at the University of Oxford, researching how governments adopt AI in immigration, border control, and other high-stakes, politically sensitive decisions.</p>
+        <p>I advised the Canadian federal government on AI adoption in immigration decision-making, and my research was cited by the UK Government's Fairness Framework.</p>
       </div>
     </section>
 
     <section class="section">
       <h2 class="section-heading">Writing</h2>
-      <div class="blog-list">
+      <div class="blog-grid">
 
-        <a href="/blog/the-mythos-freeze.html" class="blog-row">
+        <a href="/blog/the-mythos-freeze.html" class="blog-card">
           <span class="blog-title">The Mythos Freeze: Discretionary Enforcement without Institutional Safeguards</span>
           <span class="blog-date">June 2026</span>
         </a>
 
-        <a href="/blog/anything-you-want.html" class="blog-row">
+        <a href="/blog/anything-you-want.html" class="blog-card">
           <span class="blog-title">Anything You Want, Sweetheart: Borders, Data, and the Business of Bordering</span>
           <span class="blog-date">Nov 2024</span>
         </a>
 
-        <a href="/blog/west-bank-fieldnotes.html" class="blog-row">
+        <a href="/blog/west-bank-fieldnotes.html" class="blog-card">
           <span class="blog-title">Concrete and Code: West Bank Field Notes</span>
           <span class="blog-date">Aug 2023</span>
         </a>
 
       </div>
       <div style="margin-top: 1.75rem;">
-        <a href="/blog" class="text-link">View all writing →</a>
+        <a href="/blog" class="link-secondary">View all writing →</a>
       </div>
     </section>
 
@@ -295,13 +318,13 @@
         <div>
           <h3>Research & publications</h3>
           <p>Selected papers on governance and policy.</p>
-          <a href="publications.html" class="text-link">View publications →</a>
+          <a href="publications.html">View publications →</a>
         </div>
 
         <div>
           <h3>Past projects</h3>
           <p>Oxford AI Governance Conference — convening for AI governance professionals in Oxford.</p>
-          <a href="past-projects.html" class="text-link">View past projects →</a>
+          <a href="past-projects.html">View past projects →</a>
         </div>
       </div>
     </section>
