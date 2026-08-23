@@ -156,6 +156,11 @@
   }
   .rate-row:last-child{ border-bottom:none; }
   .rate-row-left{ color:var(--ink); font-size:0.98rem; }
+  .rate-badge{
+    display:inline-block; font-family:'Inter',ui-sans-serif,sans-serif; font-size:0.7rem; font-weight:600;
+    letter-spacing:0.04em; text-transform:uppercase; color:var(--mark-gold); border:1px solid rgba(179,174,163,0.4);
+    border-radius:999px; padding:2px 9px; margin-left:8px; vertical-align:middle;
+  }
   .rate-row-note{ color:var(--muted); font-size:0.85rem; margin-top:2px; }
   .rate-row-price{ color:var(--mark-gold); font-size:1.1rem; font-weight:500; white-space:nowrap; font-family:'Fraunces', 'Playfair Display', serif; }
   .rate-row-price span{ font-size:0.85rem; color:var(--muted); font-weight:400; font-family:'Inter',sans-serif; }
@@ -230,11 +235,11 @@
           <div class="track-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d8d4cb" stroke-width="1.6"><rect x="2" y="6" width="14" height="12" rx="1.5"/><path d="M16 10l6-3v10l-6-3z"/></svg>
           </div>
-          <h3>Live 1-Hour Sessions</h3>
+          <h3>Live Sessions</h3>
         </div>
-        <p>A video call where we work through your essay or thesis chapter together, in real time.</p>
+        <p>A video call where we work through your essay or thesis chapter together, in real time. 30-minute, 1-hour, or small-group formats.</p>
         <div class="track-meta">
-          <span class="from">From $50 <span>/ hour</span></span>
+          <span class="from">From $20 <span>/ person</span></span>
           <span class="track-cta">See rates →</span>
         </div>
       </button>
@@ -258,14 +263,22 @@
   <section class="track-wrap" id="live-track" style="padding-top:20px;">
     <div class="track-head">
       <div class="kicker">Rates</div>
-      <h2 style="font-size:1.9rem; color:#fff; font-weight:500;">Live 1-hour sessions</h2>
-      <p style="color:var(--sub); line-height:1.6; margin-top:10px; max-width:85ch;">One-on-one, over video call. Online only. Book a single session or a 5-session package for ongoing work.</p>
+      <h2 style="font-size:1.9rem; color:#fff; font-weight:500;">Live sessions</h2>
+      <p style="color:var(--sub); line-height:1.6; margin-top:10px; max-width:85ch;">Over video call. Online only. Book a 30-minute or 1-hour session one-on-one, join a small group, or book a 5-session package for ongoing work.</p>
       <p style="color:var(--muted); font-size:0.88rem; line-height:1.6; margin-top:10px; max-width:110ch; font-style:italic;">Note: I don't read your draft in advance of a live session. We go through it together in real time. If you'd like written feedback ahead of a call, add an async review below.</p>
     </div>
 
     <div style="margin-top:10px;">
       <div class="rate-group-title">Essays</div>
       <div class="rate-group-desc">Undergraduate and master's level essays in political science, international relations, and related social science and humanities subjects.</div>
+      <div class="rate-row">
+        <div><div class="rate-row-left">First Session <span class="rate-badge">New clients</span></div><div class="rate-row-note">One-time introductory rate for your first booking. Full 1-hour session.</div></div>
+        <div class="rate-row-price">$35<span>/hour</span></div>
+      </div>
+      <div class="rate-row">
+        <div><div class="rate-row-left">30-Minute Session</div><div class="rate-row-note">Good for a single question, a short section, or a quick gut-check before submitting.</div></div>
+        <div class="rate-row-price">$30<span>/30 min</span></div>
+      </div>
       <div class="rate-row">
         <div><div class="rate-row-left">1-Hour Session</div><div class="rate-row-note">Book as needed, no commitment.</div></div>
         <div class="rate-row-price">$50<span>/hour</span></div>
@@ -277,8 +290,25 @@
     </div>
 
     <div style="margin-top:32px;">
+      <div class="rate-group-title">Group Essay Sessions</div>
+      <div class="rate-group-desc">Live, one-hour sessions for small groups — up to 4 students share a session at a lower per-person rate. Book together with classmates, friends, or a study group. Essays only.</div>
+      <div class="rate-row">
+        <div><div class="rate-row-left">Group Session <span class="rate-badge">Up to 4 students</span></div><div class="rate-row-note">Priced per student, per hour. Everyone should bring the same type of assignment (e.g. all working on essay structure or thesis statements).</div></div>
+        <div class="rate-row-price">$20<span>/person/hour</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:32px;">
       <div class="rate-group-title">Thesis Writing</div>
       <div class="rate-group-desc">Thesis chapters and other long-form thesis-level writing.</div>
+      <div class="rate-row">
+        <div><div class="rate-row-left">First Session <span class="rate-badge">New clients</span></div><div class="rate-row-note">One-time introductory rate for your first booking. Full 1-hour session.</div></div>
+        <div class="rate-row-price">$50<span>/hour</span></div>
+      </div>
+      <div class="rate-row">
+        <div><div class="rate-row-left">30-Minute Session</div><div class="rate-row-note">For a quick question, a stuck paragraph, or a fast check-in between longer sessions.</div></div>
+        <div class="rate-row-price">$45<span>/30 min</span></div>
+      </div>
       <div class="rate-row">
         <div><div class="rate-row-left">1-Hour</div><div class="rate-row-note">For a chapter section, an argument you're stuck on, or structural feedback on a draft.</div></div>
         <div class="rate-row-price">$70<span>/hour</span></div>
@@ -288,6 +318,8 @@
         <div class="rate-row-price">$300<span>/5 hours</span></div>
       </div>
     </div>
+
+    <p class="disclaimer" style="margin-top:32px;">First-session pricing applies once per new client and can't be combined with other discounts or packages.</p>
 
     <p class="disclaimer">I don't guarantee specific grades or outcomes: my role is to help you build stronger arguments and clearer writing, but the final essay and result are yours.</p>
   </section>
