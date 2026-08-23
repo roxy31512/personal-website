@@ -1,310 +1,325 @@
-class CustomNavbar extends HTMLElement {
-  connectedCallback() {
-    this.render();
-    this.attachEventListeners();
+<!doctype html>
+<html lang="en">
+<head>
+
+<script src="/components/analytics.js"></script>
+<google-analytics></google-analytics>
+
+  <meta charset="utf-8" />
+  <title>Roxana Akhmetova | AI Governance Researcher</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Roxana Akhmetova - AI governance researcher, Oxford DPhil. Advises governments on AI adoption in high-stakes, politicised domains including immigration and border control.">
+  <meta name="keywords" content="Roxana Akhmetova, AI policy researcher, AI governance, Oxford AI Gala, AI Gala, Oxford Gala, Oxford AI Society, Oxford Artificial Intelligence Society, frontier AI, semiconductor export controls, US China AI policy, compute governance, BIS export controls, AI safety policy, Georgia Tech AI Safety, Pierre Elliott Trudeau Scholar, University of Oxford, AI policy strategist, tech diplomacy, CHIPS Act, congressional affairs, automated decision-making">
+  <meta name="author" content="Roxana Akhmetova">
+
+  <meta property="og:title" content="Roxana Akhmetova | AI Governance Researcher">
+  <meta property="og:description" content="Oxford DPhil. Advises governments on AI adoption in high-stakes, politicised domains. Research cited by the UK Government's Fairness Framework.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roxanaakhmetova.com/">
+  <meta property="og:image" content="https://raw.githubusercontent.com/roxy31512/personal-website/main/images/Profile%20Image.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Roxana Akhmetova | AI Governance Researcher">
+  <meta name="twitter:description" content="Oxford DPhil. Advises governments on AI adoption in high-stakes, politicised domains.">
+
+  <link rel="canonical" href="https://roxanaakhmetova.com/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Roxana Akhmetova",
+    "url": "https://roxanaakhmetova.com",
+    "image": "https://raw.githubusercontent.com/roxy31512/personal-website/main/images/Profile%20Image.jpg",
+    "jobTitle": "AI Governance Researcher",
+    "alumniOf": [
+      { "@type": "Organization", "name": "University of Oxford" }
+    ],
+    "description": "AI governance researcher with a DPhil from the University of Oxford. Advises governments on AI adoption in high-stakes, politicised domains including immigration and border control.",
+    "knowsAbout": [
+      "AI Policy", "AI Governance", "Semiconductor Export Controls", "Frontier AI",
+      "Compute Governance", "US-China AI Relations", "Technology Regulation",
+      "AI Safety", "BIS Export Controls", "CHIPS Act", "Immigration Policy"
+    ],
+    "award": "Pierre Elliott Trudeau Foundation Scholar",
+    "sameAs": [
+      "https://www.linkedin.com/in/akhmetovaroxana",
+      "https://scholar.google.com/citations?user=uxvwJb4AAAAJ&hl=en"
+    ]
   }
+  </script>
 
-  attachEventListeners() {
-    const dropdowns = this.querySelectorAll('.dropdown');
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
 
-    dropdowns.forEach(dropdown => {
-      const dropdownMenu = dropdown.querySelector('.dropdown-menu');
-      if (!dropdownMenu) return;
-
-      let timeout;
-
-      const showMenu = () => {
-        clearTimeout(timeout);
-        dropdownMenu.style.display = 'block';
-      };
-
-      const hideMenu = () => {
-        timeout = setTimeout(() => {
-          dropdownMenu.style.display = 'none';
-        }, 200);
-      };
-
-      dropdown.addEventListener('mouseenter', showMenu);
-      dropdown.addEventListener('mouseleave', hideMenu);
-      dropdownMenu.addEventListener('mouseenter', showMenu);
-      dropdownMenu.addEventListener('mouseleave', hideMenu);
-    });
-
-    const hamburger = this.querySelector('.hamburger');
-    const navLinks = this.querySelector('.nav-links');
-
-    if (hamburger && navLinks) {
-      hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-        hamburger.classList.toggle('open');
-      });
-
-      const links = navLinks.querySelectorAll('a');
-      links.forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('open');
-          hamburger.classList.remove('open');
-        });
-      });
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #0c0b09;
+      color: #e9e5dd;
+      font-family: 'Libre Franklin', sans-serif;
     }
-  }
 
-  render() {
-    this.innerHTML = `
-      <style>
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
+    .serif {
+      font-family: 'Fraunces', serif;
+    }
 
-        header.site-header {
-          background: rgba(0,0,0,0.95);
-          backdrop-filter: blur(10px);
-          border-bottom: 1px solid rgba(255,255,255,0.1);
-          position: sticky;
-          top: 0;
-          z-index: 999;
-          width: 100%;
-        }
+    .eyebrow {
+      font-family: 'Libre Franklin', sans-serif;
+      color: #a2522f;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      margin-bottom: 0.9rem;
+    }
 
-        .nav-inner {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          width: 100%;
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 1rem 1.5rem;
-          flex-wrap: wrap;
-        }
+    .hero-wrap {
+      max-width: 760px;
+      padding-top: 4rem;
+      padding-bottom: 2.5rem;
+    }
 
-        .nav-links {
-          display: flex;
-          gap: 2rem;
-          align-items: center;
-          flex: 1;
-          justify-content: flex-end;
-        }
+    .hero-name {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.9rem, 8vw, 4.75rem);
+      line-height: 1.03;
+      font-weight: 500;
+      color: #f2efe9;
+      margin-bottom: 1.5rem;
+    }
 
-        .nav-links a {
-          color: #d8e1eb;
-          text-decoration: none;
-          font-weight: 500;
-          padding: 6px 10px;
-          border-radius: 6px;
-          transition: all 0.15s ease;
-        }
+    .hero-sub {
+      color: #b9b3a7;
+      font-size: 1.1rem;
+      line-height: 1.65;
+      max-width: 540px;
+      margin-bottom: 2.25rem;
+    }
 
-        .nav-links a:hover {
-          background: rgba(255,255,255,0.08);
-          color: #fff;
-        }
+    .text-link {
+      color: #a2522f;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border-bottom: 1px solid rgba(162, 82, 47, 0.4);
+      transition: border-color 0.2s, color 0.2s;
+      padding-bottom: 1px;
+    }
 
-        .cta-link {
-          background: rgba(159,192,255,0.1);
-          border: 1px solid rgba(159,192,255,0.3);
-          color: #9fc0ff !important;
-        }
+    .text-link:hover {
+      border-bottom-color: #a2522f;
+      color: #c06a3f;
+    }
 
-        .cta-link:hover {
-          background: rgba(159,192,255,0.2) !important;
-        }
+    .link-row {
+      display: flex;
+      gap: 2rem;
+    }
 
-        .dropdown {
-          position: relative;
-          display: inline-block;
-        }
+    .section {
+      max-width: 760px;
+      padding: 3rem 0;
+      border-top: 1px solid rgba(233, 229, 221, 0.09);
+    }
 
-        .dropdown-toggle {
-          display: flex;
-          align-items: center;
-          gap: 4px;
-          cursor: default;
-          padding: 6px 10px;
-          border-radius: 6px;
-          color: #d8e1eb;
-          font-weight: 500;
-          transition: all 0.15s ease;
-        }
+    .section-heading {
+      font-family: 'Fraunces', serif;
+      color: #f2efe9;
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 1.75rem;
+    }
 
-        .dropdown-toggle:hover {
-          background: rgba(255,255,255,0.08);
-          color: #fff;
-        }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2.25rem;
+      align-items: start;
+    }
 
-        .dropdown-toggle a {
-          color: #d8e1eb;
-          text-decoration: none;
-          font-weight: 500;
-          padding: 0;
-          transition: all 0.15s ease;
-        }
+    @media (max-width: 640px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-photo {
+        width: 120px;
+      }
+    }
 
-        .dropdown-arrow {
-          font-size: 0.7rem;
-          transition: transform 0.2s;
-          color: inherit;
-        }
+    .about-photo {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 2px;
+    }
 
-        .dropdown:hover .dropdown-arrow {
-          transform: rotate(180deg);
-        }
+    .about-grid p {
+      color: #c4beb0;
+      line-height: 1.8;
+      font-size: 1.02rem;
+    }
 
-        .dropdown-menu {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          min-width: 220px;
-          background: rgba(10,10,12,0.95);
-          border-radius: 8px;
-          box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-          padding: 8px 0;
-          margin-top: 8px;
-          z-index: 1000;
-          border: 1px solid rgba(255,255,255,0.1);
-        }
+    .about-grid p + p {
+      margin-top: 1.1rem;
+    }
 
-        .dropdown-menu a {
-          display: block;
-          padding: 10px 16px;
-          color: #d8e1eb;
-          text-decoration: none;
-          font-weight: 500;
-          transition: all 0.15s ease;
-        }
+    .blog-list {
+      display: flex;
+      flex-direction: column;
+    }
 
-        .dropdown-menu a:hover {
-          background: rgba(255,255,255,0.08);
-          color: #fff;
-        }
+    .blog-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1.5rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(233, 229, 221, 0.08);
+      text-decoration: none;
+    }
 
-        .hamburger {
-          display: none;
-          flex-direction: column;
-          gap: 5px;
-          cursor: pointer;
-          padding: 8px;
-          border-radius: 6px;
-          transition: all 0.15s ease;
-        }
+    .blog-row:first-child {
+      border-top: 1px solid rgba(233, 229, 221, 0.08);
+    }
 
-        .hamburger span {
-          width: 24px;
-          height: 2px;
-          background: #d8e1eb;
-          transition: all 0.3s ease;
-          display: block;
-        }
+    .blog-title {
+      font-family: 'Fraunces', serif;
+      color: #e9e5dd;
+      font-size: 1.15rem;
+      font-weight: 400;
+      line-height: 1.4;
+      transition: color 0.15s;
+    }
 
-        .hamburger.open span:nth-child(1) {
-          transform: rotate(45deg) translate(8px, 8px);
-        }
+    .blog-row:hover .blog-title {
+      color: #a2522f;
+    }
 
-        .hamburger.open span:nth-child(2) {
-          opacity: 0;
-        }
+    .blog-date {
+      color: #79746a;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-family: 'Libre Franklin', sans-serif;
+    }
 
-        .hamburger.open span:nth-child(3) {
-          transform: rotate(-45deg) translate(8px, -8px);
-        }
+    .quick-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
 
-        @media (max-width: 768px) {
-          .hamburger {
-            display: flex;
-          }
+    @media (max-width: 640px) {
+      .quick-links {
+        grid-template-columns: 1fr;
+        gap: 2.25rem;
+      }
+    }
 
-          .nav-inner {
-            padding: 1rem 1.5rem;
-          }
+    .quick-links h3 {
+      font-family: 'Fraunces', serif;
+      color: #e9e5dd;
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
 
-          .nav-links {
-            display: none;
-            flex-direction: column;
-            width: 100%;
-            background: rgba(10,10,12,0.98);
-            padding: 1rem;
-            gap: 0.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-          }
+    .quick-links p {
+      color: #79746a;
+      font-size: 0.92rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+  </style>
 
-          .nav-links.open {
-            display: flex;
-          }
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-          .nav-links a {
-            padding: 12px;
-            border-radius: 6px;
-          }
+</head>
+<body>
 
-          .dropdown-menu {
-            position: static;
-            display: none;
-            background: rgba(255,255,255,0.05);
-            margin-top: 0.5rem;
-            border: none;
-            box-shadow: none;
-            padding: 8px 0;
-          }
+  <custom-navbar></custom-navbar>
 
-          .dropdown:hover .dropdown-menu {
-            display: block;
-          }
-        }
-      </style>
+  <main class="container mx-auto px-6 max-w-3xl">
 
-      <header class="site-header">
-        <div class="nav-inner container mx-auto px-6">
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <a href="http://www.linkedin.com/in/roxanaakhmetova/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; padding: 4px; border-radius: 6px; transition: all 0.15s ease; opacity: 0.9;" aria-label="LinkedIn" onmouseover="this.style.opacity='1';" onmouseout="this.style.opacity='0.9';">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" style="width: 24px; height: 24px;">
-            </a>
-            <a href="https://scholar.google.com/citations?user=uxvwJb4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; padding: 4px; border-radius: 6px; transition: all 0.15s ease; opacity: 0.9;" aria-label="Google Scholar" onmouseover="this.style.opacity='1';" onmouseout="this.style.opacity='0.9';">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" style="width: 24px; height: 24px;">
-            </a>
-            <a class="brand" href="/" aria-label="Home" style="display: flex; align-items: center; gap: 0.6rem; font-weight: 600; font-size: 1.1rem; color: #f0f4ff; text-decoration: none;">
-              Home
-            </a>
-          </div>
+    <section class="hero-wrap">
+      <div class="eyebrow">AI Governance Researcher</div>
+      <h1 class="hero-name">Roxana<br>Akhmetova</h1>
+      <p class="hero-sub">I advise governments on how to adopt AI in high-stakes, politicised domains, including immigration, border control, and welfare decision-making.</p>
 
-          <nav class="nav-links" aria-label="Primary">
-            <div class="dropdown">
-              <span class="dropdown-toggle">
-                Services
-                <span class="dropdown-arrow">▼</span>
-              </span>
-              <div class="dropdown-menu">
-                <a href="/consulting">Policy Consulting</a>
-                <a href="/editorial-service">Editorial Service</a>
-                <a href="/mentorship">Mentorship</a>
-              </div>
-            </div>
-            <div class="dropdown">
-              <span class="dropdown-toggle">
-                <a href="/projects">Projects</a>
-                <span class="dropdown-arrow">▼</span>
-              </span>
-              <div class="dropdown-menu">
-                <a href="/oxford-ai-gala">Oxford AI Gala 2025</a>
-                <a href="/oxford-ai-leadership">Oxford AI Leadership</a>
-              </div>
-            </div>
-            <a href="/bio">Bio</a>
-            <a href="/cv">CV</a>
-            <a href="/blog">Blog</a>
-            <a href="/contact" class="cta-link">Contact</a>
-          </nav>
+      <div class="link-row">
+        <a href="consulting.html" class="text-link">Consulting</a>
+        <a href="contact.html" class="text-link">Contact</a>
+      </div>
+    </section>
 
-          <div class="hamburger" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+    <section class="section">
+      <div class="about-grid">
+        <img class="about-photo" src="https://huggingface.co/spaces/roxy31512/oxford-ai-policy-luminary/resolve/main/images/Profile%20Image.jpg" alt="Roxana Akhmetova">
+        <div>
+          <p>I completed my DPhil at the University of Oxford, researching how governments adopt AI in immigration, border control, and other high-stakes, politically sensitive decisions.</p>
+          <p>I advised the Canadian federal government on AI adoption in immigration decision-making, and my research was cited by the UK Government's Fairness Framework.</p>
         </div>
-      </header>
-    `;
-  }
-}
+      </div>
+    </section>
 
-customElements.define('custom-navbar', CustomNavbar);
+    <section class="section">
+      <h2 class="section-heading">Writing</h2>
+      <div class="blog-list">
+
+        <a href="/blog/the-mythos-freeze.html" class="blog-row">
+          <span class="blog-title">The Mythos Freeze: Discretionary Enforcement without Institutional Safeguards</span>
+          <span class="blog-date">June 2026</span>
+        </a>
+
+        <a href="/blog/anything-you-want.html" class="blog-row">
+          <span class="blog-title">Anything You Want, Sweetheart: Borders, Data, and the Business of Bordering</span>
+          <span class="blog-date">Nov 2024</span>
+        </a>
+
+        <a href="/blog/west-bank-fieldnotes.html" class="blog-row">
+          <span class="blog-title">Concrete and Code: West Bank Field Notes</span>
+          <span class="blog-date">Aug 2023</span>
+        </a>
+
+      </div>
+      <div style="margin-top: 1.75rem;">
+        <a href="/blog" class="text-link">View all writing →</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="quick-links">
+        <div>
+          <h3>Research & publications</h3>
+          <p>Selected papers on governance and policy.</p>
+          <a href="publications.html" class="text-link">View publications →</a>
+        </div>
+
+        <div>
+          <h3>Past projects</h3>
+          <p>Oxford AI Governance Conference — convening for AI governance professionals in Oxford.</p>
+          <a href="past-projects.html" class="text-link">View past projects →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <custom-footer></custom-footer>
+
+  <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
+  <script src="https://roxanaakhmetova.com/components/footer.js"></script>
+  <script>
+    if (window.feather) { try { feather.replace(); } catch(e) {} }
+  </script>
+  <script>
+  if (window.location.pathname === '/index.html') {
+    window.history.replaceState(null, '', '/');
+  }
+  </script>
+
+</body>
+</html>
