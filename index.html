@@ -64,8 +64,6 @@
 
     main {
       background: #000000 !important;
-      position: relative;
-      z-index: 2;
     }
 
     .rx-hero-grid {
@@ -131,14 +129,6 @@
       background: #000000;
     }
 
-    .rx-section-index {
-      font-family: 'Libre Franklin', sans-serif;
-      color: #5c5850;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.6rem;
-    }
-
     .rx-section-heading {
       font-family: 'Fraunces', serif !important;
       color: #f5f3ef !important;
@@ -147,19 +137,23 @@
       margin-bottom: 1.75rem;
     }
 
-    .rx-work-grid {
+    .rx-card-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
 
+    .rx-card-grid.rx-two-col {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     @media (max-width: 860px) {
-      .rx-work-grid {
+      .rx-card-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    .rx-work-card {
+    .rx-card {
       border: 1px solid rgba(245, 243, 239, 0.14);
       padding: 1.5rem;
       text-decoration: none;
@@ -168,11 +162,11 @@
       background: #000000;
     }
 
-    .rx-work-card:hover {
+    .rx-card:hover {
       border-color: rgba(245, 243, 239, 0.4);
     }
 
-    .rx-work-title {
+    .rx-card-title {
       font-family: 'Fraunces', serif !important;
       color: #f5f3ef !important;
       font-size: 1.15rem;
@@ -180,10 +174,19 @@
       margin-bottom: 0.6rem;
     }
 
-    .rx-work-desc {
+    .rx-card-desc {
       color: #9a958a !important;
       font-size: 0.95rem;
       line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .rx-card-link {
+      color: #f5f3ef !important;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.92rem;
+      border-bottom: 1px solid rgba(245, 243, 239, 0.4);
     }
 
     .rx-blog-grid {
@@ -234,50 +237,12 @@
     .rx-link-secondary:hover {
       color: #b3aea3 !important;
     }
-
-    .rx-quick-links {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-
-    @media (max-width: 640px) {
-      .rx-quick-links {
-        grid-template-columns: 1fr;
-        gap: 2.25rem;
-      }
-    }
-
-    .rx-quick-links h3 {
-      font-family: 'Fraunces', serif !important;
-      color: #f5f3ef !important;
-      font-size: 1.15rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-
-    .rx-quick-links p {
-      color: #79746a !important;
-      font-size: 0.92rem;
-      margin-bottom: 0.75rem;
-      line-height: 1.6;
-    }
-
-    .rx-quick-links a {
-      color: #f5f3ef !important;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.92rem;
-      border-bottom: 1px solid rgba(245, 243, 239, 0.4);
-    }
   </style>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 </head>
 <body>
-
-  <particle-background></particle-background>
 
   <custom-navbar></custom-navbar>
 
@@ -287,7 +252,7 @@
       <div>
         <h1 class="rx-hero-name">Roxana<br>Akhmetova</h1>
         <div class="rx-hero-sub">
-          <p>I completed my DPhil at the University of Oxford, researching how governments adopt AI in immigration, border control, and other high-stakes, politically sensitive decisions.</p>
+          <p>I completed my DPhil at the University of Oxford, researching how governments<br>adopt AI in immigration, border control, and other high-stakes, politically sensitive decisions.</p>
           <p>I advised the Canadian federal government on AI adoption in immigration decision-making, and my research was cited by the UK Government's Fairness Framework.</p>
         </div>
       </div>
@@ -298,30 +263,28 @@
     </section>
 
     <section class="rx-section">
-      <div class="rx-section-index">01</div>
-      <h2 class="rx-section-heading">Work</h2>
-      <div class="rx-work-grid">
+      <h2 class="rx-section-heading">Services</h2>
+      <div class="rx-card-grid">
 
-        <a href="consulting.html" class="rx-work-card">
-          <div class="rx-work-title">Policy consulting</div>
-          <div class="rx-work-desc">Advising governments and organizations on AI adoption in high-stakes, politically sensitive domains.</div>
+        <a href="consulting.html" class="rx-card">
+          <div class="rx-card-title">Policy consulting</div>
+          <div class="rx-card-desc">Advising governments and organizations on AI adoption in high-stakes, politically sensitive domains.</div>
         </a>
 
-        <a href="editorial-service.html" class="rx-work-card">
-          <div class="rx-work-title">Editorial service</div>
-          <div class="rx-work-desc">Writing and editing support for policy research, reports, and public-facing analysis.</div>
+        <a href="editorial-service.html" class="rx-card">
+          <div class="rx-card-title">Editorial service</div>
+          <div class="rx-card-desc">Writing and editing support for policy research, reports, and public-facing analysis.</div>
         </a>
 
-        <a href="mentorship.html" class="rx-work-card">
-          <div class="rx-work-title">Mentorship</div>
-          <div class="rx-work-desc">Free 15-minute calls on AI governance, policy fellowships, Oxford applications, and doctoral funding.</div>
+        <a href="mentorship.html" class="rx-card">
+          <div class="rx-card-title">Mentorship</div>
+          <div class="rx-card-desc">Free 15-minute calls on AI governance, policy fellowships, Oxford applications, and doctoral funding.</div>
         </a>
 
       </div>
     </section>
 
     <section class="rx-section">
-      <div class="rx-section-index">02</div>
       <h2 class="rx-section-heading">Writing</h2>
       <div class="rx-blog-grid">
 
@@ -347,19 +310,21 @@
     </section>
 
     <section class="rx-section">
-      <div class="rx-section-index">03</div>
-      <div class="rx-quick-links">
-        <div>
-          <h3>Research & publications</h3>
-          <p>Selected papers on governance and policy.</p>
-          <a href="publications.html">View publications →</a>
-        </div>
+      <h2 class="rx-section-heading">More</h2>
+      <div class="rx-card-grid rx-two-col">
 
-        <div>
-          <h3>Past projects</h3>
-          <p>Oxford AI Governance Conference — convening for AI governance professionals in Oxford.</p>
-          <a href="past-projects.html">View past projects →</a>
-        </div>
+        <a href="publications.html" class="rx-card">
+          <div class="rx-card-title">Research & publications</div>
+          <div class="rx-card-desc">Selected papers on governance and policy.</div>
+          <span class="rx-card-link">View publications →</span>
+        </a>
+
+        <a href="past-projects.html" class="rx-card">
+          <div class="rx-card-title">Past projects</div>
+          <div class="rx-card-desc">Oxford AI Governance Conference — convening for AI governance professionals in Oxford.</div>
+          <span class="rx-card-link">View past projects →</span>
+        </a>
+
       </div>
     </section>
 
@@ -369,7 +334,6 @@
 
   <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
   <script src="https://roxanaakhmetova.com/components/footer.js"></script>
-  <script src="https://roxanaakhmetova.com/components/particle-background.js"></script>
   <script>
     if (window.feather) { try { feather.replace(); } catch(e) {} }
   </script>
