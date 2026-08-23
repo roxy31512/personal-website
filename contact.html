@@ -12,6 +12,9 @@
   <meta name="keywords" content="contact Roxana Akhmetova, AI policy consulting, speaking engagements">
   <meta name="author" content="Roxana Akhmetova">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -30,10 +33,19 @@
   </script>
   <link rel="stylesheet" href="style.css">
   <style>
+    :root{
+      --bg:#000000;
+      --cream:#efe6d3;
+      --cream-dim:#c9beaa;
+      --cream-faint:#8a8270;
+      --hair:rgba(239,230,211,0.16);
+      --hair-strong:rgba(239,230,211,0.3);
+    }
+
     body {
-      background-color: #000;
-      color: #fff;
-      font-family: Arial, Helvetica, sans-serif;
+      background-color: var(--bg);
+      color: var(--cream);
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
     }
     
     main {
@@ -43,58 +55,75 @@
     }
     
     main h1 {
+      font-family: 'Source Serif 4', Georgia, serif;
       font-size: 2.5em !important;
       margin-bottom: 50px !important;
       padding-bottom: 15px !important;
-      border-bottom: 3px solid #fff !important;
-      color: #fff !important;
-      font-weight: 600 !important;
+      border-bottom: 3px solid var(--cream) !important;
+      color: var(--cream) !important;
+      font-weight: 500 !important;
       display: inline-block !important;
     }
     
     .contact-intro {
       font-size: 1.1em;
       line-height: 1.8;
-      color: #ddd;
+      color: var(--cream-dim);
       margin-bottom: 40px;
     }
     
     .form-card {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #0c0c0c;
+      border: 1px solid var(--hair);
       border-radius: 12px;
       padding: 40px;
     }
     
     label {
       display: block;
-      color: #9fc0ff;
-      font-size: 0.95em;
+      color: var(--cream);
+      font-size: 0.85em;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
       margin-bottom: 8px;
       font-weight: 500;
     }
     
-    input, textarea {
+    input, textarea, select {
       width: 100%;
       padding: 12px 16px;
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: #000;
+      border: 1px solid var(--hair-strong);
       border-radius: 6px;
-      color: #fff;
+      color: var(--cream);
       font-size: 1rem;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
       transition: all 0.3s ease;
       margin-bottom: 20px;
     }
     
-    input:focus, textarea:focus {
+    input:focus, textarea:focus, select:focus {
       outline: none;
-      border-color: #9fc0ff;
-      background: rgba(0, 0, 0, 0.5);
+      border-color: var(--cream);
+      background: #0a0a0a;
     }
     
     input::placeholder, textarea::placeholder {
-      color: #666;
+      color: var(--cream-faint);
+    }
+
+    select{
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23efe6d3'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 111.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 16px;
+      cursor: pointer;
+    }
+    select option{
+      background: #000;
+      color: var(--cream);
     }
     
     textarea {
@@ -103,25 +132,26 @@
     }
     
     button[type="submit"] {
-      background: #234e85;
-      color: #fff;
+      background: var(--cream);
+      color: #000;
       padding: 14px 40px;
       border-radius: 6px;
       border: none;
       font-size: 1rem;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
     }
     
     button[type="submit"]:hover {
-      background: #1c3f6c;
+      background: #ffffff;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(159, 192, 255, 0.3);
+      box-shadow: 0 4px 12px rgba(239, 230, 211, 0.25);
     }
     
     button[type="submit"]:disabled {
       background: #555;
+      color: #ccc;
       cursor: not-allowed;
       transform: none;
     }
@@ -135,9 +165,9 @@
     
     .status-message.success {
       display: block;
-      background: rgba(74, 222, 128, 0.1);
-      border: 1px solid rgba(74, 222, 128, 0.3);
-      color: #4ade80;
+      background: rgba(239, 230, 211, 0.08);
+      border: 1px solid rgba(239, 230, 211, 0.35);
+      color: var(--cream);
     }
     
     .status-message.error {
@@ -183,12 +213,23 @@
         </div>
 
         <div>
-          <label for="subject">Subject *</label>
+          <label for="inquiryType">Inquiry Type *</label>
+          <select id="inquiryType" name="inquiryType" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="Policy Consulting">Policy Consulting</option>
+            <option value="Editorial Service">Editorial Service</option>
+            <option value="Mentorship">Mentorship</option>
+            <option value="Speaking or media inquiry">Speaking or media inquiry</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="subject">Subject</label>
           <input 
             id="subject" 
             name="subject" 
             type="text" 
-            required 
             placeholder="What is this regarding?"
           >
         </div>
@@ -264,11 +305,12 @@
       // Get form values
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
+      const inquiryType = document.getElementById('inquiryType').value;
       const subject = document.getElementById('subject').value;
       const message = document.getElementById('message').value;
       
       // Check for blocked words in all fields
-      const allText = `${name} ${email} ${subject} ${message}`;
+      const allText = `${name} ${email} ${inquiryType} ${subject} ${message}`;
       if (containsBlockedWords(allText)) {
         statusMessage.className = 'status-message error';
         statusMessage.textContent = 'Your message contains inappropriate content and cannot be sent. Please revise your message.';
