@@ -1,10 +1,10 @@
 /* style.css */
 :root{
-  --bg: #000000;
-  --panel: #0b0b0b;
-  --muted: #9aa4ad;
-  --accent: #234e85; /* oxford */
-  --text: #e6eefb;
+  --bg: #0c0b09;
+  --panel: #0f0e0c;
+  --muted: #8c877e;
+  --accent: #f5f3ef;
+  --text: #f5f3ef;
 }
 
 html,body {
@@ -24,19 +24,20 @@ html,body {
 
 /* links */
 a { text-decoration: none; color: var(--text); }
-a:hover { color: var(--accent); }
+a:hover { color: #c9c4b9; }
 
 /* navbar adjustments */
-nav { background: transparent !important; border-color: rgba(255,255,255,0.06) !important; }
+nav { background: transparent !important; border-color: rgba(245,243,239,0.08) !important; }
 .nav-link { color: var(--text) !important; }
 
 /* card borders and subtle shadows */
-.border { border-color: rgba(255,255,255,0.04) !important; }
+.border { border-color: rgba(245,243,239,0.06) !important; }
 .shadow-sm { box-shadow: 0 1px 4px rgba(0,0,0,0.6); }
 
 /* buttons */
-.btn-primary { background: var(--accent); color: white; padding: .6rem 1rem; border-radius: .375rem; }
-.btn-outline { border: 1px solid rgba(255,255,255,0.06); padding: .6rem 1rem; border-radius: .375rem; color: var(--text); }
+.btn-primary { background: #f5f3ef; color: #0c0b09; padding: .6rem 1rem; border-radius: .375rem; }
+.btn-primary:hover { background: #d8d4cb; }
+.btn-outline { border: 1px solid rgba(245,243,239,0.14); padding: .6rem 1rem; border-radius: .375rem; color: var(--text); }
 
 /* small helpers */
 .rounded-md { border-radius:.375rem; }
@@ -45,9 +46,11 @@ nav { background: transparent !important; border-color: rgba(255,255,255,0.06) !
    Site banner (top hero band)
    ------------------------- */
 .site-banner {
-  background: linear-gradient(90deg, #001f3f 0%, #002b5c 100%);
-  color: #ffffff;
+  background: #0f0e0c;
+  color: #f5f3ef;
   padding: 3rem 0;
+  border-top: 1px solid rgba(245,243,239,0.08);
+  border-bottom: 1px solid rgba(245,243,239,0.08);
 }
 .site-banner .banner-inner {
   max-width: 1100px;
@@ -62,17 +65,18 @@ nav { background: transparent !important; border-color: rgba(255,255,255,0.06) !
 }
 .site-banner p {
   margin: 0.5rem 0 0;
-  color: rgba(255,255,255,0.85);
+  color: rgba(245,243,239,0.75);
 }
 
 /* -------------------------
    Footer / footnote
    ------------------------- */
 .site-footer {
-  background: #071025;
-  color: #cfd8e3;
+  background: #0a0908;
+  color: #c9c4b9;
   padding: 2.25rem 0;
   font-size: 0.95rem;
+  border-top: 1px solid rgba(245,243,239,0.08);
 }
 .site-footer .footer-inner {
   max-width: 1100px;
@@ -88,14 +92,14 @@ nav { background: transparent !important; border-color: rgba(255,255,255,0.06) !
   margin-bottom: 0.5rem;
 }
 .site-footer a {
-  color: #9fc0ff;
+  color: #f5f3ef;
   text-decoration: none;
 }
 .site-footer a:hover { text-decoration: underline; }
 
 /* small print / footnote row */
 .site-footer .footnote {
-  color: #98a7bd;
+  color: #8c877e;
   font-size: 0.85rem;
   margin-top: 0.5rem;
 }
@@ -106,51 +110,51 @@ nav { background: transparent !important; border-color: rgba(255,255,255,0.06) !
   .site-banner p  { font-size: 0.95rem; }
 }
 
-/* Brighter subtitle for dark background */
+/* Subtitle styling for dark background, no glow, no blue */
 main p.lead,
 main .hero-sub {
-  color: #b7c6e0 !important; /* elegant, soft light blue-gray tone */
+  color: #b3aea3 !important;
   opacity: 1 !important;
-  text-shadow: 0 1px 8px rgba(60, 120, 200, 0.25); /* subtle glow for depth */
+  text-shadow: none !important;
   font-weight: 400;
   font-size: clamp(1.2rem, 2vw, 1.5rem);
 }
 
-/* Add spacing below subtitle */
 .hero-sub {
-  margin-bottom: 2rem; /* adds space before buttons */
+  margin-bottom: 2rem;
 }
 
 /* DARK MODE (toggle by setting body class to bg-dark) */
 body.bg-dark {
-  background: #0a0a0a;
-  color: #e6eef6;
+  background: #0a0908;
+  color: #f5f3ef;
 }
 
-body.bg-dark a { color: #9fc0ff; }
-body.bg-dark .container { --card-bg: #0f0f10; }
+body.bg-dark a { color: #f5f3ef; }
+body.bg-dark .container { --card-bg: #0f0e0c; }
 
 /* cards (the three boxes) */
 .card, .feature-card {
   background: var(--card-bg, #111);
-  color: #dee8f5;
+  color: #e6e2da;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  border: 1px solid rgba(245,243,239,0.08);
+  box-shadow: none;
 }
 
 /* links inside cards */
 .card a, .feature-card a {
-  color: #9bbcff;
+  color: #f5f3ef;
 }
 
-/* ---------- Header / Navbar (final polished layout) ---------- */
+/* ---------- Header / Navbar ---------- */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 60;
   background: rgba(10,10,10,0.7);
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(245,243,239,0.06);
 }
 
 .nav-inner {
@@ -158,7 +162,7 @@ body.bg-dark .container { --card-bg: #0f0f10; }
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* brand left, links right */
+  justify-content: space-between;
   padding: 0.8rem 1rem;
 }
 
@@ -168,7 +172,7 @@ body.bg-dark .container { --card-bg: #0f0f10; }
   align-items: center;
   gap: 0.6rem;
   text-decoration: none;
-  color: #f0f4ff;
+  color: #f5f3ef;
   font-weight: 600;
   font-size: 1rem;
 }
@@ -177,7 +181,7 @@ body.bg-dark .container { --card-bg: #0f0f10; }
   height: 42px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(245,243,239,0.12);
 }
 .brand:hover { opacity: 0.85; }
 
@@ -190,7 +194,7 @@ body.bg-dark .container { --card-bg: #0f0f10; }
 }
 
 .nav-links a {
-  color: #d8e1eb;
+  color: #d8d4cb;
   text-decoration: none;
   font-weight: 500;
   padding: 6px 10px;
@@ -199,18 +203,18 @@ body.bg-dark .container { --card-bg: #0f0f10; }
 }
 
 .nav-links a:hover {
-  background: rgba(255,255,255,0.08);
+  background: rgba(245,243,239,0.08);
   color: #fff;
 }
 
 /* --- Special contact button --- */
 .nav-links .cta-link {
-  background: #234e85;
-  color: #fff;
+  background: #f5f3ef;
+  color: #0c0b09;
   padding: 7px 12px;
 }
 .nav-links .cta-link:hover {
-  background: #1c3f6c;
+  background: #d8d4cb;
 }
 
 /* --- LinkedIn icon --- */
@@ -218,12 +222,12 @@ body.bg-dark .container { --card-bg: #0f0f10; }
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #9fc0ff;
+  color: #f5f3ef;
   padding: 4px;
   border-radius: 6px;
 }
 .linkedin-link:hover {
-  background: rgba(255,255,255,0.08);
+  background: rgba(245,243,239,0.08);
   color: #fff;
 }
 
@@ -240,7 +244,7 @@ body.bg-dark .container { --card-bg: #0f0f10; }
 .hamburger::after {
   width: 22px;
   height: 2px;
-  background: #d8e1eb;
+  background: #d8d4cb;
   display: block;
   border-radius: 2px;
   position: relative;
@@ -263,7 +267,7 @@ body.bg-dark .container { --card-bg: #0f0f10; }
     position: absolute;
     top: 64px;
     right: 10px;
-    background: rgba(10,10,12,0.95);
+    background: rgba(10,10,10,0.95);
     border-radius: 10px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.6);
     flex-direction: column;
@@ -284,44 +288,39 @@ body.bg-dark .container { --card-bg: #0f0f10; }
 
 /* --- Hero name emphasis --- */
 .hero-name {
-  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-family: 'Fraunces', 'Playfair Display', serif;
   font-size: clamp(2.8rem, 6vw, 4.5rem);
-  font-weight: 700;
-  letter-spacing: 0.015em;
-  color: #ffffff; /* solid white */
-  text-shadow:
-    0 0 18px rgba(160, 190, 255, 0.30),
-    0 2px 18px rgba(0, 0, 0, 0.85);
-  margin-bottom: 0.8rem; /* adds slight space below */
+  font-weight: 500;
+  letter-spacing: 0;
+  color: #f5f3ef;
+  text-shadow: none;
+  margin-bottom: 0.8rem;
 }
 
-/* disable hover color change */
 .hero-name:hover {
-  color: #ffffff;
-  text-shadow:
-    0 0 18px rgba(160, 190, 255, 0.30),
-    0 2px 18px rgba(0, 0, 0, 0.85);
+  color: #f5f3ef;
+  text-shadow: none;
 }
 
-/* --- Hero photo as background for perfect centering (single canonical rule) --- */
+/* --- Hero photo: square/rect, no forced circle --- */
 .hero-photo {
-  width: 14rem;
-  height: 14rem;
-  border-radius: 50%;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 65% 40%;
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 6px 30px rgba(0,0,0,0.55);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-position: center;
+  border: none;
+  box-shadow: none;
+  transition: none;
 }
 
 .hero-photo:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+  transform: none;
+  box-shadow: none;
 }
 
-/* Adjust navbar avatar positioning */
+/* Navbar avatar positioning */
 .brand img {
   width: 3rem;
   height: 3rem;
@@ -335,9 +334,9 @@ main h1 {
   font-size: 2.5em;
   margin-bottom: 50px;
   padding-bottom: 15px;
-  border-bottom: 3px solid #fff;
-  color: #ffffff !important;
-  font-weight: 600;
+  border-bottom: 3px solid rgba(245,243,239,0.4);
+  color: #f5f3ef !important;
+  font-weight: 500;
   display: inline-block;
 }
 
@@ -349,6 +348,6 @@ main h1 {
 .about-me-box,
 .blog-card,
 section .bg-white {
-  background: rgba(255, 255, 255, 0.03) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: rgba(245, 243, 239, 0.03) !important;
+  border: 1px solid rgba(245, 243, 239, 0.08) !important;
 }
