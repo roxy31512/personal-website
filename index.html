@@ -4,30 +4,26 @@
 
 <script src="/components/analytics.js"></script>
 <google-analytics></google-analytics>
-  
+
   <meta charset="utf-8" />
-  <title>Roxana Akhmetova | Policy Researcher</title>
+  <title>Roxana Akhmetova | AI Governance Researcher</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Roxana Akhmetova - AI Safety Policy Fellow at Georgia Tech. Founder of Oxford AI Gala, former President of Oxford Artificial Intelligence Society. Specializing in AI governance, and technology regulation.">
+  <meta name="description" content="Roxana Akhmetova - AI governance researcher, Oxford DPhil. Advises governments on AI adoption in high-stakes, politicised domains including immigration and border control.">
   <meta name="keywords" content="Roxana Akhmetova, AI policy researcher, AI governance, Oxford AI Gala, AI Gala, Oxford Gala, Oxford AI Society, Oxford Artificial Intelligence Society, frontier AI, semiconductor export controls, US China AI policy, compute governance, BIS export controls, AI safety policy, Georgia Tech AI Safety, Pierre Elliott Trudeau Scholar, University of Oxford, AI policy strategist, tech diplomacy, CHIPS Act, congressional affairs, automated decision-making">
   <meta name="author" content="Roxana Akhmetova">
-  
-  <!-- Open Graph Tags for Social Media -->
-  <meta property="og:title" content="Roxana Akhmetova | Policy Researcher">
-  <meta property="og:description" content="AI Safety Policy Fellow at Georgia Tech. Founder of Oxford AI Governance Conference. Specializing in frontier AI governance, semiconductor export controls, and technology regulation.">
+
+  <meta property="og:title" content="Roxana Akhmetova | AI Governance Researcher">
+  <meta property="og:description" content="Oxford DPhil. Advises governments on AI adoption in high-stakes, politicised domains. Research cited by the UK Government's Fairness Framework.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://roxanaakhmetova.com/">
   <meta property="og:image" content="https://raw.githubusercontent.com/roxy31512/personal-website/main/images/Profile%20Image.jpg">
-  
-  <!-- Twitter Card Tags -->
+
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Roxana Akhmetova | Policy Researcher">
-  <meta name="twitter:description" content="AI Safety Policy Fellow at Georgia Tech. Founder of Oxford AI Governance Conference. Specializing in frontier AI governance and semiconductor export controls.">
-  
-  <!-- Canonical URL for SEO -->
+  <meta name="twitter:title" content="Roxana Akhmetova | AI Governance Researcher">
+  <meta name="twitter:description" content="Oxford DPhil. Advises governments on AI adoption in high-stakes, politicised domains.">
+
   <link rel="canonical" href="https://roxanaakhmetova.com/" />
-  
-  <!-- Schema.org Structured Data -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -35,41 +31,15 @@
     "name": "Roxana Akhmetova",
     "url": "https://roxanaakhmetova.com",
     "image": "https://raw.githubusercontent.com/roxy31512/personal-website/main/images/Profile%20Image.jpg",
-    "jobTitle": "AI Safety Policy Fellow",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Georgia Tech AI Safety Initiative"
-    },
+    "jobTitle": "AI Governance Researcher",
     "alumniOf": [
-      {
-        "@type": "Organization",
-        "name": "University of Oxford"
-      }
+      { "@type": "Organization", "name": "University of Oxford" }
     ],
-    "description": "Policy researcher specializing in frontier AI governance, semiconductor export controls, and technology regulation. Founder of Oxford AI Governance Conference and former President of Oxford Artificial Intelligence Society.",
+    "description": "AI governance researcher with a DPhil from the University of Oxford. Advises governments on AI adoption in high-stakes, politicised domains including immigration and border control.",
     "knowsAbout": [
-      "AI Policy",
-      "AI Governance", 
-      "Semiconductor Export Controls",
-      "Frontier AI",
-      "Compute Governance",
-      "US-China AI Relations",
-      "Technology Regulation",
-      "AI Safety",
-      "BIS Export Controls",
-      "CHIPS Act"
-    ],
-    "memberOf": [
-      {
-        "@type": "Organization",
-        "name": "Oxford AI Governance Conference",
-        "description": "Founder and Chair"
-      },
-      {
-        "@type": "Organization",
-        "name": "Oxford Artificial Intelligence Society",
-        "description": "Former President"
-      }
+      "AI Policy", "AI Governance", "Semiconductor Export Controls", "Frontier AI",
+      "Compute Governance", "US-China AI Relations", "Technology Regulation",
+      "AI Safety", "BIS Export Controls", "CHIPS Act", "Immigration Policy"
     ],
     "award": "Pierre Elliott Trudeau Foundation Scholar",
     "sameAs": [
@@ -78,20 +48,17 @@
     ]
   }
   </script>
-  
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Tailwind extension (colors used across pages)
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             dark: '#000',
-            mid: '#4d4d4d',
-            light: '#f7f7f8',
-            oxford: '#002147',
-            'oxford-100': '#e6eefb',
-            'oxford-600': '#234e85'
+            ink: '#e8e5df',
+            mid: '#8c877e',
+            accent: '#b89b5e'
           }
         }
       }
@@ -99,229 +66,244 @@
   </script>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Consistent white veil overlay for all sections */
-
-    .stats-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin: 2rem 0;
-      padding: 1.5rem;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    body {
+      color: #e8e5df;
     }
 
-    .stat-item {
-      text-align: center;
-      color: #d8e1eb;
-    }
-
-    .stat-number {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #9fc0ff;
-      display: block;
-    }
-
-    .stat-label {
-      font-size: 0.9rem;
-      color: #9aa4b2;
-      margin-top: 0.25rem;
-    }
-
-    .about-me-box {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .about-me-box h3 {
-      color: #9fc0ff;
-      font-size: 0.9rem;
+    .eyebrow {
+      color: #b89b5e;
+      font-size: 0.8rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
       margin-bottom: 0.75rem;
     }
 
-    .about-me-box p {
-      color: #d8e1eb;
-      line-height: 1.7;
-      margin: 0;
+    .hero-wrap {
+      max-width: 640px;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
     }
 
-    .highlight-item {
-      display: flex;
-      align-items: start;
-      gap: 0.75rem;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    .hero-name {
+      font-size: clamp(2.75rem, 8vw, 4.5rem);
+      line-height: 1.05;
+      font-weight: 700;
+      color: #e8e5df;
+      margin-bottom: 1.25rem;
+      text-shadow: none;
     }
 
-    .highlight-item:last-child {
-      border-bottom: none;
-    }
-
-    .highlight-icon {
-      color: #9fc0ff;
-      font-size: 1.25rem;
-      line-height: 1;
-      flex-shrink: 0;
-    }
-
-    .highlight-text {
-      color: #d8e1eb;
+    .hero-sub {
+      color: #c4beb4;
+      font-size: 1.05rem;
       line-height: 1.6;
+      max-width: 520px;
+      margin-bottom: 2rem;
     }
 
-    .blog-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: all 0.2s;
-      height: 100%;
+    .text-link {
+      color: #b89b5e;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(184, 155, 94, 0.35);
+      transition: border-color 0.2s;
+      padding-bottom: 1px;
+    }
+
+    .text-link:hover {
+      border-bottom-color: #b89b5e;
+    }
+
+    .link-row {
+      display: flex;
+      gap: 1.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .about-section {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 2rem;
+      align-items: start;
+      padding: 2rem 0;
+      border-top: 1px solid rgba(232, 229, 223, 0.1);
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 640px) {
+      .about-section {
+        grid-template-columns: 1fr;
+      }
+      .about-photo {
+        width: 96px;
+      }
+    }
+
+    .about-photo {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 3px;
+      filter: grayscale(15%);
+    }
+
+    .about-section p {
+      color: #c4beb4;
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    .about-section p + p {
+      margin-top: 1rem;
+    }
+
+    .section-heading {
+      color: #8c877e;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-list {
       display: flex;
       flex-direction: column;
     }
 
-    .blog-card:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(159, 192, 255, 0.3);
-      transform: translateY(-2px);
+    .blog-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1.5rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(232, 229, 223, 0.08);
+    }
+
+    .blog-row:first-child {
+      border-top: 1px solid rgba(232, 229, 223, 0.08);
     }
 
     .blog-title {
-      color: #9fc0ff;
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
+      color: #e8e5df;
+      font-size: 1rem;
+      font-weight: 500;
       line-height: 1.4;
     }
 
+    .blog-row:hover .blog-title {
+      color: #b89b5e;
+    }
+
     .blog-date {
-      color: #9aa4b2;
+      color: #8c877e;
       font-size: 0.85rem;
-      margin-bottom: 0.75rem;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
-    .blog-excerpt {
-      color: #d8e1eb;
-      line-height: 1.6;
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-      flex-grow: 1;
+    .quick-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(232, 229, 223, 0.1);
     }
 
-    .blog-link {
-      color: #9fc0ff;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
+    @media (max-width: 640px) {
+      .quick-links {
+        grid-template-columns: 1fr;
+      }
     }
 
-    .blog-link:hover {
-      border-bottom-color: #9fc0ff;
-    }
-
-    .section-heading {
-      color: #9fc0ff;
-      font-size: 0.9rem;
+    .quick-links h3 {
+      color: #e8e5df;
+      font-size: 1rem;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 1.5rem;
-      text-align: center;
-   }  
+      margin-bottom: 0.4rem;
+    }
+
+    .quick-links p {
+      color: #8c877e;
+      font-size: 0.9rem;
+      margin-bottom: 0.6rem;
+    }
   </style>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  
+
 </head>
 <body class="text-light font-sans">
-  <!-- Particle Background -->
   <particle-background></particle-background>
-  
+
   <custom-navbar></custom-navbar>
 
-  <main class="container mx-auto px-6 py-16 max-w-6xl" style="position: relative; z-index: 10;">
+  <main class="container mx-auto px-6 max-w-3xl" style="position: relative; z-index: 10;">
+
     <!-- Hero -->
-    <section class="flex flex-col items-center text-center mb-12">
-      <div class="hero-photo rounded-full overflow-hidden mb-6 border border-mid"
-           style="background-image: url('https://huggingface.co/spaces/roxy31512/oxford-ai-policy-luminary/resolve/main/images/Profile%20Image.jpg');">
+    <section class="hero-wrap">
+      <div class="eyebrow">AI Governance Researcher</div>
+      <h1 class="hero-name">Roxana<br>Akhmetova</h1>
+      <p class="hero-sub">I advise governments on how to adopt AI in high-stakes, politicised domains, including immigration, border control, and welfare decision-making.</p>
+
+      <div class="link-row">
+        <a href="consulting.html" class="text-link">Consulting</a>
+        <a href="contact.html" class="text-link">Contact</a>
       </div>
-
-      <h1 class="hero-name">Roxana Akhmetova</h1>
-      <p class="hero-sub">Policy & Governance - bridging social science and technology.</p>
-
-      <div class="flex flex-wrap justify-center gap-4 mb-8">
-        <a href="consulting.html" class="btn-primary rounded-md">Consulting</a>
-        <a href="contact.html" class="btn-primary rounded-md">Contact</a>
-      </div>
-
-    <!-- About Me Section -->
-    <section class="about-me-box mb-12" style="background: rgba(255, 255, 255, 0.03) !important; border: 1px solid rgba(255, 255, 255, 0.08) !important; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
-      <h3>About Me</h3>
-      <p>I translate complex technology policy into actionable frameworks for governments and organizations. My doctoral research at Oxford has directly informed UK Government AI policy, and I've advised Canadian officials on AI risk assessment frameworks.</p>
     </section>
 
-<!-- Latest Writing -->
-<section class="mb-12">
-  <h2 class="section-heading" style="color: #9fc0ff;">BLOG</h2>
-  <div class="grid md:grid-cols-3 gap-6">
+    <!-- About -->
+    <section class="about-section">
+      <img class="about-photo" src="https://huggingface.co/spaces/roxy31512/oxford-ai-policy-luminary/resolve/main/images/Profile%20Image.jpg" alt="Roxana Akhmetova">
+      <div>
+        <p>I completed my DPhil at the University of Oxford, researching how governments adopt AI in immigration, border control, and other high-stakes, politically sensitive decisions.</p>
+        <p>I advised the Canadian federal government on AI adoption in immigration decision-making, and my research was cited by the UK Government's Fairness Framework.</p>
+      </div>
+    </section>
 
-  <article class="blog-card">
-    <h3 class="blog-title">The Mythos Freeze: Discretionary Enforcement without Institutional Safeguards</h3>
-    <div class="blog-date">June 2026</div>
-    <a href="/blog/the-mythos-freeze.html" class="blog-link">Read more &rarr;</a>
-  </article>
+    <!-- Latest Writing -->
+    <section class="mb-12">
+      <h2 class="section-heading">Writing</h2>
+      <div class="blog-list">
 
-    <article class="blog-card">
-      <h3 class="blog-title">Anything You Want, Sweetheart: Borders, Data, and the Business of Bordering</h3>
-      <div class="blog-date">November 2024</div>
-      <a href="/blog/anything-you-want.html" class="blog-link">Read more &rarr;</a>
-    </article>
+        <a href="/blog/the-mythos-freeze.html" class="blog-row">
+          <span class="blog-title">The Mythos Freeze: Discretionary Enforcement without Institutional Safeguards</span>
+          <span class="blog-date">June 2026</span>
+        </a>
 
-   <article class="blog-card">
-    <h3 class="blog-title">Concrete and Code: West Bank Field Notes (2023)</h3>
-    <div class="blog-date">August 2023</div>
-    <a href="/blog/west-bank-fieldnotes.html" class="blog-link">Read more &rarr;</a>
-  </article>  
+        <a href="/blog/anything-you-want.html" class="blog-row">
+          <span class="blog-title">Anything You Want, Sweetheart: Borders, Data, and the Business of Bordering</span>
+          <span class="blog-date">Nov 2024</span>
+        </a>
 
-  </div>
-  <div style="text-align: center; margin-top: 2rem;">
-    <a href="/blog"
-       style="color: #9fc0ff; text-decoration: none; font-weight: 500; border-bottom: 1px solid transparent; transition: border-color 0.2s;"
-       onmouseover="this.style.borderBottomColor='#9fc0ff'"
-       onmouseout="this.style.borderBottomColor='transparent'">
-      View all writing &rarr;
-    </a>
-  </div>
-</section>
-      
+        <a href="/blog/west-bank-fieldnotes.html" class="blog-row">
+          <span class="blog-title">Concrete and Code: West Bank Field Notes</span>
+          <span class="blog-date">Aug 2023</span>
+        </a>
+
+      </div>
+      <div style="margin-top: 1.5rem;">
+        <a href="/blog" class="text-link">View all writing →</a>
+      </div>
+    </section>
+
     <!-- Summary / Quick links -->
-    <section class="grid md:grid-cols-2 gap-8">
-      <div class="bg-white p-6 rounded-lg shadow-sm border" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
-        <h3 class="text-lg font-semibold mb-2" style="color: #9fc0ff;">Research & Publications</h3>
-        <p class="text-sm mb-3" style="color: #d8e1eb;">Selected papers on governance and policy.</p>
-        <a href="publications.html" class="text-oxford-600 hover:underline text-sm" style="color: #9fc0ff;">View publications →</a>
+    <section class="quick-links">
+      <div>
+        <h3>Research & Publications</h3>
+        <p>Selected papers on governance and policy.</p>
+        <a href="publications.html" class="text-link">View publications →</a>
       </div>
 
-      <div class="bg-white p-6 rounded-lg shadow-sm border" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
-        <h3 class="text-lg font-semibold mb-2" style="color: #9fc0ff;">Past Projects</h3>
-        <p class="text-sm mb-3" style="color: #d8e1eb;">Oxford AI Governance Conference - convening for AI governance professionals in Oxford.</p>
-        <a href="past-projects.html" class="text-oxford-600 hover:underline text-sm" style="color: #9fc0ff;">View past projects →</a>
+      <div>
+        <h3>Past Projects</h3>
+        <p>Oxford AI Governance Conference — convening for AI governance professionals in Oxford.</p>
+        <a href="past-projects.html" class="text-link">View past projects →</a>
       </div>
     </section>
+
   </main>
 
   <custom-footer></custom-footer>
@@ -330,11 +312,9 @@
   <script src="https://roxanaakhmetova.com/components/footer.js"></script>
   <script src="https://roxanaakhmetova.com/components/particle-background.js"></script>
   <script>
-    // feather icons optional replacement (keeps code compatible if you add icons)
     if (window.feather) { try { feather.replace(); } catch(e) {} }
   </script>
   <script>
-  // Clean URL by removing index.html
   if (window.location.pathname === '/index.html') {
     window.history.replaceState(null, '', '/');
   }
