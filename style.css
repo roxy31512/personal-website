@@ -209,12 +209,13 @@ body.bg-dark .container { --card-bg: #0f0e0c; }
 
 /* --- Special contact button --- */
 .nav-links .cta-link {
-  background: #f5f3ef;
-  color: #0c0b09;
+  background: #000000;
+  color: #ffffff;
   padding: 7px 12px;
 }
 .nav-links .cta-link:hover {
-  background: #d8d4cb;
+  background: #1a1a1a;
+  color: #ffffff;
 }
 
 /* --- LinkedIn icon --- */
